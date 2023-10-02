@@ -1,0 +1,198 @@
+Lecture 1 notes
+Introduction
+Welcome and background
+Canvas
+Questionnaire
+Syllabus
+Explain that today's lecture will provide an overview of the history of statistics, highlighting key figures, concepts, and developments.
+Mention that understanding the history of statistics will help them apply statistical methods more effectively, interpret results accurately, and contribute to the ongoing evolution of statistical analysis by
+A Brief History of Statistics
+Statistical thinking
+Data was the first invention needed for Statistics to emerge.
+Data has been of interest to leaders and rulers for centuries.
+Pharaohs, for example, were very interested in collecting data about population, physical traits, and even wealth to compute taxes.
+Data has only appreciated with time. Replacing many commodities in the priorities of firms and governments.
+Another way to think of data is a collection of experiences, and statistics as the collection of methods to help us make sense (summarize, generalize, and predict) of these experiences.
+Almost by instinct, we start looking for connections and patterns, similarities and differences, among the things we happen to have noticed.
+We do this mental computation all the time to make decisions and predict potential outcomes.
+“On average, I run about 2 miles every day” (summarizing experience)
+“We can expect a lot of rain at this time of year” (generalizing experience)
+“The earlier you start preparing for the exam, the better you’ll do” (generalizing)
+Eugenics and Early Statistics:
+Start by introducing Francis Galton, Charles Darwin's half-cousin, and his connection to the birth of modern statistics.
+Explain that Galton was fascinated by Darwin's theory of evolution and its implications for human society.
+Discuss how Galton's fascination led to the creation of eugenics (from the greek “eugenes”, which means good in birth), a field that aimed to improve humanity through selective breeding.
+Started from the assumption that most diseases were inheritable,
+Their goal was to create a hereditary model to guide policy design for increasing the occurrence of “desirable” traits.
+Note the word occurrence. In this class we will study, for the most part, frequentist statistics. An approach that focuses on frequencies and data for making inferences about reality.
+Mention that Galton's work introduced statistical concepts like standard deviation, correlation, and regression analysis.
+Through his work in biometrical genetics.
+Address the ethical implications of Galton's work, particularly its misuse by the Nazis, and highlight the importance of responsible and ethical statistical use.
+The nazi experiment was an application of Eugenics. Many of the methods developed by Galton and his followers played a big role in validating Nazi’s beliefs and justifying birth control policies such as euthanasia. 
+It was all according to the “data”, there is nothing more objective than raw data, right? After all, data is just a collection of observations. Do you guys think data can be subjective or be influenced by other factors? Does how it is collected matter?
+
+
+Ronald Fisher, Karl Pearson, and the Frequentist School
+Move on to discuss the contributions of Ronald Fisher and Karl Pearson to statistics.
+Explain Fisher's emphasis on experimental design, hypothesis testing, and the introduction of the p-value (and the p=0.05 threshold).
+Describe how correlation was used as a measure of causation and point out its limitations.
+Fisher and Pearson are credited with establishing the statistician as an unbiased authority and correlation as the sufficient condition for causation.
+As we will see, a correlation is a measure that helps us quantify the overall level of association between two variables. The problem is that it will tell you how two variables vary together (i.e., covary) but not what is causing them to vary in the first place. We’ll come back to this topic in a few slides.
+Critics of these views about correlation argued that other factors, such as confounding variables or chance, could be responsible for the observed correlations. This debate led to the emergence of alternative approaches…
+
+
+Emergence of Bayesian School of Thought
+Introduce the Bayesian school of thought as an alternative approach to statistics.
+While frequentist statistics relies on long-run frequencies and probability distributions derived purely from observed data, the Bayesian approach brings prior beliefs and knowledge into the equation.
+Explain that Bayesian probability incorporates prior beliefs and knowledge into analysis.
+Bayesian probability considers not only the data at hand but also integrates existing information, beliefs, and expertise. This is achieved through the concept of prior probabilities, where we express our initial beliefs about an event's likelihood before observing any data. As new evidence accumulates, the Bayesian approach allows us to update our beliefs using Bayes' theorem, resulting in a posterior probability distribution.
+Give an example of Bayesian reasoning, such as updating probabilities based on new evidence (e.g., weather forecasting).
+Mention that Bayesian methods were initially challenging due to computational limitations, but they're now widely used for complex analysis.
+Calculating posterior distributions often required complex mathematical computations that were not feasible without modern computing power.
+Some of these methods (Bayesian networks, Markov chains, Monte carlo simulations) are now widely used for complex analyses across various fields such as machine learning, data science, finance, and more. 
+
+
+Sewall Wright and Path Diagrams: Unraveling Causality.
+Move on to Sewall Wright's role in understanding causality.
+American geneticist and statistician from the ‘20s who recognized that real-world scenarios often involve intricate causal relationships that go beyond simplistic linear cause-and-effect models. 
+Explain that path diagrams were a visual tool for representing complex causal relationships.
+He introduced path diagrams, a visual tool to represent and visualize complex causal interactions in a structured manner.
+Use a simple example to illustrate a path diagram and its components.
+Imagine we're exploring factors influencing a student's academic performance. We have variables like sleep, study hours, stress, and grades. Path diagrams break down the relationships between these variables into paths, representing direct and indirect effects.
+In our example, a path diagram might show how sleep directly influences study hours, how stress indirectly affects grades through its impact on study hours, and how study hours directly affect grades. Each arrow in the diagram signifies a causal relationship.
+Highlight how path diagrams moved researchers beyond simplistic correlations to a more nuanced understanding of cause and effect.
+Path diagram enabled us to move from asking "what is related to what?" to understanding "how and why are things related?" By capturing the complexity of causal relationships, path diagrams provided a more nuanced understanding of the mechanisms driving observed correlations.
+
+
+Correlation is not Causation:
+Discuss the limitations of relying solely on correlation to infer causation.
+Explain the concept of confounding variables and how they can lead to spurious correlations.
+Confounding variables are additional variables that are not the focus of our analysis but can affect both the variables we're studying. They introduce bias by creating a false appearance of a relationship between the variables of interest, leading to spurious correlations.
+Expand sleep and study hours example to show a confounder with path diagrams.
+Use a humorous example like the correlation between Nicholas Cage movies and swimming pool drownings to show the importance of considering confounders.
+Imagine we find a strong positive correlation between the number of Nicholas Cage movie releases and the number of swimming pool drownings. Does this mean that watching Nicholas Cage movies causes people to drown in pools? Of course not! The confounding factor here could be the summer season - both more movies are released and more people swim during the summer.
+Can you think of an example of spurious correlation in Economics? 
+Emphasize that correlation is a valuable tool, but it's not sufficient to establish causation.
+To be clear, correlation is a valuable tool. It alerts us to potential relationships that warrant further investigation. However, it is insufficient on its own to establish causation. Causation demands a deeper exploration that involves controlled experiments, randomized trials, and rigorous statistical analysis to rule out alternative explanations.
+Modern Statistics
+Big Data and the Birth of Data Science:
+Explain that statistics underwent a transformation with the rise of computing power and Big Data.
+What is Big Data?
+Big data generally refers to data sets characterized by larger volume and greater variety (structured, unstructured, text and multimedia types) that are generated at a higher velocity with certain degree of veracity (e.g. quality and uncertainty) that an organization has never faced before.
+In contrast, small data tends to be structured (organized in tables) and more easily accessible. While the ideas underlying modern statistical methods remain the same, the velocity and diversity of Big Data might require a whole toolbox to access. 
+This course will help you master small data analysis and start developing that toolbox.
+Introduce data science as an interdisciplinary field that combines statistics, computer science, and domain expertise.
+Statisticians often refer to data science as “just doing statistics with computers”, but in reality data scientists are responsible for many other tasks. In fact, these tasks were so diverse that over time they were separated into new roles such as:
+Data engineer, Data analyst, ML engineer, Database management, among others… 
+Use an economics example to illustrate the impact of data science.
+Until a few decades ago, scientists only had tools to study a specific type of data. Characterized by tables and numbers. This clearly limited the types of questions we could ask or types of scenarios we could analyze. If you wanted to estimate consumer or business confidence, you would look at consumption patterns in retail or household data.
+The biggest contribution of data science has been methods to quantify complex types of data, like text or video. So now, you can add social media sentiment, corporate sentiment from financial reports, or even satellite images of wallmart’s parking lot to estimate consumer and business confidence.
+
+
+Machine Learning and Neural Networks:
+ML combines statistics with algorithms with the goal of creating reasoning engines.
+It involves training algorithms to learn patterns or rules from data, enabling predictions and decision-making without explicit programming.
+The algorithmic design provides structure while statistical methods are used to decide which paths to take based on training data in order to make predictions based on new data.
+Discuss the surge in machine learning interest and its impact on fields like healthcare and finance.
+Mention some reasons why ML was rejected by econometricians. For example the difficulty of explaining correlations and doing causal inference.
+ML often prioritizes predictive power over interpretability, which is crucial in econometrics for explaining correlations and conducting causal inference. 
+machine learning vs Neural networks vs Deep learning algorithms: A new paradigm.
+Introduce Python and R as popular languages for data science and machine learning
+
+
+Judea Pearl and Bayesian Networks:
+Introduce Judea Pearl and his contributions to causal inference and probabilistic reasoning.
+Explain the concept of Bayesian networks and their role in representing complex causal relationships.
+Use a simple example to illustrate a Bayesian network, such as a medical diagnosis scenario.
+Mention the applications of Bayesian networks in AI and epidemiology.
+Conclusion:
+Summarize the key points covered in the lecture.
+Emphasize the lessons learned from history, both in terms of scientific progress and ethical considerations.
+Remind students of the importance of responsible and ethical statistical use.
+Encourage questions and engagement from the students.
+Express your excitement for the upcoming semester and thank the students for their attention.
+
+Lecture 1 - Thursday - Notes
+Basic Concepts of Statistics
+Populations and Samples
+In the realm of statistics, two fundamental concepts are populations and samples.
+Population: Refers to the entire group of individuals or items under study. For instance, if we're interested in analyzing the average income of all households in a country, then all households in that country constitute the population.
+Sample: Represents a subset of the population that is carefully chosen to be representative of the entire population. This selection is done to minimize bias and enable meaningful inferences. For instance, selecting households from different regions to estimate the average income.
+
+
+Parameter vs Statistic
+Both parameters and statistics play crucial roles in statistical analysis.
+Parameter: A numerical value that characterizes a specific aspect of a population. In economics, a parameter could be the average inflation rate across all cities in a country.
+Statistic: A numerical value that describes a certain aspect of a sample. For instance, the average inflation rate calculated from a sample of cities. We often use statistics to estimate parameters by collecting and analyzing sample data.
+
+
+Random Sampling
+Random sampling techniques enhance the quality of our samples:
+Random Sampling: A fundamental technique used in statistics to select a subset of individuals or items from a larger population. The key characteristic of random sampling is that each individual or item in the population has an equal and independent chance of being included in the sample. 
+It is the foundation on which other sampling methods are built. It provides a systematic way to select samples that are unbiased and representative.
+Simple Random Sampling: Involves choosing any possible sample of a given size with equal probability. This is often facilitated using random number generators.
+Suppose you're analyzing consumer preferences for different brands of smartphones in a country. You randomly select 200 individuals from a list of mobile phone users. By giving each user an equal probability of being chosen, you create a simple random sample that represents the larger population
+Stratified Sampling: Divides the population into subgroups (strata) and samples from each stratum. Useful when certain groups need more representation due to their significance in economics.
+Imagine you're researching income levels among workers in a manufacturing industry. You divide the workforce into different strata based on job roles (e.g., factory workers, supervisors, managers). Then, you randomly select individuals from each stratum in proportion to their representation in the industry. This ensures that the sample captures the diversity of income levels across job roles.
+Cluster Sampling: Divides the population into clusters and randomly selects entire clusters. Useful when it's impractical to sample individuals directly.
+Consider a study on economic growth in different cities across a country. Instead of selecting individual cities, you divide the country into clusters of cities (e.g., Northern region, Southern region), and then randomly choose a few clusters. From each chosen cluster, you collect data from all cities within that cluster. This is more efficient than trying to survey every city.
+
+Importance of Sampling in Economic Statistics
+Sampling is of paramount importance in economic statistics due to several reasons:
+
+Resource Efficiency: Collecting data from an entire population can be time-consuming and expensive. Sampling allows you to obtain accurate insights while using fewer resources.
+Representativeness: Properly designed samples ensure that the characteristics of the sample closely mirror those of the entire population. This enhances the reliability of your findings.
+Inference: Well-conducted sampling enables economists to make accurate inferences about the entire population based on the characteristics of the sample. This is crucial for policy recommendations and decision-making.
+Reducing Bias: Sampling methods help mitigate bias that might arise if certain groups within the population were overrepresented or underrepresented in the analysis.
+Feasibility: In some cases, surveying the entire population is practically impossible. Sampling provides a feasible way to gather information and draw conclusions.
+Time Sensitivity: Economic conditions and trends change over time. Sampling allows for more frequent data collection and analysis, enabling quicker response to changes.
+Statistical Analysis: Sampling provides a manageable dataset for statistical analysis. This is particularly important when dealing with complex economic models and hypotheses.
+
+In economic research, proper sampling methods contribute to the credibility and validity of research findings, allowing economists to draw accurate conclusions about economies, industries, and societies.
+
+Types of Data
+Understanding data types is crucial for meaningful analysis in economics:
+
+Categorical Data: Encompasses data that can be categorized into distinct groups. Examples in economics include industry sectors or trade balance categories.
+Numerical Data: Data represented by numbers.
+Discrete Data: Numerical data with distinct, separate values. Example: The number of cars produced by a manufacturer each month.
+Continuous Data: Numerical data with a range of possible values. Example: The price of a commodity in the stock market.
+
+
+R Data Types
+In economics, data is often collected and analyzed using software tools like R. Here are common data types in R:
+
+character/string: Used to represent text. In economics, this could be used to store company names, product descriptions, or country names.
+integer: Represents whole numbers. In economics, this could be used for quantities like the number of units produced.
+float: Represents decimal numbers. In economics, this could be used for values like exchange rates or interest rates.
+logical/boolean: Represents binary values, often used for making decisions in economic models or simulations.
+
+
+R Data Structures
+Economic data can be structured in various ways in R:
+vector: A one-dimensional structure to hold elements of the same data type. Useful for representing a series of economic values over time, like monthly GDP.
+factor: Special for categorical data. Helpful for representing variables like sectors of the economy or different regions.
+matrix: A two-dimensional structure for numerical data. Useful in economics for linear algebra operations in modeling.
+data frame: Also two-dimensional, but can hold mixed data types. Great for storing datasets of economic indicators.
+list: A versatile structure that can hold different data types. Useful for bundling related economic data together.
+
+
+More on Numerical Data
+Economics often involves quantitative analysis. Here's more about quantitative data:
+Qualitative Data: Qualitative numerical data, also known as categorical data, consists of values that can be grouped into categories. These categories have no inherent numeric value or order; they simply represent different labels. In economics, this type of data often categorizes items or individuals into distinct groups.
+Example: Consider a dataset that classifies countries into different economic regions: "Developed," "Developing," and "Underdeveloped." These categories don't have comparable numeric values to perform mathematical operations; they're labels that group countries based on their economic status. Interpreting its meaning requires domain expertise. As an economist you may naturally order these categories based on their relation to GDP, but they could mean very different things in different contexts.
+Nominal Data: Nominal data consists of categories with no inherent order. The data can be classified into distinct groups, but the categories don't have quantitative significance. For example, Economic sectors like “Technology” and “Agriculture” because these sectors can be categorized but there is no inherent order between them
+Ordinal Data: Categories with a natural order, but the differences between them are not well-defined, such as rankings. For example, economic growth rankings like "High," "Medium," and "Low" or  "Developed," "Developing," and "Underdeveloped." can be ordered but the difference between  "High" and "Medium" isn't necessarily the same as between "Medium" and "Low."
+Quantitative Data: Quantitative numerical data consists of values that are represented by numbers and carry meaningful quantitative information. These values can be measured, compared, and subjected to mathematical operations. For example, comparing inflation or GDP growth rates (but not inflation/CPI or GDP levels, can anyone tell me why we can’t compare GDPs?) between countries.
+Interval Data: Numeric data with consistent intervals but no true zero point. In this scale, the ratios between values are not meaningful. Example: Temperature in Celsius because a 10 degrees increment always means the same but 0 degrees do not represent a complete absence of temperature. It doesn’t make sense to have no temperature.
+Ratio Data: Numeric data with both consistent intervals and a true zero point. Example: An income of $1000 is twice as much as an income of $500, and a value of $0 represents the absence of income. 
+
+
+Conceptual Exercises
+In economics, analyzing data types is essential for accurate interpretation:
+
+GDP Values: GDP values are ratio data. They have a true zero point and meaningful intervals, allowing for comparisons and arithmetic operations. For example, comparing the GDPs of two countries or calculating growth rates.
+
+Student Exam Scores: These are ordinal data. They have a meaningful order (A > B > C > D > F), but the differences between the grades aren't uniform. Arithmetic operations are not meaningful here because adding two letter grades doesn't yield a meaningful result.
+
+Student Heights: Heights are ratio data. They have a true zero point (absence of height) and consistent intervals, allowing for meaningful arithmetic operations. For example, calculating the average height of a group of students.

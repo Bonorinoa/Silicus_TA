@@ -1,0 +1,374 @@
+\documentclass{beamer}
+\usetheme{Madrid} % Using the Madrid theme, change this if you prefer another
+
+\usepackage{fontawesome}
+\usepackage{tikz}
+
+\title{ECON 57 - Lecture 1}
+\subtitle{A Brief History of Probability and Statistics}
+\author{Augusto Gonzalez-Bonorino}
+\institute{Pomona College}
+\date{Fall 2023}
+
+\begin{document}
+
+\frame{\titlepage} % Title Page
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents  % Generate the TOC
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{Introduction}
+    \begin{itemize}
+        \item Studying the history of any subject helps reveal details hidden by time, biases, assumptions, and set the context for the topics to be studied. It can help us avoid misinterpretations, identify long-term trends or interdisciplinary connections, and find inspiration to innovate.
+        \item Logic and reasoning can then be employed to assess if:
+        \begin{itemize}
+            \item The assumptions are still valid.
+            \item The biases are not strong enough to invalidate the methods.
+        \end{itemize} 
+    \end{itemize}
+\end{frame}
+
+\section{A Brief History of Statistics}
+\begin{frame}{Collecting Experiences}
+\begin{columns}[T] % Align columns at the top
+\column{0.5\textwidth}
+    \begin{enumerate}
+        \item First evidence of data collection is from 19000 BC
+        \item Data analysis as a concept has existed since 1663
+        \item Think of data as a collection of experiences or observations
+        \item Statistics emerged from previous efforts to make sense of these experiences.
+    \end{enumerate}
+\column{0.5\textwidth}
+    \includegraphics[width=\linewidth]{images/ishango_bone.jpg}
+\end{columns}
+\end{frame}
+
+\subsection{Eugenics and Early Statistics}
+
+\begin{frame}
+\frametitle{Eugenics and Early Statistics}
+\begin{columns}[T] % Align columns at the top
+\column{0.5\textwidth}
+    \begin{itemize}
+        \item Francis Galton's pioneering role
+        \item Birth of eugenics and its implications
+        \item Statistical techniques developed by Galton:
+        \begin{itemize}
+            \item Standard deviation
+            \item Correlation
+            \item Linear Regression
+        \end{itemize}
+        \item Ethical considerations and lessons learned
+    \end{itemize}
+\column{0.5\textwidth}
+    \includegraphics[width=\linewidth]{images/galton_eugen.jpg}
+    \includegraphics[width=\linewidth]{images/eugenics_table.jpg}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ronald Fisher, Karl Pearson, and the Frequentist School}
+\begin{columns}[T]
+\column{0.5\textwidth}
+    \begin{itemize}
+        \item Ronald Fisher and Karl Pearson's contributions
+        \item Introduction of statistical significance and unbiased authority
+        \item Correlation as a measure of causation
+        \item Limitations of inferring causation from correlation
+    \end{itemize}
+\column{0.5\textwidth}
+    \includegraphics[width=\linewidth, height=3.5cm]{images/galton_fisher_pearson.png}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Emergence of Bayesian School of Thought}
+\begin{columns}[T]
+\column{0.5\textwidth}
+    \begin{itemize}
+        \item Introduction to the Bayesian school of thought
+        \item Thomas Bayes' theorem and incorporating prior beliefs
+        \item Computational challenges and adoption of Bayesian methods
+        \item Balancing uncertainty and complex analysis
+    \end{itemize}
+\column{0.5\textwidth}
+    \includegraphics[width=\linewidth, height=5cm]{images/bayes_intro.jpg}
+\end{columns}
+\end{frame}
+
+\subsection{Sewall Wright and Path Diagrams: Unraveling Causality}
+
+\begin{frame}
+\frametitle{Wright's Opposition}
+\begin{columns}[T]
+\column{0.5\textwidth}
+    \begin{itemize}
+        \item American geneticist and statistician from the '20s.
+        \item Proposed a new methodology for studying causal relationships
+        \begin{itemize}
+            \item He accounted for the direction of the relationship, unlike correlation which as a general measure of association.
+        \end{itemize}
+        \item His methodology culminated in the development of path diagrams
+        % board example
+    \end{itemize}
+\column{0.5\textwidth}
+    \includegraphics[width=\linewidth]{images/wright.jpg}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Path Diagrams}
+    \begin{columns}[T]
+\column{0.5\textwidth}
+    \begin{itemize}
+        \item Path diagrams are a reasoning tool. To help you break down relationships into relevant factors and map the direction of these relationshis.
+        % image depictgs first path diagram made by Wright. It illustrates the factorts leading to coat color in guinea pigs. D = developmental factors (after conception, before birth), E=Environmnetal factors (after birth), G=Genetic factors from each parent, H=combined hereditary factors from both parents, O and O' = offsprings. The objective of the analysis was to determine the strength of the effects of D,G, and H.
+        \item Moving beyond simplistic correlations.
+        \item Help guide the formulation and testing of causal hypothesis.
+        \item Fundamental tool in Structural Equation Modeling (SEM) and other causal inference techniques widely used by econometricians.
+    \end{itemize}
+\column{0.5\textwidth}
+    \includegraphics[width=\linewidth]{images/path_diagram.jpg}
+\end{columns}
+\end{frame}
+
+\subsection{Correlation is not Causation}
+
+\begin{frame}
+\frametitle{Correlation is not Causation}
+\begin{columns}[T]
+\column{0.45\textwidth}
+    \begin{itemize}
+        \item Shifting from relying solely on correlation
+        \item Highlighting confounding variables and chance
+        \item Recognizing the complexity of cause-and-effect relationships
+        \item Nevertheless, correlations have taken us a long way.
+        % Although some may argue that all this debate did was slow down the development of appropiate methods for identifying cause-and-effect 
+    \end{itemize}
+\column{0.55\textwidth}
+    \includegraphics[width=\linewidth, height=3cm]{images/corr_cause_meme.jpg}
+    \includegraphics[width=\linewidth]{images/fred_corr_cause_ex.jpg}
+\end{columns}
+\end{frame}
+
+\subsection{Modern Statistics}
+
+\begin{frame}
+\frametitle{Big Data and the Birth of Data Science}
+\begin{columns}[T]
+\column{0.5\textwidth}
+    \begin{itemize}
+        \item Transformation with computing power and Big Data
+        \item Rise of data science as an interdisciplinary field
+        \item Integration of machine learning algorithms
+        \item Extracting insights from large datasets
+    \end{itemize}
+\column{0.5\textwidth}
+    \includegraphics[width=\linewidth, height=5cm]{images/big_data.png}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Machine Learning and Neural Networks}
+\begin{columns}[T]
+\column{0.5\textwidth}
+    \begin{itemize}
+        \item ML combines statistics with algorithms with the goal of creating reasoning engines.
+        \item Machine learning's impact on diverse domains
+        \item Machine learning vs Neural networks vs Deep learning
+        \item Sparks of AGI: computer vision and NLP
+        % opportunity to mention independent study with Atlas. Note 
+        \item Python and R
+    \end{itemize}
+\column{0.5\textwidth}
+    \includegraphics[width=\linewidth, height=5cm]{images/ml_applications.png}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Judea Pearl and Bayesian Networks}
+\begin{columns}[T]
+\column{0.5\textwidth}
+    \begin{itemize}
+        \item Judea Pearl's contribution to causal inference
+        \item Introducing Bayesian networks for complex systems
+        \item Incorporating probability theory and causal reasoning
+        \item Applications in artificial intelligence and epidemiology
+    \end{itemize}
+\column{0.5\textwidth}
+    \includegraphics[width=\linewidth]{images/judea_pearl.jpg}
+\end{columns}
+\end{frame}
+
+\section{Basic Concepts}
+
+\begin{frame}{Statistics - Part I}
+    \centering
+    \large \textbf{Basic Concepts of Statistics}
+\end{frame}
+
+\subsection{Populations and Samples}
+\begin{frame}
+\frametitle{Populations and Samples}
+In statistics, we often deal with two main concepts: populations and samples.
+
+\vspace{0.2cm}
+\textbf{Population:} The entire group of individuals or items that we are interested in studying.
+
+\textbf{Sample:} A subset of the population, carefully selected to represent the entire population.
+
+\vspace{0.2cm}
+For example, if we want to study the average income of all households in a country, the \emph{population} would be all households in that country, and a \emph{sample} would be a smaller group of households from different regions.
+
+\end{frame}
+
+\subsection{Parameter vs Statistic}
+\begin{frame}
+\frametitle{Parameter vs Statistic}
+In statistics, we use both parameters and statistics to describe data:
+
+\begin{itemize}
+    \item \textbf{Parameter:} A numerical measure that describes a characteristic of a population. For instance, the average income of all households in a country is a population parameter.
+    
+    \item \textbf{Statistic:} A numerical measure that describes a characteristic of a sample. The average income of a sample of households from different regions is a sample statistic.
+\end{itemize}
+
+In practice, we often use statistics to estimate parameters. This involves collecting data from a sample and using sample statistics to make educated guesses about population parameters.
+
+\end{frame}
+
+\subsection{Random Sampling}
+\begin{frame}
+\frametitle{Random Sampling}
+Random sampling helps us representative samples:
+
+\vspace{0.15cm}
+\begin{itemize}
+    \item \textbf{Random Sample:} A sample selected from a population in such a way that each individual or item has an equal chance of being included in the sample. This helps to minimize bias and ensures that the sample is representative of the population.
+    
+    \item \textbf{Simple Random Sampling:} A type of random sampling where each possible sample of a given size has an equal chance of being selected. This is typically achieved using random number generators.
+    
+    \item \textbf{Stratified Sampling:} Dividing the population into subgroups (strata) based on some characteristic, and then selecting samples from each stratum. This ensures that each subgroup is represented in the sample.
+    
+    \item \textbf{Cluster Sampling:} Dividing the population into clusters, and then randomly selecting entire clusters to include in the sample. This can be more practical when the population is large.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Importance of Sampling in Economics}
+\begin{itemize}
+    \item \textbf{Resource Efficiency:} Sampling yields accurate insights using fewer resources than surveying the entire population.
+    
+    \item \textbf{Representativeness:} Well-designed samples mirror population characteristics, enhancing result reliability.
+    
+    \item \textbf{Inference:} Accurate inferences about the entire population are drawn from well-conducted samples, vital for policymaking.
+    
+    \item \textbf{Reducing Bias:} Sampling mitigates bias risks from over/underrepresentation in analysis.
+    
+    \item \textbf{Feasibility:} Sampling offers a practical approach when surveying the entire population is impossible.
+    
+    \item \textbf{Time Sensitivity:} Sampling enables frequent data collection for swift response to changing economic trends.
+    
+    \item \textbf{Statistical Analysis:} Sampling provides manageable datasets for complex economic modeling.
+\end{itemize}
+\end{frame}
+
+
+\subsection{Types of Data}
+\begin{frame}
+\frametitle{Statistical Data Types}
+Data can be classified into two main types:
+
+\begin{enumerate}
+    \item \textbf{Categorical:} Data points that can be grouped into categories. For instance, food groups or gender groups or economic indicators (a special category of general statistical indicators that are related to economics). Remember the XOR problem from last class?
+    \item \textbf{Numerical:} Data points that are solely represented by numbers and do not belong to a group or category.
+    \begin{enumerate}
+        \item \textit{\textbf{Discrete:}} Data points that take distinct, separate values. For example, the number of students in a class, or the count of cars passing through a toll booth in a given time period.
+        \item \textbf{\textit{Continuous:}} Data points that can take any value within a range. These values are not limited to specific, separate points. Examples include height, weight, or temperature measurements.
+    \end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{R Data Types}
+\begin{enumerate}
+    \item \textbf{character/string:} The character data type in R is used to represent text, such as words, sentences, or any sequence of characters. In R, strings are enclosed within single or double quotes. For example, "Hello, World!" and 'R Programming' are both examples of character data.
+    
+    \item \textbf{integer:} Integers are used to represent whole numbers in R without any decimal points. They can be either positive or negative. 
+
+    \item \textbf{float:} Float numbers are used to represent decimals in R. They differ from integers in memory requirements, which must be left "floating" to account for the fractional parts. 
+
+    \item \textbf{logical/boolean:} Logical data types in R represent binary values, either TRUE or FALSE, and are used for making decisions and logical operations. They are commonly used in conditional statements and filtering data.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{R Data Structures}
+\framesubtitle{Unidimensional data structures}
+\begin{enumerate}
+    \item \textbf{vector:} A vector is a one-dimensional data structure in R that can hold elements of the same data type. It can be created using the 'c()' function, and elements can be accessed using numeric indices. Vectors are fundamental in R and are widely used for data manipulation and calculations.
+
+    \item \textbf{factor:} Factors are used to represent categorical data in R. They are particularly useful when dealing with data that have predefined categories or levels. Factors are created using the 'factor()' function, and each level represents a distinct category. Factors play a significant role in statistical modeling and are used for tasks such as creating bar charts and performing categorical data analysis.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{More on numerical data}
+\framesubtitle{Qualitative vs Quantitative}
+We will be focusing primarily on numerical data in this course. In general, numerical data and variables can be of two broader categories: Qualitative and Quantitative
+
+\begin{enumerate}
+   
+    \item \textbf{Qualitative:} Qualitative data are non-numeric in nature and represent categories or attributes. They convey qualities or characteristics that cannot be measured using numbers alone, they simply represent different labels.
+    \begin{itemize}
+         \item There is no inherent meaning in the difference of numbers. This means that comparing two qualitative numbers yields little to no actionable information. For instance, economic regions.
+    \end{itemize} 
+    \item \textbf{Quantitative:} There is a difference, thus quantitative variables carry information.  These values can be measured, compared, and subjected to mathematical operations. For instance, the height of the players in a basketball team (i.e., x is taller than y) or inflation and GDP growth rates.
+    
+\end{enumerate}
+% The scale of measurement determines the types of statistical analysis we can perform on the data.
+\end{frame}
+
+\begin{frame}{More on numerical data}
+\framesubtitle{Scales of Measurement}
+\begin{itemize}
+    \item \textbf{Qualitative:}
+    \begin{enumerate}
+        \item \textit{\textbf{Nominal Data:}} Categories without any inherent order, such as colors or names.
+        \item \textit{\textbf{Ordinal Data:}} Categories with a natural order, but the differences between them are not well-defined, such as rankings.
+    \end{enumerate}
+    \item \textbf{Quantitative:}
+    \begin{enumerate}
+        \item \textbf{Interval Data:} Numerical data with a consistent interval between values, but no true zero point, such as temperature in Celsius.
+        \item \textbf{Ratio Data:} Numerical data with a consistent interval between values and a true zero point, such as height or weight.
+    \end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Conceptual Exercises}
+
+\begin{enumerate}
+    \item You are analyzing the data related to countries' GDP (Gross Domestic Product) values. Discuss whether GDP values are nominal, ordinal, interval, or ratio data. Explain your reasoning and provide examples to support your answer.
+
+    \item Consider a dataset of student exam scores. The scores are recorded as "A," "B," "C," "D," and "F." Determine the level of measurement for these scores (nominal, ordinal, interval, or ratio). Also, discuss whether arithmetic operations like addition and subtraction are meaningful for this dataset.
+
+    \item A dataset contains the heights of students in centimeters. Classify the heights as interval or ratio data. Explain the difference between these two levels of measurement and provide an example for each.
+\end{enumerate}
+
+    
+\end{frame}
+
+\begin{frame}{R programming}
+    \centering
+    \large \textbf{Installing RStudio}
+
+    \vspace{1cm}
+    \href{https://www.r-project.org/}{Install R}\\
+    \href{https://posit.co/downloads/}{R studio}
+\end{frame}
+
+\end{document}

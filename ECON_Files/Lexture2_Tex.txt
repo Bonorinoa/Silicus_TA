@@ -1,0 +1,341 @@
+\documentclass{beamer}
+
+\usetheme{Madrid}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{pgfplots}
+
+\title{ECON 57 - Lecture 2}
+\subtitle{Descriptive Statistics}
+\author{Augusto Gonzalez-Bonorino}
+\institute{Pomona College}
+\date{Fall 2023}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+
+\section{Data, Information, \& Statistics}
+
+\begin{frame}{Data, Information, \& Statistics}
+\framesubtitle{Introduction}
+\begin{columns}[T] % Align columns at the top
+\column{0.55\textwidth}
+\begin{itemize}
+    \item Data is measurable (can be encoded) and objective (raw data should not have human biases).
+    \begin{itemize}
+        \item If and how the data of interest can be encoded determines the appropriate tools to extract their information.
+        % there are things we still don't know how to encode in many fields. In statistics, we often deal with data that can be encoded using one of the 4 scales of measurement we covered last week (nominal, ordinal, interval, ratio). 
+        \item Objectiveness will depend on the data generation process (if collected from Nature or simulated artificially) or data source (primary or secondary)
+    \end{itemize}
+\end{itemize}
+\column{0.45\textwidth}
+    \includegraphics[width=\linewidth, height=5cm]{images/data_sources.png}
+\end{columns}
+   
+    % computers interpret the world with bits, which represent binary values. Kind of like understanding the world with a bunch of yes/no questions.
+    
+    % to be able to create information from data we must first understand what such data represents and how it can be encoded. The answer to these two questions helps us identify the most appropiate tools to extract information from them. What is the best way, given available technology/knowledge, to represent/encode these observations? (is it bits? quantum bits? Wealth or Preferences? A sentence? meters? intervals? etc) Given the encoding strategy, what are the best available methods and techniques to extract information from such encoded data? (computer algorithms, quantum algos, microeconomics, linguistics, physics, statistics, etc). The demand for these tools creates new ideas, roles, or jobs and if the information becomes valuable enough then capital will drive technology innovation to improve such methods. 
+    
+\end{frame}
+
+\begin{frame}{Data, Information, \& Statistics}
+\framesubtitle{Introduction}
+\begin{itemize}
+    % information is a quantity generated through measurement of a given system
+    % Measurement reduces our uncertainty/ignorance of a system relative to a unit of measurement
+    % From physics, all measurement entails an energy cost
+    % we need to understand the language or syntax underlying the system of interest to be able to explore it and, ultimately, comprehend it.
+    \item Information is generated through measurement (i.e., the collection of observations).
+    \item Measurement reduces our uncertainty or ignorance of a system relative to a unit of measurement.
+    \begin{itemize}
+        \item Naturally, the importance or relevance of reducing our ignorance of a given subject will determine the level of interest and investment available.
+        % We are very interested in understanding the physical and socio-cultural world around us, which is why physics and economics are very influential disciplines. Not so many people are interested in abstract number theory, and so they don't get many benefits beside the intellectual pride of solving math problems. 
+    \end{itemize}
+    \item Statistical methods guide us on how to perform measurement (data collection and sampling methods) and reduce our ignorance of a subject relative to some context.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Data, Information, \& Statistics}
+\begin{itemize}
+\item \textbf{Data:} Observations collected from the real world.
+\begin{itemize}
+\item Primary Data: Collected directly from participants, often through surveys, experiments, or observations. For example, conducting a survey to gather households' income data.
+\item Secondary Data: Collected from already published sources, such as government reports, academic journals, or databases. For instance, using historical GDP data from a national economic database.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Data, Information, \& Statistics}
+\begin{itemize}
+\item \textbf{Data:} Observations collected from the real world.
+\item \textbf{Information:} Data that has been processed to be meaningful.
+\begin{itemize}
+\item It is what is needed to make decisions and derive conclusions. For instance, turning raw data on consumer spending into insights about spending patterns and trends.
+\item Analysis of data provides information. Economic indicators like unemployment rates or inflation rates are calculated from raw data and provide valuable information about the state of the economy.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Data, Information, \& Statistics}
+\begin{itemize}
+\item \textbf{Data:} Observations collected from the real world.
+\item \textbf{Information:} Data that has been processed to be meaningful.
+\item \textbf{Statistics:} The science of collecting, analyzing and interpreting data.
+\begin{itemize}
+\item Descriptive Statistics: Describe, show, or summarize data. Measures like mean, median, and standard deviation help us understand the central tendencies and variability of economic data.
+\item Inferential Statistics: Making inferences about populations using sample data. Techniques like hypothesis testing and regression analysis allow economists to draw conclusions about larger populations based on a sample.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Univariate Frequency Distributions/tables}
+\begin{frame}
+    \centering
+    \large \textbf{Univariate Frequency Distributions/tables}
+
+    \vspace{1cm}
+    A frequency distribution is a table used to organize data. It contains two columns:
+    
+    \begin{itemize}
+        \item \textbf{Values:} Stores all possible values or responses of the variable being studied.
+        \item \textbf{Frequency:} Stores all the frequencies (i.e., number of observations) for each class in \textbf{values}.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Univariate Frequency Distributions/tables}
+    \begin{enumerate}
+        \item The absolute frequency of a value is the number of times it occurs in a dataset. $Fr(x=1) = 4$
+        \item The relative frequency of a value is the number of time it occurs relative to the frequency of the remaining values in a dataset of size $n$. $p(x=1) = \frac{Fr(x=1)}{n}$.
+        \item A frequency distribution is the pattern of frequencies of a variable. It’s the number of times each possible value of a variable occurs in a dataset.
+        \item A relative frequency distribution measures how relative frequencies are distributed over the values of the variables in the dataset.
+        \item Tables and charts are used to study frequencies. 
+    \end{enumerate}
+\end{frame}
+
+\subsection{Discrete Type Frequency Distribution}
+\begin{frame}
+\frametitle{Discrete Type Frequency Distribution}
+The frequency distribution of a discrete variable X is a list of each possible values for X along with the frequency with which each value occurs.
+\begin{equation*}
+f(x) = \frac{\text{number of times x occurs}}{\text{total number of observations}}
+\end{equation*}
+\begin{table}
+    \centering
+    \begin{tabular}{|l|c|c|}
+        \toprule
+        \textbf{X = Economic Class} & \textbf{f(x) = Frequency of class} & \textbf{Relative Frequency} \\
+        \midrule
+        poverty & 40 & $40 / 4673$ \\
+        middle  & 1255 & $1255 / 4673$ \\
+        upper & 598 & $598 / 4673$ \\
+        working  & 2780 & $2780 / 4673$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Economic Class Frequency Table with Relative Frequencies}
+    \label{tab:economic_class_frequency}
+\end{table}
+\end{frame}
+
+\subsection{Continuous Type Frequency Distribution}
+\begin{frame}
+\frametitle{Continuous Type Frequency Distribution}
+The same as for discrete, but instead of exact values we have ranges (bins).
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \toprule
+        \textbf{X = Income Range (\$)} & \textbf{f(x) = Frequency of bin} & \textbf{Relative Frequency} \\
+        \midrule
+        \$0 - \$20,000 & 35 & $35 / 4085$\\
+        \$20,001 - \$40,000 & 1530 & $1530 / 4085$\\
+        \$40,001 - \$60,000 & 1250 & $1250 / 4085$\\
+        \$60,001 - \$80,000 & 1255 & $1255 / 4085$\\
+        \$80,001 - \$100,000 & 15 & $15 / 4085$\\
+        \bottomrule
+    \end{tabular}
+    \caption{Income Distribution Frequency Table}
+\end{table}
+\end{frame}
+
+\begin{frame}{Formal Representation}
+Let $x := $ variable being analyzed, $n(x_i) :=  $absolute frequency associated with $x_i$ where $i: 1,2,...,k$, and $\frac{n(x_i)}{n} := $ relative frequency of $x_i$.
+
+    \begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        $X$ & $n(x_i)$ & $\frac{n(x_i)}{n}$\\
+        \hline
+        $x_1$ & $n(x_1)$ & $\frac{n(x_1)}{n}$\\
+        \hline
+        $x_2$ & $n(x_2)$ & $\frac{n(x_2)}{n}$\\
+        \hline
+        $x_3$ & $n(x_3)$ & $\frac{n(x_3)}{n}$\\
+        \hline
+        ... & ... & ...\\
+        \hline
+        $x_{k-1}$ & $n(x_{k-1})$ & $\frac{n(x_{k-1})}{n}$ \\
+        \hline
+        $x_k$ & $n(x_k)$ & $\frac{n(x_k)}{n}$\\
+        \hline
+    \end{tabular}
+    \caption{Generic Frequency Distribution/Table}
+    \label{tab:twocolumn_table}
+    \end{table}
+
+Note that $\sum_i^k n(x_i) = n$ (the sample size)
+\end{frame}
+
+\section{Measures of centrality}
+
+\begin{frame}
+\frametitle{Measures of centrality}
+Measures of central tendency are numbers that describe what is average or typical within a distribution of data. The choice of the measure of central tendency depends on the type of data and the context of the analysis.
+\vspace{0.5cm}
+\begin{itemize}
+    \item \textbf{Mean or Average: }The mean is the (arithmetic) average of the dataset $\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i$
+
+    \item \textbf{Median:} The median is the middle value in the dataset when sorted in ascending order. It separates the lowest 50\% from the highest 50\% of values.
+    \begin{itemize}
+        \item \textbf{\textit{Odd-numbered data:}} Compute the middle point $\frac{n+1}{2}$ to get the median.
+        \item \textbf{\textit{Even-numbered data:}} Compute the two middle points $\frac{n}{2}$ and $\frac{n}{2}+1$, and take their average $\frac{2n+2}{4}$.
+    \end{itemize}
+
+    \item \textbf{Mode:} The mode is the most frequent value in the dataset.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Measures of Centrality}
+Consider the following dataset of luxury cars which could represent inventory, sales, or orders.
+
+\vspace{1cm}
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \begin{tabular}{c c}
+        \toprule
+        \textbf{Luxury Car} & \textbf{Frequency} \\
+        \midrule
+        Mercedes-Benz & 25 \\
+        BMW & 40 \\
+        Audi & 15 \\
+        Jaguar & 30 \\
+        Porsche & 20 \\
+        \bottomrule
+    \end{tabular}
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+    \centering
+    
+    \begin{tabular}{l c}
+        \toprule
+        \textbf{Statistic} & \textbf{Value} \\
+        \midrule
+        Average & 26 \\
+        Median & 25 \\
+        Mode & BMW \\
+        \bottomrule
+    \end{tabular}
+\end{minipage}
+\end{frame}
+
+\section{Measures of dispersion}
+
+\begin{frame}
+\frametitle{Measures of Dispersion}
+Measures of dispersion quantify the spread of the data points.
+\begin{itemize}
+    \item \textbf{Range:} The difference between the maximum and minimum values in the dataset.
+    \item \textbf{Variance:} A measure of how far a set of numbers is spread out from their average value. It is the second central moment of a distribution. $\sigma^2 = \frac{\sum(x_i - \bar{x})^2}{n-1}$.
+    \item \textbf{Standard deviation:} A measure of the amount of variation or dispersion of a set of values. A low standard deviation indicates that the values tend to be close to the mean of the set. $\sigma = \sqrt{\sigma^2}$
+    \item \textbf{Coefficient of Variation:} It represents the ratio of the standard deviation to the mean and gives the relative measure of dispersion $CV = \frac{\sigma}{\text{mean(x)}} \times 100\%$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Measures of Dispersion}
+\framesubtitle{Example}
+
+Consider the following dataset representing the monthly incomes (in thousands of dollars) of 10 individuals:
+\[ x = \{30, 35, 40, 38, 42, 45, 50, 48, 55, 60\} \]
+
+Now, let's calculate the variance, standard deviation, and coefficient of variation (CV) for this dataset.
+
+\begin{align*}
+&\text{Mean}(\text{x}) = \frac{30+35+40+38+42+45+50+48+55+60}{10} = 44 \\
+&\text{Variance}(\text{x}) = \frac{(30-44)^2 + (35-44)^2 + \ldots + (60-44)^2}{10} \approx 105.6 \\
+&\text{Standard Deviation}(\text{x}) = \sqrt{\text{Variance}(\text{x})} \approx 10.27 \\
+&\text{Coefficient of Variation (CV)} = \frac{\text{sd}(\text{x})}{\text{Mean}(\text{x})} \times 100\% \approx \frac{10.27}{44} \times 100\% \approx 23.3\%
+\end{align*}
+\end{frame}
+
+\section{Skewness and Kurtosis}
+
+\begin{frame}
+\frametitle{Skewness and Kurtosis}
+Skewness and kurtosis are measures of the shape of a distribution.
+
+\begin{itemize}
+    \item \textbf{Skewness:} It measures the asymmetry of the distribution.
+    \item \textbf{Kurtosis:} It measures the thickness of the tail of the distribution.
+    \begin{itemize}
+        \item Positive skewness indicates a longer tail on the right, while negative skewness indicates a longer tail on the left. High kurtosis indicates heavier tails and more outliers.
+    \end{itemize}
+\end{itemize}
+\begin{center}
+    \includegraphics[scale=0.18]{images/skewness-kurtosis-l.jpg}
+\end{center}
+
+These measures help us understand the departure of a distribution from normality. 
+\end{frame}
+
+\section{Conceptual exercises}
+\begin{frame}{Conceptual Exercises}
+    \begin{enumerate}
+        \item Describe the differences between data, information, and statistics. Provide examples for each to illustrate their distinctions.
+
+        \item Consider two datasets: Dataset A with the following values: {10, 15, 20, 25, 30} and Dataset B with the following values: {50, 55, 60, 65, 70}. Compare the measures of central tendency (mean, median, and mode) for both datasets and discuss how they differ and what insights they provide about the data.
+
+        \item For a dataset with positive skewness, explain how the mean, median, and mode relate to each other. Use an economic example to illustrate this relationship.
+
+        \item What is the main difference between discrete and continuous data? Illustrate your reasoning with examples of your daily life. 
+    \end{enumerate}
+\end{frame}
+
+\section{Mathematical exercises}
+\begin{frame}{Mathemetical Exercises}
+\begin{enumerate}
+    \item Calculate the mean, median, and mode of the following dataset: {15, 20, 23, 30, 35, 40, 45, 45, 50, 55, 60, 65, 70}. Interpret the results and explain which measure of central tendency best represents the dataset.
+
+    \item The variance of a dataset is given by $\sigma^2 = \frac{\sum(x_i - \bar{x})^2}{n}$. Consider the dataset \{10, 15, 20, 25, 30\}. Calculate the variance of this dataset and discuss what the variance value represents in the context of the data.
+
+    \item A dataset of test scores is given by \{78, 85, 92, 88, 95\}. Calculate the coefficient of variation (CV) for this dataset. Discuss what the CV value tells us about the relative variability of the test scores.
+\end{enumerate}
+\end{frame}
+
+\section{Economics applications}
+\begin{frame}{Economic Applications}
+Descriptive statistics are extensively used in economics to gain insights from data and make informed decisions. Here are some economic applications:
+
+\begin{itemize}
+    \item \textbf{Income Distribution:} Using measures of central tendency and dispersion, we can analyze the income distribution in a country to assess income inequality.
+    \item \textbf{Price Indexes:} Descriptive statistics are crucial in constructing price indexes, such as the Consumer Price Index (CPI), to measure inflation and track changes in the cost of living.
+    \item \textbf{Market Research:} Companies use descriptive statistics to analyze consumer preferences, estimate demand, and make pricing decisions.
+    \item \textbf{Unemployment Rate:} Measures of central tendency are used to calculate the unemployment rate, which is a vital indicator of an economy's health.
+
+\end{itemize}
+\end{frame}
+
+\end{document}
