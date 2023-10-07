@@ -37,7 +37,7 @@ DEFAULT_DOCUMENT_PROMPT = PromptTemplate.from_template(template="{page_content}"
 
 # --------- Local Utils --------- #
 def load_docs():
-    loader = DirectoryLoader("ECON_Files", glob = "**\*.txt")
+    loader = DirectoryLoader("ECON_Files", glob = "**/*.txt")
     econ_docs = loader.load()
     return econ_docs
 
