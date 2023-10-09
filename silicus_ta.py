@@ -9,6 +9,7 @@ import time
 import datetime as dt
 import json
 import numpy as np
+from pymongo.mongo_client import MongoClient
 
 
 # Store LLM generated responses
@@ -70,6 +71,41 @@ def record_feedback_json():
         f.write(json_feedback)
         f.write("\n")
     
+def record_feedback_mongo():
+    uri = "mongodb+srv://augusto:Antartica2023!?@silicusta.jfzl5zt.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp"
+
+# Create a new client and connect to the server
+    client = MongoClient(uri)
+    # Send a ping to confirm a successful connection
+    try:
+        client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+        # database and collection code goes here
+        db = client.Silicus_TA_DB
+        coll = db.Feedback
+        
+        
+        # insert code goes here
+        feedback_doc = {"Random_id": np.random.randint(10000),
+                        "Content": {
+                                    "feedback": st.session_state.feedback,
+                                    "chat_history": st.session_state.messages,
+                                    "total_cost": st.session_state.total_cost,
+                                    "time_until_feedback": st.session_state.time_spent,
+                                    "submission_date": dt.datetime.today().strftime("%Y-%m-%d %H:%M:%S")
+                                    }
+                        }
+
+        result = coll.insert_one(feedback_doc)
+        print("Inserted these docs: ", result.inserted_ids)
+            
+        # Close the connection to MongoDB when you're done.
+        client.close()
+        print("Successfully stored feedback in MongoDB!")
+    except Exception as e:
+        print(e)
+        # Close the connection to MongoDB when you're done.
+        client.close()
 
 def clear_chat_history():
     st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
@@ -92,8 +128,9 @@ def run_silicus_ta():
         if st.sidebar.button("Submit Feedback", on_click=record_time_until_feedback):
             st.session_state.feedback = feedback
             st.sidebar.success("Thank you for your feedback!")
-            record_feedback()
+            #record_feedback()
             record_feedback_json()
+            record_feedback_mongo()
         st.sidebar.write(f"Cumulative time spent: {round(st.session_state.time_spent, 2)} seconds")
             
         st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
