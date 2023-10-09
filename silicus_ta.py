@@ -72,10 +72,9 @@ def record_feedback_json():
         f.write("\n")
     
 def record_feedback_mongo():
-    uri = "mongodb+srv://augusto:Antartica2023!?@silicusta.jfzl5zt.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp"
 
 # Create a new client and connect to the server
-    client = MongoClient(uri)
+    client = MongoClient(**st.secrets["mongo"])
     # Send a ping to confirm a successful connection
     try:
         client.admin.command('ping')
