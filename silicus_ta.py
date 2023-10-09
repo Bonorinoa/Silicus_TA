@@ -4,8 +4,12 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.llms import HuggingFaceHub
 from langchain.schema.output_parser import StrOutputParser
-from utils import format_chat_history, build_chat_chain, run_hf_chain
+from utils import build_chat_chain, run_hf_chain
 import time
+import datetime as dt
+import json
+import numpy as np
+
 
 # Store LLM generated responses
 if "messages" not in st.session_state:
@@ -19,15 +23,53 @@ if "total_cost" not in st.session_state:
 if "current_query" not in st.session_state:
     st.session_state.current_query = ""
     
-# Store time spent in session
-if "session_time" not in st.session_state:
-    st.session_state.session_time = 0
+# Store the time of first interaction (when they opened the app) 
+if "session_start_time" not in st.session_state:
+    st.session_state.session_start_time = time.time()
+    
+# Store cumulative time spent over the session.
+if "time_spent" not in st.session_state:
+    st.session_state.time_spent = 0
+    
+# callback to record time until feedback
+def record_time_until_feedback():
+    st.session_state.time_until_feedback = time.time() - st.session_state.session_start_time
+    
+# This function will run after each interaction (i.e., clicks any button) to keep track of total seconds spent in the session.
+# I don't think is the best way to do it, but it works as a proxy for now. 
+def acumulate_time():
+    st.session_state.time_spent += time.time() - st.session_state.session_start_time
+    st.session_state.session_start_time = time.time()
+    
     
 # Store feedback
 if "feedback" not in st.session_state:
     st.session_state.feedback = ""        
     
-session_start_time = time.time()
+# callback to store feedback in text file
+def record_feedback():
+    with open("feedback.txt", "a") as f:
+        f.write(f"FEEDBACK: \n\n {st.session_state.feedback} \n\n ------------------ \n\n SUBMISSION DATE: {dt.datetime.today()} \n")
+        f.write("\n")
+
+# callback to store feedback, submission date, chat history, and total cost in a json file
+def record_feedback_json():
+    dict_feedback = {"Random_id": np.random.randint(10000),
+                     "Content": {
+                                "feedback": st.session_state.feedback,
+                                "chat_history": st.session_state.messages,
+                                "total_cost": st.session_state.total_cost,
+                                "time_until_feedback": st.session_state.time_spent,
+                                "submission_date": dt.datetime.today().strftime("%Y-%m-%d %H:%M:%S")
+                                }
+                     }
+    
+    json_feedback = json.dumps(dict_feedback, indent=2)
+    
+    with open("feedback.json", "a") as f:
+        f.write(json_feedback)
+        f.write("\n")
+    
 
 def clear_chat_history():
     st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
@@ -47,8 +89,13 @@ def run_silicus_ta():
         st.sidebar.subheader("Feedback")
         st.sidebar.write("Was the conversation helpful? Your honest feedback will help me improve the system.")
         feedback = st.sidebar.text_area("Feedback", height=150)
-        if st.sidebar.button("Submit Feedback"):
+        if st.sidebar.button("Submit Feedback", on_click=record_time_until_feedback):
             st.session_state.feedback = feedback
+            st.sidebar.success("Thank you for your feedback!")
+            record_feedback()
+            record_feedback_json()
+        st.sidebar.write(f"Cumulative time spent: {round(st.session_state.time_spent, 2)} seconds")
+            
         st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
                 
 
@@ -60,7 +107,7 @@ def run_silicus_ta():
 
     # User-provided prompt
     # We instantiate a new prompt with each chat input
-    if prompt := st.chat_input():
+    if prompt := st.chat_input(on_submit=acumulate_time):
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
             st.write(prompt)
@@ -89,6 +136,5 @@ if __name__ == "__main__":
     response_end_time = time.time()
 
     print(f"Response time: {response_end_time - response_start_time}")
-    print(f"Session time: {response_end_time - session_start_time}")
     
     

@@ -14,10 +14,10 @@ from operator import itemgetter
 from typing import Tuple, List
 from langchain.docstore.document import Document
 
-# Set OpenAI API Key
-import os
+import pandas as pd 
 
-
+#--
+# Might be useful for turning sentences into questions
 _template = """Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question, in its original language.
 
 Chat History:
@@ -33,9 +33,12 @@ Question: {question}
 """
 ANSWER_PROMPT = ChatPromptTemplate.from_template(template)
 DEFAULT_DOCUMENT_PROMPT = PromptTemplate.from_template(template="{page_content}")
+#--
 
+# TODO: Add function to store chat history, user info, session info, and feedback in a database (e.g., MongoDB). Let's test with a local json file first.
 
-# --------- Local Utils --------- #
+# --------- Local Utils --------- # 
+
 def load_docs():
     loader = DirectoryLoader("ECON_Files", glob = "**/*.txt")
     econ_docs = loader.load()
@@ -113,21 +116,6 @@ def run_hf_chain(message_history,
     return answer, cost
     
 
-def _combine_documents(docs, 
-                       document_prompt = DEFAULT_DOCUMENT_PROMPT, 
-                       document_separator="\n\n"):
-    doc_strings = [format_document(doc, document_prompt) for doc in docs]
-    return document_separator.join(doc_strings)
-
-def format_chat_history(chat_history: List[Tuple]) -> str:
-    buffer = ""
-    print(chat_history)
-    for dialogue_turn in chat_history:
-        human = "Human: " + dialogue_turn['role']
-        ai = "Assistant: " + dialogue_turn['content']
-        buffer += "\n" + "\n".join([human, ai])
-    return buffer
-
 def split_and_index_docs(documents: List[Document]):
     '''
     Function to index documents in the vectorstore.
@@ -154,7 +142,7 @@ def split_and_index_docs(documents: List[Document]):
 
     
 def compute_cost(tokens, engine):
-    
+    """Computes a proxy for the cost of a response based on the number of tokens generated (i.e, cos of output) and the engine used"""
     model_prices = {"text-davinci-003": 0.02, 
                     "gpt-3.5-turbo": 0.002, 
                     "gpt-4": 0.03,
