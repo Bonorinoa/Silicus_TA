@@ -80,8 +80,8 @@ def record_feedback_mongo():
         client.admin.command('ping')
         print("Pinged your deployment. You successfully connected to MongoDB!")
         # database and collection code goes here
-        db = client.Silicus_TA_DB
-        coll = db.Feedback
+        db = client.Feedback_DB
+        coll = db.feedbacj
         
         
         # insert code goes here
