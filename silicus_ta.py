@@ -73,7 +73,7 @@ def record_feedback_json():
     
 def record_feedback_mongo():
 
-# Create a new client and connect to the server
+    # Create a new client and connect to the server
     client = MongoClient(**st.secrets["mongo"])
     # Send a ping to confirm a successful connection
     try:
@@ -95,8 +95,8 @@ def record_feedback_mongo():
                                     }
                         }
 
-        result = coll.insert_one(feedback_doc)
-        print("Inserted these docs: ", result.inserted_ids)
+        coll.insert_one(feedback_doc)
+        print(f"Inserted feedback in MongoDB! \n {feedback_doc}")
             
         # Close the connection to MongoDB when you're done.
         client.close()
