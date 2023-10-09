@@ -81,7 +81,7 @@ def record_feedback_mongo():
         print("Pinged your deployment. You successfully connected to MongoDB!")
         # database and collection code goes here
         db = client.Feedback_DB
-        coll = db.feedbacj
+        coll = db.feedback
         
         
         # insert code goes here
