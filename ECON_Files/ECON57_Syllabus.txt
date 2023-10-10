@@ -1,0 +1,52 @@
+\section*{Course Description}
+ECON 57 is a course in basic probability and statistics that consists of three major segments: descriptive statistics, probability theory, estimation and inference. Examples will be often used to support in-class discussions and theoretical explanations. In addition, this course complements the theoretical component with an introduction to modern data science with R programming. This fourth component is intended to prepare students for the modern workforce and provide them with computational skills that will prove valuable for any data-oriented job. The ultimate goal of this course is for the students to master the essential toolbox that they will need to learn and apprehend the material covered in upper-division economics courses and to become effective self-directed learners.
+
+\section*{Course Requirements}
+
+There will be a total of 2 presentations per group, 2 Exams, 4 homeworks, 4 R programming labs, and a group research project.
+
+There will be two take-home exams throughout the course. There is no final exam, you will have a research project instead. To be excused, a student must pre-notify the instructor before an exam by e-mail. Missing an exam without pre-notification and written verification will result in a flunking grade for that exam. Exceptions will be considered and exemptions granted only in serious medical cases, family emergencies, or other extreme circumstances, which must be documented properly. \textbf{there will be no make-up exams}. A student who has been properly excused from an examination will receive a final grade based on the other exams in the course.
+
+\begin{itemize}
+    \item[-] Group Presentations (2 per group): 15\%
+    \item[-] Labs (4): 15\%
+    \item[-] Homeworks (4): 20\%
+    \item[-] Exams (2): 20\%
+    \item[-] Group Project: 30\%
+\end{itemize}
+
+\section*{Assignments Instructions}
+
+\textbf{Presentations:} These are your opportunity to share key insights you and your team members have gathered from previous lectures with your classmates, an unorthodox idea about topics covered until then, expand on covered topics, or showcase something cool you built (again, must be related to one of the topics covered until then). On the first week of class, we will create the groups and randomly assign a week to present. This way everyone knows when they must present with enough time in advance to prepare a quality presentation. I will assess the students individually and as a team. Your final grade for the presentation will be an average of your individual and team grade. The following will be assessed:
+\begin{itemize}
+    \item Quality of presentation. Were your slides readable? Was the information communicated clearly?
+    \item Time. Presentations must be around 8 to 12 minutes long.
+    \item Insightful. Did we learn something new from your presentation? Are your ideas original?
+\end{itemize}
+Some sample projects from previous years include mapping historic events related to statistics to current economic or political events, a UI interface to study simulations, animations of statistical operations, visualizations of notable distributions, and applications of covered topics to current economic topics.
+
+\vspace{0.3cm}
+\textbf{Homeworks:} All homeworks will contain 7 to 10 exercises that cover topics from the previous two weeks. These will be a mix of conceptual and mathematical exercises to help you 1) practice solving problems, 2) develop an intuition of statistics and probability, and 3) apply the ideas to economic scenarios. You can collaborate with your classmates or team members, but every student is expected to submit their individual work. If you do collaborate, please write down the names of those you work with at the beginning of the document. Each homework is worth 5\%.
+
+\vspace{0.3cm}
+\textbf{Labs:} The labs are intended to test and push your R programming skills. They are a small part of your grade but will challenge you to 1) apply methods covered in class and 2) research new tools to solve unseen problems. Each lab will consist of 7 to 10 coding exercises of varying difficulty. You must create and submit an R markdown notebook for each lab. 
+
+\vspace{0.3cm}
+\textbf{Exams:} The first one will test your knowledge of descriptive statistics and basic R programming, while the second exam will test you on probability theory and probabilistic programming in R. Both will be take-home exams. Exams will start on that week's Thursday at 1pm and be due the next day at 11:59pm. This gives you 36hs to complete your exam. The final submission should be a PDF document or an Rmarkdown notebook with your solutions to both mathematical and programming exercises. 
+
+\vspace{0.3cm}
+\textbf{Final Project:} The final project is an opportunity to develop original work. You can work as a team or individually. Regardless if you are interested in a research or corporate job or a life of entrepreneurship, the ability to analyze data and produce original work will set you aside from the average applicant or competitor. This final project is your chance to start working, formally, on an idea you have held for a long time. This project must showcase your ability to leverage R programming for data analysis and simulations, and your capacity to apply the concepts learned in class to conduct economic analysis. 
+
+\section*{Course Material}
+
+All of the necessary material for the class will be available to you through Canvas. If you would like to dive deeper, I will host the course's and additional material in the following \href{https://github.com/Bonorinoa/ECON_57}{GitHub repository}. Here, you will find the lecture notes, slides, R notebooks, papers, textbooks, and additional resources.
+
+While there is no required textbook for the class, here are some recommendations you can find at the library plus online resources:
+\begin{itemize}
+    \item \href{https://ccl.on.worldcat.org/search/detail/759050072?sortKey=LIBRARY&queryString=kw%3AStatistics%20for%20Business%20and%20Economics&scope=}{Statistics for Business and Economics}
+    \item \href{https://ccl.on.worldcat.org/search/detail/783162698?sortKey=LIBRARY&queryString=kw%3ANaked%20Statistics&scope=}{Naked Statistics}
+    \item \href{https://ccl.on.worldcat.org/search/detail/1082522795?sortKey=LIBRARY&queryString=probability%20by%20leemis&scope=&clusterResults=true&groupVariantRecords=false&format=Book&subformat=Book%3A%3Abook_digital&subformat=Book%3A%3Abook_printbook&subformat=Book%3A%3Abook_thsis&changedFacet=format}{Probability}
+    \item \href{https://ccl.on.worldcat.org/search/detail/1321764388?sortKey=LIBRARY&queryString=learning%20base%20R%20by%20leemis&scope=&clusterResults=true&groupVariantRecords=false&format=Book&subformat=Book%3A%3Abook_digital&subformat=Book%3A%3Abook_printbook&subformat=Book%3A%3Abook_thsis&changedFacet=format}{Learning base R}
+    \item \href{https://github.com/jpailden/rstatlab}{R for statistics}
+    \item \href{https://ccl.on.worldcat.org/search/detail/1003311466?sortKey=LIBRARY&queryString=the%20book%20of%20why&scope=&clusterResults=true&groupVariantRecords=false}{The Book of Why}
+\end{itemize}
