@@ -29,3 +29,181 @@
     "submission_date": "2023-10-08 20:46:54"
   }
 }
+{
+  "Random_id": 8330,
+  "Content": {
+    "feedback": "local test",
+    "chat_history": [
+      {
+        "role": "assistant",
+        "content": "How may I assist you today?"
+      },
+      {
+        "role": "user",
+        "content": "just testing if the mongodb works locally"
+      },
+      {
+        "role": "assistant",
+        "content": "If you are testing if MongoDB works locally, there are a few steps you can take to ensure it is functioning properly. \n\nFirst, make sure you have MongoDB installed on your local machine. You can check this by running the command \"mongod\" in your terminal or command prompt. If MongoDB is installed, it should start up the MongoDB server. \n\nNext, you can test if MongoDB is running by connecting to it using a MongoDB client. You can use the command \"mongo\" in your terminal or command prompt to open the MongoDB shell. If you are able to connect to the shell without any errors, it means MongoDB is running properly.\n\nYou can also test if you can perform basic CRUD (Create, Read, Update, Delete) operations on a MongoDB database. You can try creating a new document, reading an existing document, updating a document, and deleting a document. If you are able to perform these operations without any errors, it indicates that MongoDB is working correctly.\n\nI hope this helps you in testing if MongoDB works locally. Let me know if you have any further questions!"
+      }
+    ],
+    "total_cost": 0.002124,
+    "time_until_feedback": 34.4362006187439,
+    "submission_date": "2023-10-09 20:35:07"
+  }
+}
+{
+  "Random_id": 8350,
+  "Content": {
+    "feedback": "local test 2",
+    "chat_history": [
+      {
+        "role": "assistant",
+        "content": "How may I assist you today?"
+      },
+      {
+        "role": "user",
+        "content": "just testing if the mongodb works locally"
+      },
+      {
+        "role": "assistant",
+        "content": "If you are testing if MongoDB works locally, there are a few steps you can take to ensure it is functioning properly. \n\nFirst, make sure you have MongoDB installed on your local machine. You can check this by running the command \"mongod\" in your terminal or command prompt. If MongoDB is installed, it should start up the MongoDB server. \n\nNext, you can test if MongoDB is running by connecting to it using a MongoDB client. You can use the command \"mongo\" in your terminal or command prompt to open the MongoDB shell. If you are able to connect to the shell without any errors, it means MongoDB is running properly.\n\nYou can also test if you can perform basic CRUD (Create, Read, Update, Delete) operations on a MongoDB database. You can try creating a new document, reading an existing document, updating a document, and deleting a document. If you are able to perform these operations without any errors, it indicates that MongoDB is working correctly.\n\nI hope this helps you in testing if MongoDB works locally. Let me know if you have any further questions!"
+      },
+      {
+        "role": "user",
+        "content": "cool"
+      },
+      {
+        "role": "assistant",
+        "content": "Glad to hear that you found the information helpful! If you have any further questions or need assistance with anything else, feel free to ask. I'm here to help!"
+      }
+    ],
+    "total_cost": 0.0024460000000000003,
+    "time_until_feedback": 169.7650408744812,
+    "submission_date": "2023-10-09 20:37:07"
+  }
+}
+{
+  "Random_id": 6748,
+  "Content": {
+    "feedback": "local test 3",
+    "chat_history": [
+      {
+        "role": "assistant",
+        "content": "How may I assist you today?"
+      },
+      {
+        "role": "user",
+        "content": "just testing if the mongodb works locally"
+      },
+      {
+        "role": "assistant",
+        "content": "If you are testing if MongoDB works locally, there are a few steps you can take to ensure it is functioning properly. \n\nFirst, make sure you have MongoDB installed on your local machine. You can check this by running the command \"mongod\" in your terminal or command prompt. If MongoDB is installed, it should start up the MongoDB server. \n\nNext, you can test if MongoDB is running by connecting to it using a MongoDB client. You can use the command \"mongo\" in your terminal or command prompt to open the MongoDB shell. If you are able to connect to the shell without any errors, it means MongoDB is running properly.\n\nYou can also test if you can perform basic CRUD (Create, Read, Update, Delete) operations on a MongoDB database. You can try creating a new document, reading an existing document, updating a document, and deleting a document. If you are able to perform these operations without any errors, it indicates that MongoDB is working correctly.\n\nI hope this helps you in testing if MongoDB works locally. Let me know if you have any further questions!"
+      },
+      {
+        "role": "user",
+        "content": "cool"
+      },
+      {
+        "role": "assistant",
+        "content": "Glad to hear that you found the information helpful! If you have any further questions or need assistance with anything else, feel free to ask. I'm here to help!"
+      }
+    ],
+    "total_cost": 0.0024460000000000003,
+    "time_until_feedback": 169.7650408744812,
+    "submission_date": "2023-10-09 20:44:03"
+  }
+}
+{
+  "Random_id": 6190,
+  "Content": {
+    "feedback": "good stuff",
+    "chat_history": [
+      {
+        "role": "assistant",
+        "content": "How may I assist you today?"
+      },
+      {
+        "role": "user",
+        "content": "just testing if the mongodb works locally"
+      },
+      {
+        "role": "assistant",
+        "content": "If you are testing if MongoDB works locally, there are a few steps you can take to ensure it is functioning properly. \n\nFirst, make sure you have MongoDB installed on your local machine. You can check this by running the command \"mongod\" in your terminal or command prompt. If MongoDB is installed, it should start up the MongoDB server. \n\nNext, you can test if MongoDB is running by connecting to it using a MongoDB client. You can use the command \"mongo\" in your terminal or command prompt to open the MongoDB shell. If you are able to connect to the shell without any errors, it means MongoDB is running properly.\n\nYou can also test if you can perform basic CRUD (Create, Read, Update, Delete) operations on a MongoDB database. You can try creating a new document, reading an existing document, updating a document, and deleting a document. If you are able to perform these operations without any errors, it indicates that MongoDB is working correctly.\n\nI hope this helps you in testing if MongoDB works locally. Let me know if you have any further questions!"
+      },
+      {
+        "role": "user",
+        "content": "cool"
+      },
+      {
+        "role": "assistant",
+        "content": "Glad to hear that you found the information helpful! If you have any further questions or need assistance with anything else, feel free to ask. I'm here to help!"
+      }
+    ],
+    "total_cost": 0.0024460000000000003,
+    "time_until_feedback": 169.7650408744812,
+    "submission_date": "2023-10-09 20:54:28"
+  }
+}
+{
+  "Random_id": 4225,
+  "Content": {
+    "feedback": "good stuff",
+    "chat_history": [
+      {
+        "role": "assistant",
+        "content": "How may I assist you today?"
+      },
+      {
+        "role": "user",
+        "content": "just testing if the mongodb works locally"
+      },
+      {
+        "role": "assistant",
+        "content": "If you are testing if MongoDB works locally, there are a few steps you can take to ensure it is functioning properly. \n\nFirst, make sure you have MongoDB installed on your local machine. You can check this by running the command \"mongod\" in your terminal or command prompt. If MongoDB is installed, it should start up the MongoDB server. \n\nNext, you can test if MongoDB is running by connecting to it using a MongoDB client. You can use the command \"mongo\" in your terminal or command prompt to open the MongoDB shell. If you are able to connect to the shell without any errors, it means MongoDB is running properly.\n\nYou can also test if you can perform basic CRUD (Create, Read, Update, Delete) operations on a MongoDB database. You can try creating a new document, reading an existing document, updating a document, and deleting a document. If you are able to perform these operations without any errors, it indicates that MongoDB is working correctly.\n\nI hope this helps you in testing if MongoDB works locally. Let me know if you have any further questions!"
+      },
+      {
+        "role": "user",
+        "content": "cool"
+      },
+      {
+        "role": "assistant",
+        "content": "Glad to hear that you found the information helpful! If you have any further questions or need assistance with anything else, feel free to ask. I'm here to help!"
+      }
+    ],
+    "total_cost": 0.0024460000000000003,
+    "time_until_feedback": 169.7650408744812,
+    "submission_date": "2023-10-09 20:54:47"
+  }
+}
+{
+  "Random_id": 4879,
+  "Content": {
+    "feedback": "good stuff 2",
+    "chat_history": [
+      {
+        "role": "assistant",
+        "content": "How may I assist you today?"
+      },
+      {
+        "role": "user",
+        "content": "just testing if the mongodb works locally"
+      },
+      {
+        "role": "assistant",
+        "content": "If you are testing if MongoDB works locally, there are a few steps you can take to ensure it is functioning properly. \n\nFirst, make sure you have MongoDB installed on your local machine. You can check this by running the command \"mongod\" in your terminal or command prompt. If MongoDB is installed, it should start up the MongoDB server. \n\nNext, you can test if MongoDB is running by connecting to it using a MongoDB client. You can use the command \"mongo\" in your terminal or command prompt to open the MongoDB shell. If you are able to connect to the shell without any errors, it means MongoDB is running properly.\n\nYou can also test if you can perform basic CRUD (Create, Read, Update, Delete) operations on a MongoDB database. You can try creating a new document, reading an existing document, updating a document, and deleting a document. If you are able to perform these operations without any errors, it indicates that MongoDB is working correctly.\n\nI hope this helps you in testing if MongoDB works locally. Let me know if you have any further questions!"
+      },
+      {
+        "role": "user",
+        "content": "cool"
+      },
+      {
+        "role": "assistant",
+        "content": "Glad to hear that you found the information helpful! If you have any further questions or need assistance with anything else, feel free to ask. I'm here to help!"
+      }
+    ],
+    "total_cost": 0.0024460000000000003,
+    "time_until_feedback": 169.7650408744812,
+    "submission_date": "2023-10-09 20:55:37"
+  }
+}

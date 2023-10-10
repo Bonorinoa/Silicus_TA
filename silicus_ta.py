@@ -9,7 +9,7 @@ import time
 import datetime as dt
 import json
 import numpy as np
-from pymongo.mongo_client import MongoClient
+from pymongo import MongoClient
 
 
 # Store LLM generated responses
@@ -74,16 +74,21 @@ def record_feedback_json():
     st.sidebar.write("Feedback stored in feedback.json")
     
 def record_feedback_mongo():
+    uri = f"mongodb+srv://{st.secrets['mongo']['username']}:{st.secrets['mongo']['password']}@silicusta.jfzl5zt.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp"
 
     # Create a new client and connect to the server
-    client = MongoClient(**st.secrets["mongo"])
+    client = MongoClient(uri)
+
     # Send a ping to confirm a successful connection
     try:
         client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!") 
+        client.admin.command('ping')
         print("Pinged your deployment. You successfully connected to MongoDB!")
         # database and collection code goes here
-        db = client.Feedback_DB
-        coll = db.feedback
+        db = client.Silicus_TA_DB
+        st.sidebar.write(f"Collection names: {db.list_collection_names()}")
+        coll = db.Feedback
         
         
         # insert code goes here
