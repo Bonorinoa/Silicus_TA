@@ -70,6 +70,8 @@ def record_feedback_json():
     with open("feedback.json", "a") as f:
         f.write(json_feedback)
         f.write("\n")
+        
+    st.sidebar.write("Feedback stored in feedback.json")
     
 def record_feedback_mongo():
 
@@ -101,10 +103,12 @@ def record_feedback_mongo():
         # Close the connection to MongoDB when you're done.
         client.close()
         print("Successfully stored feedback in MongoDB!")
+        st.sidebar.write("Feedback stored in MongoDB!")
     except Exception as e:
         print(e)
         # Close the connection to MongoDB when you're done.
         client.close()
+        st.sidebar.write(f"Failed to store feedback in MongoDB with error: {e}")
 
 def clear_chat_history():
     st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
