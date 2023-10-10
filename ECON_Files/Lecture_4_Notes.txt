@@ -1,0 +1,166 @@
+ECON 57 - Lecture 4: Multivariate Statistics
+Fall 2023
+
+
+
+2. Bidimensional Variables
+Definitions
+Definition: Bidimensional variables, also known as bivariate variables, are pairs of variables in statistics that are studied simultaneously to understand their relationship or association. These variables can be numerical or categorical, and the analysis aims to explore how changes in one variable relate to changes in the other.
+Economic Example: Consider the relationship between the price of a product and the quantity demanded. As the price of a product increases, the quantity demanded typically decreases. These two variables, price and quantity, are bidimensional variables in economics.
+2. Bidimensional Distributions
+Introduction
+A bidimensional distribution describes the joint behavior of two variables. It says nothing about causality.
+Helps us understand how variables relate to each other, e.g., Inflation (X) and Fed Funds Rate (Y).
+Denoted by $f_{X,Y}(x,y)$, where $X$ and $Y$ are statistical variables.
+Economic Example: In finance, a bidimensional distribution might describe the joint distribution of the returns of two different stocks. This distribution helps investors understand how the returns of one stock relate to the returns of another and can inform portfolio diversification decisions.
+
+3. Two-entry Table of Joint Frequencies
+Introduction
+Organizes and visualizes the relationship between two variables.
+Each cell represents the frequency of specific variable combinations.
+Example joint frequency table provided.
+Absolute Frequency: The number of occurrences of a specific combination of two variables.
+Relative Frequency: The proportion of the total observations represented by a specific combination. It is calculated as absolute frequency divided by the total number of observations.
+Conditional Frequency: The probability of one variable occurring given that another variable has a specific value. It is calculated as joint frequency divided by the total frequency of the second variable.
+Joint Frequency: The number of observations that fall into a specific combination of values for both variables.
+Economic Example: Suppose you are analyzing the relationship between income level and spending on luxury items. The absolute frequency would be the number of people in each income bracket who spend on luxury items. Relative frequency would be the proportion of people in each income bracket who spend on luxury items. Conditional frequency would be the probability of spending on luxury items given a specific income level.
+
+
+
+5. Statistical Independence
+Two random variables are independent if the knowledge of one variable provides no information about the other.
+Mathematical definition and properties discussed.
+Example using dice rolls to illustrate independence.
+Economic Example: In economics, the choice of a consumer to buy a certain product and the weather on a given day are typically considered independent variables. The weather does not influence the consumer's buying decision in this context.
+
+6. Covariance & Correlation
+Conceptual Explanation
+Covariance: Covariance is a measure of the degree to which two variables change together. A positive covariance indicates that when one variable increases, the other tends to increase, and vice versa. A negative covariance indicates an inverse relationship.
+Correlation: Correlation is a standardized version of covariance that ranges between -1 and 1. It measures both the strength and direction of the linear relationship between two variables. A correlation of 1 implies a perfect positive linear relationship, -1 implies a perfect negative linear relationship, and 0 implies no linear relationship.
+Economic Example: In finance, the covariance and correlation between the returns of two stocks can help investors assess the risk and diversification benefits of holding a portfolio of those stocks. A positive correlation suggests that the stocks tend to move in the same direction, while a negative correlation implies they move in opposite directions.
+
+
+
+Covariance
+Measures degree of joint variability.
+Sign indicates direction of relationship (positive, negative, or zero).
+
+
+
+Correlation
+Measures strength and direction of linear relationship.
+Range: -1 to 1.
+Normalized covariance.
+Independence: $\rho(X, Y) = 0$ if and only if $X$ and $Y$ are independent.
+
+Important Properties
+Covariance: Linearity, bilinearity, symmetry, and more.
+Correlation: Range, normalized covariance, and independence.
+
+7. Conceptual Exercises
+Explain the difference between covariance and correlation. When is one preferred over the other in an economic analysis?
+How might the relationship between hours of study (X) and exam score (Y) influence their covariance and correlation?
+Can covariance be negative if the correlation is positive? Why or why not?
+Explain the concept of statistical independence using a real-world example.
+
+8. Mathematical Exercises
+Calculate the covariance between $X = [4, 7, 2, 5, 8]$ and $Y = [10, 12, 6, 9, 15]$.
+Compute the Pearson correlation coefficient between the same data points.
+
+—-
+
+
+
+
+In-Class Example: Relationship Between Unemployment Rate and Stock Market Performance
+
+Unemployment rate and stock market performance have been hot topics for a couple of years now. Are they related? Should we expect the stock market to underperform if the unemployment rate rises? Suppose you have collected some data to answer this question.
+
+Step 1: Data Collection
+We collect data for the monthly unemployment rate and S&P 500 index returns for the past six months (January to June) as follows:
+Month
+Unemployment Rate (%)
+S&P 500 Returns (%)
+January
+5.2
+-0.5
+February
+5.0
+1.2
+March
+5.5
+-2.0
+April
+5.8
+3.5
+May
+6.1
+-1.8
+June
+6.3
+2.9
+
+
+Step 2: Data Preparation
+We've created a dataset with two columns: one for the monthly unemployment rate and one for the corresponding S&P 500 index returns.
+
+Step 3: Creating the Two-Entry Table
+We set up a two-entry table on the whiteboard with columns for Unemployment Rate (Low/Moderate/High) and Stock Market Performance (Positive/Negative).
+What data type would you guys say percentages are?
+Let’s break these up into groups. We don’t have a lot of data to run fancy models so we need to get creative. Let’s think about the question we are interested in. So, we are curious about the effects of changes in unemployment rate on stock market performance. Great, but that’s too general. What is considered a change in unemployment rate? How about S&P 500 returns? Let’s divide unemployment rate into three categories (Low/Moderate/High) and Stock Market Performance into two categories (Positive/Negative). This way we can ask questions like “How many times did the market yield negative returns during low unemployment rate periods?” or “What is the frequency of positive returns given moderate unemployment rate?”
+Let’s compute the absolute and relative frequencies.
+
+Unemployment Rate (%)
+Positive Stock Market Performance
+Negative Stock Market Performance
+Low (4-5%)
+1
+0
+Moderate (5-6%)
+2
+1
+High (>6%)
+0
+2
+
+
+
+Step 4: Conditional Frequencies
+Conditional frequencies allow us to delve deeper into the relationship between unemployment rates and stock market performance. It helps us answer questions like "What is the probability of positive stock market performance given certain unemployment rate categories?"
+
+Let's calculate the conditional frequencies using our two-entry table from Step 3:
+
+
+Conditional Frequency: Probability of Positive Stock Market Performance given Low Unemployment (4-5%):
+
+
+Number of occurrences with Low Unemployment and Positive Stock Market Performance = 1
+Total occurrences with Low Unemployment = 1 + 0 = 1
+Probability = (Number of occurrences with Low Unemployment and Positive Stock Market Performance) / (Total occurrences with Low Unemployment)
+Probability = 1 / 1 = 1.00
+Conditional Frequency: Probability of Negative Stock Market Performance given Low Unemployment (4-5%):
+
+Number of occurrences with Low Unemployment and Negative Stock Market Performance = 0
+Total occurrences with Low Unemployment = 1 + 0 = 1
+Probability = (Number of occurrences with Low Unemployment and Negative Stock Market Performance) / (Total occurrences with Low Unemployment)
+Probability = 0 / 1 = 0.00
+
+
+
+Step 5: Covariance and Correlation
+We calculate the covariance between the unemployment rate and stock market returns using the formula. Covariance measures the degree to which two variables change together. It can be calculated as follows:a:
+Covariance = $\frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})$
+We compute the covariance for this dataset.
+Covariance = $-1.55$
+Next, we calculate the correlation coefficient. Correlation standardizes the covariance, giving us a value between -1 and 1 that measures both the strength and direction of the linear relationship between two variables. It can be calculated as follows::
+Correlation = $\frac{\text{Covariance}(X, Y)}{\sigma_X \sigma_Y}$
+We compute the correlation coefficient for this dataset.
+Correlation = $-0.87$
+
+Step 6: Interpretation and Discussion
+We conclude the example by discussing the findings.
+The negative covariance and correlation suggest that there is a negative relationship between the unemployment rate and stock market performance in this fictional dataset.
+We emphasize that correlation does not imply causation and that further analysis is needed to understand the relationship fully.
+
+
+

@@ -1,0 +1,64 @@
+Introduction to Probability - Part I Lecture Notes
+Descriptive Statistics Recap
+? In our journey through data analysis, we've honed our skills to make sense of datasets. However, it's important to recognize that in many real-world scenarios, obtaining the ideal or true data, representing the entire population, can be quite challenging.
+       ? Data Challenges:
+	Forecasting: One of the challenges we face is that we often deal with data related to future events. Since the future hasn't happened yet, we can't collect data on it. This makes forecasting an inherently uncertain task.
+	Data Privacy: In our data-driven world, concerns about privacy are paramount. Anonymized data, while protecting individual identities, can present difficulties for certain statistical analyses. Balancing the need for data-driven insights with ethical considerations is an ongoing challenge.
+	Simulation: Sometimes, we're interested in scenarios that are costly or impractical to study in real life. This is where simulation comes into play. We can simulate data-generation processes based on assumptions, allowing us to test ideas before investing resources in collecting real data.
+? However, what do we do when we're faced with uncertainty about a value or a vector of values? This is where probability theory steps in.
+       ? Enter Probability: Probability serves as a powerful tool in situations where uncertainty reigns. It provides a structured framework for understanding, quantifying, and reasoning about uncertainty and randomness. Probability allows us to assign numerical values to events and outcomes, enabling us to make informed decisions and predictions based on uncertainty. ?
+Probability - The Big Picture
+? Probability, as a field of study, has a rich history dating back to ancient civilizations, where it emerged from games of chance and gambling.
+? Origins of Probability: The very origins of probability are rooted in human curiosity about unpredictable events. From dice games in ancient Greece to card games in medieval Europe, probability has always played a role in understanding uncertainty.
+? Key Probability Concepts:
+? Probabilistic Thinking: Probability encourages a mindset that embraces uncertainty and seeks to understand the odds of different outcomes. It's a way of thinking that helps us make sense of the randomness inherent in life's events.
+?	Event Likelihood: Probability quantifies the likelihood of events happening, ranging from simple coin flips to complex real-world events. It provides a structured way to make sense of the inherent randomness in various aspects of life.
+?	Foundation for Statistics: Probability is not just about games and chance. It forms the very foundation of statistical inference, hypothesis testing, and decision-making with data. It allows us to make rigorous statements about the likelihood of observed data patterns.
+? Probabilities as Quantitative Measures: At its core, probabilities denote numerical representations of uncertainty and randomness. If we believe that the frequency of occurrence of some object is a good way to measure the likelihood of observing it, then the relative frequencies of your sample data can be interpreted as the probabilities of observing each value of your variable in the dataset. ?
+Probability - A Note on Randomness
+? Randomness sources: Lack of information, Chaotic, Complexity, Quantum.
+? Guiding questions: Possible outcomes and their chances, Quantifying and harnessing uncertainty.
+Probability - The Big Picture (cont.)
+? Estimating Random Missing Information.
+? Similarity to Statistics: Making "on average" statements based on sample data.
+Set Theory
+? Universal Set (S): The universal set comprises all possible outcomes in a given experiment or scenario. It represents the entire sample space, containing every conceivable result.
+? Example: In a roll of a six-sided die, the universal set would include the numbers 1 through 6.
+? Empty Set (�): The empty set is a set that contains no elements. It represents the absence of any outcome.
+? Example: In a roll of a die that produces only even numbers, the empty set represents the event of rolling an odd number.
+? Subset (A ? B): A set A is considered a subset of set B if every element in A is also an element in B. This implies that there's a positive probability of finding any element of set A in the universal set represented by B.
+? Example: If set A represents the event of drawing a red card from a deck, and set
+          B is the universal set of all possible cards, then A is a subset of B ?
+Set Theory - Common Operations & Properties
+? Union (A ? B): The union of sets A and B contains all elements that are in either A or B. It represents the event of either A or B occurring.
+? Example: The union of the event of drawing a heart and the event of drawing a spade from a deck is the event of drawing either a heart or a spade.
+? Intersection (A n B): The intersection of sets A and B contains elements that are in both A and B. It represents the event of both A and B occurring simultaneously.
+? Example: The intersection of the event of drawing a red card and the event of drawing a face card from a deck is the event of drawing a red face card.
+? Complement (A' or A?): The complement of set A contains all elements that are not in A within the universal set. It represents the event of not A.
+? Example: The complement of the event of drawing a spade from a deck represents the event of not drawing a spade, i.e., drawing a card of a different suit.
+?
+Set Theory in Action
+? Events represent specific outcomes or groups of outcomes within a sample space.
+? Sample space vs. events.
+? Events help model and analyze randomness and uncertainty.
+Random Experiments
+? Random experiments encompass the entire process with inherent uncertainty.
+? Probability calculations based on the outcomes of random experiments.
+Random Events & Random Sampling
+? Sampling With Replacement: Selections are independent, and the set remains unchanged.
+? Sampling Without Replacement: Selections are dependent, and the sample space changes.
+? Set identities in probability: Intersection, Union, Independence, Complement.
+Counting and Probability
+? Combinatorial methods: Multiplication Rule, Permutations, Combinations.
+? Using these methods to count possible outcomes and calculate probabilities.
+Conceptual Exercises
+? Exercise 1: Probability of rolling a prime number on a fair six-sided die.
+? Exercise 2: Probability of getting exactly two heads when flipping three coins.
+Mathematical Exercises
+? Exercise 1 Solution: Probability of drawing all three blue balls.
+? Exercise 2 Solution: Counting different passwords with or without repetitions.
+? Exercise 3 Solution: Probability of drawing a specific hand of cards.
+Economic Applications
+? Decision-Making in Business Strategies: Pricing, product launches, supply chain management.
+? Insurance and Actuarial Science: Estimating risks and premiums.
+? Game Theory and Behavioral Economics: Modeling strategic decisions and behavior in competitive scenarios.

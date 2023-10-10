@@ -1,0 +1,213 @@
+Augusto Gonzalez Bonorino
+October 4, 2023
+
+
+we have acquired skills to analyze datasets, understanding that it will often be challenging to obtain the ideal or true data (i.e., population), visually as well as numerically to draw informed conclusions from data. But note that if we have no data, then we cannot compute any statistics.
+Forecasting: The future hasn't happened yet so we can't collect even a sample of that data.
+Data Privacy: Anonymized data may present issues for certain statistical analyses.
+Simulation: You can simulate data-generation processes (i.e., distributions) based on certain assumptions (i.e., these are often assumptions about the shape of the distribution) to test ideas prior to going through the time-consuming task of collecting real data.
+So what do we do when we are uncertain about a value or vector of values? Enter probability...
+
+The big picture
+Origins of Probability: Probability's roots trace back to ancient civilizations, where it emerged from games of chance.
+Key Probability Concepts:
+Random Variables: These are variables that can take on different values with associated probabilities.
+Expectation or Expected Value: Long-term average or mean value it would take over an infinite number of repetitions. When we "expect" something, we mean "on average" it occurs...
+Probability Distributions: These describe how the probabilities are distributed among the different values a random variable can take.
+Probabilities denote numerical representations of uncertainty/randomness. If we believe the frequency of occurrence of some object is a good way to measure the likelihood of observing it, then the relative frequencies of your sample data can be interpreted as the probabilities of observing each value of your variable in the dataset.
+The Big Picture
+Probability in a Nutshell:
+A branch of mathematics concerned with understanding randomness and uncertainty.
+In economics and various fields, randomness is a fundamental characteristic of certain variables that cannot be predicted in advance.
+Random Variables and Probability:
+Randomness implies multiple possible outcomes.
+Variables that encode randomness are called Random Variables Probability models assigns a numerical measure (probability) to each possibility (value in Random Variable), helping us quantify the uncertainty associated with these outcomes (how likely is each to occur based on your data).
+A note on randomness
+Randomness: The Essence of Uncertainty
+In our world, everything might seem random. But, it is wise to note there exist different sources of randomness. And the source determined which methods we can use to study it.
+Lack of information: There is a deterministic answer but you lack critical information to predict it accurately.
+Chaotic: Very sensitive to external input (i.e., an unstable system) like the financial markets. These systems have a systemic and random component.
+Complexity: The level of interactions within the system makes it impossible - for current methods - to predict its behavior.
+Quantum: Quantum processes are believed to be inherently random.
+Probably the only examples of truly random and unpredictable events.
+Guiding questions:
+What are the possible outcomes? What are their chances?
+How can we understand, quantify, and harness uncertainty?
+The Big Picture
+Estimating Random Missing Information:
+Look for patterns in your random data.
+Statistics gives us methods to collect and analyze data effectively to seek for patterns.
+With sufficient data, the analysis becomes difficult and we delegate the pattern-recognition task to computers.
+Frequency/Probability distributions model these patterns, indicating the range of values a random variable can take and the likelihood of each value occurring.
+ Similar to Statistics: We try to collect many representative samples and use the measures of centrality to make "on average" statements. Thus, average or relative frequency is now interpreted as the likelihood or probability of observing that value (aka expected value) under similar circumstances.
+
+Set Theory
+
+Set theory provides the mathematical groundwork for probability. We'll explore key sets: the universal set, the empty set, and subsets. These sets form the building blocks of probability theory, allowing us to define events and outcomes rigorously.
+Universal Set (S): The universal set is the collection of all possible outcomes in an experiment. Also called the sample size.
+Empty Set (�): The empty set is a set that contains no elements.
+Subset (A ? B): Set A is a subset of set B if every element in A is also in B. That is, we have a positive probability of finding any of the elements in A if we look at B
+Example: Consider a set A representing the event of rolling an even number on a six-sided die. If S is the sample space, then A = {2,4,6}.
+The universal set is the set of all possible outcomes, S = {1,2,3,4,5,6}.
+Just like mathematical operations, sets have their operations. We'll cover unions, intersections, and complements. These operations help us describe more complex events and calculate probabilities efficiently. Additionally, we'll discuss important properties that guide our probability calculations.
+Union (A ? B): The union of sets A and B contains all elements that are in either A or B.
+Intersection (A n B): The intersection of sets A and B contains elements that are in both A and B.
+Complement (A' or Ac): The complement of set A contains all elements not in A within the universal set S.
+Example: Let A be the event of drawing a red card, and B the event of drawing a face card. The union A ? B represents drawing a red card or a face card. The intersection A n B represents drawing a red face card.
+
+Set Theory in Action: Venn Diagrams
+Venn diagrams are powerful tools to illustrate set relationships. They help us understand the overlap and differences between events, aiding in probability calculations and formulating research questions.
+
+Figure: Venn diagram illustrating set operations on sets A and B.
+In the realm of probability, events represent specific outcomes or groups of outcomes within a sample space.
+An event can be thought of as a subset of the universal set S (the sample space), where each element of the subset corresponds to a possible outcome.
+ Events help us model and analyze randomness and uncertainty in various scenarios.
+Example:
+ Consider rolling a six-sided die. We define the event A as rolling an even number. This event can be represented as the set A = {2,4,6}, which is a subset of the sample space S = {1,2,3,4,5,6}.
+ Events like these form the basis for making probabilistic statements and calculations.
+Random Experiments
+A random experiment is a process with uncertain outcomes. While random events represent specific outcomes within a sample space, random experiments encompass the entire process or situation with inherent uncertainty.
+Example: Let's consider flipping two coins. All the possible outcomes from flipping two coins are {HH,HT,TH,TT}. What's the probability of getting at least one head? Well, let's count the frequencies. The relative frequency (which we can now start calling probability) of getting at least one head from flipping two coins is given by:
+P(At least one head) = 
+
+Sampling With Replacement
+Random events - subsets of the sample space that represent specific outcomes - are constructed by sampling the random experiment. You can think of events as samples and sample space as the population.
+Sampling With Replacement:
+In this method, each selected item is returned to the set before the next selection.
+Every time we select an item, the set remains unchanged.
+Probability calculations are straightforward since each item has the same chance of being selected.
+Example: Let's consider drawing a card from a standard deck. What's the probability of drawing a heart or a spade? Now, say you put the card back in the deck. How does this affect the probability?
+P(Heart or Spade) = 
+Sampling without replacement
+Sampling Without Replacement:
+In this method, each selected item is not returned to the set before the next selection.
+As items are selected, the set becomes smaller, affecting probability calculations.
+The probabilities change with each selection due to the changing sample space.
+Example: Consider drawing cards from a deck, not replacing them between draws. What's the probability of drawing two consecutive red cards? What about one red and one black?
+	P	P
+In probability theory, set identities play a crucial role in making calculations and understanding the relationships between events.
+ Intersection Rule: For any two events A and B,
+P(A n B) = P(A) � P(B|A)
+Probability of both events A and B occurring.
+ Union Rule: For any two events A and B,
+P(A ? B) = P(A) + P(B) - P(A n B)
+Probability of at least one (i.e., OR logical operation) of the events A or B occurring.
+
+Independence: When events A and B are independent, their occurrence does not affect each other. In this case,
+P(A n B) = P(A) � P(B)
+If events A and B are independent, you can simplify calculations by using this identity, treating them as separate events.
+ Complement Rule: For an event A,
+P(A') = 1 - P(A)
+Probability of the complement of event A (not A); often useful when dealing with mutually exclusive outcomes
+Counting and Probability
+Combinatorial methods are techniques used to count the number of ways events can occur.
+ Multiplication Rule: The multiplication rule helps us count the number of outcomes in a sequence of r independent events with ni possibilities each. Total Outcomes = n1 � n1 � ... � nr = nr.
+ Permutations: Permutations are arrangements of elements in a specific order. The permutation formula P(n,r) = (n-n!r)! represents the number of ways to arrange r elements from a set of n elements where the order matters.
+ Combinations: Combinations, on the other hand, are selections of elements without considering the order. The combination formula
+C(n,r) = r!(nn-! r)! represents the number of ways to choose r elements from a set of n elements without regard to order.
+Example: How many different sequences of heads and tails are possible in 16 tosses of a fair coin?
+Conceptual Exercises
+Let's put our understanding to the test with some conceptual exercises. These exercises will challenge you to apply the concepts we've learned so far. By solving these problems, you'll solidify your grasp of probability fundamentals.
+Exercise 1: Consider rolling a fair six-sided die. What's the probability of rolling a prime number?
+Exercise 2: Imagine flipping three coins. What's the probability of getting exactly two heads? Use combinations to analyze the possible outcomes and calculate the probability.
+Mathematical Exercises
+Exercise 1: You have a jar with 10 red balls and 15 blue balls. If you draw 3 balls at random without replacement, what's the probability that all three are blue? Use combinations to solve this problem.
+Exercise 2: A password consists of 4 letters, each chosen from the set {A, B, C, ..., Z}. How many different passwords are possible if repetitions are allowed? What if repetitions are not allowed? Explain your calculations.
+Exercise 3: In a deck of cards, what's the probability of drawing a hand of 5 cards that contains exactly 2 hearts and 3 spades? Use combinations and set operations to determine the probability.
+Mathematical Exercise Solutions
+Let's go through the solutions to the mathematical exercises.
+Exercise 1 Solution: The probability of drawing all three balls as blue without replacement can be calculated using combinations:
+Number of ways to choose 3 blue balls
+P(All blue) = 
+Total number of ways to choose 3 balls
+	C(15,3)	455
+	P(All blue) =	=	� 0.1978
+	C(25,3)	2300
+Exercise 2 Solution: When repetitions are allowed, there are 26 choices for each of the 4 letters. Therefore, the total number of possible passwords is 264 = 456976. When repetitions are not allowed, the number of possible passwords is P
+Mathematical Exercise Solutions
+Exercise 3 Solution: The probability of drawing a hand of 5 cards with exactly 2 hearts and 3 spades can be calculated using combinations and set operations:
+Number of favorable outcomes
+P(2 hearts and 3 spades) = 
+Total number of possible hands
+	C(13,2) � C(13,3)	780
+	P(2 hearts and 3 spades) =	=	� 0.003
+	C(52,5)	259,895
+Economic Applications
+ Decision-Making in Business Strategies: Businesses often face complex decisions involving uncertainty. Probability models can guide strategic choices, such as pricing strategies, product launches, and supply chain management.
+ Insurance and Actuarial Science: Actuaries use probability models to estimate the likelihood of events such as accidents, illnesses, or natural disasters, to calculate premiums and risks; ensuring that insurance companies remain financially viable.
+ Game Theory and Behavioral Economics: Probability plays a pivotal role in understanding individual behavior in strategic interactions. Game theory uses probability to model decision-making strategies in various competitive scenarios. Behavioral economics examines how people's perception of probabilities influences their choices.
+
+
+
+
+
+
+
+
+
+
+
+
+Probability
+
+
+Probability
+
+
+
+
+
+
+Probability
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

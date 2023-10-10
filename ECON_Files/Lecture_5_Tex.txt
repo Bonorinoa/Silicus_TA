@@ -1,0 +1,296 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\title{Stats Recap \& Bayesian Thinking}
+\author{Augusto Gonzalez Bonorino}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Table of Contents}
+  \tableofcontents
+\end{frame}
+
+% Slide 1: Recap of Descriptive Statistics and Distributions
+\section{Recap of Descriptive Statistics and Distributions}
+\framesubtitle{Basic concepts}
+\begin{frame}
+  \frametitle{Recap of Descriptive Statistics and Distributions}
+  \textbf{Population vs Sample:}
+  \begin{itemize}
+    \item Population: Entire set of elements under study.
+    \item Sample: Subset of population used for analysis.
+  \end{itemize}
+  
+  \textbf{Random Sampling:}
+  \begin{itemize}
+    \item Simple Random Sampling: Each member equally likely to be chosen.
+    \item Stratified Sampling: Dividing population into subgroups.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Recap of Descriptive Statistics and Distributions}
+  \framesubtitle{Descriptive Statistics}
+  \textbf{Measures of Centrality:}
+  \begin{itemize}
+    \item Mean: \[ \mu = \frac{\sum_{i=1}^{n} x_i}{n} \]
+    \item Median: Middle value of ordered data.
+    \item Mode: Most frequent value.
+  \end{itemize}
+  
+  \textbf{Measures of Dispersion:}
+  \begin{itemize}
+    \item Variance: \[ \sigma^2 = \frac{\sum_{i=1}^{n} (x_i - \mu)^2}{n} \]
+    \item Standard Deviation: \[ \sigma = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \mu)^2}{n}} \]
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Recap of Descriptive Statistics and Distributions}
+\framesubtitle{Review of PDF and CDF}
+  
+  \textbf{Probability Density Function (PDF):}
+  \begin{itemize}
+    \item Describes the likelihood of a continuous random variable taking a particular value.
+    \item Denoted by $f(x)$, where $f(x) \geq 0$ for all values of $x$.
+    \item The area under the PDF curve over a range equals the probability of the variable falling within that range.
+  \end{itemize}
+  
+  \textbf{Cumulative Distribution Function (CDF):}
+  \begin{itemize}
+    \item Describes the probability of a random variable being less than or equal to a certain value.
+    \item Denoted by $F(x)$, where $0 \leq F(x) \leq 1$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Recap of Descriptive Statistics and Distributions}
+  \textbf{Exercise 1:}
+  Calculate the mean, median, and standard deviation of the following dataset:
+  \[ X = \{15, 18, 20, 22, 24, 25, 28, 30, 32, 35\} \]
+
+\vspace{0.2cm}
+  \textbf{Exercise 2 (Economic Application):}
+    Suppose the dataseta $X_A$ and $X_B$ represent the monthly sales (in thousands of dollars) of two competing firms, A and B, for the past year:
+
+  \[ X = \{A: 100, 120, 110, 130, 105, 125, 135, 140, 115, 150\} \]
+  \[ X = \{B: 90, 85, 100, 95, 80, 105, 110, 120, 85, 95\} \]
+
+  Calculate the coefficient of variation for each firm's sales to compare their variability.
+
+  \[ \text{Coefficient of Variation} = \frac{\text{Standard Deviation}}{\text{Mean}} \times 100 \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Recap of Descriptive Statistics and Distributions}
+\framesubtitle{Exercise 1 Solution}
+  \begin{itemize}
+    \item Mean ($\bar{x}$):
+    \[ \bar{x} = \frac{15 + 18 + 20 + 22 + 24 + 25 + 28 + 30 + 32 + 35}{10} = 25.9 \]
+    
+    \item Median (Middle value):
+    Since there are 10 values, the median is the average of the 5th and 6th values:
+    \[ \text{Median} = \frac{24 + 25}{2} = 24.5 \]
+    
+    \item Standard Deviation ($\sigma$):
+    First, calculate the squared differences from the mean and their sum:
+    \[ (15 - 25.9)^2 + (18 - 25.9)^2 + \ldots + (35 - 25.9)^2 = 273.2 \]
+    Then divide by the number of values and take the square root: \[\sigma = \sqrt{\frac{273.2}{10}} = 5.23\]
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Recap of Descriptive Statistics and Distributions}
+\framesubtitle{Exercise 2 Solution}
+Let's calculate the coefficient of variation for each firm's sales:
+
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\textbf{Firm A:}
+\begin{itemize}
+  \item Mean ($M_A$): 
+  \[ M_A = 123.5 \]
+  
+  \item Standard Deviation ($\sigma_A$):
+  \[ \sigma_A = 15.28 \]
+  
+  \item Coefficient of Variation (A):
+  \[ \text{CV(A)} = \frac{\sigma_A}{M_A} \times 100 \]
+\end{itemize}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\textbf{Firm B:}
+\begin{itemize}
+  \item Mean ($M_B$):
+  \[ M_B = 93.5 \]
+  
+  \item Standard Deviation ($\sigma_B$):
+  \[ \sigma_B = 11.65 \]
+  
+  \item Coefficient of Variation (B):
+  \[ \text{CV(B)} = \frac{\sigma_B}{M_B} \times 100 \]
+\end{itemize}
+\end{column}
+\end{columns}
+
+The coefficient of variation allows us to compare the variability of the sales of the two firms.
+\end{frame}
+
+\begin{frame}{Review of PDF and CDF}
+\framesubtitle{Exercise 1}
+
+Consider a continuous random variable $X$ with the following PDF:
+
+\[ f(x) = 
+\begin{cases}
+    0.5x & \text{for } 0 \leq x \leq 2 \\
+    0 & \text{otherwise}
+\end{cases}
+\]
+
+Calculate the probability that $X$ takes a value between 1 and 1.5.
+\end{frame}
+
+\begin{frame}{Review of PDF and CDF}
+\framesubtitle{Exercise 1 Solution}
+
+To find the probability that $X$ takes a value between 1 and 1.5, we integrate the PDF over that range:
+
+\[ P(1 \leq X \leq 1.5) = \int_{1}^{1.5} 0.5x \, dx \]
+
+Solving the integral:
+
+\[ P(1 \leq X \leq 1.5) = \left[0.25x^2\right]_{1}^{1.5} = 0.25 \times (1.5^2 - 1^2) = 0.5625 \]
+\end{frame}
+
+\begin{frame}{Review of PDF and CDF}
+\framesubtitle{Exercise 2}
+
+For a certain random variable $Y$, the CDF is given by:
+
+\[ F(y) = 
+\begin{cases}
+    0 & \text{for } y < 0 \\
+    0.2y^2 & \text{for } 0 \leq y < 2 \\
+    1 & \text{for } y \geq 2
+\end{cases}
+\]
+
+Find the probability that $Y$ is greater than 1.
+\end{frame}
+
+\begin{frame}{Review of PDF and CDF}
+\framesubtitle{Exercise 2 Solution}
+
+The probability that $Y$ is greater than 1 is the complement of the probability that $Y$ is less than or equal to 1:
+
+\[ P(Y > 1) = 1 - P(Y \leq 1) = 1 - F(1) \]
+
+Substitute the value of $F(1)$ from the CDF:
+
+\[ P(Y > 1) = 1 - 0.2 \times 1^2 = 1 - 0.2 = 0.8 \]
+\end{frame}
+
+\section{Frequentist vs Bayesian Statistics}
+\begin{frame}
+  \frametitle{Frequentist vs Bayesian Statistics}
+  \begin{itemize}
+    \item Frequentist thinking: Probability as long-term relative frequency. Focuses on data and long-run behavior (i.e., expected behavior).
+    \item Main ideas of frequentist statistics: point estimation and confidence intervals.
+    \item Bayesian thinking: Probability as degree of belief. Incorporates prior information and updates beliefs.
+    \item Main ideas of Bayesian statistics: posterior distribution and credible intervals.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Frequentist vs Bayesian Thinking}
+  \begin{table}
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|c|c|c|}
+      \hline
+      & \textbf{Frequentist Approach} & \textbf{Bayesian Approach} \\
+      \hline
+      \textbf{Pros} & Objective, data-driven & Incorporates prior knowledge \\
+      & Well-established methods & Updates beliefs with new data \\
+      & Consistent in large samples & Flexible for complex models \\
+      \hline
+      \textbf{Cons} & Limited incorporation of prior info & Subjectivity in prior selection \\
+      & Doesn't handle small samples well & Can be computationally intensive \\
+      & No direct measure of belief & Interpretation of priors can vary \\
+      \hline
+    \end{tabular}%
+    }
+    \caption{Comparison of Frequentist and Bayesian Approaches}
+  \end{table}
+\end{frame}
+
+% % Slide 3: Conceptual Introduction to Statistical and Causal Inference
+\section{Conceptual Introduction to Statistical and Causal Inference}
+\begin{frame}
+  \frametitle{Conceptual Introduction to Statistical and Causal Inference}
+  \textbf{Descriptive Inference:}
+  \begin{itemize}
+    \item Summarizing data.
+    \item Example: Calculating the mean income in a city.
+  \end{itemize}
+  
+  \textbf{Predictive Inference:}
+  \begin{itemize}
+    \item Making predictions based on data patterns.
+    \item Example: Forecasting next month's sales.
+  \end{itemize}
+  
+  \textbf{Inferential Inference:}
+  \begin{itemize}
+    \item Drawing conclusions about populations from samples.
+    \item Example: Estimating the average age of all voters from a sample.
+  \end{itemize}
+  
+  \textbf{Causal Inference:}
+  \begin{itemize}
+    \item Establishing cause-and-effect relationships.
+    \item Example: An economist wants to study the impact of education level on individuals' lifetime earnings. This involves identifying the causal relationship between education and earnings while controlling for other factors.
+  \end{itemize}
+\end{frame}
+
+% Slide 4: Challenges of Causal Inference
+\begin{frame}
+  \frametitle{Challenges of Causal Inference}
+  \textbf{Challenges:}
+  \begin{itemize}
+    \item Confounding Variables: Uncontrolled factors affecting the outcome.
+    \item Selection Bias: Non-random assignment to groups.
+    \item Reverse Causation: Confusing cause and effect.
+    \item Ecological Fallacy: Making assumptions about individuals from group data.
+  \end{itemize}
+
+  \textbf{Example:}
+  Studying the impact of a new policy on income inequality while accounting for other economic factors.
+
+  \vspace{0.3cm}
+  \textbf{Counterfactuals:}
+  \begin{itemize}
+    \item Hypothetical scenarios to compare with observed reality.
+    \item Central to causal reasoning.
+  \end{itemize}
+\end{frame}
+
+\section{Economic Applications}
+\begin{frame}
+  \frametitle{Economic Applications}
+  \begin{itemize}
+    \item Bayesian econometric models: Estimating demand elasticity using Bayesian regression.
+    \item Decision theory in economics using Bayesian approach (Asymmetric or Imperfect information games).
+    \item Example: Estimating consumer demand for a new product with Bayesian methods.
+    \item Example: Bayesian analysis of investment decisions considering uncertainty in the market.
+  \end{itemize}
+\end{frame}
+
+\end{document}

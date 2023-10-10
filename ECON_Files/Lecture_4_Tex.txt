@@ -1,0 +1,425 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usepackage{pgf-pie}
+\usepackage{pgfplotstable}
+\usepackage[export]{adjustbox}
+
+\title{ECON 57 - Lecture 4}
+\subtitle{Multivariate Statistics}
+\author{Augusto Gonzalez-Bonorino}
+\institute{Pomona College}
+\date{Fall 2023}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+
+\section{Bidimensional Variables}
+\begin{frame}
+\frametitle{Bidimensional Variables}
+\framesubtitle{Definitions}
+Bidimensional variables are represented as $[x_i, y_j, n(x_i, y_j), p(x_i, y_j)]$, where
+
+\begin{itemize}
+    \item Absolute Joint Frequency ($n(x_i, y_j)$): The count of occurrences of outcome pair $(X_i, Y_j)$. The actual counts in each cell of the joint frequency table.
+    \item Relative Joint Frequency ($p(x_i, y_j)$): Proportion of total outcomes that are $(X_i, Y_j)$. That is, the proportions of the total observations in each cell.
+    \item Conditional Frequency ($p_{X|Y}(x_i|y_j)$ or $p_{Y|X}(y_j|x_i)$): The proportions of observations within a specific category of one variable given a fixed value of the other variable.
+\end{itemize}
+
+\[
+p(x_i, y_j) = \frac{n(x_i, y_j)}{n}, \quad p_{Y_j|X_i} = \frac{n(x_i, y_j)}{n_i}
+\]
+\end{frame}
+
+\section{Bidimensional Distributions}
+\begin{frame}
+\frametitle{Bidimensional Distributions}
+\framesubtitle{Introduction}
+\begin{itemize}
+    \item A bidimensional distribution describes the joint behavior of two variables. It shows the likelihood of various combinations or outcomes of the two variables occurring together. It says nothing about causality!
+    \item It helps us understand how the variables relate to each other. Say we are studying two variables Inflation (X) and Fed Funds Rate (Y)
+    \begin{itemize}
+        \item What is the relationship, if any, between X and Y?
+        \item What is the economic interpretation of this relationship? Does it make sense?
+    \end{itemize}
+    \item Denoted by $f_{X,Y}(x,y)$, where $X$ and $Y$ are the statistical variables.
+\end{itemize}
+\end{frame}
+
+\section{Two-entry Table of Joint Frequencies}
+\begin{frame}
+\frametitle{Introduction}
+When working with data, a two-entry table of joint frequencies provides a way to organize and visualize the relationships between two variables (i.e., one bidimensional variable). Each cell in the table represents the frequency of occurrences for a specific combination of the variables.
+
+% Example of joint frequency table
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+  \hline
+  & Category A & Category B \\
+  \hline
+  Category X & $n_{11}$ & $n_{12}$ \\
+  \hline
+  Category Y & $n_{21}$ & $n_{22}$ \\
+  \hline
+\end{tabular}
+\caption{Joint Frequency Table}
+\end{table}
+
+\end{frame}
+
+\begin{frame}{Two-entry Table of Joint Frequencies}
+\framesubtitle{Absolute Frequency Table}
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline
+            \textbf{Industry (X) $\backslash$ Region (Y)} & \textbf{North} & \textbf{South} & \textbf{East} & \textbf{West} & \textbf{$n_X(x_i)$} \\
+            \hline
+            Agriculture & 120 & 80 & 60 & 90 & 350 \\
+            \hline
+            Manufacturing & 180 & 150 & 200 & 130 & 660 \\
+            \hline
+            Services & 250 & 220 & 180 & 270 & 920 \\
+            \hline
+            Finance & 80 & 60 & 110 & 70 & 320 \\
+            \hline
+            Technology & 130 & 110 & 90 & 120 & 450 \\
+            \hline
+            \textbf{$n_Y(y_j)$} & 760 & 620 & 640 & 680 & \textbf{2700} \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+\textbf{Total Region} = $n_Y(y_j) = \sum_j^h n(x_i, y_j) = n_Y(y_j)$
+
+\textbf{Total Industry} = $n_X(x_i) = \sum_i^k n(x_i, y_j) = n_X(x_i)$. 
+
+\textbf{Sample Size} = $\sum_i^k \sum_j^h n(x_i, y_j) = 2700$
+
+The collection of absolute frequencies is referred to as \textbf{marginal distribution of Y (or X)}. 
+
+\end{frame}
+
+\begin{frame}{Two-entry Table of Joint Frequencies}
+\framesubtitle{Relative Frequency Table}
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline
+            \textbf{Industry $\backslash$ Region} & \textbf{North} & \textbf{South} & \textbf{East} & \textbf{West} & \textbf{$p_X(x_i)$} \\
+            \hline
+            Agriculture & ? & ? & ? & ? & ? \\
+            \hline
+            Manufacturing & ? & ? & ? & ? & ? \\
+            \hline
+            Services & ? & ? & ? & ? & ? \\
+            \hline
+            Finance & ? & ? & ? & ? & ? \\
+            \hline
+            Technology & ? & ? & ? & ? & ? \\
+            \hline
+            \textbf{$p_Y(y_j)$} & ? & ? & ? & ? & ? \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+\textbf{Marginal relative frequency of Industry} = $\sum_i^k p(x_i, y_j) = p_X(x_i)$
+
+\textbf{Marginal relative frequency of Region} = $\sum_j^h p(x_i, y_j) = p_Y(y_j)$
+
+\textbf{Total frequency} = $\sum_i^k \sum_j^h p(x_i, y_j) = 1$. Recall that $p(x_i, y_j) = \frac{n(x_i, y_j)}{n}$
+
+\end{frame}
+
+\begin{frame}{Two-entry Table of Joint Frequencies}
+\framesubtitle{Conditional Frequency Table}
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{X = Finance $\backslash$ Y = East} & \textbf{Frequency} \\
+            \hline
+            Yes & 110 \\
+            \hline
+            No & 530 \\
+            \hline
+            \textbf{Total} & \textbf{640} \\
+            \hline
+        \end{tabular}
+    \end{table}
+    
+    Relative frequency of Finance Activity given East Region:
+    
+    \[
+    P(\text{Finance} | \text{East}) = \frac{\text{Freq of Finance in East}}{\text{Total Freq in East}} = \frac{110}{640} = \frac{0.0407}{0.2363} \approx 0.1719
+    \]
+
+\textbf{Exercise:} Write the conditional frequency table for $X=Technology \mid Y=South$ (i.e., the relative frequency of Technology activity given South region) and $Y=North \mid X=Agriculture$ (i.e., the relative frequency of North region given Agriculture activity).
+\end{frame}
+
+\section{Statistical Independence}
+\begin{frame}
+\frametitle{Statistical Independence}
+\begin{itemize}
+    \item Two random variables $X$ and $Y$ are statistically independent if knowing the outcome of one provides no information about the outcome of the other.
+    \item In other words, X is statistically independent of Y if the conditional distributions of X does not change when Y changes.
+    \item Mathematically: $p(x_i|y_J) = p_X(x_i) \cdot p_Y(y_j), \forall i,j$
+    \item If independent, $p_{Y|X}{x_i|y_j} = p_Y(y)$ and $p_{X|Y}(x_i|y_j)$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Statistical Independence}
+  Two categorical variables are considered statistically independent if the occurrence of one variable does not affect the occurrence of the other. 
+
+  \vspace{0.2cm}
+  \textit{Consider two dice rolls: $X$ represents the outcome of the first roll, and $Y$ represents the outcome of the second roll. Are the outcomes of these rolls independent?}
+
+\vspace{0.2cm}
+  Intuitively, the outcome of the first roll does not affect the outcome of the second roll, and vice versa. Therefore, the variables $X$ and $Y$ are statistically independent. 
+
+  \vspace{0.15cm}
+  Another way to think about it is that after conditioning one of the variables you can still observe any of the elements of the other variable with positive frequency. In contrast, two variables X and Y are said to be statistically dependent if conditioning Y limits the values of X (i.e., the frequency of some value of X is 0).
+\end{frame}
+
+\subsection{Mathematical Explanation}
+\begin{frame}
+  \frametitle{Mathematical Explanation}
+  Mathematically, for independent variables, the joint frequency is the product of the marginal probabilities:
+
+  \[
+  P(X = x_i, Y = y_j) = P(X = x_i) \times P(Y = y_j)
+  \]
+
+  If this equation holds for all possible values of $x_i$ and $y_j$, then $X$ and $Y$ are independent.
+
+  \vspace{0.15cm}
+  \textbf{Example}: In economics, the choice of a consumer to buy a certain product and the weather on a given day are typically considered independent variables. The weather does not influence the consumer's buying decision in this context.
+\end{frame}
+
+\section{Covariance \& Correlation}
+\begin{frame}{Covariance \& Correlation}
+\framesubtitle{Conceptual Explanation}
+The covariance between two variables X and Y is an absolute index of association between X and Y. It measures the directional relationship between two variables (i.e., how the means values of two variables move together). For instance, returns of AAPL and MSFT, Fed Funds Rate and Inflation, or Investment and GDP.
+
+\vspace{0.2cm}
+Correlation normalizes covariance, providing a more interpretable measure. Correlation helps us study and measure the direction and intensity of relationship among variables. It measures co-variation not causation. It does not imply cause and effect relation.
+\end{frame}
+
+\begin{frame}{Covariance \& Correlation}
+\framesubtitle{Covariance}
+Covariance measures the degree of joint variability between two random variables. For two variables $X$ and $Y$ with $n$ data points, the covariance is given by:
+
+\[
+\text{Cov}(X, Y) = \frac{1}{n} \sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})
+\]
+
+where $\bar{X}$ and $\bar{Y}$ are the means of $X$ and $Y$, respectively.
+
+The sign of the covariance indicates the direction of the relationship:
+\begin{itemize}
+\item Positive Covariance: Both variables tend to increase or decrease together.
+\item Negative Covariance: One variable tends to increase when the other decreases and vice versa.
+\item Zero Covariance: There is no linear relationship between the variables.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Covariance \& Correlation}
+\framesubtitle{Correlation}
+Correlation measures the strength and direction of the linear relationship between two variables. It allows us to make statements such as "X is strongly correlated to Y", while the covariance allows us to only make statements about the direction of the relationship.
+
+For two variables $X$ and $Y$ with $n$ data points, the Pearson correlation coefficient is given by:
+
+\[
+\rho = \frac{\text{Cov}(X, Y)}{\sigma_X \sigma_Y}
+\]
+
+where $\sigma_X$ and $\sigma_Y$ are the standard deviations of $X$ and $Y$, respectively.
+
+The value of $r$ ranges from -1 to 1:
+\begin{itemize}
+\item $\rho = 1$: Perfect positive correlation
+\item $\rho = -1$: Perfect negative correlation
+\item $\rho = 0$: No linear correlation
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Correlation}
+\centering
+\includegraphics[scale=0.3]{images/correlation.png}
+\end{frame}
+
+\begin{frame}{Covariance \& Correlation}
+\framesubtitle{Important Properties}
+    \textbf{Covariance:}
+    \begin{itemize}
+        \item Linearity: $\text{cov}(aX, Y) = a \cdot \text{cov}(X, Y)$
+        \item Bilinearity: $\text{cov}(X + W, Y + Z) = \text{cov}(X, Y) + \text{cov}(X, Z) + \text{cov}(W, Y) + \text{cov}(W, Z)$
+        \item Symmetry: $\text{cov}(X, Y) = \text{cov}(Y, X)$
+        \item If $Cov(X, Y) = 0$, then X and Y are statistically independent
+        \item $Cov(X, a) = 0, \forall a \in \mathbb{R}$
+        \item $Var(X \mp Y) = Var(X) + Var(Y) \mp 2 \cdot Cov(X, Y)$
+    \end{itemize}
+    
+    \textbf{Correlation:}
+    \begin{itemize}
+        \item Range: $-1 \leq \rho(X, Y) \leq 1$
+        \item Normalized Covariance: $\rho(X, Y) = \frac{\text{cov}(X, Y)}{\sigma_X \sigma_Y}$
+        \item Independence: $\rho(X, Y) = 0$ if and only if $X$ and $Y$ are independent.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Covariance \& Correlation}
+\framesubtitle{Example}
+
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+Consider the following two-way table representing the data points of two variables $X$ and $Y$:
+
+\vspace{1cm}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+$X$ & $Y$ \\
+\hline
+2 & 5 \\
+4 & 7 \\
+6 & 8 \\
+8 & 12 \\
+10 & 10 \\
+\hline
+\end{tabular}
+\end{center}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+
+\textbf{Step 1: Calculate the means}
+\[
+\bar{X} = 6, \quad \bar{Y} = 8.4
+\]
+
+\textbf{Step 2: Calculate the covariance}
+\[
+\text{Cov}(X, Y) = \frac{1}{5} \sum_{i=1}^{5} (X_i - 6)(Y_i - 8.4)
+\]
+
+\textbf{Step 3: Calculate the correlation}
+\[
+\rho = \frac{\text{Cov}(X, Y)}{\sigma_X \sigma_Y}
+\]
+
+Where $\sigma_X$ and $\sigma_Y$ are the standard deviations of $X$ and $Y$.
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\section{Conceptual Exercises}
+\begin{frame}
+\frametitle{Conceptual Exercises}
+
+\begin{enumerate}
+    \item Explain the difference between covariance and correlation. When is one preferred over the other in an economic analysis?
+    \item Consider two variables: hours of study ($X$) and exam score ($Y$). How might their relationship influence their covariance and correlation?
+    \item Can covariance be negative if the correlation is positive? Why or why not?
+    \item Explain the concept of statistical independence using a real-world example.
+\end{enumerate}
+\end{frame}
+
+\section{Mathematical Exercises}
+\begin{frame}{Mathematical Exercises}
+\textbf{Exercise 1:}
+Given the following data points for variables $X$ and $Y$:
+
+\[
+X = [4, 7, 2, 5, 8]
+\]
+\[
+Y = [10, 12, 6, 9, 15]
+\]
+
+Calculate the covariance between $X$ and $Y$.
+
+\vspace{0.5cm}
+
+\textbf{Exercise 2:}
+For the same data points, compute the Pearson correlation coefficient between $X$ and $Y$.
+
+\end{frame}
+
+\begin{frame}{Mathematical Exercises}
+\framesubtitle{Exercise Solutions}
+\textbf{Solution 1:}
+First, calculate the means of $X$ and $Y$:
+\[
+\bar{X} = \frac{4 + 7 + 2 + 5 + 8}{5} = 5.2
+\]
+\[
+\bar{Y} = \frac{10 + 12 + 6 + 9 + 15}{5} = 10.4
+\]
+
+Then compute the covariance using the formula:
+\[
+\text{Cov}(X, Y) = \frac{1}{5} \sum_{i=1}^{5} (X_i - 5.2)(Y_i - 10.4)
+\]
+This will give you the covariance between $X$ and $Y$.
+
+\end{frame}
+
+\begin{frame}{Mathematical Excercises}
+\framesubtitle{Exercise Solutions}
+    \textbf{Solution 2:}
+    Compute the standard deviations of $X$ and $Y$:
+    \[
+    \sigma_X = \sqrt{\frac{\sum_{i=1}^{5} (X_i - \bar{X})^2}{4}}
+    \]
+    \[
+    \sigma_Y = \sqrt{\frac{\sum_{i=1}^{5} (Y_i - \bar{Y})^2}{4}}
+    \]
+    
+    Then use the formula for the Pearson correlation coefficient:
+    \[
+    \rho = \frac{\text{Cov}(X, Y)}{\sigma_X \sigma_Y}
+    \]
+    This will give you the correlation coefficient between $X$ and $Y$.
+\end{frame}
+
+\section{Economic Applications}
+\begin{frame}
+\frametitle{Economic Applications}
+Bivariate descriptive statistics and frequency tables are widely used in economics to explore relationships between variables and analyze data. Here are some economic applications:
+
+\begin{itemize}
+    \item \textbf{Covariance and Investment Diversification:} Covariance helps investors assess the relationship between the returns of different assets. Diversifying the portfolio with negatively correlated assets can reduce overall risk (because risk is measured as the variability of the assets, high risk = high variance).
+    
+    \item \textbf{Correlation and Economic Indicators:} Correlation analysis can reveal the relationships between economic indicators, such as GDP growth and unemployment rate or Price and Demand for a commodity, helping policymakers make informed decisions.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Economic Applications}
+\framesubtitle{Example}
+Consider a study on the relationship between advertising spending and sales for a company. You collect data over several months and find a positive correlation between the two variables. How can this information be useful for the company's marketing strategy?
+\begin{itemize}
+    \item Correlation suggests a potential linear relationship.
+    \item Company can adjust advertising spending based on desired sales targets.
+    \item However, correlation does not imply causation. Other factors may influence sales.
+\end{itemize}
+\end{frame}
+
+\end{document}
