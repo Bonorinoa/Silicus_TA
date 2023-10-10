@@ -86,9 +86,9 @@ def record_feedback_mongo():
         client.admin.command('ping')
         print("Pinged your deployment. You successfully connected to MongoDB!")
         # database and collection code goes here
-        db = client.Silicus_TA_DB
-        st.sidebar.write(f"Collection names: {db.list_collection_names()}")
-        coll = db.Feedback
+        db = client.Feedback_DB
+        #st.sidebar.write(f"Collection names: {db.list_collection_names()}")
+        coll = db.feedback
         
         
         # insert code goes here
@@ -137,7 +137,7 @@ def run_silicus_ta():
             st.session_state.feedback = feedback
             st.sidebar.success("Thank you for your feedback!")
             #record_feedback()
-            record_feedback_json()
+            #record_feedback_json()
             record_feedback_mongo()
         st.sidebar.write(f"Cumulative time spent: {round(st.session_state.time_spent, 2)} seconds")
             
