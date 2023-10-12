@@ -1,0 +1,197 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\title{Introduction to Probability - Part II}
+\author{Augusto Gonzalez Bonorino}
+\institute{Pomona College}
+\date{Fall 2023}
+
+\begin{document}
+
+% Table of Contents Slide
+\begin{frame}
+  \frametitle{Table of Contents}
+  \tableofcontents
+\end{frame}
+
+% Kolmogorov axioms
+\section{Kolmogorov Axioms}
+\begin{frame}{Interpreting the Theory}
+    \centering
+    \Large “Frequencies, judgements, and math. Three approaches for making sense of randomness.”
+\end{frame}
+
+% Definitions of Probability
+\begin{frame}{Interpretations of Probability}
+    We have discussed two so far:
+    
+    \begin{itemize}
+        \item \textbf{Frequentist (Objective) Probability}: This interpretation is based on the idea of the frequency of occurrence of an event in the long run. Probability is defined as the limit of the relative frequency of an event as the number of trials approaches infinity.
+        % The appeal of this interpretation is that it is data-driven, and the more data we have the more accurate our estimated correlations become. Yet, this strength becomes its own fallacy since it cannot account for events we don't have data for. 
+        \item \textbf{Bayesian (Subjective) Probability}: Bayesian probability is based on personal beliefs or degrees of belief in the likelihood of an event. It accounts for prior information (i.e., experience, judgement, intuition, etc) and updates probabilities using Bayes' theorem as new evidence becomes available.
+        % We will dive deeper into the math behind bayesian stats today and next week.
+    \end{itemize}
+    
+    But, as you will research for homework 3, there are many alternative interpretations or perspectives on what probability is.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Kolmogorov Axioms}
+  This is a mathematical approach to probability developed by Andrey Kolmogorov. It defines probability using a set of axioms that describe the properties of probabilities.
+  \begin{enumerate}
+    \item \textbf{Non-negativity}: $P(A) \geq 0$ for any event $A$.
+    \item \textbf{Normalization}: $P(\Omega) = 1$, where $\Omega$ is the sample space.
+    \item \textbf{Countable additivity}: For disjoint events $A_1, A_2, \ldots$: $P(A_1 \cup A_2 \cup \ldots) = P(A_1) + P(A_2) + \ldots$
+  \end{enumerate}
+\end{frame}
+\begin{frame}{Kolmogorov Axioms}
+\framesubtitle{Relevant theorems}
+    \begin{itemize}
+        \item \textbf{Probability of the Complement}: For any event $A$, $P(\bar{A}) = 1 - P(A)$.
+        \item \textbf{Addition rule}: $P(A \cup B) = P(A)  + P(B)$
+        \item \textbf{Axiomatic Conditionality}: $P(A \cap B) = P(B \mid A)P(A) = P(A \mid B)P(B)$
+        \item \textbf{Inclusion-Exclusion Principle}: For two events $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+
+    \end{itemize}
+\end{frame}
+
+
+
+% Conditional probability
+\section{Conditional Probability}
+\begin{frame}
+  \frametitle{Conditional Probability}
+
+  Conditional probability measures the likelihood of an event occurring given that another event has occurred. “The condition updates your information. Does not determine a new probability but simply updates the sample space.” It can be derived from the axioms:
+  \[
+  P(A|B) = \frac{P(A \cap B)}{P(B)}
+  \]
+  It's a crucial concept in real-world applications like weather forecasting and medical diagnosis.
+
+  \vspace{0.2cm}
+  \href{https://seeing-theory.brown.edu/compound-probability/index.html#section3}{Brown University - Conditional Probability Visualization}
+\end{frame}
+
+\begin{frame}{Believing in Bayes}
+ “Hypothesize H, and want to know the probability P(H|E) that H holds given E happened (new Evidence).” 
+
+\begin{columns}[T] % Align columns at the top
+\column{0.5\textwidth}
+Bayes Theorem is the starting point. 
+
+\begin{enumerate}
+    \item \textbf{Likelihood}: Chances the new evidence E we got is not a false positive.
+    \item \textbf{Prior}: Best guess for the chances of our Hypothesis H being true.
+    \item \textbf{Posterior}: Our updated best guess (belief, prior) for the chances of our Hypothesis H being true.
+\end{enumerate}
+
+\column{0.5\textwidth}
+    \includegraphics[width=\linewidth]{images/bayes_visual.png}
+\end{columns}
+
+\end{frame}
+
+% Total probability theorem
+\subsection{Total Probability Theorem}
+\begin{frame}{Conditional Probability}
+  \framesubtitle{Total Probability Theorem}
+  \begin{columns}[T]
+  \column{0.5\textwidth}
+  The Total Probability Theorem helps compute the probability of an event $A$ by considering all possible ways it can occur via mutually exclusive events $B_i \cap B_j = \emptyset, i \neq j$:
+  \[
+    P(A) = \sum_i P(A|B_i) \cdot P(B_i)
+  \]
+  This theorem connects marginal and conditional probabilities.
+
+  \column{0.45\textwidth}
+  \includegraphics[width=\linewidth]{images/total_prob_tree.png}
+  \end{columns}
+  
+\end{frame}
+
+\begin{frame}{Conditional Probability}
+\framesubtitle{Generalized Bayes Theorem}
+Bayesian probability involves updating beliefs as new information is gained. The $\textit{prior}$, $\textit{likelihood}$, and $\textit{posterior}$ together form the foundation:
+  \[
+  P(\theta|X) = \frac{P(X|\theta) \cdot P(\theta)}{P(X)}
+  \]
+This approach is widely used in machine learning and decision-making processes. We can generalize this with the total probability theorem
+    \[
+      P(\theta|X) = \frac{P(X|\theta) \cdot P(A)}{\sum_i P(X|\theta_i) \cdot P(\theta_i)}
+    \]
+
+\begin{itemize}
+    \item \href{https://seeing-theory.brown.edu/bayesian-inference/index.html#section1}{Brown University - Bayes Theorem}
+    \item \href{https://www.youtube.com/watch?v=HZGCoVF3YvM}{Cool video on Bayes Theorem}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Conditional Probability}
+\framesubtitle{Example exercises}
+\begin{itemize}
+    \item \textbf{Exercise 1: (Monty Hall):} Three doors. Behind one is a car, behind the other two are goats. Once a door is chosen, the host, who knows where the car is, opens another door, which has a goat. Do you change your choice of door or stick with your original decision?
+
+    \item \textbf{Exercise 2: (Defective Lightbulbs):} A factory produces light bulbs. 2\% of the bulbs are defective. A quality control test correctly identifies a defective bulb 90\% of the time and falsely identifies a non-defective bulb as defective 5\% of the time. If a bulb is randomly chosen and fails the test, what is the probability that it is actually defective?
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bayesian Statistics/Probability Exercises}
+  Practice Bayesian probability with the following exercises:
+  \begin{enumerate}
+    \item A factory produces light bulbs. 2\% of the bulbs are defective. A quality control test correctly identifies a defective bulb 90\% of the time and falsely identifies a non-defective bulb as defective 5\% of the time. If a bulb is randomly chosen and fails the test, what is the probability that it is actually defective?
+    \item You are trying to predict the weather for a picnic. Based on historical data, the probability of rain is 30\%. The accuracy of your weather app's rain prediction is 80\%, and its accuracy for predicting no rain is 85\%. If the app predicts rain, what is the probability that it will actually rain?
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bayesian Statistics/Probability Exercises - Solutions}
+  \begin{enumerate}
+    \setcounter{enumi}{1}
+    \item Factory Defective Bulbs:
+
+    Given:
+    Defective Rate: 2\%
+    True Positive Rate: 90\%
+    False Positive Rate: 5\%
+
+    We want to find: $P(\text{Defective|Fails Test})$
+
+    Using Bayes' theorem:
+    \begin{align*}
+    &P(\text{Defective|Fails Test}) = \frac{P(\text{Fails Test|Defective}) \cdot P(\text{Defective})}{P(\text{Fails Test})} \\
+    &P(\text{Fails Test|Defective}) = 0.9 \\
+    &P(\text{Defective}) = 0.02 \\
+    &P(\text{Fails Test}) = P(\text{Fails Test|Defective}) \cdot P(\text{Defective}) + \\
+    &P(\text{Fails Test|Non-defective}) \cdot P(\text{Non-defective})
+    \end{align*}
+
+    Calculating the values, we find $P(\text{Defective|Fails Test})$.
+  \end{enumerate}
+\end{frame}
+
+% Economic applications
+\section{Economic Applications}
+\begin{frame}{Economic Applications}
+  Probability theory is fundamental in economics:
+  \begin{itemize}
+    \item Pricing options using the Black-Scholes model involves probabilistic assumptions.
+    \item In consumer behavior analysis, probabilities model how likely different consumers are to purchase a product.
+    \item Risk assessment in insurance relies on probability calculations for claims and payouts.
+    \item Economic policy decisions often involve assessing the likelihood of different outcomes, such as the impact of interest rate changes on unemployment rates.
+    \item Financial markets use probability theory to predict stock price movements and manage investment portfolios.
+  \end{itemize}
+\end{frame}
+
+% Conclusion
+\section{Conclusion}
+\begin{frame}
+  \frametitle{Conclusion}
+  Probability theory is a powerful tool in various fields. Its principles, axioms, and theorems underpin many decision-making processes, from games to economics. By mastering these concepts, you'll gain a deeper understanding of uncertainty and how to quantify it.
+\end{frame}
+
+\end{document}

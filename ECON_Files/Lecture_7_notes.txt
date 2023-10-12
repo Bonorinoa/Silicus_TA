@@ -1,0 +1,89 @@
+Lecture 7 notes
+10/11/2023
+Augusto Gonzalez Bonorino
+Interpreting the Theory
+The frequentist approach deals with long-run probabilities (this is why the sample size is important, we can’t be sure of anything if we only have a couple of observations), whereas the Bayesian approach deals with the probability of a hypothesis given a particular data set. So we have data vs hypothesis.
+
+Frequentist/Classical thinking: “There are probabilities assigned to events in the Universe. This means there is a hypothesis, the null hypothesis, that is always assumed to be true by default. By counting the occurrences of the subset of interest within the Universe of events we compute their respective probabilities.” - Note there is no new information, no updates per se. When frequentists condition they think of limiting the Universe, of reducing the size of the sample space.
+
+Bayesian thinking: “The probabilities are assigned to hypotheses, not events. The key distinction is that we don’t know the probability of our hypothesis so we make a guess based on what we know. Bayesian statistics is all about studying how to make the best possible guess and what implications our guess has” - When bayesians condition they think of updating what I know about the Universe, of adding information to my knowledge base. 
+
+Kolmogorov Axioms
+
+A function P denotes a probability function if:
+
+0 <= P(A) <= 1; “something will happen”
+P(S) = 1; “S happens for certain”
+P(A ∪ B)= P(A)+P(B); “Addition Rule”
+P(A ∩ B)= P(B|A)P(A)= P(A|B)P(A); “Dependent”
+Where A is a random event, and S is the Universe.
+P(A ∩ B)= P(A)*P(B); “Multiplication Rule”
+
+CONDITIONAL PROBABILITY
+
+Two ways to think about the sample space update. Recall our previous encounters with conditional operations. We first used them in R (in the form of boolean operations) to index vectors or objects with multiple elements, then in descriptive statistics by slicing tables. These operations are basically creating a subset of the universal set. 
+
+For Brown viz example (A \cap B)’ = A’ \cup B’
+
+This dimensionality reduction after given information reflects the Bayesian idea that we are “updating our beliefs of the world based on incoming information”. In other words, information reduces uncertainty (note that the denominator can never be 0). Information is context-dependent - this context dependency is encoded by the conditional probability. In statistics, as we have discussed, information means correlations. Machines are really good at finding these, like really good. They’ll find them in anything. Their existence doesn’t imply they are useful, but there might exist a context in which a subset of those correlations are indeed useful (which is why Big Data became a whole thing in the last two decades. Now we have more data than we know what to do about. And guess what, the answer seems to be more computers). Humans are much worse at scaling pattern recognition, but by mimicking our decision process we can automate computer decision-processes to “teach” machines how to “think”. The bayes theorem gives us a powerful tool to model these processes.
+
+BAYES
+ 
+This theorem was published after Thomas Bayes’ death. He, allegedly, never imagined his formula was so important because it seemed “too intuitive”. The scratch work and theorem was found by a colleague of him after he died because someone was curious to see if there was anything interesting to publish in his personal notes. What a surprise… Hopefully you will agree on how intuitive it is after this short explanation.
+
+Bayes theorem is super useful when we have hypotheses, ideas, and are missing information. Let’s work through an example,
+
+Say we believe that the stock price of Patagonia will go up. Then, we observe or receive some new evidence say some inside information that the CEO was going to make some risky moves
+Now, we wonder how that may affect the stock’s price. In other words, we want to know the probability of our hypothesis still being true given this new information. So we begin by thinking about the probability of the stock going up now, just leaving the new information on the side for a little bit. After some research and descriptive statistics we conclude that the probability today is 15%. Cool, we have our starting point. That is, we have our PRIOR. Next, we can use this prior to derive the probability that the new information is true (maybe they are trying to trick you to sell or something?). Basically, go to a new universe where our hypothesis happened and check the chances the information is true there. Say we find it is 40%, hence the LIKELIHOOD equalS 40%. Pretty good source of information then, it seems legit. So, to get the probability of these two events happening together multiply by our prior to get 0.4 x 0.15 = 0.06. Finally, to avoid double counting or including redundant information we divide this number by the probability that the information is true. 
+
+Believing in bayes
+
+“What if you don’t know the joint probability or are missing some information? Focus on updating your belief.”
+
+> Total probability theorem: Illustrate the intersection operation with the tree. 
+
+Note it is analogous to Bayes Theorem with no partitions. Also, note that Bayes presents a completely different way of thinking about probability, and thus about uncertainty in general. In fact, it is so different that people developed its own school of thought called Bayesian Statistics or Probability. Let’s briefly review the two schools of thought:
+
+
+Monty Hall problem: The contestant is given a choice of three doors. Behind one is a car, behind the other two are goats. Once a door is chosen, the host, who knows where the car is, opens another door, which has a goat, and asks the contestant if they wish to keep their choice or change to the other unopened door.
+Intuition for the problem says that there is a 1 in 3 or 33% chance of picking the car initially, and this becomes 1/2 or 50% once the host opens a door to reveal a goat
+
+
+Door 1 | Door 2 | Door 3 | Stay | Switch
+Goat     Goat     Car      Goat   Car
+Goat     Car      Goat     Goat   Car
+Car      Goat     Goat     Car    Goat
+\\
+
+
+    2. (Defective lightbulb)
+
+D  as the event that a bulb is defective,
+F as the event that a bulb fails the test.
+
+What we know from the problem:
+
+P(D)  = 0.02,   (probability that a bulb is defective),
+P(F|D) = 0.9,   (probability that a bulb fails given that it is defective),
+P(F|~D) = 0.05, (probability that a bulb fails given that it is not defective).
+
+We want to learn P(D|F) = [ P(F|D) * P(D) ] / P(F) 
+
+The event D can be either true or false; hence, the sum P(D) + P(~D) = 1, where ~D represents the event that a bulb is not defective. Therefore, P(~D) = 1 - P(D) = 1 - 0.02 = 0.98. 
+
+The law of Total Probability states that the probability that a bulb fails the test, P(F), is the sum of the probability that it fails and is defective and the probability that it fails and is not defective:
+
+P(F) = P(F and D) + P(F and ~D)
+     = P(F|D) * P(D) + P(F|~D) * P(~D)
+     = 0.9 * 0.02 + 0.05 * 0.98 
+     = 0.018 + 0.049 
+     = 0.067.
+
+We want to find the probability that a bulb is defective given that it fails the test, P(D|F), and we use Bayes' theorem to find it: 
+
+P(D|F) = [ P(F|D) * P(D) ] / P(F) 
+       = [ 0.9 * 0.02 ] / 0.067 
+       = 0.267 approximately.
+
+So, the probability that a bulb is actually defective given that it failed the test is approximately 0.267, or 26.7%.
+
