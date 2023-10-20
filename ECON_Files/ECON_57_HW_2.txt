@@ -1,0 +1,49 @@
+ECON 57: Economic Statistics - Homework 2
+Augusto Gonzalez Bonorino
+September 21, 2023
+Week 3: Statistical Thinking
+Instructions: This assignment includes a series of questions based on the content covered during Weeks 3 and 4. For mathematical questions, show your work and calculations. For conceptual questions, provide clear and concise explanations. Deadline for submission is at the end of Week 5.
+Exercise 1
+Explain the concept of statistical thinking in your own words. Provide an example to illustrate its importance in data analysis and economic policy advice.
+Exercise 2
+Research 2 behavioral biases documented by the behavioral economics literature. Define and then illustrate each with an example.
+Exercise 3
+Given the following discrete density function for a variable X:
+	2	if x = 1
+	4	if x = 2
+?
+	p(x) =	0.3	if x = 3
+	1	if x = 4
+	0	otherwise
+a. What is the relative frequency that X is greater than or equal to 2? Define the frequency function and use that mathematical notation to write the answer. Hint: Remember how we interpret "or" in mathematics.
+b. What is the cumulative frequency for values of x less than 3? Define the cumulative frequency function and use that mathematical notation to write the answer.
+c. Explain the following in your own words. First, what data type is the variable X? What are the properties that make it that particular data type? Second, write down the mathematical properties relevant to the frequency/density function of this variable.
+Exercise 4
+YearGDP (in billions)Investment (in billions)Consumption (in billions)201518.53.014.5201619.24.315.0201719.93.815.5201820.64.516.0201921.35.016.3a. Using the sample dataset, what visualization techniques would be most appropriate to study this dataset? What kind of information can you infer by inspecting this data visually? (if you want extra R practice try writing this exact data frame into R, then try out different visualizations, and finally compute the summary statistics. Feel free to share your graphs if you create some but I won't grade you on anything related to R.
+b. What was the average GDP (in billions) between 2016 and 2018 included? What was the average consumption level in our sample? Was there a lot of variability in the amount of money invested over the first three years of data? Write your answers using mathematical notation and then interpret the results to respond to each question. (You can leverage the notation covered in class to avoid laying down the whole computation and use R as your calculator. So you could write, but make sure you clearly define what n and x are.)
+Exercise 5
+Suppose we have data for a fictional economy for the past five years. We'll categorize inflation rate and interest rates into three ranges each:
+Inflation Rate Categories:
+• Low (0% to 2%)
+• Moderate (2% to 5%)
+• High (5% to 8%)
+Interest Rate Categories:
+• Low (0% to 3%)
+• Moderate (3% to 6%)
+• High (6% to 9%)
+2*Interest RateLowModerateHigh3*Inflation RateLow210Moderate141High023Total374a. Calculate the marginal frequencies for both Inflation Rate and Interest Rate categories. Then, recreate this table but populate it with the relative frequencies (as percentages) instead of the absolute frequencies like the original. Are any of these categories statistically independent? Hint: Remember the mathematical definition of statistical independence fX,Y (x,y) = fX(x)· fY (y).
+b. What combination of inflation and interest rate categories seem to be more frequent? That is, what is the mode of this bi-dimensional distribution?
+c. What is the conditional frequency of observing Moderate inflation rate and High interest rate? And of observing Low inflation rate and Low interest rate?
+Exercise 6
+Calculate the covariance and correlation coefficient for the following two variables:
+• X: 10, 15, 20, 25, 30
+• Y: 5, 8, 12, 15, 18
+Interpret your numerical results. Do they move in the same or opposite direction? Is their relationship strong? Show your work.
+--
+   Note: Be sure to cite any references you use to answer the questions. If you use chatGPT, please indicate where and how. (answers to this will not affect your grade. It's mainly for my curiosity to see what do students find these models helpful for)
+1
+
+1
+
+1
+

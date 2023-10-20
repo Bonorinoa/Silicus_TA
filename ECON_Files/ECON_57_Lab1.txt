@@ -1,0 +1,77 @@
+        ECON 57: Economic Statistics - R Programming
+                          Lab 1
+                              Augusto Gonzalez Bonorino
+                                   September 14, 2023
+
+
+           The labs in ECON 57: Economic Statistics are designed to solidify your
+       comprehension of course concepts while fostering problem-solving skills. By en-
+       gaging in hands-on coding exercises, you’ll reinforce your understanding of vari-
+       ables, data types, conditionals, and more. As exercises progressively increase
+       in complexity, you’ll develop the analytical mindset required for addressing in-
+       tricate economic questions. These labs also encourage independent learning by
+       introducing concepts not yet covered in class. Utilizing external resources like
+       Google, Stack Overflow, or ChatGPT mirrors real-world problem-solving sce-
+       narios, empowering you to effectively apply your existing knowledge. Embrace
+       these challenges as opportunities to grow, both in coding prowess and in your
+       grasp of the dynamic relationship between statistics and economics.
+           All of these exercises can be solved with chatGPT. I encourage you to take
+       the hard route and first give them a genuine try yourself, utilizing chatGPT as
+       an assistant to help you brainstorm, fix bugs or test ideas instead of having it
+       do all the work for you.
+
+
+
+          Submission guidelines: All of your work should be done in an R notebook.
+       Create an R notebook in Rstudio and name it with the following format ”first-
+       Name LastName Lab1.rmd”. Write your solutions in separate code cells and
+       use markdown to format the notebook. This lab is due Friday September
+       22 at 11:59pm.
+
+
+
+
+Exercise 1: Define and provide an example for each of the following R data types:
+            integer, float, string, boolean, vector, factor. How might these data types
+            be used to represent economic data?
+Exercise 2: Create a boolean variable isStudent and set it to TRUE. Use an if-else
+            statement to print ”You are a student” if isStudent is true, otherwise
+            print ”You are not a student.”
+
+
+
+                                              1
+Exercise 3: Create a vector testScores with 9 sample test scores from 0 to 100 (e.g.,
+            85, 92, 78, 60). Calculate the mean, median, standard deviation, and vari-
+            ance using the built-in R functions and manually by following the equa-
+            tions. Hint: A summation con be implemented with loops. Remember to
+            have an anchor variable to store your value as the loop progresses.
+
+Exercise 4: Create a matrix sales representing sales data for three products over four
+            quarters. Populate it with sample sales figures. Calculate and print the
+            total sales for each product and quarter.
+Exercise 5: Write a function that takes in a vector of incomes and prints out the
+            income along with the income group they belong to (low-income less than
+            20000, middle-income greater than 20000 but less than 75000, and high-
+            income if greater than 75000). Test you function with the following vector
+            c(12000, 10000, 45222, 4500, 120000, 60000, 87000). Hint: You will need
+            to implement your knowledge of conditionals and the paste() function to
+            combine strings with variables. A sample output may look like ”12000 -
+            low income, 10000 - low income, 45222 - middle income, ...”.
+
+Exercise 6: Create a bar chart to visualize the distribution of categorical data repre-
+            senting the preferred mode of transportation among students. For this,
+            set on 3 methods of transportation and collect data by interviewing at
+            least 10 of your friends or classmates.
+
+Exercise 7: Write a function that calculates the factorial of a given positive integer.
+            Test the function with different values and save each distinct result in a
+            vector. Plot a scatterplot where the y-axis represents the output of your
+            function (stored in the vector you just created) and the x-axis the input.
+Exercise 8: Create a loop to print the first 10 even numbers.
+
+
+
+
+                                              2
+

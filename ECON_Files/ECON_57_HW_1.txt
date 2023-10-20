@@ -1,0 +1,17 @@
+ECON 57: Economic Statistics - Homework 1
+Augusto Gonzalez Bonorino
+September 8, 2023
+   Instructions: This assignment includes a series of questions based on the content covered during Weeks 1 and 2. Be sure to show all your works in the mathematical exercises. Deadline for submission is at the end of Week 3.
+1. Describe the difference between a population and a sample in statistics.Provide examples.
+2. What is a parameter? What is a statistic? Provide examples where theseconcepts are found in economic studies.
+3. Consider the following list of ages: 19, 20, 21, 22, 19, 22, 19, 22, 22. Compute the mean, median, mode, range, variance, and standard deviation.
+4. Research the equation of skewness and implement it to compute the coefficient of skewness of the ages dataset provided in the previous exercise.
+5. For a dataset with positive skewness, explain how the mean, median, andmode relate to each other. Use an economic example to illustrate this relationship.
+6. Consider the following frequency distribution of the ages of 30 employeesin a company.
+AgeNumber of Employees20 - 25725 - 301030 - 35535 - 40540 - 453Compute the average age, variance, and the mode age. (optional: what do you think the median of this dataset is? You can assume the ages are uniformly distributed within each interval).
+• Compute the relative frequencies for each age range in this table.
+1
+• Compute the Cumulative Relative Frequency. Cumulative relative frequency is the accumulation of the previous relative frequencies. It represents the running total of frequencies (or counts) of observations or data points up to a certain value or category in a dataset. This concept is particularly useful when you want to understand how data is distributed across various intervals or categories.
+7. Frequency distributions/tables are categorized into two types: discreteand continuous. Think of an example from your daily life that represent each type (e.g., an example for discrete could be the number of classes your roommates are enrolled in this semester). Then, take measurements (i.e., collect data) of that example and construct both frequency tables. Analyze and interpret your data using descriptive statistics. This should be more of a paragraph format. Describe what is the context, what is your variable of study (i.e., what question are you trying to answer with this data/analysis), and what is the conclusion. Use the mathematical results as evidence to support your arguments. Start developing a systematic approach to producing statistical analyses.
+   Note: Be sure to cite any references you use to answer the questions. If you use chatGPT, please indicate where and how. (answers to this will not affect your grade. It's mainly for my curiosity to see what do students find these models helpful for)
+2

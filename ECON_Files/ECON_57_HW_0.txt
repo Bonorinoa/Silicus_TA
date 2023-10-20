@@ -1,0 +1,28 @@
+ECON 57: Economic Statistics - Assignment 1
+Assignment Description
+Welcome to ECON 57: Economic Statistics! In this course, we embark on a journey through the fascinating history of statistics, tracing its evolution from its early roots to its modern applications. This assignment offers you the opportunity to delve into the historical milestones, influential figures, and pivotal events that have shaped the field of statistics as we know it today. I hope you take this as an opportunity to dive deeper into statistics, beyond mere computations and mathematical equations. Understanding how to think about statistics will prove very useful for grasping the contents covered in this course as well as for technical interviews, decision-making, or your overall career in Economics. The essay is due on Friday September 9 at 11:59pm.
+Task
+Write a well-structured and engaging essay of 500 to 750 words on the general history of statistics. You have the flexibility to focus on the overall trajectory of statistical development or explore a specific event or period that piqued your interest from the material covered in class. Your essay should demonstrate a clear understanding of the major figures, concepts, and advancements that have contributed to the evolution of statistics.
+Begin your essay with a captivating introduction that sets the stage for your exploration of the history of statistics. Provide context for the importance of statistics in various fields, including its relevance to economics. Then dive into your chosen topic. To conclude, sum up the main points of your essay, emphasizing the importance of understanding the historical evolution of statistics in a rapidly changing world. Reflect on how the lessons from history can guide us in ethical and effective statistical practices. Feel free to challenge this view if you have contradictory ideas, some may argue that looking back in history does not provide any practical insights.
+Topic ideas
+Here are some topic ideas to help you brainstorm. Feel free to choose one of these intriguing topics as a launching pad for your essay. Remember, this is your opportunity to showcase your insights, critical thinking, and passion for statistics.
+Historical Milestones and Figures
+Discuss key historical milestones and the individuals who played instrumental roles in shaping statistical theory and practice. You may choose to highlight the contributions of Francis Galton, Ronald A. Fisher, Karl Pearson, Sewall Wright, and others mentioned in class. Explain their significant ideas and how they impacted the field.
+Eugenics: Statistical Insights and Ethical Dilemmas
+Explore the complex connection between early statistical work and the eugenics movement. Discuss the implications of applying statistical methods to subjects like heredity and social engineering, and reflect on the ethical questions raised by these endeavors.
+Advancements that Shaped Modern Statistics
+Trace the evolution of statistics through advancements such as the development of path diagrams by Sewall Wright. Highlight the shift from manual calculations to the utilization of computers for statistical analysis, and mention the influence of modern statistical programming languages.
+The Bayesian Neural Network Revolution
+Discuss the contemporary impact of Judea Pearl's Bayesian neural networks on the field of statistics and Artificial Intelligence (AI). Explain how this development has contributed to a deeper understanding of complex relationships and causal inference.
+Personal Insights or Event Exploration
+If you find a specific event or period particularly intriguing, feel free to use this essay as an excuse to explore that curiosity. This could include a deeper dive into a certain figure's work, the application of statistics in a specific historical context, or an exploration of how statistical methods have revolutionized decision-making processes.
+Formatting and Submission
+? Write your essay in a clear, concise, and organized manner.
+? Ensure proper citation and references for any external sources used.
+? Use APA or MLA formatting guidelines for citations and references. Grading Criteria
+Your essay will be evaluated based on the following criteria:
+? Content: Accuracy of historical facts and appropriate use of references/citations.
+? Clarity and Organization: Clear structure, coherent flow of ideas, effective transitions between sections.
+? Critical Analysis: Thoughtful reflection on ethical considerations, thoughtful exploration of chosen topic/event. Are your ideas clearly original or could chatGPT write them? As we delve into the AI era, critical thinking and writing will become very powerful tools.
+? Writing Quality: Proper grammar, spelling, punctuation, and adherence to formatting guidelines.
+Important Note: Plagiarism will not be tolerated and will result in severe academic consequences. Ensure that all sources are properly cited and credited. If you use chatGPT, please disclaim which parts were generated by AI and explain how it was used for this assignment (brainstorming, editing, writing, etc). If you have any questions or need further clarification, feel free to reach out to the instructor or teaching assistant.
