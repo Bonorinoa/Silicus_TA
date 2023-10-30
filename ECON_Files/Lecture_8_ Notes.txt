@@ -1,0 +1,81 @@
+Lecture 8 Notes
+Slide 3: Probabilistic Thinking
+Definition: Probabilistic thinking involves understanding and quantifying uncertainty.
+Discuss how uncertainty is inherent in our daily lives.
+Explain that probability provides a framework to analyze and make decisions amidst this uncertainty.
+Examples:
+Weather Forecasting: Predicting if it will rain tomorrow.
+Stock Market Predictions: Estimating the future value of a stock.
+
+Slide 4: Random Variables
+Definition: A random variable represents outcomes from a random process.
+Types:
+Discrete: Takes on distinct, countable values. Example: Number of heads in 10 coin flips.
+Continuous: Can take any value within a given range. Example: The height of an individual.
+Discuss the notation: X for the random variable and P(X=x) for its probability distribution.
+Concept: "Imagine a process where the outcome isn't certain, like rolling a die. A random variable assigns numerical values to these uncertain outcomes."
+Usage: "In research, random variables help translate uncertain phenomena into measurable data."
+
+Slide 5: Probability Density Function (PDF)
+Discrete Random Variables: Introduce the Probability Mass Function (PMF) which gives the probability for each discrete value.
+Continuous Random Variables: Introduce the Probability Density Function (PDF) which gives the likelihood for a range of values.
+Discuss the integral notation and what it signifies.
+Examples:
+Discrete: Probability distribution of a fair six-sided die.
+Continuous: Distribution of heights in a given population.
+PMF vs. PDF: "While PMF is for distinct outcomes (like dice rolls), PDF handles continuous outcomes (like measuring height)."
+Integral in PDF: "The integral captures the 'area' under the curve, indicating the likelihood of a range of outcomes."
+
+Slide 6: Cumulative Density Function (CDF)
+Definition: CDF provides the probability of a random variable being less than or equal to a particular value.
+Discuss the difference in calculation for discrete and continuous random variables.
+Emphasize that CDF is always between 0 and 1 and is non-decreasing.
+Examples:
+Discrete: Probability of getting 2 or fewer heads in 5 coin flips.
+Continuous: Probability of an individual's height being less than 6 feet.
+Understanding CDF: "CDF accumulates probabilities. It tells us the likelihood that a random variable is below a certain value."
+Applications: "CDFs are crucial in areas like quality control, where we might ask: 'What's the probability a manufactured part is below a certain size?'"
+
+Slide 7: Expected Value
+Definition: Expected value represents the "average" or "mean" value of a random variable.
+Discuss the calculation for both discrete and continuous random variables.
+Mention the properties: Linearity, constant factor, and independence.
+Examples:
+Discrete: Expected value of rolling a loaded die.
+Continuous: Expected return from a business investment.
+Insight: "Expected value is a weighted average. It's the center of gravity of our distribution."
+Real-world Implication: "In investing, the expected return guides choices. It's the average return we anticipate over multiple scenarios."
+
+Slide 8: Moments
+Definition: Moments describe the shape and characteristics of a distribution.
+Discuss the different moments: Mean (1st moment), Variance (2nd moment), Skewness, and Kurtosis.
+Examples: Variance and skewness of returns on an investment portfolio.
+Beyond the Mean: "Moments go beyond averages. They describe shape, spread, asymmetry, and tail behavior of distributions."
+Relevance: "For traders, understanding the skewness or kurtosis can give insights into potential risks of financial assets."
+
+Slide 9: Expectation and Variance (Discrete RV)
+Go into more depth about the expectation and variance for discrete random variables.
+Discuss the importance and applications of discrete random variables in real-world scenarios.
+Deep Dive: "Let's dissect the mathematical backbone of discrete random variables, commonly used in countable outcomes scenarios."
+Implications: "Understanding variance, the second moment, is crucial in finance to gauge investment risk."
+
+Slide 10: Expectation and Variance (Continuous RV)
+Dive deeper into the expectation and variance for continuous random variables.
+Emphasize the widespread applications of continuous random variables in various fields.
+
+Slide 11: Economic Applications
+Discuss how probability is crucial in economics.
+Highlight some of the areas where probability plays a role:
+Investment decisions
+Pricing strategies
+Risk management
+Economic policy analyses
+Continuous Outcomes: "Here, outcomes aren't distinct but span a range. Think of measuring time or temperature."
+Significance: "Continuous variables often model natural phenomena, making them pivotal in fields like economics, physics, and engineering."
+
+Slide 12: Economic Applications: Examples
+Investment Portfolio Diversification: Discuss the concept of diversifying investments to manage risks and how probability helps in this decision-making.
+Product Demand Forecasting: Explain how businesses predict demand for products to make informed production decisions.
+Option Pricing in Finance: Delve into the world of financial derivatives and how probability aids in pricing options.
+Economic Policy Analysis: Discuss how economists use probability to understand the potential effects of various economic policies.
+

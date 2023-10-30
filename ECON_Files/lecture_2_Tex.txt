@@ -1,0 +1,265 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{movie15}
+\usepackage{amsmath, amssymb}
+\usetheme{Madrid}
+
+\title{Lecture 9: ECON 57 - Economic Statistics}
+\author{Augusto Gonzalez-Bonorino}
+\date{\today}
+
+\title{ECON 57 - Lecture 3}
+\subtitle{Statistical Thinking \& Densities}
+\author{Augusto Gonzalez-Bonorino}
+\institute{Pomona College}
+\date{Fall 2023}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Table of Contents}
+\tableofcontents
+\end{frame}
+
+\section{Brief Recap}
+\begin{frame}{Brief Recap: Random Variables, PMF/PDF, and CDF}
+\begin{itemize}
+\item \textbf{Random Variables (RV)}: 
+  \begin{itemize}
+  \item Discrete RV, \( X \): \( P(X = x_i) = p_i \)
+  \item Continuous RV, \( X \): \( f(x) \) such that \( \int_{-\infty}^{\infty} f(x) \, dx = 1 \)
+  \end{itemize}
+\item \textbf{PMF (Probability Mass Function)}: 
+  \[ P(X = x_i) = p_i \]
+\item \textbf{PDF (Probability Density Function)}: 
+  \[ \int_a^b f(x) \, dx = P(a \leq X \leq b) \]
+\item \textbf{CDF (Cumulative Distribution Function)}: 
+  \[ F(x) = P(X \leq x) \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}{PMF/PDF/CDF Cheatsheet}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth]{images/pmf-pdf-cdf.png}
+        \caption{cheatsheet}
+        \label{fig:enter-label}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Brief Recap: Expected Value and Variance}
+\begin{itemize}
+\item \textbf{Expected Value (Mean)}: 
+  \[ E(X) = \begin{cases} 
+  \sum_i x_i p_i & \text{for discrete RV} \\
+  \int_{-\infty}^{\infty} x f(x) \, dx & \text{for continuous RV}
+  \end{cases} \]
+\item \textbf{Variance}: 
+  \[ \text{Var}(X) = E\left[(X - E(X))^2\right] \]
+\item \textbf{Standard Deviation}: 
+  \[ \sigma_X = \sqrt{\text{Var}(X)} \]
+\end{itemize}
+\end{frame}
+
+\section{Notable Probability Distributions}
+\begin{frame}{Notable Probability Distributions: Binomial Distribution}
+\begin{itemize}
+\item \textbf{Definition}: Number of successes in \( n \) Bernoulli trials.
+\item \textbf{PMF}: 
+  \[ P(X=k) = \binom{n}{k} p^k (1-p)^{n-k} \]
+\item \textbf{Parameters}: \( n \) trials, success probability \( p \)
+\item \textbf{Economic/Poker Example}: Probability of getting exactly 5 heads in 10 coin flips.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exercise: Binomial Distribution}
+\textbf{Question}: In a poker game, what is the probability of getting exactly 3 aces in a 5-card hand?
+
+\textbf{Solution}:
+Given: \( n = 5 \) (5-card hand), \( p = \frac{4}{52} \) (probability of drawing an ace)
+
+Using the binomial formula:
+\[ P(X=3) = \binom{5}{3} \left(\frac{4}{52}\right)^3 \left(1-\frac{4}{52}\right)^2 \]
+
+Compute the above to get the answer.
+\end{frame}
+
+\begin{frame}{Notable Probability Distributions: Poisson Distribution}
+\begin{itemize}
+\item \textbf{Definition}: Number of events in a fixed interval of time or space.
+\item \textbf{PMF}: 
+  \[ P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!} \]
+\item \textbf{Parameter}: Rate \( \lambda \)
+\item \textbf{Economic/Data Science Example}: Number of sales of a product in a day.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exercise: Poisson Distribution}
+\textbf{Question}: If a website gets an average of 10 visitors per hour, what's the probability of getting exactly 7 visitors in the next hour?
+
+\textbf{Solution}:
+Given: \( \lambda = 10 \) (average rate)
+
+Using the Poisson formula:
+\[ P(X=7) = \frac{10^7 e^{-10}}{7!} \]
+
+Compute the above to get the answer.
+\end{frame}
+
+\begin{frame}{Notable Probability Distributions: Bernoulli Distribution}
+\begin{itemize}
+\item \textbf{Definition}: A single trial with success probability \( p \).
+\item \textbf{PMF}: 
+  \[ P(X=k) = \begin{cases} 
+  p & \text{if } k=1 \\
+  1-p & \text{if } k=0
+  \end{cases} \]
+\item \textbf{Economic/Poker Example}: Probability of winning a single bet.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exercise: Bernoulli Distribution}
+\textbf{Question}: If a trader has a 60\% chance of making a profitable trade, what's the probability of making a loss on the next trade?
+
+\textbf{Solution}:
+Given: \( p = 0.6 \) (probability of profit)
+
+Probability of loss:
+\[ P(X=0) = 1-p = 1-0.6 = 0.4 \]
+\end{frame}
+
+\begin{frame}{Notable Probability Distributions: Uniform Distribution}
+\begin{itemize}
+\item \textbf{Definition}: All outcomes are equally likely.
+\item \textbf{PDF (Continuous)}: 
+  \[ f(x) = \begin{cases} 
+  \frac{1}{b-a} & \text{if } a \leq x \leq b \\
+  0 & \text{otherwise}
+  \end{cases} \]
+\item \textbf{Probability over a range [c, d]}:
+  \[ P(c \leq X \leq d) = \frac{d-c}{b-a} \]
+
+\item \textbf{Economic/Data Science Example}: Randomly selecting a number between 0 and 1.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exercise: Uniform Distribution}
+\textbf{Question}: If a stock price is equally likely to be anywhere between \$50 and \$60 tomorrow, what's the probability it will be between \$55 and \$57?
+
+\textbf{Solution}:
+Given: \( a = 50 \), \( b = 60 \)
+
+Using the uniform distribution formula:
+\[ P(55 \leq X \leq 57) = \frac{57-55}{60-50} = \frac{2}{10} = 0.2 \]
+\end{frame}
+
+\begin{frame}{Notable Probability Distributions: Normal Distribution}
+\begin{itemize}
+\item \textbf{Definition}: Bell-shaped curve, symmetric about the mean.
+\item \textbf{PDF}: 
+  \[ f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} \]
+\item \textbf{Parameters}: Mean \( \mu \) and variance \( \sigma^2 \)
+\item \textbf{Economic Example}: Distribution of incomes in a population.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exercise: Normal Distribution}
+\textbf{Question}: If the average income in a city is \$50,000 with a standard deviation of \$10,000, what's the probability someone earns between \$40,000 and \$60,000?
+
+\textbf{Hint}:
+Use the properties of the standard normal distribution and Z-scores to solve.
+
+\textbf{Solution}:
+Compute the Z-scores for both values and use the standard normal table (or software) to find the probability.
+\end{frame}
+
+
+\section{Gaussian Distributions}
+\begin{frame}{Importance of the Normal Gaussian Distribution}
+\begin{itemize}
+\item \textbf{Historical Context}: Introduced in the context of measurement errors and astronomical observations.
+\item \textbf{Properties and Significance}: 
+  \begin{itemize}
+  \item Bell-shaped and symmetric about the mean.
+  \item Defined by two parameters: mean \( \mu \) and variance \( \sigma^2 \).
+  \item The area under the curve represents probabilities.
+  \end{itemize}
+\item \textbf{Applications in Economics}: Stock returns, economic indicators, consumer behavior, etc.
+\end{itemize}
+\end{frame}
+
+\section{Central Limit Theorem \& Law of Large Numbers}
+\begin{frame}{Central Limit Theorem (CLT)}
+\begin{itemize}
+\item \textbf{Statement}: Given certain conditions, the arithmetic mean of a sufficiently large number of iterates of independent random variables will be approximately normally distributed, regardless of the original distribution of the variables.
+\item \textbf{Mathematical Expression}:
+  \[ \frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} N(0,1) \]
+  where \( \bar{X} \) is the sample mean, \( \mu \) is the population mean, \( \sigma \) is the population standard deviation, and \( n \) is the sample size. \href{https://cdn-images-1.medium.com/v2/resize:fit:1600/1*RRyWvTmmtKN-SE0jReGgLw.gif}{Check out this animation.} 
+\item \textbf{Implications}: Allows for the use of normal distribution in many statistical methods, even if the original data is not normally distributed.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Law of Large Numbers (LLN)}
+\begin{itemize}
+\item \textbf{Statement}: As the size of a sample is increased, the sample mean will tend to approach the population mean.
+\item \textbf{Mathematical Expression}:
+  \[ \bar{X}_n \xrightarrow{p} \mu \]
+  where \( \bar{X}_n \) is the sample mean of \( n \) observations and \( \mu \) is the population mean. \href{https://www.statlect.com/images/law-of-large-numbers-animated.gif}{A visualization might help.}
+\item \textbf{Difference between CLT and LLN}: While both theorems deal with large samples, CLT is about the distribution of the sample mean, and LLN is about the convergence of the sample mean to the population mean.
+\end{itemize}
+\end{frame}
+
+\section{Modeling with Distributions}
+\begin{frame}{Modeling with Binomial Distribution}
+\begin{itemize}
+\item \textbf{Economics}: Modeling the number of successful sales out of a given number of sales pitches.
+\item \textbf{Poker}: Calculating the probability of getting a specific hand in a game.
+\item \textbf{Data Science}: Predicting the number of users who click on an ad out of all who view it.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modeling with Poisson Distribution}
+\begin{itemize}
+\item \textbf{Economics}: Estimating the number of product defects in a manufacturing process.
+\item \textbf{Poker}: Modeling the number of specific card combinations in multiple games.
+\item \textbf{Data Science}: Predicting the number of website visits in a given time frame.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modeling with Bernoulli Distribution}
+\begin{itemize}
+\item \textbf{Economics}: Modeling a binary outcome, such as a market going up or down.
+\item \textbf{Poker}: Calculating the success or failure of a specific strategy in a game.
+\item \textbf{Data Science}: Predicting a binary outcome, like a user buying a product or not after viewing an ad.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modeling with Uniform Distribution}
+\begin{itemize}
+\item \textbf{Economics}: Modeling equal probability scenarios, like drawing lots.
+\item \textbf{Poker}: Representing the equal chance of drawing any specific card from a well-shuffled deck.
+\item \textbf{Data Science}: Simulating random events with equal likelihoods.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modeling with Normal Distribution}
+\begin{itemize}
+\item \textbf{Economics}: Representing the distribution of incomes, prices, or other continuous variables in a large population.
+\item \textbf{Poker}: Modeling the distribution of winnings over a long series of games.
+\item \textbf{Data Science}: Representing features in machine learning models, especially when standardizing data.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{A Word of Caution}
+\begin{itemize}
+\item \textbf{Assumptions}: Every distribution comes with its own set of assumptions. It's crucial to ensure that the data meets these assumptions before applying a specific distribution.
+\item \textbf{Real-World Complexity}: While distributions can model many real-world phenomena, they are simplifications. The real world can be more complex and unpredictable.
+\item \textbf{Over-reliance}: Solely relying on a single distribution or not considering other models can lead to biased or inaccurate conclusions.
+\item \textbf{Data Quality}: The accuracy of predictions and models heavily depends on the quality of the data. Garbage in, garbage out.
+\end{itemize}
+\end{frame}
+
+\end{document}

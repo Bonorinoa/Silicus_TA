@@ -1,0 +1,163 @@
+% draft for lecture 8
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\title{Introduction to Probability - Part II}
+\author{Augusto Gonzalez Bonorino}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Table of Contents Slide
+\begin{frame}
+  \frametitle{Table of Contents}
+  \tableofcontents
+\end{frame}
+
+% Probabilistic Thinking Section
+\section{Probabilistic Thinking}
+\begin{frame}
+  \frametitle{Probabilistic Thinking}
+  \begin{itemize}
+    \item Probabilistic thinking involves understanding and quantifying uncertainty.
+    \item In our everyday lives, we encounter situations where outcomes are not certain, and this is where probability comes into play.
+    \item Probability allows us to model and analyze uncertain events, making informed decisions.
+    \item Example: Weather forecasting, stock market predictions.
+  \end{itemize}
+\end{frame}
+
+% Random Variables Section
+\section{Random Variables}
+\begin{frame}
+  \frametitle{Random Variables}
+  \begin{itemize}
+    \item A random variable is a variable whose value is determined by the outcome of a random phenomenon.
+    \item Discrete random variables take on distinct values (e.g., number of coin flips for heads).
+    \item Continuous random variables can take any value within a range (e.g., height, time). 
+    \item We denote a random variable by capital letters, such as $X$, and its possible values are any real number $x_i \in \mathbb{R}$. 
+    \item Defining your random variables should be the first thing you do. It is analogous to defining a Random Event in Set Theory.
+  \end{itemize}
+\end{frame}
+
+% Probability Density Function Section
+\section{Probability Density Function (PDF)}
+\begin{frame}
+  \frametitle{Probability Density Function (PDF)}
+  \begin{itemize}
+    \item For a discrete random variable $X$, the Probability Mass Function (PMF) gives the probability of each value. \[P(X=x) = \frac{\text{Number of outcomes with } X=x}{\text{Total number of outcomes}}\]
+    \item For a continuous random variable $Y$, we use the Probability Density Function (PDF). The PDF of a continuous random variable $X$ is denoted by $f(x)$, and it represents the likelihood of the random variable $X$ taking on a particular value $x$. The probability of $X$ falling within a specific interval $[a, b]$ is given by the integral of the PDF over that interval: \[ P(a \leq X \leq b) = \int_{a}^{b} f(x) \, dx \]
+    \item PDF $f_Y(y)$ describes the relative likelihood of $Y$ taking on a specific value.
+    \item Example (Discrete): Tossing a fair six-sided die.
+    \item Example (Continuous): Height of individuals in a population.
+  \end{itemize}
+\end{frame}
+
+% Cumulative Density Function Section
+\section{Cumulative Density Function (CDF)}
+\begin{frame}
+  \frametitle{Cumulative Density Function (CDF)}
+  \begin{itemize}
+    \item The Cumulative Density Function (CDF) gives the probability that a random variable takes on a value less than or equal to a specific value.
+    \item For a discrete random variable $X$:
+      \[F_X(x) = P(X \leq x) = \sum_{k \leq x} P(X=k)\]
+    \item For a continuous random variable $Y$:
+      \[F_Y(y) = P(Y \leq y) = \int_{-\infty}^{y} f_Y(t) \, dt\]
+    \item The CDF is a non-decreasing function between 0 and 1.
+    \item Example (Discrete): Finding the CDF of the number of heads in coin flips.
+    \item Example (Continuous): Calculating the probability of a random variable being less than a certain value.
+  \end{itemize}
+\end{frame}
+
+% Expected Value Section
+\section{Expected Value}
+\begin{frame}
+  \frametitle{Expected Value}
+  \begin{itemize}
+    \item The expected value, or mean, of a random variable measures its central tendency.
+    \item For a discrete random variable $X$, the expected value is calculated as:
+      \[E(X) = \sum_x x \cdot P(X=x)\]
+    \item For a continuous random variable $Y$, the expected value is calculated as:
+      \[E(Y) = \int_{-\infty}^{\infty} y \cdot f_Y(y) \, dy\]
+    \item Properties of expected value: Linearity, constant factor, and independence.
+    \item Example (Discrete): Computing the expected value of a loaded die.
+    \item Example (Continuous): Calculating the expected income from a business venture.
+  \end{itemize}
+\end{frame}
+
+% Moments Section
+\section{Moments}
+\begin{frame}
+  \frametitle{Moments}
+  \begin{itemize}
+    \item Moments provide a way to describe the shape of a probability distribution.
+    \item The $n$th moment of a random variable $X$ is defined as:
+      \[E(X^n) = \sum_x x^n \cdot P(X=x) \quad \text{(Discrete)}\]
+      \[E(Y^n) = \int_{-\infty}^{\infty} y^n \cdot f_Y(y) \, dy \quad \text{(Continuous)}\]
+    \item The first moment is the mean, the second moment is the variance.
+    \item Skewness and kurtosis are higher-order moments indicating asymmetry and peakedness of the distribution.
+    \item Example: Calculating the variance and skewness of a portfolio's returns.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Expectation and Variance}
+\framesubtitle{Discrete RV}
+\textbf{Expectation:}
+The expectation (mean) of a discrete random variable $X$ is given by:
+
+\[ E(X) = \sum_{i=1}^{n} x_i \cdot p_i \]
+
+\textbf{Variance:}
+The variance of $X$ is defined as:
+
+\[ \text{Var}(X) = E(X^2) - (E(X))^2 \]
+
+Discrete random variables are commonly used in various applications, such as counting problems and modeling discrete events.
+
+\end{frame}
+
+\begin{frame}{Expectation and Variance}
+\framesubtitle{Continuous RV}
+\textbf{Expectation:}
+The expectation (mean) of a continuous random variable $X$ is defined as:
+
+\[ E(X) = \int_{-\infty}^{\infty} x \cdot f(x) \, dx \]
+
+\textbf{Variance:}
+The variance of $X$ is given by:
+
+\[ \text{Var}(X) = E(X^2) - (E(X))^2 \]
+
+Continuous random variables are commonly used in applications where the outcome can take on any real value within a range, such as measurement data and modeling physical phenomena.
+\end{frame}
+
+% Economic Applications Section
+\section{Economic Applications}
+\begin{frame}
+  \frametitle{Economic Applications}
+  \begin{itemize}
+    \item Probability plays a pivotal role in economics, enabling us to make informed decisions in uncertain environments.
+    \item Investment decisions often involve assessing potential risks and returns.
+    \item Pricing strategies for products and services depend on understanding customer behavior and market uncertainty.
+    \item Risk management in financial markets relies on estimating probabilities of various events.
+    \item Let's explore some concrete examples of economic applications:
+  \end{itemize}
+\end{frame}
+
+% Economic Applications Examples
+\begin{frame}
+  \frametitle{Economic Applications: Examples}
+  \begin{itemize}
+    \item **Investment Portfolio Diversification**: An investor needs to allocate assets across various investments. Probability models help estimate the potential returns and risks associated with each potential investment. This diversification helps manage risk.
+    \item **Product Demand Forecasting**: Businesses use probability models to forecast demand for their products. This information guides production levels and inventory management.
+    \item **Option Pricing in Finance**: In the realm of financial derivatives, options provide the right to buy or sell an asset at a predetermined price. Probability distributions help price options and assess the potential profitability of trading strategies.
+    \item **Economic Policy Analysis**: Economists use probabilistic models to analyze the potential impact of economic policies. This could involve estimating the effects of interest rate changes, fiscal policies, or trade agreements on economic variables like GDP and unemployment.
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
