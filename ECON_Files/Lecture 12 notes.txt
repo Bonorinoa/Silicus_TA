@@ -1,0 +1,152 @@
+﻿Lecture 12: The Linear Regression Model and Regression Analysis
+Topics: Scatterplots, line of best fit, regression analysis, regression to the mean, the linear regression model, the importance of the intercept term, univariate regression, multivariate regression
+
+
+Introduction
+It often happens that we have two sets of related values/variables/features, and we want to estimate or predict the value of one variable that would correspond with a given value on the other. That is, there are random variables X and Y that, we hypothesize, have a relationship between each other. For example, midterm grades and final grades for a class OR quality of sleep and positive emotions OR interest rates and inflation. Suppose we have a sample of data and plot it with a scatterplot. Say I miss an exam and would like to estimate the expected exam grade. In the plot, we would look for the observations that have a similar overall course grade to mine and observe what scores they get in the exam. The range of the scores of the comparison set (those with your overall grade that took the exam) gives us an estimate of my score. Here are two scatterplots with slightly different samples of data. In which case would it be possible to give a more precise estimate of my exam score?
+
+
+SCATTERPLOT 1
+
+
+SCATTERPLOT 2
+
+
+Note that the first range is X and the second range is Z which is smaller. Intuitively, the less the vertical spread the stronger the correlation and thus a better estimate. Perfect estimations are only possible when all dots lie on the same straight line. With perfect correlation, we can say exactly what value of one variable will go with any given value of the other. This special case of correlation (for a long time believed to be analogous to causal inference) motivated the approach of “reducing” the data to one line of best fit. The question being asked is “what is the underlying straight line from which all these points deviate?”. 
+
+
+SCATTERPLOT + LINE
+
+
+We could now use this line of best fit to make predictions about Y based on X. The challenge is, of course, estimating this line of best fit. The underlying idea is simple, we have to apply some operation on X and Y that results in a number that encodes the main information of interest about the relationship we hypothesize. In other words, we reduce the dimensionality from 2D to 1D. There are many methods, think of any of the statistics we learnt that take in many inputs and return one single value. The average, and its variations, is the most commonly applied method because we are often interested in the average behavior of the relationship (but note how this means that cannot, by design, obtain perfectly precise estimates. All of our results are “on average”). The collection of methods used to find the position (intercept + slopes) of the line of best fit fall under the regression line category. It was invented by Galton in the 19th century to study the relationship between the height of fathers and sons. His studies resulted in a finding called “regression to mediocrity”, alluding to the tendency of trends to revert to their average behavior. Mathematically, the regression line is defined by a regression equation such as y = mx + b. We can now use this equation to estimate values without the need of a scatter diagram.
+
+
+This regression equation can take many forms, covering both linear and non-linear scenarios. Let’s check out a few in R.
+
+
+  
+
+
+
+The caveat is that these equations are purely mathematical, they have no inherent properties that relate their results to economic knowledge nor leverage data to estimate predictions. This is because the method relies on correlations, the closer the dots are to each other the stronger our confidence in the prediction. An equivalent way to think about it is that the smaller the distance between these points, then the stronger their *linear* relationship. This presents common pitfalls practitioners often fall for. 
+
+
+We now know that we can find correlations everywhere, the chicken and sunrise or sharks and ice cream sales are canonical examples. In order to claim that our predictions are sound and valid, we must impose a specific form on the structure of the regression equation. A regression equation (it could also be a set of equations if you are studying a system of relationships) plus constraints derived from economic theory + data yields an econometric model. The constraints imposed have two flavors: 1) on the functional form of the equation (linear or non-linear), and 2) on the variables chosen, which can be one or many. While the form is often borrowed from existing validated forms (unless you are doing theory, in which case you might be interested in proposing a new form all together), the latter is more like a guideline rather than a constraint, we want to choose independent variables that are logically and empirically related to the dependent variable. This selection is based on economic theory, and your hypothesis which relies on experience + observations. To communicate our ideas, we use DAGs (remember these from the first week of class when we talked about Sewall Wright and his path diagrams for guinea pigs?). In the remainder of today’s and Thursday’s lecture we will discuss the details of one of the most widely applied regression equations - the linear regression model - the difference between mathematical vs statistical models, the foundations of econometrics, and how to construct econometric models from a DAG. 
+Linear Regression Model & Mathematical Properties
+We now advance to constructing the linear regression model, a fundamental tool in econometrics. The model is encapsulated by the equation Y=β_0​ +β_1* X+U, where:
+
+
+* Y is the dependent variable we aim to predict or explain
+* X is the independent variable that we use as a predictor.
+* β_0  (the intercept) and β_1 (the slope) are parameters of the model that we seek to estimate.
+* U represents the error term, capturing all other factors affecting Y that are not included in our model.
+
+
+This equation represents a linear relationship between X and Y. The slope, β_1, indicates the average change in Y for a one-unit increase in X. The intercept, β_0 , signifies the expected value of Y when X equals zero.
+
+
+This linear model describes the relationship we believe the variables have with each other. Now, we have a functional form that represents or describes the relationship we are interested in modeling. But we still need to find optimal values of the relevant parameters. What do you guys think are the parameters of this simple linear equation? 
+
+
+So, basically, we want to find an estimator (remember, a process or set of rules that allows us to approximate the population from sample data) that will takes us as close as possible to the true value of the coefficients in our model (β_0 and β_1). For this, we move from the mathematical formulation of our model to the statistical formulation. Who knew that mathematics and statistics had different ways of describing models? Who can guess what is the difference between math and stats? 
+Mathematical vs Statistical model
+
+
+
+
+Mathematical Models:
+
+
+Definition and Nature: Mathematical models are typically deterministic. In the context of your linear regression equation Y=β_0 +β_1* X+U, the mathematical model focuses on the functional form of this relationship, assuming that it can precisely describe how Y changes with X. 
+Properties: These models are often idealized and assume perfect information. That is, we assume it to represent the Data Generating Process (DGP) of the true population. They don't account for randomness or variability in real-world data. The parameters (β_0, β_1) are considered fixed but unknown quantities that need to be estimated. 
+
+
+Statistics gives us the tool to estimate unknown parameters so we often transform our mathematical (population) model into a statistical (sample) model . 
+
+
+Statistical Models:
+
+
+Definition and Nature: Statistical models, in contrast, are probabilistic. They not only describe the relationship between variables but also incorporate the randomness and uncertainty inherent in real-world data.
+
+
+Incorporating Uncertainty: In the same linear regression equation, a statistical model acknowledges that the error term U captures the unexplained variance or noise in the data. This noise represents the uncertainty or variability that is not explained by the model. We often impose constraints in the form of the error term.
+
+
+Estimation and Inference: The focus shifts from merely estimating the parameters (β_0, β_1) to making inferences about them, understanding their variability, and quantifying the uncertainty in predictions. Statistical models allow us to make probabilistic statements about the data and the parameters, such as confidence intervals and hypothesis testing.
+Cool, but how do I actually estimate these parameters?
+
+
+Goal: The aim is to find parameter estimates that minimize the difference between the observed values and the values predicted by the model, thereby achieving the most accurate representation of the data.
+
+
+Consider the following scatter plot of data. Each dot represents an observed value.
+
+
+SCATTERPLOT 3 - Show difference between predicted and observed values
+
+
+Now, picture a line cutting through this scatter – that's your regression line, representing the model's predictions. The key thing to notice here is the vertical lines stretching from each data point to the regression line. These are your 'residuals', the differences between what the model predicts for each point and what the data actually shows. It's like measuring how 'off' our model is for each observation. You can also think of this as the errors that we make when we try to approximate the cloud of points using a straight line. Thus, we want to find a line that minimizes the overall distance of these residuals. We basically assume there will always be errors, which is why we have an error term U in our linear model by construction. 
+
+
+Given that the sample size is equal to N , we have N approximation errors, one for each observation. At this point, We need to establish a criterion that will allow us to minimize, in some way, the approximation errors and to attach values to α and β in the linear relationship that we think describes the link between the two variables under investigation. Enter Ordinary Least Squares (OLS).
+Econometric courses will often start by teaching the method of OLS to estimate parameters from a linear regression model. So far I have tried to give you the intuition behind these methods, but let’s look at the mathematical properties of this estimation technique. We now step into the world of Econometrics. 
+
+
+*For Thursday class*
+
+
+https://scholar.harvard.edu/files/gracemccormack/files/econometricsnotes.pdf
+
+
+Introduction to Econometrics
+In its most quantitative version, economics expresses theory in mathematical form, with little regard to empirical verification. Economic statistics provides methods to collect, process, and present economic data, but is not concerned with using the data to test theory. Econometrics develops tools and special methods to analyze observational (as opposed to experimental) data
+– i.e., data coming from uncontrolled environments, which is often the case in the social sciences. This lack of control often creates special problems when the researcher tries to establish causal relationships between variables. 
+
+
+Recall the linear regression model is an equation of the form Y=β_0 + β_1 X+U, where Y is the dependent variable we aim to predict, X is the independent variable used as a predictor, β_0 and β_1 are the model parameters, and U represents the error term. This model encapsulates a linear relationship, with the slope β_1 indicating how much Y changes for a unit change in X, and the intercept β_0 representing the expected value of Y when X is zero.
+
+
+To find the optimal values of the parameters of interest, based on our assumptions and sample data, we employ a technique called Ordinary Least Squares (OLS). 
+OLS estimation
+OLS operates on a simple but powerful principle – minimizing the sum of the squared differences between the observed values and the predicted values by our model. This process involves finding the 'best fit' line that minimally deviates from the observed data points in our scatterplot. The art and science of finding this line lie at the heart of OLS estimation.
+Mathematically, we seek to minimize the expression . This is called the Sum of Squared Residuals (SSR). This is achieved via a simple optimization under constraints procedure. Basically a couple of derivatives
+
+
+The first step is to take the First Order Conditions (FOCs), which means computing the partial derivative of the objective function (the SSR in this case) with respective to each of the parameters of interest ( in this case but there could be many more) and solve the equations by setting them to 0 (thus you are computing the value of the parameter for which the change in squared residuals is 0, other things constant). The main necessary conditions we need in order to apply FOC, in case you are curious, is that the function we are maximizing is continuous, concave and that the set of feasible solutions is convex. Anyways, here is the mathematical derivation of OLS estimators.
+
+
+
+ (chain rule)
+ 
+ 
+Now we must find the estimate for .
+
+(substitute )
+
+ 
+
+
+So the OLS estimators are  and 
+
+
+OLS is a bit like a balancing act. It systematically adjusts the slope and intercept of our line (remember, these are our β_1 and β_0 from the equation) to find the sweet spot where the sum of the squares of these residuals is the smallest. Why square the residuals? Well, squaring helps in two ways: it ensures that we treat positive and negative deviations equally (since a square is always positive), and it disproportionately penalizes larger errors, which can be crucial in fitting a model accurately. This is exactly what the lm() function in R does in the background when we try to fit a linear model to some data. 
+
+
+In econometrics, we impose a set of (strong) assumptions on our linear regression model. These are called the Gauss-Markov Assumptions (GMA):
+
+
+* Linearity in Parameters: The model is linear in parameters, meaning it can be expressed as Y=β_0 +β_1 X+U.
+* Random Sampling: The data (observations) are drawn from a random sample. This ensures that the sample provides a good representation of the population.
+* No Perfect Multicollinearity: There is no exact linear relationship between the independent variables in the model. This ensures that each variable contributes unique information
+* Zero Conditional Mean: The expectation of the error term U conditional on the independent variable X is zero, i.e., E(U∣X)=0. This implies that the error term does not contain systematic information that is omitted from the model.
+* Homoscedasticity: The variance of the error term is constant across observations, i.e.,  . This means that the uncertainty or 'noise' in the relationship between X and Y is consistent across all levels of X.
+
+
+Under the GMA assumptions, it can be proven that the OLS estimator is BLUE (best linear unbiased estimator). That is, if these assumptions hold then we are guaranteed to obtain the best possible estimation of the parameters of our linear regression model. 
+
+
+In econometrics, linear regression and OLS estimation are not just mathematical tools; they are the lenses through which we interpret the economic world. These methodologies enable us to quantify relationships between variables, test economic theories, and make informed predictions and policy decisions. The beauty of OLS, under the guidance of Gauss-Markov Assumptions, lies in its simplicity and robustness, making it an indispensable tool in the econometrician's toolkit.
+
+
+However, it's important to remember that while OLS provides a powerful method for estimating linear relationships, the validity of its results hinges on the adherence to the underlying assumptions. Violations of these assumptions can lead to biased or inefficient estimators, underscoring the importance of a thorough understanding of these principles.

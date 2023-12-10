@@ -1,0 +1,150 @@
+﻿Lecture 11 Notes - Point and Interval Estimation
+
+
+Topics: Bridge between descriptive statistics, probability and statistical inference; Point estimation; Interval estimation; Confidence intervals
+Introduction
+While descriptive statistics allow us to summarize the data we have, and probability theory helps us model the data we could have, statistical inference empowers us to make educated guesses about the data we haven't seen yet – that is, the whole population.
+
+
+The probability distributions we studied previously form the backbone of statistical inference. They allow us to quantify uncertainty and variability. We're not just guessing; we're making scientifically informed estimates about populations using the sample data. Colloquially referred to as “guesstimates”. 
+
+
+Probability distributions are not just theoretical constructs; they are the tools that allow us to draw conclusions from data. In statistical inference, we often assume that our data is drawn from a particular probability distribution. This assumption is powerful—it lets us make probabilistic statements about the population from which the sample is drawn. Once a distribution has been chosen, we call it our statistical model. Like we saw in the last two weeks, each distribution has relevant parameters we can play around with. These are the population value(s) we want to estimate. Statistical inference is about finding (or deriving) rules (or a process/function) that allow us to accurately estimate the true parameter from sample data. 
+
+
+When researchers assume a certain distribution for their data:
+
+
+* It guides the method of estimation: For example, assuming a normal distribution allows the use of z-scores and t-scores for constructing confidence intervals.
+* It affects hypothesis testing: The shape of the distribution dictates the rejection regions for tests and the power of the test.
+* It impacts the robustness of conclusions: If the assumption is incorrect, the inferences may be invalid.
+Expectation
+Expectation, or expected value, is a key concept from probability theory that we will frequently use in inference. It's the theoretical long-term average value of a random variable if we could repeat an experiment over and over again, infinitely.
+
+
+Recall the mathematical definitions:
+Discrete case:  
+Continuous case: 
+
+
+In statistical inference, the expectation helps us define what we mean by 'average' in an idealized sense. It's what we'd expect to happen 'on average' in the long run. For instance, the expected value of a fair die's roll is 3.5, even though we can never actually roll a 3.5.
+
+
+Let's think about what expectation means in an economic context. If we were to repeatedly sample from the population of consumers' expenditures, the expected value would represent the average expenditure in the entire population. It is a number that, although not observed in a single sample, emerges as a consistent average across many samples.
+
+
+Notable Statistics
+Sample mean
+
+
+
+
+
+Sample variance 
+
+
+
+
+
+Point Estimation
+Point estimation involves using sample data to compute a single value, known as a point estimate, which is our best guess of an unknown population parameter. For example, we might estimate the mean income of all economists based on the mean income of a sample.
+Estimators
+While a statistic is a characteristic of a sample, an estimator is a rule or a function for calculating an estimate of a given quantity based on observed data: hence, it's a random variable in itself. For instance, the sample mean is an estimator of the population mean.
+
+
+* A statistic is the actual value calculated from the data. It is a scalar value computed from sample data. 
+* A parameter is the true value of the statistic. We don’t observe this since we don’t observe the population. When we don’t know something in statistics we try to estimate it.
+* An estimator is the process or rule that tells us how to use the data to calculate that statistic such that the result approximates as close as possible the true parameter. It is a function, so it maps inputs to outputs.
+
+
+In the context of statistical inference, we look for estimators that have certain desirable properties:
+
+
+* Unbiasedness: The mean of the estimator's sampling distribution should equal the parameter it estimates. In other words, the expected value of the statistic should be equal to the true population parameter. For the sample average  and true population average , this means 
+* Consistency: The estimator should converge to the true parameter value as the sample size increases. That is, as n grows to infinity the expected value of the sample statistic should converge to the true population parameter. 
+* Efficiency: Among unbiased estimators, the one with the smallest variance is preferred.
+
+
+Properties of sample mean and sample variance
+Sample mean
+
+
+
+
+Since each X_i  is a random sample from the same population. Let \mu denote the true population mean.
+
+
+
+Thus, the sample mean is unbiased.
+
+
+Sample variance
+
+
+
+We want to show that , where  is the true population variance
+ 
+
+Here's where things get tricky. We want to separate the terms to use the linearity of expectation. However, note that mean(x) is not independent of x_i (there is an interaction/product), so we can't just take the expectation of each term individually. We need to do some more work
+Many more lines of math to finally arrive at the following expression. 
+
+
+
+This is clearly biased, because the expected value of our chosen statistic does not equal the theorized population parameter. The bias can be computed from the definition
+
+
+ 
+
+
+However, note that it is consistent because the bias goes to 0 as the sample size n grows to infinity. Thus, it is unbiased but consistent. We say that the sample variance is biased for small samples but asymptotically unbiased.
+It can be shown that the adjusted sample variance  is unbiased. This correction, of dividing by n-1 instead of n, is called Bessel’s correction. Here is a link to someone who took the time to type it all out. You won’t have to worry about this until you get to graduate school (if you take that route) but I wanted to give you guys a taste of the type of math going on in this line of work. It is mostly algebra, with big assumptions like the CLT and LLN, and the goal is to find estimators that satisfy as many of the desirable properties as possible.
+
+
+Proof of Unbiasedness of Sample Variance Estimator | Economic Theory Blog
+https://economictheoryblog.com/2012/06/28/latexlatexs2/
+
+
+In economics, point estimates are used to summarize a wide range of phenomena. For example, a point estimate of the elasticity of demand tells us the expected percentage change in quantity demanded for a one percent change in price. Note that our language fully relies on the notion of expectation and expected value.
+Interval Estimation
+Interval estimation extends beyond the idea of a single best guess to provide a range for the parameter we’re interested in. This acknowledges the uncertainty inherent in our estimates due to sample variability. Unlike a point estimate, which gives a single value, interval estimates provide a range within which we believe the true parameter value lies with a certain degree of confidence. This range is called a confidence interval.
+
+
+In constructing interval estimates, we often rely on the central limit theorem (CLT), which enables us to use the normal distribution as an approximation for the sampling distribution of the sample mean, regardless of the shape of the population distribution, provided the sample size is sufficiently large.
+
+
+Connecting Point to Interval Estimation
+
+
+Interval estimates provide a range of values within which the parameter is expected to lie.
+In the transition from point estimation to interval estimation, we introduce the concept of the sampling distribution of the estimator. When the population variance is known, we typically use the z-distribution to construct confidence intervals for the mean. However, in practice, the population variance is often unknown, which brings us to the t-distribution (an approximation of the standard normal distribution with higher variability used when the sample size is small and the population value is unknown).
+
+
+Standard Normal (Z) vs. Student's t-Distribution
+
+
+   * Z-distribution is used when population variance is known.
+   * T-distribution is preferred when population variance is unknown and the sample size is small. The t-distribution is a probability distribution that arises when estimating the mean of a normally distributed population in situations where the sample size is small and the population standard deviation is unknown. It is similar to the normal distribution but has heavier tails, which means it is more prone to producing values that fall far from the mean. This property makes the t-distribution a more appropriate choice for small sample sizes, as it accounts for the increased variability that is expected when fewer data points are available.
+
+
+  
+
+
+
+   * As the sample size grows, the t-distribution approaches the normal distribution. The exact shape of the t-distribution depends on the degrees of freedom, which in the context of estimating means, is typically the sample size minus one. The t-distribution is used to calculate confidence intervals and conduct hypothesis tests for population means. 
+
+
+Confidence Intervals        
+
+
+A confidence interval gives an estimated range of values which is likely to include an unknown population parameter, the estimated range being calculated from a given set of sample data.
+
+
+   1. Randomly draw M samples from the population
+   2. Construct M confidence intervals (one for each sample) for the parameter of interest (e.g., mu)
+   3. The true, unknown mu, will be contained in a proportion equal to (1-alpha) of those M confidence intervals, as M goes to infinity.
+
+
+Key Concept: The confidence level of the interval, usually expressed as a percentage like 95%, represents the probability that the interval will contain the true parameter value in repeated samples.
+
+
+In economics, confidence intervals can be used to express the precision of an estimate. For instance, the interval estimate for the average effect of an education program on income would provide a range that we are confident includes the true average effect.

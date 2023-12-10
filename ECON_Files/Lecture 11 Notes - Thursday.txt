@@ -1,0 +1,125 @@
+﻿Lecture 11: Hypothesis Testing
+https://www.youtube.com/watch?v=qbxNf4iqJPo&ab_channel=GaryKing (statistical models)
+https://www.youtube.com/watch?v=kaL1KzDTotc&ab_channel=GaryKing (DGPs and simulation[a])
+
+
+I. Introduction to Hypothesis Testing
+While estimation helps us to gauge where the population parameter might lie, hypothesis testing allows us to assess the validity of certain claims about the population based on sample data. This is a crucial step in statistical inference, where we move from "what do we expect" to "what can we infer"
+
+
+Recall that a point estimate is a single value estimation of a parameter, and an interval estimate provides a range. In hypothesis testing, we use these estimations to evaluate the likelihood that our sample data is consistent with a specified hypothesis about the population. The idea is to challenge the estimates against formalized expectations or claims, known as hypotheses.
+
+
+The techniques that we will cover today are “classical methods”, the bayesian approach has a whole different set of methods for testing hypotheses since their usage of hypothesis is different from classical inference methods. Without delving into details, the main difference if you recall is that in the Bayesian paradigm we treat the parameters as distributions themselves (our priors or posteriors). But in the classical approach the parameters are scalar values (i.e., numbers not distributions). 
+
+
+* Definition:Hypothesis testing is a form of statistical inference that uses data from a sample to draw conclusions about a population parameter or a population probability distribution (Britannica)
+
+
+Motivating Example: Let's consider a real-world scenario where an economist is tasked with evaluating the impact of a new tax policy aimed at increasing government revenue. The claim is that this has been achieved without financially hurting the lower-income population. How can we refute or accept this claim statistically?
+
+
+Through hypothesis testing, we can statistically examine this claim by establishing a null hypothesis and an alternative hypothesis. Once our hypotheses have been clearly articulated/defined, we collect data (perhaps through surveys or by analyzing financial records before and after the policy’s implementation). We then determine if our sample data provides enough evidence, by comparing appropriate test-statistics (i.e., critical values),  to determine whether the observed effects are statistically significant or if they could be due to random chance.
+Through this process, which will be our focus today, we will learn how to critically analyze claims with a structured approach, bridging our estimations to informed, data-driven conclusions.
+II. Formulating Hypotheses
+With this scenario in mind, the key components of a hypothesis testing framework are the following:
+
+
+* Null Hypothesis (H0): The starting assumption (i.e., status quo) or a statement of no effect. In our tax policy example, H0: "The new tax policy does not increase government revenue without burdening the lower-income population."
+* Alternative Hypothesis (H1): Contrary to H0, it shows the presence of an effect or difference. H1: "The new tax policy increases government revenue without burdening the lower-income population."
+* Test: A procedure through which we can decide whether, on the basis of the information contained in the sample of binary data, the null hypothesis is more plausible than the alternative, and vice versa. The test is completely defined by a bipartition of the sample space, so there is a rejection and an acceptance region.
+* Critical values: The thresholds that define the boundaries of the acceptance region for the null hypothesis. They are determined based on the significance level of the test. The critical values are derived from the probability distribution of the test statistic under the null hypothesis. Show R code with changing critical values to show them where they lie in the normal distribution.
+* Intuition: Hypothesis testing is like a trial; the null hypothesis is the "innocent until proven guilty" assumption. Formulating H0 and H1 is akin to defining the 'status quo' and the 'claim' we're testing against it.
+
+
+Note one intrinsic limitation of this formulation. It is binary, you either reject or accept. Interestingly, hypothesis testing was heavily influenced by eugenicists (remember our first class on a brief history of stats?). They were interested in differentiating good vs bad qualities. If I remember correctly they were developed for testing intelligence, measured by standardized tests. So all of their questions were engineered, following a reductionist approach, to be simple yes or no answers, even for complex issues that do not have a clear cut answer. They measured and tested the average difference in IQ tests amongst different demographics without considering their background. This remains an issue today with standardized testing for college admission. It is part of a broader debate of reductionism over complexity, the question being posed boils down to a matter of accounting for or not the interaction between the properties that make an individual. 
+
+
+General Formulation
+1. A population with a known form (this means you know the PDF/PMF) and an unknown parameter (let’s denote it Theta). X ~ f_Theta(x) or X ~ p_Theta(x). This reads “the random variable X is distributed as explained by the PDF, f(x), or the PMF, p(x), for which we are trying to estimate the unknown parameter Theta”.
+2. Two statistical hypotheses 
+
+ (claim is that the true value of the unknown parameter falls in the region described by the set )
+ (We claim that the true value of the unknown parameter falls in the region described by the set )
+. That is, the two hypotheses are independent (in fact complements) of each other. These must be disjoint sets.
+3. A Bernouillian sample (just a fancy way of saying a sample of data where each data point has a binary outcome. For example, a bunch of 0s or 1, Yes or No, True or False, Apple or Orange, [insert any binary relationship] )
+Two- vs One-tail tests
+Tests can be “two tailed” or “one tailed”, the choice depends if you are interested in the direction of the effect or not. 
+
+
+   * Two-tail test: Applicable when the direction of the effect is not specified or not of interest. We use this test when looking for any significant deviation from the null hypothesis value, be it positive or negative H0: xbar = mu; H1: xbar != mu
+   * One-tail test: Used when we have a directional hypothesis. This test is chosen when we suspect that the parameter of interest is either greater than or less than the hypothesized value. H0: xbar <= mu; H1: xbar > mu, or viceversa.
+   * Thanks to the CLT we assume most of the distributions we encounter to be standard normal and thus, via normalization, we can safely transform our estimations to z-scores or t-scores. Thus, the rejection regions contain numbers that are “far enough”, at least on average, from the mean of the standard normal, 0. How you interpret far enough depends on the context of the hypothesis.
+
+
+  
+
+
+
+The choice between two-tail and one-tail tests has implications for the critical values we select and, consequently, the power of the test. The power, which we will discuss later, is the probability that the test correctly rejects a false null hypothesis.
+III. Type I & Type II Errors
+As we move from the theoretical formulation of our hypotheses to the practical application of testing them, we encounter the potential for errors. In any statistical test, there is a chance of making incorrect inferences—these are known as Type I and Type II errors, each with its implications.
+
+Akin to “all models are wrong but some are useful” I hope it is becoming increasingly clear that everything we do, specially in statistics, is subject to errors. Deciding whether to reject the null hypothesis involves a trade-off between two types of errors:
+
+   * Type I Error (α): Also known as a 'false positive.' This occurs when we incorrectly reject a true null hypothesis. It’s analogous to a fire alarm sounding when there's no fire—a costly overreaction. In statistical terms, α represents the significance level, the threshold of risk we're willing to accept for this error. 
+   * You will also hear or read about the “size of a test”. This is simply the significance level α that you choose prior to running tests. It is the probability of making a Type I error. Common choices are 1%, 5%, and 10% like we saw on Tuesday.
+   * Type II Error (β): Known as a 'false negative.' This happens when we fail to reject a false null hypothesis. This error is like a fire alarm failing to sound during an actual fire—a dangerous oversight. The rate of this error is denoted by β, and the power of the test is 1 - β. 
+   * When we say “power of a test” we mean the probability that the test correctly rejects a false null hypothesis, essentially detecting an effect when there is one. High-powered tests reduce the risk of Type II errors, ensuring that true effects are not missed.
+   * In economics, the power of a test can be thought of as the sensitivity of a policy evaluation tool. High power is crucial when the stakes of missing a true effect are high—such as failing to detect the true impact of a fiscal stimulus on economic recovery
+
+
+*You can also think of medical tests, or decision-making systems. 
+
+
+In the context of economic policy, a Type I error could lead to the adoption of a policy based on incorrect assumptions, possibly diverting funds and political capital away from more effective interventions. For example, if a central bank incorrectly identifies an inflation trend and raises interest rates, the economy might suffer unnecessary slowdowns. Conversely, a Type II error might prevent the adoption of a policy that could have ameliorated economic issues, like failing to lower interest rates during a recession.
+
+
+Best Practices, Correct Interpretations, and Relevance:
+
+
+It's essential to approach hypothesis testing with an understanding of the trade-offs between α and β. A best practice is to set these error rates in accordance with the context and consequences of the decision. This involves considering the costs of both types of errors and choosing a significance level (α) that minimizes these costs while also ensuring adequate power (1 - β) to detect an actual effect. A higher α means a higher chance of Type I Error but also more power to detect an actual effect, reducing the chance of Type II Error. It's a balancing act.
+
+
+Correct interpretation means recognizing that not rejecting H0 is not the same as accepting it as true. Instead, it suggests that there is not enough evidence against H0 given the data and the risk threshold (α). In other words, failing to reject H0 does not mean we have proven H0 to be true; it merely indicates that we do not have sufficient evidence to conclude otherwise, given our risk threshold α.
+
+
+The relevance of understanding these errors extends beyond economics. In fields such as data science and medicine, the consequences of Type I and Type II errors can be profound, affecting real lives and decisions. For instance, in machine learning algorithms, a Type I error might flag innocent behavior as fraudulent, while a Type II error might fail to detect actual fraudulent activities. In section 1, we had a presentation on algorithmic bias. Your sensitivity to false positives/negatives has massive implications on automated decision-making systems. So, how do we test for this sensitivity?
+IV. Test Statistics and P-Value
+In the practice of hypothesis testing, the concepts of test statistics and p-values are central to determining whether to reject the null hypothesis. They represent the core tools statisticians use to quantify evidence against the null hypothesis.
+
+
+Deciphering Test Statistics:
+
+
+A test statistic is a standardized value derived from sample data, used to decide whether to reject the null hypothesis. It measures the degree of agreement between the sample data and the null hypothesis.In other words, it is a function of the sample data upon which the decision to reject or not to reject H0 is based. For example, if we are testing the fairness of a coin (where the null hypothesis is that the coin is fair), and we observe 60 heads out of 100 flips, the test statistic would quantify how far this result deviates from the 50 heads expected under a fair coin.
+
+
+To calculate a test statistic like the z-score, we standardize the observed result (60 heads) by subtracting the expected number of heads under the null hypothesis (50 heads) and dividing by the standard deviation of the number of heads, which is derived from the assumed binomial distribution under the null hypothesis.
+
+
+Understanding P-Values:
+
+
+The p-value is a probability that measures how extreme the test statistic is under the null hypothesis. It is not the probability that the null hypothesis is true, but rather the probability of observing a test statistic as extreme as, or more extreme than, what was observed, assuming the null hypothesis is true. In our coin example, the p-value answers the question: "If the coin were fair, how likely would we be to observe 60 or more heads in 100 flips?"
+
+
+A small p-value indicates that such an extreme observed outcome would be very unlikely under the null hypothesis, thus providing strong evidence against the null hypothesis. This is why a p-value below a predetermined significance level (often 0.05) leads us to reject the null hypothesis.
+
+
+Illustration and Interpretation:
+
+
+Using our coin toss example, we calculate the z-score and find the corresponding p-value. If the p-value is less than 0.05, we conclude that observing 60 heads out of 100 flips is sufficiently surprising under the assumption of a fair coin that we reject the null hypothesis in favor of the alternative: the coin may be biased.
+
+
+Example: Suppose we are testing whether a coin is fair. We flip the coin 100 times and observe 60 heads. Is the coin biased?
+   * Test Statistic: A function of the sample data upon which the decision to reject or not to reject H0 is based. Calculate the z-score as a test statistic.
+   * P-Value: The probability of observing a test statistic as extreme as, or more extreme than, the observed value, under the assumption that H0 is true. Interpret the p-value obtained from the test statistic. 
+   * The p-value tells us how 'surprising' our data is under the null hypothesis.
+
+
+[a]He claims, and cites, that learning simulation is more fruitful than learning mathematical derivations. This was my view when designing the course, which is why I emphasized R in the probability part of the class. I do believe is a superpower that is not taught enough.
+
+
+He even solves the monty hall problem with simulation!
