@@ -1,36 +1,0 @@
-ECON 57: Economic Statistics - Homework 3
-Augusto Gonzalez Bonorino
-October 12, 2023
-   Instructions: This assignment includes a series of questions based on the content covered during Weeks 5, 6, and 7. For mathematical questions, show your work and calculations. For conceptual questions, provide clear and concise explanations. Deadline for submission is at the end of Week 8.
-Exercise 1 (Probability Interpretation)
-Research and describe at least 4 different interpretations of probability. We have seen 2 in class (frequentist and axiomatic). Include a definition, one example/application, and your thoughts (do any of these make more (or no) sense to you?). At the end of your response, write one brief paragraph comparing the interpretations to each other. Here is one good article reference to help you kick start your research.
-Exercise 2 (Set Operations)
-Let A = {1,3,5,7}, B = {1,2,3,4}, and C = {3,6,9}. Find
-1. A ? B
-2. A n B
-3. B - A
-4. B'
-5. (A n B) ? C
-6. (A ? B)'
-7. A' n B'
-   Is it true that (A ? B)' = A' n B'? This is called the First De Morgan's Law. Alongside with the second (A n B)' = A' ? B'?, these two help relate the union, intersection, and complement set operations which are employed in electrical circuits in the form of logical gates, bits, or any other binary process. It helps optimize these boolean processes/circuits by reducing the number of resources needed for tasks that made use of these set operations.
-Exercise 3 (Resource Allocation)
-Use the counting methods we learnt in class (multiplication rule, permutations, and combinations) to answer the following questions. First, identify the sample space you are interested in counting. Then, write down which method you think should be employed (do we take order into account?) Hint: In class we went over the 5-card hand example where the sample space of interest were the possible 5-card hands I could draw.
-• In an economy, there are 5 different industries, 4 types of labor, and 3 forms of capital. How many different ways can you allocate labor and capital to the industries in this economy? • Now, suppose you have a set of 7 economic advisors, and you need to choose a committee of 4 to address a specific economic issue. In how many ways can you choose the committee? If the company wants to designate one member as the team leader, how many different teams can be formed with a designated leader? Hint: Think from where are you sampling the leader. That is, from how many advisors can you choose the leader from?
-Exercise 4 (Frequencies as Probabilities)
-Consider an economic survey that categorizes individuals based on their income levels and education levels. The table below shows the number of individuals in each category.
-High IncomeLow IncomeHigh Education200100Low Education15050   Write the joint relative frequency table. How many possible combinations of education and income do we have? (hint: use the multiplication rule). Define your sample space (i.e., universal set) to show these combinations. Using the relative frequencies you already computed, find the probability of randomly selecting an individual with high income or high education. Finally, define a new random event (a subset of the universal set) of interest in the context of the data provided; compute the probability of your random event.
-Exercise 5 (Recession Probability)
-In a macroeconomic model, the probability of a recession is 20%, while the probability of a stock market crash is 15%. The probability of a stock market crash during a recession is 10%. Calculate the probability of a recession crash given a stock market. Hint: how would you update your belief of the likelihood of a recession given the observed recession?
-Exercise 6 (Spam Detector)
-It is estimated that 60% of emails are spam emails. You are training an AI that is been applied to filter these spam emails before they reach your inbox. In your go-to-market proposal you claim that the software can detect 97% of spam emails, and the probability for a false positive (a non-spam email detected as spam) is 6%. Now if an email is detected as spam, then what is the probability that it is in fact a non-spam email? Hint: Think of how you can use complements and the total probability theorem to update your beliefs.
-Exercise 7 (Poker Hands)
-In a standard deck of 52 playing cards, there are 4 suits: hearts, diamonds, clubs, and spades. Each suit has 13 ranks (A, 2,...,K) If you are dealt two cards from the deck, what is the conditional probability that both cards are hearts, given that the first card you received is a heart? What is the probability that you are dealt a pair of cards of the same rank (e.g., two 7s or two kings)?
---
-   Note: Be sure to cite any references you use to answer the questions. If you use chatGPT, please indicate where and how. (answers to this will not affect your grade. It's mainly for my curiosity to see what do students find these models helpful for)
-1
-
-1
-
-1
-
