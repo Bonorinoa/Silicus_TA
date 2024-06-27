@@ -48,15 +48,15 @@ def compute_cost(tokens, engine):
 def load_model(provider):
     if provider == "GPT-3.5":
         model = ChatOpenAI(model='gpt-3.5-turbo', 
-                           temperature=0.8, max_tokens=300)
+                           temperature=0.8, max_tokens=500)
         
     elif provider == "Llama3":
         model = ChatGroq(model_name="llama3-8b-8192",
-                         temperature=0, max_tokens=300)
+                         temperature=0, max_tokens=500)
         
     elif provider == "GPT-4":
         model = ChatOpenAI(model='gpt-4', 
-                           temperature=0.8, max_tokens=300)
+                           temperature=0.8, max_tokens=500)
         
     #elif provider == "HuggingFace":
     #    model = HuggingFaceHub(repo_id="google/flan-t5-base", 
