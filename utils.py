@@ -1,10 +1,9 @@
 from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain.chains import LLMChain
 from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_text_splitters import TokenTextSplitter
-from langchain_community.document_loaders import Docx2txtLoader
 
 from langchain_groq import ChatGroq
 
@@ -43,9 +42,11 @@ def load_ECON101_docs():
 
 def compute_cost(tokens, engine):
     """Computes a proxy for the cost of a response based on the number of tokens generated (i.e, cos of output) and the engine used"""
-    model_prices = {"GPT-3.5": 1, 
-                    "GPT-4o": 10,
-                    "Llama3": 0}
+    model_prices = {"Llama3": 0,
+                    "Gemma2": 0,
+                    "Mixtral": 0,
+                    "Llama3.1": 0}
+    
     model_price = model_prices[engine]
     
     cost = (tokens / 1_000_000) * model_price
@@ -54,17 +55,21 @@ def compute_cost(tokens, engine):
 
 
 def load_model(provider):
-    if provider == "GPT-3.5":
-        model = ChatOpenAI(model='gpt-3.5-turbo', 
-                           temperature=0.8, max_tokens=500)
+    if provider == "Gemma2":
+        model = ChatGroq(model='gemma2-9b-it', 
+                           temperature=0.5, max_tokens=750)
         
     elif provider == "Llama3":
-        model = ChatGroq(model_name="llama3-8b-8192",
-                         temperature=0, max_tokens=500)
+        model = ChatGroq(model_name="llama3-70b-8192",
+                         temperature=0.5, max_tokens=750)
         
-    elif provider == "GPT-4o":
-        model = ChatOpenAI(model='gpt-4o', 
-                           temperature=0.8, max_tokens=500)
+    elif provider == "Mixtral":
+        model = ChatGroq(model='mixtral-8x7b-32768', 
+                           temperature=0.5, max_tokens=750)
+        
+    elif provider == "Llama3.1":
+        model = ChatGroq(model='llama-3.1-8b-instant',
+                            temperature=0.5, max_tokens=750)
         
     return model
 
@@ -89,7 +94,6 @@ def split_and_index_docs(documents: List[Document]):
     # Embed chunks
     vectorstore = FAISS.from_documents(docs, 
                                        embeddings)
-
     
     return vectorstore
     
@@ -138,20 +142,22 @@ def run_llm_chain(course,
     # Create the complete prompt with conversation history
     chat_history = "\n".join([f"{msg['role']}: {msg['content']}" for msg in message_history])
     
-    SYS_PROMPT = f"""Use the following pieces of context to answer the users question. 
-    Maintain a conversational tone and try to be as helpful as possible. Keep the chat history into account. Only discuss matters related to the ECON Course. If the topic deviates from those found in <context> or <chat history>, please ask the user to restate the query.
+    SYS_PROMPT = f"""Maintain a conversational tone and try to be as helpful as possible. Keep the chat history into account. Only discuss matters related to the course. If the topic deviates from those found in <context> or <chat history>, please ask the user to restate the query.
     
-    Chat History:
+    Use the following pieces of context to answer the users question. 
+    
+    <chat history>
     {chat_history}
+    </chat history>
     
-    Retrieved_Dcouments:
+    <context>
     {context}
+    </context>
     
     User Query:
     {user_query}
     
     Answer:
-    
     """
     
     prompt = {

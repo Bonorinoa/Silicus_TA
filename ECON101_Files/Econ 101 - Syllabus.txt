@@ -1,4 +1,5 @@
 ﻿ECON 101: Intermediate Macroeconomics
+
 This course is about foundational theories in macroeconomics, with a computational touch. My aim is to introduce all topics in the regular curricula from three perspectives: 1) Conceptual (i.e., understanding the underlying ideas), 2) Mathematical (i.e., doing the math), and 3) Simulated (i.e., testing implications of the theory with R). 
 
 
@@ -20,26 +21,34 @@ Here are some project ideas:
 * Why did Average Hourly Earning in the Private sector increase sharply during the pandemic?
 * What drove the increase of the Industrial Production Index (INDPRO) in 2021?
 * What is the impact of interest rate change on goods & services versus asset inflation?
-General Information
+
+# General Information
 Professor: Augusto Gonzalez-Bonorino
-Room: Hahn 108 - Campus map
+Class Room: Hahn 108
+
 Times: 
-* PO1 - 8:10 to 9:25
-* PO2 - 9:35 to 10:50
+* Section 1 - 8:10 to 9:25
+* Section 2 - 9:35 to 10:50
+
 Email: agxa2023@pomona.edu
+
 Office hours: Monday & Wednesday 2-5 PM; Friday 9-11 AM @ Carnegie 217
+
 Teaching Assistants: 
 * Ayush Patel (apad2021@mymail.pomona.edu); hours TBD
 * Thira Kothari (tkyo2022@mymail.pomona.edu); hours TBD
 * Ishika Keswani (idkk2022@mymail.pomona.edu); hours TBD
+
 Helpful pre-reqs: Derivatives, Algebra,Statistics, and Data Analysis
+
 Books (recommended):
 1. Gregory Mankiw Macroeconomics edition 9+ (main reference)
 2. David Romer Advanced Macroeconomics edition 5+ (heavy math reference)
-Overview
-Quizzes will be held every Thursday at the beginning of class, and no calculators will be needed. All assignments, including essays and lab reports, are due by 11:59 PM on either Friday or Sunday (ask for preference). You will have around 2 weeks for each assignment. Additionally, all R labs must be submitted as R markdown notebooks, with all text and descriptions written within the notebook using markdown.
-Learning Outcomes
 
+# Overview
+Quizzes will be held every Thursday at the beginning of class, and no calculators will be needed. All assignments, including essays and lab reports, are due by 11:59 PM on either Friday or Sunday (ask for preference). You will have around 2 weeks for each assignment. Additionally, all R labs must be submitted as R markdown notebooks, with all text and descriptions written within the notebook using markdown.
+
+# Learning Outcomes
 
 1. Basics of R programming
 2. Data science and Data visualization
@@ -52,126 +61,61 @@ Learning Outcomes
 9. Open-Economy IS-LM
 10. Phillips Curve
 11. Linear regression and causality principles
-Grading
+
+# Grading
+
 5 quizzes ~ 25%
 4 homeworks ~ 40 %
 Final Project ~ 35%
-Tentative Schedule
 
+# Tentative Schedule
 
-Week
-	Topic
-	Readings
-	Due 
-	Extra
-	1 - Aug 26
-	Introduction & R review 1
-	Week 1-2 notes
-Mankiw Ch 1
-	Essay [start]
-	
-
-	2 - Sept 2
-	Methodology & R review 2
-	Week 1-2 notes
-Mankiw Ch 2
-	Survey
-	Hayek 1
-	3 - Sept 9
-	Classical (long-run) Model 
-	Week 3-4 notes
-Mankiw Ch 3
-	Essay [due]
-In-class quiz 1
-	
-
-	4 - Sept 16
-	Classical Monetary System & Inflation
-	Week 3-4 notes
-Mankiw Ch 4-5
-
-	R lab 1 [start]
-	Blog post
-Blog post
-	5 - Sept 23
-	Solow-Swan model & R review 3
-	Week 5-6 notes
-Mankiw Ch 8
-
-	In-class quiz 2
-	Blog post
-	6 - Sept 30
-	Endogenous Growth & Alternative Frameworks
-	Week 5-6 notes
-Mankiw Ch 9
-	R lab 1 [due]
-	
-
-	7 - Oct 7
-	Keynesian (short-run) Model & Business Cycles
-	Week 7-8 notes
-Mankiw Ch 10-11
-	In-class quiz 3
-R lab 2 [start]
-	
-
-	8 - Oct 14
-	IS-LM Model
-	Week 7-8 notes
-Mankiw Ch 11
-	
-
-	
-
-	9 - Oct 21
-	Open-Economy Models ~ Trade balance and exchange rates
-	Week 9-10 notes
-Mankiw Ch 6 & 13
-	In-class quiz 4
-R lab 2 [due]
-	
-
-	10 - Oct 28
-	Phillips Curve & Data Analysis
-	Week 9-10 notes
-Mankiw Ch 13
-	R lab 3 [start]
-	
-
-	11 - Nov 4
-	Empirical Estimation & Linear Regression
-	Week 11-12 notes
-	In-class quiz 5
-	Blog post
-	12 - Nov 11
-	Solow-Swan Empirics & Forecasting Business Cycles
-	Week 11-12 notes
-	
-
-	
-
-	13 - Nov 18
-	Thanksgiving Break
-	
-
-	R lab 3 [due]
-	
-
-	14 - Nov 25
-	Modern Methods in Macro Modeling & Final Project
-	Week 13 notes
-	
-
-	
-
-	15 - Dec 2
-	Consulting & Final Project
-	
-
-	Final Project Proposal [due]]
-	Blog post
-	16 - Dec 9
-	Consulting & Final Project
-	
-
-	Final Project [due]
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+|   Week   |                Topic                  |        Readings         |           Due           |    Extra    |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 1-Aug 26 | Introduction & R review 1             | Week 1-2 notes          | Essay [start]           |             |
+|          |                                       | Mankiw Ch 1             |                         |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 2-Sept 2 | Methodology & R review 2              | Week 1-2 notes          | Survey                  | Hayek 1     |
+|          |                                       | Mankiw Ch 2             |                         |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 3-Sept 9 | Classical (long-run) Model            | Week 3-4 notes          | Essay [due]             |             |
+|          |                                       | Mankiw Ch 3             | In-class quiz 1         |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 4-Sept 16| Classical Monetary System & Inflation | Week 3-4 notes          | R lab 1 [start]         | Blog post   |
+|          |                                       | Mankiw Ch 4-5           |                         |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 5-Sept 23| Solow-Swan model & R review 3         | Week 5-6 notes          | In-class quiz 2         | Blog post   |
+|          |                                       | Mankiw Ch 8             |                         |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 6-Sept 30| Endogenous Growth & Alternative       | Week 5-6 notes          | R lab 1 [due]           |             |
+|          | Frameworks                            | Mankiw Ch 9             |                         |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 7-Oct 7  | Keynesian (short-run) Model &         | Week 7-8 notes          | In-class quiz 3         |             |
+|          | Business Cycles                       | Mankiw Ch 10-11         | R lab 2 [start]         |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 8-Oct 14 | IS-LM Model                           | Week 7-8 notes          |                         |             |
+|          |                                       | Mankiw Ch 11            |                         |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 9-Oct 21 | Open-Economy Models ~ Trade balance   | Week 9-10 notes         | In-class quiz 4         |             |
+|          | and exchange rates                    | Mankiw Ch 6 & 13        | R lab 2 [due]           |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 10-Oct 28| Phillips Curve & Data Analysis        | Week 9-10 notes         | R lab 3 [start]         |             |
+|          |                                       | Mankiw Ch 13            |                         |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 11-Nov 4 | Empirical Estimation & Linear         | Week 11-12 notes        | In-class quiz 5         | Blog post   |
+|          | Regression                            |                         |                         |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 12-Nov 11| Solow-Swan Empirics & Forecasting     | Week 11-12 notes        |                         |             |
+|          | Business Cycles                       |                         |                         |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 13-Nov 18| Thanksgiving Break                    |                         | R lab 3 [due]           |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 14-Nov 25| Modern Methods in Macro Modeling &    | Week 13 notes           |                         |             |
+|          | Final Project                         |                         |                         |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 15-Dec 2 | Consulting & Final Project            |                         | Final Project Proposal  | Blog post   |
+|          |                                       |                         | [due]                   |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+
+| 16-Dec 9 | Consulting & Final Project            |                         | Final Project [due]     |             |
++----------+---------------------------------------+-------------------------+-------------------------+-------------+

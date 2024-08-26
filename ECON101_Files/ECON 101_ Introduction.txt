@@ -1,20 +1,14 @@
-﻿ECON 101: Introduction
-
+﻿# ECON 101: Introduction
 
 Economics is a social science which poses questions of distribution, allocation, and efficiency. We study economic systems; these are composed by markets, institutions, and collectives of people. Markets are where agents interact and transact. Institutions determine societal norms, rule of law, and expected behavior. People (who together may form households, firms, or government) are those agents that interact at markets, submit to institutional norms, and -as a collective- give rise to the economic system. Without people, there is no economics to be studied; thus we study societies and the peculiarities of societies constrained by different markets or institutions. 
 
-
 When economic questions are posed, they are related to any or all of these three objects. How do markets handle allocation problems? What role do institutions play in the distribution of wealth and resources? How do people react to changing environments? Why do we observe emergent regularities at scale (macro level) from apparent independent behavior of the agents composing the system (micro level)?
-
 
 But, in essence, the economic problem is one often sloppily considered. Economics is not about money, or government, or trade, or what interest rate to set. It is about people and information. Specifically, the economic problem is that of understanding how information determines the decisions of people in the society of interest. Information that is asymmetrically distributed, and subjectively interpreted. People’s beliefs are conditioned by the environment in which they grow up and by personal experiences acquired throughout a lifetime. More importantly, these are things that change constantly over time. In a nutshell, the economic system is one that is dynamic, complex (in the sense that the whole is not simply the sum of all parts), and that adapts (because people adapt to changing environments and new information). Formally, it is an adaptive complex system. All social systems are of this type.
 
-
 I say “sloppily” because these are facts often abstracted from economic theories and university curriculums. Even in this course, we will study an economy highly abstracted and simplified by many assumptions. But it is important that you keep the core idea of what economists ought to study to help you critically reason through the various theories and models we will cover during the semester. The appreciation for the complexity of economics has only recently re-emerged, mainly due to natural constraints of the traditional view and advances in computational methods.
 
-
 The mainstream and complexity perspectives differ in one fundamental aspect: Equilibrium.
-
 
 * Traditional: The economy is a system that tends to equilibrium. How it achieves this equilibrium is a question that varies with the model employed. All your studies of economics will focus on this mechanism. In this course, we start by examining the Classical Model that assumes equilibrium in the long-run via flexible prices and representative rational agents; that is, agents are homogenous and the macro is the sum of its parts. Then, we will move on to theories of growth under equilibrium and conclude with arguments of how economies react to short-term cycles. Under this paradigm, all information is readily available, is effectively consumed by all agents, and markets will find a way to equilibrate supply and demand. As a primer, this model will prompt us to assume that the economy will always be in equilibrium in the long-run and will oscillate around equilibrium levels in the short-run. 
 
@@ -23,100 +17,77 @@ The mainstream and complexity perspectives differ in one fundamental aspect: Equ
 
 
 To bring this opening rant into a close, consider the following analogy that exemplifies both perspectives:
+
 Imagine you are standing at a grand, bustling marketplace, the heart of a vibrant city. This marketplace, with its myriad stalls and diverse patrons, represents the economy. Every stall is a microcosm of economic activity, with sellers offering goods and services and buyers searching for what they need or desire.
 In the traditional view, this marketplace is seen as a well-oiled machine. The stalls are perfectly organized, and every transaction runs smoothly. Prices adjust instantly to match supply and demand. Sellers and buyers have all the information they need to make decisions, and there is a harmonious balance—an equilibrium—where resources are allocated efficiently. Think of it as a perfectly choreographed dance where every step is predetermined, and the dancers know their roles impeccably.
 Now, let’s shift to the complexity view. This same marketplace is not as orderly. It’s bustling with activity, and while some stalls are thriving, others are struggling. Prices fluctuate as sellers and buyers negotiate. Information is imperfect and asymmetrically distributed; not everyone knows where to find the best deals or what the future holds. People’s decisions are influenced by their unique experiences and the ever-changing environment. It’s more like a dynamic and unpredictable bazaar, where the interactions between diverse individuals lead to emergent patterns that are not easily predictable. The marketplace is always in a state of flux, constantly adapting to new information and changes in behavior.
 In this analogy, the traditional view simplifies the economy to a system that tends to equilibrium, assuming that all agents have perfect information and act rationally. In contrast, the complexity view acknowledges the heterogeneity of agents, the imperfections in information, and the continual adaptation and evolution of the economic system. It appreciates the intricate and often unpredictable nature of human interactions and the broader societal influences at play.
+
 My goal this semester is three-fold: 1) Teach you the mainstream economics models that have led us this far while highlighting their limitations, 2) Introduce you to new perspectives of economics, and 3) Give you practical, computational, skills you can apply to develop your own opinions and critically assess mainstream perspectives. 
-Additional Reading
+
+## Additional Reading
 1. hayek_-_the_use_of_knowledge_in_society.pdf (yale.edu)
 2. Foundations of Complexity Economics - Brian Arthur
 3. Economic Complexity Theory and Applications - Cesar Hidalgo
-What is macroeconomics all about?
+
+# What is macroeconomics all about?
 Macroeconomics is the study of aggregates and of the performance of an economic system as a whole. Three important types of economic systems exist:
 
-
 1. Command or planned: A centralized authority, usually in the form of a government, makes the major decisions about that economy. In a command economy, a governing body controls the means of production, which refers to all the resources, from human to environmental, needed for the economy to operate. USSR and China are modern examples.
+
 2. Capitalist: Private firms primarily run the economy, and the marketplace constitutes transactions between individuals and firms. This system requires state power to enforce property rights, possibly affecting large-scale planning decisions. However, business profits go to the owners of those businesses, with some taken out in taxes. This practice is sometimes referred to as a laissez-faire system, a market system, or a free market, with the word “free" implying an ability to engage in economic activity with less government regulation or input. While it allows for a higher degree of freedom, it also creates opportunities for capital accumulation which may lead to inequalities.
+
 3. Mixed: In practice, most modern economies are examples of this approach, though some tend more in one direction than others. Some economists claim economies can’t be either entirely capitalist or entirely command-based. The United States is a mixed economy with both state and private ownership of the means of production. There is significant government involvement in various sectors—such as large-scale infrastructure, police and firefighters, some forms of education, and high tech. In other areas, such as retail goods and healthcare, the private sector is dominant.
 
-
 Macroeconomic performance is assessed based on four main indicators:
-
 
 1. Employment
 2. Price level
 3. Growth 
 4. Balance of payments
 
-
 We care about these because we believe they are primary determinants of living standards. In other words, as economists we care about improving people’s living standards and wellbeing as measured by these four indicators because we are concerned that the costs associated with declines in each of these outweigh potential benefits.
 
-
-________________
-
-
-Example macro analysis: USA
-
-
-
-
-________________
-
-
-
+---------
+See slides for charts of macro indicators for USA
+---------
 
 However, our indicators and methodologies are not flawless. Like any science, we are constrained by the instruments available to us. Mainstream theories often reflect the best knowledge that can be possibly gathered with currently available instruments. 
 
-
 Brian arthur has done some very interesting work on this issue which helps understand the dichotomy between the traditional and complexity perspectives highlighted in the beginning. It boils down to the language used to express economic theories. 
-
 
 Before calculus was invented, economics was a science based primarily on descriptive observations and logical narratives. I recommend Thomas Veblen’s 1890 “The theory of the leisure class” for a great example of this type of work. The book has 0 references! All arguments were logically presented based on reasoning and observations.
 
-
 Then we got algebra and calculus, which enables us to express arguments as relationships between quantities. This implies two things: 1) Being able to quantify our metrics, and 2) Ignoring processes that may lead to relationships observed. All economic theories since the mid 1950s have been developed using these mathematical instruments, at the cost of more comprehensive analyses of the economic processes underlying them. Great advances were unlocked but we must not be satisfied with the current state of the art. 
-
 
 In economics we are interested in causal questions. That is, why things happened, not just what happens. For example, if I make the claim that demand goes down when prices go up, then I can make an empirical analysis of available data (often from government statistics or private surveys) to estimate the degree to which demand goes down with a unit change in price. This is basically what linear regression helps answer. And we will cover this method towards the end of the course. But why and how that estimated change comes to be exactly is out of scope. In short, we can only answer questions related to on-equilibrium phenomena. 
 
-
 Until recently, we were limited to these analyses. But now, with the advent of computers and algorithms, we can probe beyond static relationships. This is where complexity plays a role. We can set up simulations of human behavior, estimate intricate dynamic models out of equilibrium, and bridge connections between microeconomic observations and emergent macroeconomic phenomena. Algorithms unlock this feature because we can code conditional statements (i.e., if something happens then something else follows) which helps model processes or the evolution of a system. The trade-off, which often makes it unappealing to many economists, is lack of analytical solutions. There is no longer one solution to our models, in fact there could be many. 
-
 
 But think about it for a minute, economists are often criticized for not being able to predict anything. As former US president Harry Truman put it “Give me a one-handed economist. All my economists say ‘on the one hand . . .’, then ‘but on the other . . .”. We now have the technology to model all these possible scenarios and attach probabilities to each of them. As future economists, I hope to inspire you to embrace the complexities of real economic systems rather than be satisfied with incomplete answers. 
 
-
 Brian Arthur refers to these complementary methods as “economics in nouns and verbs”. Calculus gives us nouns, Algorithms gives us verbs. With nouns we can describe relationships between quantities, such as oil supply down => prices up or unemployment up => prices down, and answer what relationship will maximize some objective function. But it obscures stories, events, or processes that may lead to such optimization. On the other hand, with verbs we can describe narratives and evolutionary processes to try to answer questions about economic development (Why does an industry form? How does an economy develop? How does new technology diffuse over the economy?). Together, nouns and verbs allow us to explain the full story underlying observed economic events. 
-
 
 * Check out Brian Arthur's work on the "Evolution of Technology" or "Economics in nouns and verbs" for more info. *
 
-
 There is one more problem, particularly highlighted in the context of macroeconomics. The so-called “Measurement problem”. As defined, macro deals with aggregates. But how do we aggregate micro-level data? Can we be sure we are not omitting important variables? What if these values are constantly changing over time? It is not clear, thus the problem at hand. As we will see in the next section, the four indicators of macroeconomic performance are aggregated into indices. Constructing index measures is hard because there are always trade offs in economics. The US might be thriving while Argentina is collapsing. Inflation rate might be high yet employment remains strong. Relationships are not as clear cut as we would like. 
 
-
 Moreover, the costs and benefits from changes to any of the four indicators mentioned are not equally distributed over an economy. There are geographical and temporal differences. In other words, there are inequality issues. If we cannot collect data for the entire distribution of data, how can we possibly aggregate it accurately. The gist of this argument is that when the sum of the parts does not equal the whole, then statistical measures of centrality are ill-suited for inferring general claims about the system. Mainstream macroeconomics deals with these issues by assuming representative rational agents, essentially assuming that average values are good enough. What do you think? What problems can you think of that may arise from only looking at averages or median values from your knowledge of statistics? I will leave you to think about this on your own for now…
-Course structure and Expectations
-Throughout the first ¾ of the semester, we will deal with the mainstream paradigm. Clarifying all underlying assumptions in detail and exploring immediate implications. We start with the analysis of a closed (no trade) economy in the long-run. We ask, how is equilibrium achieved in the long-run? What instruments do economists and policy-makers have to manipulate the economy? What factors determine output and changes in the economy? What is the role of money and banks? The classical model and the Quantity Theory of Money will guide us through these questions.
 
+# Course structure and Expectations
+
+Throughout the first ¾ of the semester, we will deal with the mainstream paradigm. Clarifying all underlying assumptions in detail and exploring immediate implications. We start with the analysis of a closed (no trade) economy in the long-run. We ask, how is equilibrium achieved in the long-run? What instruments do economists and policy-makers have to manipulate the economy? What factors determine output and changes in the economy? What is the role of money and banks? The classical model and the Quantity Theory of Money will guide us through these questions.
 
 Then, we focus on growth. Exploring the prescriptions of the Solow-Swan growth model and briefly the idea behind Endogenous growth models. The math will get a little bit heavier in this part, but we will all have a common basis on R programming by then which will come in handy for playing with these models. 
 
-
 Finally, we consider the economy in the short-run by developing the Keynesian cross, AD-AS, and IS-LM models to explain business cycles. The main distinction between these two time-horizons, short and long runs, is the set of assumptions agreed upon.
-
 
 Our studies of mainstream economics conclude with open economies, the effects of trade, exchange rates, and the Phillips Curve. 
 
-
 At this point, we will work for a week or 3/2 week on econometric principles. I want to show you how linear regression works, how we can empirically estimate some of the models we have covered theoretically (like the solow growth model), and start preparing you for a more technical study of economics. We will use R to collect data, explore it, visualize it, set up our model, and estimate via OLS.
-
 
 The remainder of the course aims to introduce modern debates and methodologies related to economic dynamics as well as complexity. We will not spend more than a week on these topics. My main motivation to include them is to expose you to what economists are talking about today and motivate you to explore alternative models to those considered in class. 
 
-
 The objective is to cover all topics in 12 to 13 weeks, giving you at least 3 weeks of the semester to work on your final project. This is what you should care about the most! It will ideally become a portfolio project you are proud of and can showcase in interviews when looking for internships or work.
-
 
 I expect you to be active and ask many questions. A big part of this class will rely on in-class debates, which cannot arise without your cooperation and curiosity. I can’t promise to have answers, but that is the whole point of the debates. If I present a topic you don’t agree with, then articulate your dissatisfaction so we can all pitch in our views. Much of economic theory is developed through critical conversations, later on validated (or not) by data. In essence, I want you to think first then model.
