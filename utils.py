@@ -98,7 +98,7 @@ def split_and_index_docs(documents: List[Document]):
     return vectorstore
     
 @st.cache_resource
-def build_chat_chain(course, provider="Llama3"):
+def build_chat_chain(course, provider="Llama3.1"):
 
     if course == "ECON101":
         econ_docs = load_ECON101_docs()
