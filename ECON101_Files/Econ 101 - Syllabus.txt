@@ -24,11 +24,12 @@ Here are some project ideas:
 
 # General Information
 Professor: Augusto Gonzalez-Bonorino
-Class Room: Hahn 108
 
-Times: 
-* Section 1 - 8:10 to 9:25
-* Section 2 - 9:35 to 10:50
+Classroom: Hahn 108
+
+Meeting Times: 
+* Section 1 - Tuesday and Thursday 8:10 to 9:25 AM
+* Section 2 - Tuesday and Thursday 9:35 to 10:50 AM
 
 Email: agxa2023@pomona.edu
 
