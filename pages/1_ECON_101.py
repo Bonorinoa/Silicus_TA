@@ -96,7 +96,7 @@ def run_silicus_ta():
         st.subheader('Sponsored by Blais Foundation')
         #system_prompt = st.text_area("Enter your system prompt here. This will tune the style of output (kind of like the persona of the model).", height=150)
         
-        provider = st.selectbox("Which LLM would you like to use?", ["GPT-3.5", "GPT-4o", "Llama3"])
+        provider = st.selectbox("Which LLM would you like to use?", ["Llama3", "Gemma2", "Mixtral", "Llama3.1"])
         
         st.sidebar.subheader("Feedback")
         st.sidebar.write("Was the conversation helpful? Your honest feedback will help me improve the system.")
