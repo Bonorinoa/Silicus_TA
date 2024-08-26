@@ -1,5 +1,3 @@
-import streamlit as st 
-
 # Import necessary libraries
 import streamlit as st
 from utils import run_llm_chain
@@ -88,8 +86,10 @@ def clear_chat_history():
     st.session_state.messages = [{"role": "assistant", 
                                   "content": "How may I assist you today?"}]
 
+# -------------------------------- #
+
 def run_silicus_ta():
-    st.set_page_config(page_title="ECON 101: Intermediate macroeconimics")
+    st.set_page_config(page_title="ECON 57: Economics Statistics with R")
     
     with st.sidebar:
         st.title('🤗💬 Silicus TA')
@@ -132,7 +132,7 @@ def run_silicus_ta():
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 
-                answer, cost = run_llm_chain("ECON101",
+                answer, cost = run_llm_chain("ECON57",
                                             st.session_state.messages,
                                             st.session_state.current_query,
                                             provider)
@@ -152,3 +152,5 @@ if __name__ == "__main__":
     response_end_time = time.time()
 
     print(f"Response time: {response_end_time - response_start_time}")
+    
+    

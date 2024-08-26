@@ -11,10 +11,10 @@ langchain
 langchain_openai
 langchain_groq
 
-
 faiss-cpu
 huggingface_hub
 transformers
 
 unstructured
+unstructured[docx]
 tiktoken

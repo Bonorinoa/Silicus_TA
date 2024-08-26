@@ -4,6 +4,7 @@ from langchain.chains import LLMChain
 from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_text_splitters import TokenTextSplitter
+from langchain_community.document_loaders import Docx2txtLoader
 
 from langchain_groq import ChatGroq
 
@@ -27,17 +28,24 @@ os.environ['GROQ_API_KEY'] = st.secrets["GROQ_API_KEY"]
 # --------- Local Utils --------- # 
 
 @st.cache_data
-def load_docs():
-    loader = DirectoryLoader("ECON_Files", glob = "**/*.txt")
+def load_ECON57_docs():
+    loader = DirectoryLoader("ECON57_Files", glob = "**/*.txt")
+    
+    econ_docs = loader.load()
+    return econ_docs
+
+@st.cache_data
+def load_ECON101_docs():
+    loader = DirectoryLoader("ECON101_Files", glob = "**/*.txt")
+    
     econ_docs = loader.load()
     return econ_docs
 
 def compute_cost(tokens, engine):
     """Computes a proxy for the cost of a response based on the number of tokens generated (i.e, cos of output) and the engine used"""
-    model_prices = {"gpt-3.5-turbo": 1, 
-                    "gpt-4": 50,
-                    "cohere-free": 0,
-                    "llama3-8b-8192": 0}
+    model_prices = {"GPT-3.5": 1, 
+                    "GPT-4o": 10,
+                    "Llama3": 0}
     model_price = model_prices[engine]
     
     cost = (tokens / 1_000_000) * model_price
@@ -54,86 +62,11 @@ def load_model(provider):
         model = ChatGroq(model_name="llama3-8b-8192",
                          temperature=0, max_tokens=500)
         
-    elif provider == "GPT-4":
-        model = ChatOpenAI(model='gpt-4', 
+    elif provider == "GPT-4o":
+        model = ChatOpenAI(model='gpt-4o', 
                            temperature=0.8, max_tokens=500)
         
-    #elif provider == "HuggingFace":
-    #    model = HuggingFaceHub(repo_id="google/flan-t5-base", 
-    #                                     model_kwargs={"temperature": 0.6, "max_length": 200})
-        
     return model
-    
-@st.cache_resource
-def build_chat_chain(provider="Llama3"):
-    # Load documents
-    econ_docs = load_docs()
-
-    # Split documents into chunks and index them
-    vectorstore = split_and_index_docs(econ_docs)
-    
-    # load the LLM
-    llm = load_model(provider=provider)
-    
-    # design prompt
-    system_template = SystemMessagePromptTemplate.from_template("{system_prompt}")
-    human_template = HumanMessagePromptTemplate.from_template("{chat_history}")
-
-    # create the list of messages
-    chat_prompt = ChatPromptTemplate.from_messages([
-        system_template,
-        human_template
-    ])
-
-    # Build chain
-    chain = LLMChain(llm=llm, 
-                     prompt=chat_prompt)
-    
-    return chain, vectorstore
-
-def run_hf_chain(message_history, 
-                 user_query,
-                 provider):
-    
-    chat_chain, vectorstore = build_chat_chain(provider)
-    
-    # Retrieve context
-    context = vectorstore.similarity_search(user_query, k=2, 
-                                            return_documents=False)
-    
-    # Create the complete prompt with conversation history
-    chat_history = "\n".join([f"{msg['role']}: {msg['content']}" for msg in message_history])
-    
-    SYS_PROMPT = f"""Use the following pieces of context to answer the users question. 
-    Maintain a conversational tone and try to be as helpful as possible. Keep the chat history into account
-    
-    Chat History:
-    {chat_history}
-    
-    Retrieved_Dcouments:
-    {context}
-    
-    User Query:
-    {user_query}
-    
-    Answer:
-    
-    """
-    
-    prompt = {
-        'system_prompt': SYS_PROMPT,
-        'chat_history': chat_history  
-    }
-    
-    # Generate response
-    answer = chat_chain.invoke(prompt)['text']
-    
-    # Compute cost
-    cost = compute_cost(len(answer.split()), 
-                        "gpt-3.5-turbo")
-    
-    return answer, cost
-    
 
 def split_and_index_docs(documents: List[Document]):
     '''
@@ -159,5 +92,78 @@ def split_and_index_docs(documents: List[Document]):
 
     
     return vectorstore
+    
+@st.cache_resource
+def build_chat_chain(course, provider="Llama3"):
 
+    if course == "ECON101":
+        econ_docs = load_ECON101_docs()
+    elif course == "ECON57":
+        econ_docs = load_ECON57_docs()
+        
+    # Split documents into chunks and index them
+    vectorstore = split_and_index_docs(econ_docs)
+    
+    # load the LLM
+    llm = load_model(provider=provider)
+    
+    # design prompt
+    system_template = SystemMessagePromptTemplate.from_template("{system_prompt}")
+    human_template = HumanMessagePromptTemplate.from_template("{chat_history}")
 
+    # create the list of messages
+    chat_prompt = ChatPromptTemplate.from_messages([
+        system_template,
+        human_template
+    ])
+
+    # Build chain
+    chain = LLMChain(llm=llm, 
+                     prompt=chat_prompt)
+    
+    return chain, vectorstore
+
+def run_llm_chain(course,
+                 message_history, 
+                 user_query,
+                 provider):
+    
+    chat_chain, vectorstore = build_chat_chain(course, 
+                                               provider)
+    
+    # Retrieve context
+    context = vectorstore.similarity_search(user_query, k=2, 
+                                            return_documents=False)
+    
+    # Create the complete prompt with conversation history
+    chat_history = "\n".join([f"{msg['role']}: {msg['content']}" for msg in message_history])
+    
+    SYS_PROMPT = f"""Use the following pieces of context to answer the users question. 
+    Maintain a conversational tone and try to be as helpful as possible. Keep the chat history into account. Only discuss matters related to the ECON Course. If the topic deviates from those found in <context> or <chat history>, please ask the user to restate the query.
+    
+    Chat History:
+    {chat_history}
+    
+    Retrieved_Dcouments:
+    {context}
+    
+    User Query:
+    {user_query}
+    
+    Answer:
+    
+    """
+    
+    prompt = {
+        'system_prompt': SYS_PROMPT,
+        'chat_history': chat_history  
+    }
+    
+    # Generate response
+    answer = chat_chain.invoke(prompt)['text']
+    
+    # Compute cost
+    cost = compute_cost(len(answer.split()), 
+                        provider)
+    
+    return answer, cost
