@@ -1,0 +1,209 @@
+﻿Classical Macroeconomic Theory
+Macroeconomics is the study of aggregates, phenomena observed to emerge from collective actions of firms or households in an economy. The aggregates include national output, employment, the overall price level and the balance of payments. For example, Gross Domestic Product (GDP) is a measure designed to capture the total output of an economy; which involves households providing labor for wages, firms supplying goods or services for profit, and governments implementing policies for stabilizing demand and supply. 
+
+
+Macroeconomists, thus, care a lot about quantifying macroeconomic performance. This is currently assessed by inspecting four key indicators: Employment, Price level stability, Economic growth, and Balance of payments. 
+
+
+But, while the discipline strives for a scientific approach, many questions remain unsolved: How should observed behavior be aggregated? That is, how should macroeconomic indicators be measured? Is it possible to properly account for all micro behavior in the economy? How do such aggregate measures evolve over time? Do these measures provide an accurate representation of what is happening in the economy overall? How should policy be prescribed to account for known limitations of currently available methods? Are we missing any important variables in our models? What are the trade-offs between constant growth and inequality?
+
+
+To start thinking about these questions, it is useful to distinguish between two time horizons: the short-run and the long-run. These do not imply a particular time-frame to analyze, rather it defines the set of assumptions we are willing to make, and hence the set of models from which we can draw conclusions about the data collected. The most famous model of macroeconomic performance in the long-run is the classical model, the focus of the following two weeks. 
+The Classical Model: A Long-Run Perspective
+The Classical Model is a classic, pun intended, example of such toy models. It was developed from Keynes’ General Theory in the 1930s, later formalized by Hicks. Although it is believed to have been first posed around the 1800s, which is why it gets the name “Classical”. It rests on two key assumptions:
+
+
+1. Flexible prices: In the long-run, prices (including wages) can freely adjust to balance supply and demand.
+2. Full employment of resources: All available resources, including labor, are fully utilized.
+
+
+To illustrate these concepts, let's consider a realistic scenario in the automotive industry:
+
+
+Imagine a mid-sized city with a significant auto manufacturing sector. Initially, the sector employs 10,000 workers producing 500,000 cars annually, meeting market demand at the current price of $30,000 per car.
+
+
+Suddenly, a breakthrough in automation technology allows manufacturers to double their production efficiency. Now, only 5,000 workers are needed to produce the same 500,000 cars. In the short-run, this might lead to unemployment for 5,000 workers.
+
+
+However, according to the classical model, in the long-run:
+
+
+1. Flexible prices: The price of cars would fall due to increased supply and reduced production costs. Let's say the price drops to $25,000 per car. This price reduction stimulates higher demand for cars.
+
+
+2. Full employment: The 5,000 unemployed workers would find new jobs in various areas:
+* Some might be retrained to operate and maintain the new automated systems.
+* Others might find work in expanded car dealerships and service centers due to increased car ownership.
+* Some might transition to related industries like auto parts manufacturing or transportation services.
+* The increased productivity and wealth in the city might spur growth in other sectors (e.g., retail, hospitality), creating more job opportunities.
+
+
+This example illustrates how the classical model envisions an economy adjusting to changes over time:
+* Prices adapt to new conditions (cars become cheaper).
+* Resources, including labor, are reallocated to maintain full employment.
+* Overall economic output increases (more cars are produced and sold, and other sectors grow).
+
+
+It's important to note that the classical model is a simplification of reality, focusing on long-run outcomes. In the real world, these adjustments take time and may face various frictions. Can you think of any possible reasons? Commodities are bought in large quantities, supplied over a period of time, through futures contracts. Wages are set at the time of hiring, also constrained by a written contract. These contracts have different time-frames, but all would fall under the short-run horizon because they are characterized by “sticky” prices. We will study this scenario when we get to short-run economics.
+
+
+However, understanding this model provides a useful starting point for analyzing economic phenomena and policies.
+
+
+The fundamental principle of classical theory is that the economy self‐regulates. Classical economists maintain that the economy is always capable of achieving the natural level of real GDP or output, which is the level of real GDP that is obtained when the economy's resources are fully employed. While circumstances arise from time to time that cause the economy to fall below or to exceed the natural level of real GDP, self‐adjustment mechanisms exist within the market system that work to bring the economy back to the natural level of real GDP. Hence this school of thought favors a laissez–faire approach to government policy. Keep the politicians aways, and let the market do its thing. The belief of this assumption rests on Say's Law, which states that for any given level of output a necessary increase in income will follow such that the economy is always capable of demanding all of the output that its workers and firms choose to produce.
+
+
+There are 3 markets considered in the classical model: Labor, Capital, and Loans. The first two are the most important factors of production, while loans are introduced later on as a financing mechanism to induce investment. 
+
+
+Recall that in the long-run we assume full employment of resources, we can now formalize this as a complete and efficient use of all the capital and labor available in the economy. 
+
+
+The available production technology determines how much output is produced from given amounts of capital and labor. Economists express this relationship using a production function. Letting Y denote the amount of output, we write the production function as Y = F(K, L). Since Macro focuses on aggregates, we assume a particular functional form for all firms in the economy. There are two properties of the functional form of the production function commonly considered: Constant returns to scale (CRS), and Diminishing returns to scale (DRS). 
+
+
+CRS simply means that a change in the factors of production will lead to the same proportional change in output. Formally,  where c is a constant value. 
+
+
+  
+
+
+
+On the other hand, DRS means that as factors of production are increased (e.g., more machines are bought or more people are employed) the output gained will decrease, marginally. Formally, . Most production functions have DRS properties. 
+
+
+  
+
+
+
+The most famous production function is arguably the Cobb-Douglas function introduced by Charles Cobb and Paul Douglas in1928 
+
+
+. 
+
+
+Where Y is output, A is the total factor productivity, K is capital, L is labor, and the exponents are output elasticities that are determined by currently available technology. Recall output elasticities are the percentage change in output for a percentage change in the input. That is, the responsiveness of output to a change in levels of either labor or capital used in production. 
+
+
+As a motivational example, I wrote some R code to estimate the output elasticities of capital and labor before and after the financial crisis of 2008. The most striking change is the significant decrease in labor elasticity and increase in capital elasticity from the pre-recession to post-recession period.
+
+
+Labor Elasticity:
+* Pre-recession: 0.1666
+* Post-recession: 0.0347 This suggests that after the financial crisis, output became less responsive to changes in labor input. A 1% increase in labor hours would lead to a smaller increase in GDP post-recession compared to pre-recession.
+Capital Elasticity:
+* Pre-recession: 0.3845
+* Post-recession: 0.5703 The elasticity of capital increased substantially, indicating that output became more responsive to changes in capital input after the financial crisis.
+Relative Importance: Pre-recession, capital was about 2.3 times more important than labor in determining output. Post-recession, this ratio increased to about 16.4 times, showing a dramatic shift towards capital.
+
+
+There are many plausible explanations, as you might imagine, which is exactly what makes economics so challenging! Here are a couple:
+
+
+* Structural Shifts: The economy might have shifted towards more capital-intensive sectors (e.g., tech) and away from labor-intensive ones.
+* Labor Market Changes: Post-recession, there might have been changes in labor market dynamics (e.g., gig economy, part-time work) that made output less responsive to changes in total labor hours.
+* Investment Patterns: The low interest rates post-recession might have encouraged more capital investment, making the economy more responsive to changes in capital.
+* Policy Responses: Government policies post-recession might have favored capital investment over labor (e.g., through tax incentives).
+* Data Limitations: My simple model might not capture all complexities, and there could be data or measurement issues affecting the results. Here is a paper forthcoming in AER that used more complex methods to estimate these elasticities.
+
+
+This was a little tangent, so don’t worry too much about the modeling behind it. But I thought it would be cool to show how important it is to not only apply good models but also to understand  what was going on at the period of interest to get reasonable explanations of empirical observations.
+
+
+Let’s continue our analysis of the Cobb-Douglas, applying the definition of returns at scale we get 
+
+
+ 
+
+
+This tells us that if  we have CRS and if  we have DRS. 
+
+
+Moreover, we are often interested in studying what would happen to output given a change in one of the factors of production. These are called marginal products of a factor of production. For example, consider the marginal product of labor. That is, what happens to output given a change in the labor input. We compute the Marginal Product of Labor (MPL) by taking the partial derivative of the production function with respect to labor. 
+
+
+ , and since  we know this value is positive. Hence, an increase in labor leads to an increase in output. 
+
+
+  
+
+
+
+Both MPK and MPL curves are downward sloping, illustrating DRS as more input is added. In this chart, the higher curve represents the more productive input (higher output elasticity).
+
+* When α < β (0.3, 0.7), MPL is higher than MPK, indicating labor is more productive.
+* When α = β (0.5, 0.5), MPK and MPL are identical, showing equal productivity.
+* When α > β (0.7, 0.3), MPK is higher than MPL, suggesting capital is more productive.
+* The curves become steeper as the respective elasticity increases, showing a faster decline in marginal productivity.
+
+
+As we increase either capital or labor, keeping the other constant, we see diminishing returns. The input with the higher elasticity starts off more productive but also experiences a steeper decline in its marginal product. This illustrates the trade-offs in emphasizing capital vs. labor in production.
+
+
+But how do these rates of increases in output evolve or grow as labor or capital continue to increase? We assess this by computing the second partial derivative of the production function (i.e., the derivative of MPL). Recall the second derivative gives us information about the rate of change of the slope of a function.
+
+
+ which gives us a negative value because . Thus this function satisfies diminishing returns because the marginal product of labor, while always positive, is declining. A similar analysis can be conducted on the capital (K) input. 
+
+
+  
+
+
+
+First of all, notice that all curves start in the negative values. This is a consequence of the diminishing marginal returns. Remember that a derivative is the rate of change of a variable, therefore the second derivative is the rate of change of the rate of change of that variable. That is, the slope of the marginal products (which we saw in the first chart are downward sloping). Another way to phrase it is that the marginal products are decreasing at a decreasing rate. There is a 1-to-1 relationship between the previous chart and this one. Why do, then, each of these curves converge at 0? Well, the worst case scenario is that we add one more unit of input and we see no productivity increase. The fact that the curves start highly negative and quickly approach zero shows that the rate of diminishing returns is most severe when the input quantity is low. The convergence at 0 means that the rate of diminishing returns slows down at higher input levels. In other words, we gain less for one additional unit of labor or capital once we already have a lot of either. 
+
+
+In conclusion, the second derivatives show us how quickly the marginal products are decreasing. The steep initial drop indicates that diminishing returns set in quickly, especially for the more productive input. As we add more of an input, the rate of decline in its marginal product slows down, as shown by the curves approaching zero.
+
+
+While the first plot shows us the level of marginal productivity, the second plot reveals the rate at which this productivity is changing. Together, they tell us that not only do marginal returns diminish as we add more of an input, but this diminishing effect is strongest when we have little of that input and becomes less pronounced as we add more.
+
+
+Finally, we can generalize this function to an arbitrary number of factors of production if we’d like. The general form of the Cobb-Douglas is 
+
+
+ where A is an efficiency parameter, n is the total number of inputs, x is a vector of factors of production, and  is the output elasticity parameter for each input. 
+
+
+Having established a plausible production function, we turn our focus to the objective of the firm producing such goods. Firms want to maximize profit, calculated as price time quantity produced minus costs incurred (wages paid for labor and rents paid for capital). That is, . For what level of input will profits be maximized? Calculus lends a hand for such analysis once again. Suppose we want to find the level of labor input that will maximize a firm’s profit which produces according to the Cobb-Douglas function. 
+
+
+
+
+
+Why do we treat prices p and costs WL, RK as constants? Because we assume perfect competition, we have a lot of little firms that individually have no effect on the price of their output or the wage they pay. They take both as given. This firm should hire until the marginal cost of hiring another worker just equals the extra revenue that they generate. And since we know the function has diminishing returns to scale, we expect firms to be willing to pay less for each additional worker. A similar story follows for the employment of additional capital. To sum up, the competitive, profit-maximizing firm follows a simple rule about how much labor to hire and how much capital to rent. The firm demands each factor of production until that factor’s marginal product equals its real factor price. 
+
+
+________________
+
+
+
+
+How much unemployment do we have in this economy? 
+
+
+Can we have a recession in this economy? 
+________________
+
+
+
+
+
+
+This reveals how the markets for the factors of production distribute the economy’s total income.  If all firms in the economy are competitive and profit maximizing, then each factor of production is paid its marginal contribution to the production process. The income that remains after firms have paid their factors of production (MPL, MPK, real wages, and rent) is called the economic profit. 
+
+
+
+
+
+To study distribution of income (Y) we rearrange to get 
+
+
+
+
+
+Total income is divided among the return to labor, the return to capital, and economic profit. So, how is income distributed from firms to households?  Total output is divided between the payments to capital and the payments to labor, depending on their marginal productivities.
+
+
+This concludes the classical analysis of the firm, or of the supply for goods and services, which determines the total income Y in the economy. But what determines demand for such products?

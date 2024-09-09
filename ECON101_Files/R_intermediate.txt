@@ -1,0 +1,589 @@
+---
+title: "R Review - Intermediate"
+author: "Augusto Gonzalez Bonorino"
+output: html_notebook
+---
+
+### Contents
+#### Intermediate concepts of R Programming
+- Functions
+- Loops
+- Visualizations
+
+## Functions
+
+Functions are a fundamental building block in R programming. They allow you to encapsulate a series of operations into a reusable unit.
+
+
+The basic structure of a function in R is:
+ function_name <- function(arg1, arg2, ...) {
+   # Function body
+   return()
+ }
+
+
+Let's create a simple function to calculate total revenue:
+
+```{r}
+revenue2 <- function(p, q){
+  revenue <- p * q
+  return(revenue)  
+}
+
+revenue2(10, 100)
+```
+
+
+
+```{r}
+calculate_revenue <- function(price, quantity) {
+  revenue <- price * quantity
+  
+  return(revenue)
+}
+
+# Test the function
+price <- 20
+quantity <- 100
+total_revenue <- calculate_revenue(price, quantity)
+print(paste("The total revenue is:", total_revenue))
+```
+
+Here is an example to calculate the price after a discount:
+
+```{r}
+calculate_discount <- function(price, discount_percent) {
+  
+  discounted_price <- price * (1 - discount_percent / 100)
+  
+  if (discounted_price > 50) {
+    print("Discounted price is greater than 50")
+  } else {
+    discounted_price <- price
+  }
+  
+  return(discounted_price)
+}
+
+# Test the function
+original_price <- 100
+discount <- 60
+final_price <- calculate_discount(price = original_price, discount_percent = discount)
+print(paste("The final price after", discount, "% discount is:", final_price))
+```
+
+
+```{r}
+func1 <- function(x, y){
+  return(x - y)
+}
+
+func1(10, 5)
+func1(5,10)
+
+func1()
+```
+
+
+### Function arguments and default values
+
+You can set default values for function arguments:
+
+```{r}
+calculate_after_tax <- function(price, tax_rate = 0.08) {
+  final_price <- price * (1 + tax_rate)
+  
+  return(paste("The final price after", tax_rate * 100, "% tax is:", round(final_price, 1)))
+}
+
+# Now you can call the function with or without specifying the tax rate:
+print(calculate_after_tax(1067))  # Uses default 8% tax rate
+print(calculate_after_tax(100, 0.05))  # Overrides default with 5% tax rate
+
+```
+
+```{r}
+calculate_discount <- function(price, discount_percent = 10) {
+  discounted_price <- price * (1 - discount_percent / 100)
+  
+  return(paste("The final price after", discount_percent, "% discount is:", discounted_price))
+}
+
+# Now you can call the function without specifying the discount:
+print(calculate_discount(100))  # Uses default 10% discount
+print(calculate_discount(100, 20))  # Overrides default with 20% discount
+```
+
+### Return values
+
+A List is a data structure similar to the vector c() that can contain multiple values of different types. In R jargon, it is a *generic vector*.
+We can even assign names to the elements of a list.
+
+Functions can return multiple values using a list:
+
+```{r}
+calculate_price_info <- function(price, discount_percent) {
+  final_price <- price * (1 - discount_percent / 100)
+  savings <- price - final_price
+  
+  return(list(x1 = 20, x2 = savings))
+}
+
+result <- calculate_price_info(100, 20)
+result
+
+#print(paste("Final price:", result$final_price))
+#print(paste("You save:", result$savings))
+```
+
+The following function finds the equilibrium price and quantity given the intercepts and slopes of linear demand and supply curves.
+
+```{r}
+find_equilibrium <- function(demand_intercept, demand_slope, supply_intercept, supply_slope) {
+  
+  # this comes from setting demand equal to supply and solving for price.
+  # We assume the demand and supply functions are linear.
+  ## Qd = demand_intercept + demand_slope * P
+  ## Qs = supply_intercept + supply_slope * P
+  equilibrium_price <- (demand_intercept - supply_intercept) / (supply_slope - demand_slope)
+  
+  # this comes from plugging in the equilibirum price back into either the supply or demand function
+  equilibrium_quantity <- demand_intercept + demand_slope * equilibrium_price
+  
+  return(list(price = equilibrium_price, quantity = equilibrium_quantity))
+}
+
+# Test the function
+result <- find_equilibrium(100, -2, 20, 1)
+print(paste("Equilibrium price:", round(result$price, 2)))
+print(paste("Equilibrium quantity:", round(result$quantity, 3)))
+```
+
+## Loops
+
+Loops allow you to repeat a set of operations multiple times.
+
+### For loops
+
+For loops iterate over a sequence or vector.
+
+```{r}
+for (i in 1:15) {
+  print(paste("Iteration", i))
+}
+
+# Looping over a vector:
+fruits <- c("apple", "banana", "orange")
+for (fruit in fruits) {
+  print(paste("I like", fruit))
+}
+```
+
+```{r}
+fruits[2]
+```
+
+**Checkpoint challenge**
+
+Loop over the fruits vector using indexing and print the fruit name along with its position in the vector. Hint: Think about how you could combine the style of the loops shown above.
+
+```{r}
+for (i in 1:3) {
+  print(paste("iteration", i, "fruit", fruits[i]))
+}
+```
+
+
+```{r}
+for (i in 1:3) {
+  print(paste(fruits[i]))
+}
+
+for (i in 1:length(fruits)) {
+  print(paste(fruits[i]))
+}
+```
+
+
+```{r}
+# Calculating compound interest over years
+initial_investment <- 1000
+interest_rate <- 0.05
+years <- 10
+
+for (year in 1:years) {
+  initial_investment <- initial_investment * (1 + interest_rate)
+  
+  print(paste("Year", year, "Balance:", round(initial_investment, 3)))
+}
+```
+
+```{r}
+# analytical solution
+y10 <- 1000 * (1 + 5/100)^10
+y10
+```
+
+### While loops
+
+While loops continue until a condition is met. Very useful for situations where you don't know the number of iterations in advance or for studying convergence properties.
+
+```{r}
+count <- 1
+while (count <= 10) {
+  print(paste("Count is", count))
+  count <- count + 1
+}
+```
+
+
+```{r}
+# Inflation adjustment
+initial_price <- 100
+inflation_rate <- 3
+target_price <- 150
+
+years <- 0
+while (initial_price < target_price) {
+  initial_price <- initial_price * (1 + inflation_rate/100) # simple interest rate
+  years <- years + 1
+}
+
+print(paste("It takes", years, "years for the price to exceed", target_price))
+```
+
+
+## Visualizations
+
+R provides powerful and simple built-in tools for data visualization.
+
+## Scatter plot
+
+Scatter plots are useful for visualizing the relationship between two variables. In our example, we're plotting GDP per capita against life expectancy for different countries.
+
+Key parameters:
+
+- **plot()**: The main function for creating the plot
+- **main**: Sets the title of the plot
+- **xlab** and **ylab**: Label the x and y axes, respectively
+- **pch**: Sets the point character (shape of the points)
+- **col**: Sets the color of the points
+
+The text() function is used to add country labels to the points.
+
+```{r fig.width=10, fig.height=5}
+# fig.width=10, fig.height=5
+# GDP per capita vs Life expectancy
+gdp_per_capita <- c(62000, 9800, 39000, 46000, 42000)
+life_expectancy <- c(78.5, 76.1, 83.7, 81.2, 81.3)
+countries <- c("USA", "China", "Japan", "Germany", "UK")
+
+plot(gdp_per_capita, life_expectancy, 
+     main = "GDP per Capita vs Life Expectancy",
+     xlab = "GDP per Capita (USD)",
+     ylab = "Life Expectancy (years)",
+     pch = 19, 
+     col = "blue")
+
+text(gdp_per_capita, life_expectancy, labels = countries, pos = 4, col = "red")
+```
+
+### Line plot
+
+Line plots are excellent for showing trends over time. Our example displays the inflation rate in the US from 2010 to 2020.
+
+Key parameters:
+
+- **type** = "l": Specifies that we want a line plot
+- **lwd**: Sets the line width
+- **points()**: Adds points to the line for each data point
+
+```{r}
+# Simple scatter plot
+x <- 1:10
+y <- x^2
+plot(x, y, main = "Square Function", xlab = "x", ylab = "y", pch = 19, col = "blue")
+
+# Adding a line to the scatter plot
+lines(x, y, col = "red")
+
+# Adding a legend
+legend("topleft", legend = c("x^2", "Line"), col = c("blue", "red"), pch = c(19, NA), lty = c(NA, 1))
+
+```
+
+```{r}
+# Inflation rate over time
+years <- 2010:2020
+inflation_rates <- c(1.6, 3.2, 2.1, 1.5, 1.6, 0.1, 1.3, 2.1, 2.4, 1.8, 1.2)
+
+plot(years, inflation_rates, type = "l", 
+     main = "US Inflation Rate Over Time",
+     xlab = "Year",
+     ylab = "Inflation Rate (%)",
+     col = "blue",
+     lwd = 2)
+
+points(years, inflation_rates, pch = 19, col = "red")
+```
+
+### Multiple line plot
+
+Multiple line plots allow us to compare trends across different categories (in this case, countries) over time.
+
+Key parameters:
+
+- **ylim**: Sets the range of the y-axis to accommodate all lines
+- **lines()**: Adds additional lines to an existing plot
+- **legend()**: Adds a legend to explain what each line represents
+
+```{r}
+# Comparing GDP growth rates of different countries
+years <- 2010:2020
+usa_growth <- c(2.6, 1.6, 2.2, 1.8, 2.5, 2.9, 1.6, 2.4, 2.9, 2.3, -3.4)
+china_growth <- c(10.6, 9.6, 7.9, 7.8, 7.3, 6.9, 6.7, 6.9, 6.7, 6.0, 2.3)
+japan_growth <- c(4.2, -0.1, 1.5, 2.0, 0.4, 1.2, 0.5, 2.2, 0.3, 0.3, -4.8)
+
+plot(years, usa_growth, type = "l", 
+     main = "GDP Growth Rates Comparison",
+     xlab = "Year",
+     ylab = "GDP Growth Rate (%)",
+     col = "blue",
+     ylim = c(-5, 12),
+     lwd = 2)
+
+lines(years, china_growth, col = "red", lwd = 2)
+lines(years, japan_growth, col = "green", lwd = 2)
+
+legend("topright", 
+       legend = c("USA", "China", "Japan"), 
+       col = c("blue", "red", "green"), 
+       lty = 1, 
+       lwd = 2)
+```
+
+### Box Plot
+
+Box plots are excellent for visualizing the distribution of data across different categories or groups. They show the median, quartiles, and potential outliers in the data.
+
+Key components:
+
+- The box represents the interquartile range (IQR), from the first quartile to the third quartile
+- The line inside the box is the median
+- The whiskers extend to the lowest and highest data points within 1.5 * IQR of the first and third quartiles
+- Points beyond the whiskers are potential outliers
+
+In our example:
+
+- **boxplot()**: Creates the basic box plot
+- **names**: Labels for each group
+- **col**: Sets the color for each box
+- **stripchart()**: Adds individual data points on top of the box plot
+
+  - **method = "jitter"**: Adds a small random offset to avoid overplotting
+  - **pch**: Sets the point character (shape of the points)
+  - **col**: Sets the color of the points with transparency
+
+```{r}
+# Box plots are useful for displaying the distribution of a dataset
+
+# Generate some sample data
+set.seed(123)
+group1 <- rnorm(100, mean = 5, sd = 1)
+group2 <- rnorm(100, mean = 6, sd = 1.5)
+group3 <- rnorm(100, mean = 4.5, sd = 0.8)
+
+# Create a box plot
+boxplot(group1, group2, group3, 
+        names = c("Group 1", "Group 2", "Group 3"),
+        main = "Comparison of Three Groups",
+        ylab = "Values",
+        col = c("lightblue", "lightgreen", "lightpink"),
+        border = "black")
+
+# Add individual data points
+stripchart(list(group1, group2, group3), 
+           vertical = TRUE, 
+           method = "jitter", 
+           add = TRUE, 
+           pch = 20, 
+           col = rgb(0,0,0,0.3))
+
+```
+
+
+### Histogram
+
+Histograms show the distribution of a continuous variable by dividing it into bins and showing the frequency or density of data points in each bin.
+
+Key features:
+
+We're comparing two groups on the same plot
+
+- **hist()**: Creates the basic histogram
+
+  - **breaks**: Number of bins to use
+  - **probability = TRUE**: Shows density instead of raw counts
+  - **col**: Sets the color with transparency for overlapping
+
+- **add = TRUE**: Adds the second histogram to the existing plot
+- **density()** and **lines()**: Add smooth density curves on top of the histograms
+- **legend()**: Explains what each color represents
+- **arrows()** and **text()**: Add annotations for mean values
+
+This advanced histogram allows for direct comparison of two distributions, showing both the raw data (as bars) and smoothed estimates (as lines).
+
+```{r}
+# Histograms are used to display the distribution of a single variable
+
+set.seed(456)
+group_A <- rnorm(1000, mean = 25, sd = 5)
+group_B <- rnorm(1000, mean = 30, sd = 7)
+
+# Combine the data and create a factor for grouping
+all_data <- c(group_A, group_B)
+groups <- factor(rep(c("A", "B"), each = 1000))
+
+# Create a data frame
+df <- data.frame(value = all_data, group = groups)
+
+# Set up the plot
+hist(df$value[df$group == "A"], 
+     breaks = 30,
+     main = "Comparison of Group A and B Distributions",
+     xlab = "Values",
+     ylab = "Frequency",
+     col = rgb(0, 0, 1, 0.5),  # Blue with 50% transparency
+     border = "blue",
+     probability = TRUE)  # Use probability instead of frequency
+
+# Add the histogram for group B
+hist(df$value[df$group == "B"], 
+     breaks = 30,
+     add = TRUE,
+     col = rgb(1, 0, 0, 0.5),  # Red with 50% transparency
+     border = "red",
+     probability = TRUE)
+
+# Add density curves
+lines(density(df$value[df$group == "A"]), col = "blue", lwd = 2)
+lines(density(df$value[df$group == "B"]), col = "red", lwd = 2)
+
+# Add a legend
+legend("topright", 
+       legend = c("Group A", "Group B"), 
+       fill = c(rgb(0, 0, 1, 0.5), rgb(1, 0, 0, 0.5)),
+       border = c("blue", "red"))
+
+# Add summary statistics to the plot
+group_A_mean <- mean(group_A)
+group_B_mean <- mean(group_B)
+arrows(group_A_mean, 0, group_A_mean, 0.03, col = "blue", lwd = 2, length = 0.1)
+arrows(group_B_mean, 0, group_B_mean, 0.03, col = "darkred", lwd = 2, length = 0.1)
+text(group_A_mean, 0.04, paste("Mean A:", round(group_A_mean, 2)), col = "blue")
+text(group_B_mean, 0.05, paste("Mean B:", round(group_B_mean, 2)), col = "darkred")
+```
+
+
+### Exercises
+
+1. Write a function that calculates the compound interest after n years. The formula is principal * (1 + rate/100)^time.
+  The function should take principal, rate (as a percentage), and time (in years) as arguments.
+
+```{r}
+compound_interest <- function(principal, rate, time) {
+  result <- principal * (1 + rate/100)^time
+  return(result)
+}
+
+print(compound_interest(1000, 5, 10))
+```
+
+2. Create a function called `budget_calculator` that takes the following arguments:
+
+- `income`: Monthly income
+- `rent`: Monthly rent expense
+- `food`: Monthly food expense
+- `utilities`: Monthly utilities expense
+
+The function should:
+
+a) Calculate the total expenses
+b) Calculate the remaining budget (income - total expenses)
+c) Return a list containing the total expenses and remaining budget
+d) If expenses exceed income, print a warning message. Hint: This will be a conditional expression inside your function that somehow compares total expenses to income.
+e) Test both cases, where expenses are within and exceed the income.
+
+
+```{r}
+budget_calculator <- function(income, rent, food, utilities) {
+  total_expenses <- rent + food + utilities
+  remaining_budget <- income - total_expenses
+  
+  if (total_expenses > income) {
+    print("Expenses exceed income. Please review your budget.") # warning
+  }
+  
+  return(list(total_expenses = total_expenses, remaining_budget = remaining_budget))
+}
+
+# Test the function
+result <- budget_calculator(income = 3000, rent = 1200, food = 400, utilities = 200)
+print(paste("Total expenses:", result$total_expenses))
+print(paste("Remaining budget:", result$remaining_budget))
+
+# Test with expenses exceeding income
+result_overbudget <- budget_calculator(income = 2000, rent = 1200, food = 600, utilities = 300)
+```
+
+3. Visualizations and Loops Exercise: Plot Economic Indicators Over Time
+
+Use simulated data to create a line plot of GDP growth over time:
+
+a) Create two vectors: one for years (2010 to 2020) and one for GDP growth rates.
+b) Use a loop to print each year and its corresponding growth rate. 
+c) Create a line plot of the GDP growth rates over time with appropriate labels.
+
+```{r}
+years <- 2010:2020 # your code here
+gdp_growth <- c(2.5, 1.6, 2.2, 1.8, 2.5, 2.9, 1.6, 2.4, 2.9, 2.3, -3.4) # your code here
+
+# Your loop to print years and growth rates
+for (i in 1:length(years)) {
+  # your code here
+  cat("Year:", years[i], "GDP Growth Rate:", gdp_growth[i], "\n")
+}
+
+# Your code to create a line plot. Hint: Use the command plot() and type='l'
+plot(years, gdp_growth, type = "l", 
+     main = "US GDP Growth Rate Over Time",
+     xlab = "Year",
+     ylab = "GDP Growth Rate (%)",
+     col = "blue",
+     lwd = 2)
+
+# Add points to the line. Hint: You want to use the points() command
+points(years, gdp_growth, pch = 19, col = "red")
+
+```
+
+
+4. Use a chatbot or google to find examples of how to solve this one.
+  
+  Create a box plot comparing the 'mpg' (miles per gallon) for cars with 
+  different numbers of cylinders ('cyl') in the built-in 'mtcars' dataset (use the help tab or google to find an example). 
+  Include a title, x-label, y-label, colors for each box, and a legend.
+  Extra: Use *stripchart()* to add individual data points to the plot.
+
+```{r}
+boxplot(mpg ~ cyl, data = mtcars,
+        main = "Miles per Gallon by Number of Cylinders",
+        xlab = "Number of Cylinders",
+        ylab = "Miles per Gallon",
+        col = c("lightblue", "lightgreen", "lightpink"))
+
+legend("topright",
+       legend = c("4 Cylinders", "6 Cylinders", "8 Cylinders"),
+       fill = c("lightblue", "lightgreen", "lightpink"))
+```
+
