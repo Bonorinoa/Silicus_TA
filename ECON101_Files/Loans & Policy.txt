@@ -1,0 +1,112 @@
+﻿# Loanable Funds Market in Classical Economics
+
+## 1. National Income Accounts Identity
+
+Y = C + I + G
+
+Where:
+- Y: Output
+- C: Consumption
+- I: Investment
+- G: Government purchases
+
+## 2. Savings and Investment
+
+National saving (S) = Y - C - G
+S = I (Saving equals Investment)
+
+### 2.1 Types of Savings
+
+S = (Y - T - C) + (T - G)
+- (Y - T - C): Private savings
+- (T - G): Public savings
+
+## 3. Model Equations
+
+1. Y = F(K, L)
+2. C = C(Y - T)
+3. I = I(r)
+4. G = G̅
+5. T = T̅
+
+Where:
+- r: Real interest rate
+- K: Capital
+- L: Labor
+- T: Taxes
+
+## 4. Loanable Funds Market
+
+- Supply of loans: Saving (S)
+- Demand for loans: Investment (I)
+- Price of loans: Interest rate (r)
+
+### 4.1 Investment Function
+
+I = I(r)
+- Downward sloping: As interest rate decreases, more investment projects become profitable
+
+### 4.2 Savings Function
+
+In this model, savings is vertical (fixed) as it doesn't depend on the interest rate
+
+## 5. Determinants of Investment
+
+1. Expected return on investment projects
+2. Business confidence and expectations
+3. Technological progress
+4. Tax policies affecting after-tax return
+5. Depreciation rates of existing capital stock
+
+## 6. Policy Implications
+
+### 6.1 Increase in Government Spending
+
+Effect: S = (Y - T - C(Y-T)) + (T - G)
+- Decreases public savings
+- National savings decreases
+- Interest rate increases
+- Investment decreases (crowding out)
+
+Result: ΔI = -ΔG (100% crowding out) and only the composition of AD changes
+
+### 6.2 Tax Cut
+
+Effect on Savings: dS/dT = -(1 - MPC)
+Where MPC: Marginal Propensity to Consume
+
+Example:
+- Tax decrease: 100
+- MPC: 0.6
+- Change in Savings: -60
+- Change in public savings = -100
+- Change in private savings = 40
+- Change in consumption = 60
+
+Result:
+- Supply of loans falls
+- Interest rate rises
+- Investment shrinks
+- Increase in consumption offsets decrease in investment
+- Only the composition of AD changes
+
+### 6.3 Business Optimism
+
+Effect:
+- Investment curve shifts out
+- Real interest rate rises
+- Without increase in savings, investment can't rise
+
+### 6.4 Example: Developing Countries
+
+- Low savings rates limit investment
+- Importance of foreign loans for boosting investment and capital stock
+- Historical example: US borrowing from Europe in the 1800s
+
+## 7. Conclusion
+
+- Model explains production, distribution, and allocation of economy's output
+- Uses classical assumption of price adjustment to equilibrate supply and demand
+- Factor prices equilibrate factor markets
+- Interest rate equilibrates supply and demand for goods/services and loanable funds
+- Limitations: Does not consider money, trade effects, sticky prices, or changes in factors of production

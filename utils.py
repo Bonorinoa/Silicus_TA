@@ -86,7 +86,7 @@ def split_and_index_docs(documents: List[Document]):
     '''
     embeddings = OpenAIEmbeddings()
 
-    text_splitter = TokenTextSplitter(chunk_size=1000, chunk_overlap=70)
+    text_splitter = TokenTextSplitter(chunk_size=750, chunk_overlap=50)
     
     # Split document into chunks
     docs = text_splitter.split_documents(documents)
@@ -136,13 +136,13 @@ def run_llm_chain(course,
                                                provider)
     
     # Retrieve context
-    context = vectorstore.similarity_search(user_query, k=2, 
+    context = vectorstore.similarity_search(user_query, k=3, 
                                             return_documents=False)
     
     # Create the complete prompt with conversation history
     chat_history = "\n".join([f"{msg['role']}: {msg['content']}" for msg in message_history])
     
-    SYS_PROMPT = f"""Maintain a conversational tone and try to be as helpful as possible. Keep the chat history into account. Only discuss matters related to the course. If the topic deviates from those found in <context> or <chat history>, please ask the user to restate the query.
+    SYS_PROMPT = f"""Maintain a conversational tone and try to be as helpful as possible. Keep the chat history into account. Only discuss matters related to the course. If the topic deviates from those found in <context> or <chat history>, please ask the user to restate the query. The information in <context> is your ground truth, do not make up information.
     
     Use the following pieces of context to answer the users question. 
     
