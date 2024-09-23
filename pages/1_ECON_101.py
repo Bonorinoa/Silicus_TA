@@ -90,6 +90,7 @@ def clear_chat_history():
 
 def run_silicus_ta():
     st.set_page_config(page_title="ECON 101: Intermediate macroeconimics")
+    st.warning("I found a few bugs. I am experimenting with reformatting my notes to optimize the retrieval of information but it introduced some inconsistencies. Tread lightly, I will be updating it soon.")
     
     with st.sidebar:
         st.title('🤗💬 Silicus TA')
