@@ -1,0 +1,175 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+
+%New command to display footnote whose markers will always be hidden
+\let\svthefootnote\thefootnote
+\newcommand\blfootnotetext[1]{%
+  \let\thefootnote\relax\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \let\thefootnote\svthefootnote%
+}
+
+%Overriding the \footnotetext command to hide the marker if its value is `0`
+\let\svfootnotetext\footnotetext
+\renewcommand\footnotetext[2][?]{%
+  \if\relax#1\relax%
+    \ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+  \else%
+    \if?#1\ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+    \else\svfootnotetext[#1]{#2}\fi%
+  \fi
+}
+
+\begin{document}
+\section*{Keynesian Models}
+In your previous courses on macroeconomics, you all most likely studied Aggregate Demand and Aggregate Supply models for both short-run as well as long-run. In the next few classes, we will build upon this knowledge to build a more general model of AD called the IS-LM model that allows us to consider a wider range of possible causes for shifts in the AD curve. Start reviewing basic AD and AS from ECON 51 or Mankiw's Chapter 10-3 and 10-4 if you are not comfortable with that.
+
+As a refresher, Mankiw summarizes the main insights clearly:\\[0pt]
+"over long periods of time, prices are flexible, [hence] the aggregate supply curve is vertical (due to full employment), and changes in aggregate demand affect the price level but not output (i.e., classical dichotomy). Over short periods of time, prices are sticky, [hence] the aggregate supply curve is flat or upward sloping (because firms are willing to supply as much as it is demanded, and they hire just enough labor to supply that amount), and changes in aggregate demand do affect the economy's output of goods and services (thus AD matters most)."
+
+John Maynard Keynes' work, described in his General Theory of Employment, Interest, and Money (1936), sprouted new perspectives on economic theory and analysis. He focused on the short-run, where prices are sticky and factors of production are not fully employed. Henceforth, firms don't have all the influence on production and income that classical theory assigns to them. By this I am referring to our assumption that capital, labor, and technological progress are the main drivers of economic growth; all factors of Aggregate Supply. In contrast, Keynesian economics argues that Aggregate Demand is what determines fluctuations in the short-run. Since prices are sticky, changes in AD influence income. In short, Keynes proposed that low aggregate demand is responsible for the low income and high unemployment that characterize economic downturns. Test your intuition, if low AD causes recessions, what type of policies would this school of thought propose to improve the economic condition?
+
+Our goal for the next few classes will be to develop the IS-LM model to help identify the variables that shift the aggregate demand curve, causing fluctuations in national income. I must say that this model, like the Classical model, is an overly simplified representation of the economy. But, although empirical macroeconomics is much more advanced, this is still the main tool policy makers use to make decisions (and hence the main model economists use to explain policy makers the logic behind their very complicated estimations). If this is a good or a bad thing I'll leave for you to think about, but it is a relevant model if you aim for such a career path.
+
+\section*{Keynesian Cross}
+The first component of this new model, the IS part, establishes a relationship between interest rates and income in the market for goods and services.
+
+Now the classical model asserted that:
+
+\section*{Classical model: Demand = f(Output) and always at full-employment output}
+Output creates its own demand: Say's Law. If output is high, spending will be high. Demand is entirely determined by output. And in the long run, there is truth in that.
+
+But the Keynesian model is just the opposite (no more Say's law, now demand causes supply). It asserts that in the short run, output depends on demand:
+
+\section*{Keynesian model: Output $=f($ Demand $)$ and not always at full-employment output}
+When demand is low, firms cut back on production and lay people off, even if firms have the capacity to produce more. Fluctuations in output are caused by fluctuations in spending. So recessions are due to a drop in spending, recoveries are due to a rebound in spending. What got us into the Great Depression? A big drop in spending. What got us out? A big increase in spending called World War II. That is the essence of the Keynesian model and it is captured by the so-called Keynesian Cross model.
+
+The following assumptions are considered in this model:
+
+\begin{enumerate}
+  \item Sticky wages and prices => markets don't always clear.
+\end{enumerate}
+
+\begin{itemize}
+  \item We don't always have full-employment of labor and capital. This will be useful when we try to explain the presence of high unemployment.
+\end{itemize}
+
+\section*{2. We have a closed economy}
+\begin{itemize}
+  \item $\quad A D=C+I+G$ (not exports nor imports)
+\end{itemize}
+
+\section*{3. $A D$ not always $=Y$ and $S$ not always $=I$}
+\begin{itemize}
+  \item So we can have situations where AD falls short of output. And then we can have recessions. These fluctuations are the business cycles basically.
+\end{itemize}
+
+\begin{enumerate}
+  \setcounter{enumi}{3}
+  \item Government expenditures, Investment, and Taxes are exogenous
+\end{enumerate}
+
+\begin{itemize}
+  \item $G=\bar{G}, T=\bar{T}, I=\bar{I}$ (anything weird?)
+\end{itemize}
+
+\section*{5. Consumption is determined by Income after taxes and some fixed level of consumption}
+\begin{itemize}
+  \item $C=F(Y-\bar{T})=\bar{C}+M P C \times(Y-\bar{T})$
+  \item This is the autonomous consumption function we saw a few weeks ago, remember there are other alternatives in the microeconomics literature.
+\end{itemize}
+
+Putting all of this together, we get the following equation for Aggregate Demand (what Mankiw defines as Planned expenditure ${ }^{1}$ ):\\
+$A D=P E=\bar{C}+M P C \times(Y-\bar{T})+\bar{G}+\bar{I}=[\bar{C}-M P C \times \bar{T}+\bar{G}+\bar{I}]+M P C \times Y$
+
+This is the first piece of the Keynesian Cross model. In short, planned expenditure is a function of income $Y$
+
+Plotting PE vs Income yields an increasing linear relationship where the slope is the MPC. This line slopes upward because higher income leads to higher consumption and thus higher planned expenditure. The MPC tells us how much PE changes with an additional $\$ 1$ of income.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_550b166303649a1be43cg-3}
+
+The next question is, when does this economy reach the equilibrium level of output?
+
+As in previous cases, the markets will clear (i.e., reach equilibrium) when Supply equals Demand. So the equilibrium condition in this model is $\mathrm{Y}=\mathrm{PE}$. Producers are happy, they are selling everything they produce, and consumers and other buyers are happy, since they are buying everything they want.
+
+How do you find it in our graph? Any intuitions? Think about the equilibrium condition and the graph on the slide or board. A $45^{\circ}$ line. Because all along the $45^{\circ}$ line, the variables on our two axes are equal to each other. So all along it, output equals planned expenditure ( $Y=P E$ ).
+
+\footnotetext{${ }^{1}$ Actual expenditure is the amount households, firms, and the government spend on goods and services; it equals GDP. Planned expenditure is the amount households, firms, and the government would like to spend on goods and services.
+}
+\includegraphics[max width=\textwidth, center]{2025_01_09_550b166303649a1be43cg-4(1)}
+
+The main insight from this chart is that income will adjust according to the level of PE relative to Actual Expenditure (the 45 line). If PE is above the equilibrium line, income will rise, and vice versa. We can analytically solve for $Y^{*}$ by solving the equilibrium condition.\\
+$Y=P E=[\bar{C}-M P C \times \bar{T}+\bar{G}+\bar{I}]+M P C \times Y$\\
+$Y \cdot(1-M P C)=\bar{C}-M P C \times \bar{T}+\bar{G}+\bar{I}$\\
+$Y^{*}=\frac{\bar{C}-M P C \times \bar{T}+\bar{G}+\bar{I}}{1-M P C}$
+
+Mankiw's graph paints a richer picture to study the dynamics of the equilibrium state.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_550b166303649a1be43cg-4}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+The key to remembering these dynamics is to think about what happens to inventory in each case.
+
+\begin{itemize}
+  \item If PE is higher than equilibrium income (or lower than current production Y\_1 so firms are selling less than what they are producing), then firms will have higher inventories because they don't sell everything they planned for. This unplanned rise in inventories prompts firms to lay off workers and cut production; these actions in turn reduce GDP. This process of unintended inventory accumulation and falling income continues until income $Y$ falls to the equilibrium level.
+  \item If PE is lower than equilibrium income, then firms failed to plan for future demand accordingly and don't have enough inventory. So they have to raise prices or speed up production. But remember that we are in a situation of sticky prices, so prices cannot be changed nor wages adjusted. Thus, they would hire more workers and increase production. GDP rises, and the economy approaches equilibrium.
+\end{itemize}
+
+In summary, the Keynesian cross shows how income Y is determined for given levels of planned investment I and fiscal policy G and T. We can use this model to show how income changes when one of these exogenous variables changes
+
+\section*{Government multiplier}
+The government is one of the big consumers in any economy. What do you think will happen to income Y given some change in government expenditures G ? Remember this is an exogenous variable, which means it is determined outside of our model.
+
+Suppose there is an increase in government spending $\Delta G=G_{2}-G_{1}>0$. Because it is a positive variable in our keynesian model, this increase in $G$ will cause income $Y$ to increase. Higher income theoretically leads to higher consumptions, which in turn leads to higher income, so on and so forth. This creates a positive feedback loop. Graphically, you can think of this as an upward shift in the PE line that leads to a higher equilibrium income.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_550b166303649a1be43cg-6}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+How much does income rise exactly? To measure this we are basically asking for the ratio of change in income to change in government spending $\frac{\Delta Y}{\Delta G}$ called the government-purchases multiplier. It tells us how much income rises in response to a $\$ 1$ increase in government purchases. An implication of the Keynesian cross is that the government-purchases multiplier is larger than 1.\\
+$Y^{*}=\frac{\bar{C}-M P C \times \bar{T}+\bar{G}+\bar{I}}{1-M P C}$ if only $\bar{G}$ changes then $\Delta \bar{C}=\Delta \bar{T}=\Delta \bar{I}=0$, hence $\Delta Y=\frac{\Delta G}{1-M P C}$
+
+The multiplier effect comes from the feedback loop we just discussed, which comes from the consumption function $C(Y-\bar{T})$ which says that higher (disposable) income leads to higher consumption. This is the second time in the semester we encounter such an effect. The first one was the money multiplier through bank lending. Anyone remember what mathematical expression we used for deriving the multiplier effect? Infinite geometric series.
+
+Let's trace our steps. If PE rises by $\Delta G$, then income rises by $\Delta G$ as well. This increase in income raises consumption by MPC $\times \Delta G$ (because there is no change in Taxes), where MPC is our marginal propensity to consume. A rise in consumption increases PE and hence Income once again. Then, we have a second consumption effect on this new quantity $M P C \times(M P C \times \Delta G)=M P C^{2} \times \Delta G$. This continues indefinitely, thus creating the infinite series. The total effect on income Y is given by the infinite geometric series\\
+$\Delta Y=\Delta G \times\left(1+M P C+M P C^{2}+\cdots\right)=\Delta G \times \frac{1}{1-M P C} \Rightarrow \frac{\Delta Y}{\Delta G}=\frac{1}{1-M P C}$\\
+Therefore, a $\$ 1$ increase in $G$ will cause a $\frac{1}{1-M P C}$ increase in income Y . For example, if MPC = 0.5 , then we have\\
+$\frac{\Delta Y}{\Delta G}=\frac{1}{1-0.5}=2$\\
+This means that a $\$ 1$ increase in $G$ raises equilibrium income by $\$ 2$.
+
+\section*{Tax cut multiplier}
+Same situation, but now we consider a decrease in Taxes. From our consumption function we know this will directly increase income and thus consumption.\\
+$Y^{*}=\frac{\bar{C}-M P C \times \bar{T}+\bar{G}+\bar{I}}{1-M P C}$ if only $\bar{G}$ changes then $\Delta \bar{C}=\Delta \bar{G}=\Delta \bar{I}=0$, hence $\Delta Y=\frac{-M P C \times \Delta T}{1-M P C}$\\
+By how much? Well, by the amount people are willing to consume at the margin. That is, $M P C \times \Delta T$. Now, pay attention to the sign of the Tax variable in the consumption function. The negative sign indicates that it moves in the opposite direction of income Y. Thus, following the same process as for the government multiplier, we know that the overall effect on income of the change in taxes is $\frac{\Delta Y}{\Delta T}=-\frac{M P C}{1-M P C}$ (MPC $\cdot \Delta T$ is the initial change in planned expenditure).
+
+\section*{IS Curve}
+The Keynesian Cross model provides useful insights on the effects that spending plans from households, firms, and government have on income. But there is one key assumption that it is unrealistic to hold for any longer. When we discussed the banking system and money, we established that the level of investment $I$ is a function of the interest rate. Since the interest rate is the cost of borrowing money, we have a negative relationship. That is, an increase in interest rate leads to a decrease in investment. This is very important, and the Keynesian Cross model assumes otherwise by keeping it as an exogenous variable. The IS curve model extends the Keynesian Cross model to include this insight.
+
+Our tool to connect the dots between interest rate, investment, and income is the IS curve. The model remains the same but for the fact that investment now depends on the interest rate. Thus, our AD or PE equation becomes.\\
+$P E=\bar{C}+M P C \times(Y-\bar{T})+I(r)+\bar{G}$\\
+Mankiw's visualization represents the connection between keynesian cross and IS curve very well.\\
+(b) The Keynesian Cross\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_550b166303649a1be43cg-8}\\
+(c) The IS Curve\\
+(a) The Investment Function\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_550b166303649a1be43cg-8(1)}\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_550b166303649a1be43cg-8(2)}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+The investment function is downward sloping because of the negative relationship with the interest rate. We are now familiar with the Keynesian Cross model which helps us identify equilibrium income Y for changes in planned expenditure. The IS curve combines both to identify the effects on income $\mathbf{Y}$ from changes in the interest rate $r$ in the goods market. In essence, the IS curve combines the interaction between $r$ and I expressed by the investment function and the interaction between I and $Y$ demonstrated by the Keynesian cross. Each point on the IS curve represents equilibrium in the goods market, and the curve shows how equilibrium income depends on the interest rate. Because an increase in the interest rate causes planned investment to fall, which in turn causes income to fall, the IS curve slopes downward.
+
+As you might intuit, fiscal policy has a direct effect on the IS curve. We know how changes in G and T affect income Y in the keynesian cross model. Using what you know about the investment function curve and the effects of fiscal policy in the keynesian cross model, what do you think will happen to the IS curve if G is increased? KC moves up and IS shifts outward. What about if T is decreased? Same thing.
+
+In summary, the IS curve shows the combinations of the interest rate and income that are consistent with equilibrium in the market for goods and services. The IS curve is drawn for a given fiscal policy. Changes in fiscal policy that raise the demand for goods and services shift\\
+the IS curve to the right. Changes in fiscal policy that reduce the demand for goods and services shift the IS curve to the left.
+
+
+\end{document}

@@ -1,0 +1,237 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan,}
+\urlstyle{same}
+
+%New command to display footnote whose markers will always be hidden
+\let\svthefootnote\thefootnote
+\newcommand\blfootnotetext[1]{%
+  \let\thefootnote\relax\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \let\thefootnote\svthefootnote%
+}
+
+%Overriding the \footnotetext command to hide the marker if its value is `0`
+\let\svfootnotetext\footnotetext
+\renewcommand\footnotetext[2][?]{%
+  \if\relax#1\relax%
+    \ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+  \else%
+    \if?#1\ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+    \else\svfootnotetext[#1]{#2}\fi%
+  \fi
+}
+
+\begin{document}
+\section*{Monetary Policy Instruments}
+There are two main types of instruments the central bank can use to indirectly control the money supply. Those that influence the monetary base and those that influence the reserve-deposit ratio. As we have seen in the previous section, these are two of the exogenous variables in our model.
+
+In most countries, monetary policy is delegated to a partially independent institution called the central bank. The central bank of the United States is the Federal Reserve. Decisions about monetary policy are made by the Fed's Federal Open Market Committee (FOMC). This committee consists of two groups: (1) members of the Federal Reserve Board, who are appointed by the president and confirmed by the Senate, and (2) the presidents of the regional Federal Reserve Banks, who are chosen by these banks' boards of directors. The FOMC meets about every six weeks to discuss and set monetary policy.
+
+\section*{Monetary base}
+Controlled through open-market operations (OMOs). That is, the buying or selling of government bonds (aka treasuries). What happens when the Fed buys bonds? Intuitively, the central bank is buying assets from the public, so money is injected into the economy. Therefore, the monetary base increases. OMOs are conducted by the Trading Desk at the New York Fed ${ }^{1}$.
+
+More information about what specific securities the Fed is allowed to trade is detailed in section 14 of the Federal reserve act. Conversely, when the Fed sells bonds they get cash in return thus lowering the monetary base.
+
+Moreover, the monetary base can be influenced by lending to banks when these are close to not having enough reserves. In which case the Fed is said to be the lender of last resort. There has been a lot of discussion about this, because it basically bails out banks in tough times to prevent banking crises. The lending occurs at the so-called discount window and the cost of the loan is set by the discount rate (the interest that the Fed charges banks). The lower the discount rate, the cheaper are borrowed reserves, and the more banks borrow at the Fed's discount window. Hence, a reduction in the discount rate raises the monetary base and the money supply.
+
+Example: Recall $M B=C+R$. We just agreed that purchasing bonds increases banks reserves. Suppose the Fed buys 1 M usd of bonds, hence the new monetary base $M B \_2=M B+1 M$.
+
+\section*{Reserve-Deposit ratio}
+The Fed gets to set the reserve requirements, which directly determine the reserve-deposit ratio (rr in our model). This instrument is not used often, and after the 2008 financial crises it became less efficient because banks started holding excess reserves (i.e., reserves above the rr).
+
+\footnotetext{${ }^{1}$ Federal Reserve Board - Open market operations
+}Why would banks hold excess reserves? Definitely not out of charity. Since 2008, interest rates on loans decreased due to the crisis and the Fed started paying interests to banks on reserves. So they created an incentive for banks to behave a bit more risk averse. How much they decide to pay in interest is an additional instrument the Fed can employ to influence the economy.\\
+Thus, an increase in the interest rate on reserves will tend to increase the reserve-deposit ratio, lower the money multiplier, and lower the money supply.
+
+\section*{Quantitative Easing}
+Most of the treasuries the Fed buys in OMOs are short-term bonds. Quantitative easing consists of buying long-term treasuries. This has the same effect: influencing the monetary base. Who remembers what was the security that caused much turmoil during the 2008/09 crisis? It was mortgage-backed securities. These are long-term securities that often have many decades until maturity. These were exactly the assets bought by the Fed through quantitative easing. How much? A lot!\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_2dfd9e9d76937092601dg-2}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers\\
+They took their role as lenders of last resort very seriously, with "historic vigor" as Mankiw puts it in the book. Consequently, the monetary base grew substantially in a short period of time. Yet, the money supply did not grow as much. Between 2007 and 2014, MB grew $400 \%$, M1 grew $100 \%$, and M2 grew $55 \%$. If the monetary base grew but money supply didn't as much, what could have been the mechanism? A decrease in the money multiplier. Why? We just mentioned it, anyone have any guesses? In our model, what influences the money multiplier? Recall $m=\frac{c r+1}{c r+r r}$. Since banks had been making bad loans leading up to 2008 many decided to start holding excess reserves, the rr term increased because they were making fewer loans. A larger denominator brings the value of $\mathbf{m}$ down, thus the money multiplier dropped due to the higher reserve-deposit ratio. This prevented the normal process of money creation that occurs in a system of fractional-reserve banking.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_2dfd9e9d76937092601dg-3}
+
+We now have a general understanding of why and how the Fed can influence the money supply. But we have not said anything about what effect these changes in money supply have on the overall economy. One, important, is inflation.
+
+\section*{Additional reading}
+\begin{enumerate}
+  \item The Decade of Easy Money. Quantitative Easing (QE), reckless... | by Augusto Gonzalez-Bonorino | Medium
+  \item Age of Easy Money (full documentary)|FRONTLINE (\href{http://youtube.com}{youtube.com})
+  \item Mankiw Macroeconomics Ch. 4.3
+\end{enumerate}
+
+\section*{Inflation}
+Inflation is defined as an "overall increase in prices (from a basket of goods to be specific)". That is, prices of all or most of the goods and services in the basket must increase. If only one asset gets very expensive it is not considered inflation. The emphasis is on the overall.
+
+This already highlights a potential issue. How should the basket be constructed? Are index measures the proper way of quantifying overall rises in prices? We have already discussed some of the limitations of indices, what do you think? Moreover, and more biased towards my research interests, does the digitization of the global economy offer opportunities to monitor changes in prices more comprehensively?
+
+In the US, inflation is generally measured by changes in the CPI, but there are many alternative measures. The rate of inflation is thus the percentage change in the overall level of prices. If this rate is too high, usually considered around $50 \%$ per month ${ }^{2}$ (or around $12.800 \%$ annually) or higher, we are in a scenario of hyperinflation. There is no exact range to classify it, but if the value of your goods and services is so volatile or uncertain that causes behavioral changes in how people make consumption decisions then it is too high. Why? Well because this would lead
+
+\footnotetext{${ }^{2}$ Following the prescriptions of Phillip Cagan's 1956 book "The Monetary Dynamics of Hyperinflation"
+}
+to even higher volatility in the economy, decreased trust in currency and institutions, and consequently will decrease the effectiveness of monetary policy.
+
+We are still under the Classical view of the economy, so prices are flexible and markets clear. For now, think of inflation as an average increase in prices and of prices as the rate at which money is exchanged for goods or services. Note this is a, maybe overtly, simplified view of price. Other schools of thought, like the austrians, advocate for a more complex perspective that account for factors beyond exchanges of money for goods. For example, supply and demand imbalances, production costs, market imperfections, and asymmetric information. The focus is more on what information does the price convey, rather than a rate of exchange. These are super interesting topics, but we will leave them aside in this course. I wanted to mention this caveat for completion purposes and to motivate possible topics of research projects.
+
+Let's continue.
+
+\section*{Quantity Theory of Money}
+To date, the leading mainstream theory of how the money supply affects the economy in the long-run remains The Quantity Theory of Money, whose roots trace back to David Hume around the 1700s.
+
+Since people hold money to buy goods or services, the quantity of money is related to the amount of currency exchanged in transactions. The relationship is straightforward, and is defined by the quantity equation.
+
+Money $\times$ Velocity $=$ Price $\times$ Transactions or $M V=P Y$ (GDP)
+
+PY := amount of currency exchanged during a fixed period of time (e.g., yearly or monthly) MV := The rate at which the quantity of money circulates the economy
+
+In its current form, this equation is an identity. Meaning that it is true by definition. But to make it a theory we need assumptions.
+
+\begin{enumerate}
+  \item $V$, the rate at which money is exchanged in the economy, is a constant value, primarily determined by the other three variables.
+  \item recall that in the Classical Model schema we assume that output is fully determined by 1) the supply of $K$ and $L$, and 2 ) the current technology. None of these elements are affected by MS, V, or P. So the second assumption is that Y (recall this is income or output, or quantity of transactions more generally - but the latter is hard to measure) is not affected by MS, V, or P.
+\end{enumerate}
+
+What does this mean for our quantity equation? Well, suppose we increase the money supply. V is constant and $Y$ is not related, so only prices are affected. In fact, prices will also rise due to the likely increase in demand for goods and flexible prices, without changes in production\\
+output. Therefore, a change in the money supply $(\mathrm{M})$ must cause a proportionate change in nominal GDP (PY). That is, if velocity is fixed, the quantity of money determines the dollar value of the economy's output. This leads to the perspective that "inflation is always and everywhere a monetary phenomenon".
+
+This theory has 3 building blocks:
+
+\begin{enumerate}
+  \item Output Y is determined by the production function as we saw a few lectures ago
+  \item The money supply $M$ is set by the central bank and determines nominal GDP (PY). True if V is fixed
+  \item The price level $P$ is the ratio of nominal GDP (PY) to output $Y$
+\end{enumerate}
+
+This theory explains what happens when the central bank changes the supply of money.\\
+Because velocity V is fixed, any change in the money supply M must lead to a proportionate change in the nominal value of output PY. Because the factors of production and the production function have already determined output $Y$, the nominal value of output PY can adjust only if the price level $P$ changes. Hence, the quantity theory implies that the price level is proportional to the money supply.
+
+But what we are really interested in is this relationship in "real" terms, meaning we want to adjust to current prices. Dividing M by P will give us the purchasing power in our economy. In other words, how much the current money available is worth in our economy. With this in mind, note that our quantity theory of money becomes a theory of inflation. Mathematically, this analysis is conducted by rewriting the quantity equation in terms of percentage changes.\\
+$\% \Delta M+\% \Delta V=\% \Delta P+\% \Delta Y$
+
+\begin{itemize}
+  \item Percentage changes in Money supply are determined by the central bank.
+  \item " " in the Velocity of money reflects changes in the demand for money. If V is constant, then what will this value always be?
+  \item "" in the Price level is the inflation rate
+  \item "" in Output is determined by how the factors of production and technology grow. Remember that these are exogenous variables in the classical model.
+\end{itemize}
+
+Can someone guess what defines inflation in this model? $\% \Delta M-\% \Delta Y$. If output grows more than the money supply we have deflation, otherwise we have inflation. This idea that high growth in the money supply, relative to real growth, is Milton Friedman's famous argument for his policy prescriptions to cure inflation => Lower the money supply (i.e., stop printing).
+
+In conclusion, the growth in the money supply determines the rate of inflation and it is a positive relationship (they increase and decrease together). If the Fed prints money or lowers the discount rate, the money supply grows and consequently causes inflation. The printing of\\
+money is sometimes used by the government as a mechanism to liquidate debt, in which case it is called Seigniorage and can be thought of as an inflation tax. It is a tax on holding money.
+
+This is, often, the main cause of hyperinflation. Coupled with a ceiling on tax raises, governments with high levels of debt must resort to printing money to raise revenue in order to pay the interest on such debt. It becomes a feedback loop that is hard to get out of and eventually the monthly inflation rate grows unsustainably, at which point countries often default on their debts. Again, Argentina is a great case study.
+
+\section*{References}
+\begin{enumerate}
+  \item Inflation Is Always and Everywhere a Monetary Phenomenon. Even in Pandemic and War - Blog - Austrian Institute (\href{http://austrian-institute.org}{austrian-institute.org})
+  \item Mankiw Macroeconomics Ch. 5-1
+\end{enumerate}
+
+\section*{Interest rates}
+Think of these as the prices that link the present and the future, because the interest rate determines how expensive it is to borrow money. There are two types:
+
+\begin{enumerate}
+  \item Nominal -> The rate banks pay.
+  \item Real -> The rate we pay indirectly by changes in the purchasing power of our income.
+\end{enumerate}
+
+You probably know already that when we talk about "real" terms, we refer to values adjusted for inflation. This relationship is straightforward for interest rates\\
+$r=i-\pi$\\
+$r:=$ real interest rate; $i:=$ nominal interest rate; $\pi:=$ inflation rate
+
+Focusing on the nominal rate by rearranging this equation leads to the famous Fisher equation, which tells us that the nominal rate i can be broken into two parts: the real rate and the inflation rate. So if we want to influence the price of borrowing for banks, we can try to influence either of these two parts.
+
+Let's put everything we discussed together now. First, the classical model told us that the interest rate is what must adjust to equilibrate markets. It is the only variable in the classical model the central bank gets to manipulate. Second, the quantity theory of money showed us that the rate of money growth determines the rate of inflation. Finally, the Fisher equation tells us to add the real interest rate and the inflation rate to determine the nominal interest rate.
+
+In a nutshell... According to the quantity theory, an increase in the rate of money growth of 1 percent causes a 1 percent increase in the rate of inflation. According to the Fisher equation, a 1 percent increase in the rate of inflation in turn causes a 1 percent increase in the nominal\\
+interest rate. The one-for-one relation between the inflation rate and the nominal interest rate is called the Fisher effect.
+
+There is one caveat in the fisher equation. It is very hard to know what will be the inflation rate after changing the nominal rate. So instead we use expected inflation rates, which is determined by the beliefs of people in the economy about how prices will change. ${ }^{3}$ The key takeaway from this insight is that the true level of inflation will depend on nominal value (actual money growth) and the expectation of people (expected money growth).
+
+The current theory of inflation sets the following relationship\\
+$\pi=$ supply shocks + expected inflation + output gap (unmp - natural rate of unmp)\\
+And in fact the most important variable in this equation is the expectations of inflation. A lot of interesting work is being done on this topic today.
+
+\section*{References}
+\begin{enumerate}
+  \item Jonathon Hazell on Phillips Curves, Wage Rigidities, and How to Measure R-star Macro musings podcast
+  \item Mankiw Macroeconomics Ch. 5-2 and 5-3
+\end{enumerate}
+
+\section*{The Classical Dichotomy}
+We can now formalize all of this knowledge into an important macroeconomic concept called the Classical Dichotomy. This suggests the entire economy can be separated into nominal and real sectors.
+
+Things measured in physical units, things we care about, are real variables. Such as real wages, quantities of output, or relative prices.
+
+Things measured in money units are nominal variables. Such as the price level, inflation rate, and your actual income after taxes.
+
+The main idea behind this dichotomy is that the money supply, and therefore the monetary policy related to influencing it, can only affect nominal variables. The real part of the economy gets determined endogenously, based on expectations and the decisions of economic agents. Real variables being determined endogenously implies that they are influenced by the internal dynamics of the economy, including technology, preferences, and institutions. Mathematically, this insight allows us to study real variables while ignoring nominal variables. The independence between money and real variables is defined as monetary neutrality. But, remember these are all claims about the long-run. In the short-run, monetary policy can influence it due to "sticky" prices.
+
+\footnotetext{${ }^{3}$ See Mankiw Ch 5-5 for a great case study on Robert Shiller's survey about beliefs of the costs of inflation between economists versus the public.
+}A reasonable assumption in the long-run, why? Who remembers what influences GDP in the long-run? Look back at our classical model. It is K, L, and technology. Money is nowhere to be found here.
+
+But there is one more, subtle but significant, implication of this assumption. If money is not important, what other variable is by consequence unimportant? Inflation! Is inflation really not important? I don't think so, but many argue that it is not a big problem in the long-run. Their argument starts off by breaking inflation down to two types: Variable and Steady inflation.
+
+A variable inflation rate is very costly. It increases uncertainty, inequality, and makes it hard to make decisions. Steady inflation can be managed because you will adjust your expectations and your decisions accordingly. In other words, you can plan your future.
+
+Still, there are costs associated with steady inflation. And they have pretty cool names, so let's close our study of the classical economy by studying these costs.
+
+Costs of steady moderate inflation:
+
+\begin{enumerate}
+  \item Inflation tax: cash loses value
+  \item Menu costs: changing prices
+  \item Shoe leather costs: economizing on cash
+\end{enumerate}
+
+First, people holding onto cash lose, because their cash is worth less. Called inflation tax. But who holds cash these days? Honestly, many people in emerging economies like Argentina. Hyperinflation induces a higher rate of cash in hand, which is troublesome for a government because people opt out from borrowing which is the whole business of banks. Consequently, banks are less incentivized and more constrained to create money. Monetary policy goes out the window. But this is not a big deal in the US.
+
+Second cost is what we call menu costs: the cost of physically changing prices. So it includes the costs of printing or updating menus, printing new catalogs, reprogramming computers so they come up with the right price when an item is scanned in a store. Going around the store and putting up new price tags. Again, something you are likely to find in Argentina.
+
+Does this strike you as a big cost? Probably not, and it keeps getting cheaper with increasing digitization.
+
+Third, people try to hold onto as little currency as possible, and that means making more trips to the bank. But those trips wear out their shoes, so that is why these are called shoeleather costs. Generally, they are the costs of managing your money so it doesn't lose value.\\
+Significant? Not in a moderate inflation. People don't use cash much anyway these days.
+
+As we've journeyed through the classical view of monetary policy and inflation, it's important to recognize that economic thinking continues to evolve. In recent years, particularly following the 2008 financial crisis and the subsequent use of unconventional monetary policies like quantitative easing, new perspectives have emerged. One such perspective that has gained significant attention - and stirred considerable controversy - is Modern Monetary Theory, or MMT.
+
+MMT challenges many of the conventional wisdoms we've discussed today. At its core, it proposes a radically different view of how monetary and fiscal policy should interact in economies with sovereign currencies. Imagine a world where government spending isn't constrained by tax revenue or borrowing, but primarily by the risk of inflation. That's the world MMT envisions.
+
+Key ideas of MMT:
+
+\begin{itemize}
+  \item Monetary sovereignty gives governments more fiscal flexibility
+  \item Inflation, not revenue, is the main constraint on government spending
+  \item Taxes and bonds are tools to manage inflation, not fund spending
+  \item A job guarantee could promote full employment and price stability
+\end{itemize}
+
+But MMT is far from universally accepted. Critics argue that it underestimates inflation risks, could lead to currency devaluation, and faces significant political hurdles. There's also ongoing debate about how MMT would function in our globally interconnected economy.
+
+The emergence of theories like MMT reminds us that economics is a living, breathing discipline. As future economists, it's crucial to approach new ideas with both curiosity and critical thinking. Whether MMT represents the future of economic policy or a misguided detour remains to be seen, but the debates it has sparked are already shaping how we think about money, inflation, and the role of government in the economy.
+
+As we conclude our journey through monetary policy and inflation, I encourage you to keep questioning, keep exploring. The economic challenges of the future may require solutions we haven't even imagined yet. Who knows? Perhaps someone in this very room will develop the next groundbreaking economic theory.
+
+\section*{Additional reading}
+\begin{enumerate}
+  \item THE SLOPE OF THE PHILLIPS CURVE: EVIDENCE FROM U.S. STATES\&ast; (\href{http://berkeley.edu}{berkeley.edu})
+  \item Modern monetary theory - Wikipedia
+  \item Microsoft Word - MMT - Mankiw (\href{http://harvard.edu}{harvard.edu})
+  \item Modern Monetary Theory: A Solid Theoretical Foundation of Economic Policy? | Atlantic Economic Journal (\href{http://springer.com}{springer.com})
+  \item Nominal is Real; Real is Artificial | AIER
+\end{enumerate}
+
+
+\end{document}

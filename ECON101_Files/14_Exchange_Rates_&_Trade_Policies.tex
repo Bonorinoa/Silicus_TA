@@ -1,0 +1,130 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+
+%New command to display footnote whose markers will always be hidden
+\let\svthefootnote\thefootnote
+\newcommand\blfootnotetext[1]{%
+  \let\thefootnote\relax\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \let\thefootnote\svthefootnote%
+}
+
+%Overriding the \footnotetext command to hide the marker if its value is `0`
+\let\svfootnotetext\footnotetext
+\renewcommand\footnotetext[2][?]{%
+  \if\relax#1\relax%
+    \ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+  \else%
+    \if?#1\ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+    \else\svfootnotetext[#1]{#2}\fi%
+  \fi
+}
+
+\begin{document}
+\section*{Exchange Rates}
+If the interest rate is the price of a loan or investment in any given country, then the exchange rate is the price of transactions between countries. Our previous analyses focused on the flows of capital and of goods \& services, now we turn our focus to the price of these transactions.
+
+As you might intuit, there exist two general types of exchange rates:
+
+\begin{enumerate}
+  \item Nominal: Relative price of the currencies of two countries. For example, 1 usd $=984.50$ ARS, or 1 usd $=0.93$ euro. The other way around, 1 euro $=1.08$ usd. This is, often, the type to which people refer to when saying "the exchange rate of country X is ..."\\
+a. If the valuation of a currency appreciates we mean that you can buy more of some other currency. For example, in October 25th 2023, the dollar appreciated relative to the euro because 1 usd $=0.95$.\\
+b. If it depreciates then it means that it fell in value relative to another currency. Check out Argentina's exchange rate for a good example.\\
+c. Appreciation of a currency is sometimes referred to as a strengthening of that currency. Conversely, a depreciation can be thought of as a weakening of it.
+  \item Real: Relative price of the goods of two countries. That is, the rate at which we can trade the goods of one country for the goods of another. Also called terms of trade.\\
+a. For example, if a computer costs 1000 usd in the US and 200,000 ARS in Argentina then we compute the real exchange rate by converting either to a common currency and compare their relative prices.\\
+b. Real Exchange Rate $=\frac{\frac{984 \text { ARS }}{1 \text { usd }} \times \frac{1000 \text { usd }}{1 \text { computer in USA }}}{\frac{200,000 \text { ARS }}{1 \text { computer in ARG }}}$\\
+C. realER $=4.92 \times \frac{1 \text { computer in } A R G}{1 \text { computer in } U S A}$\\
+d. We say that, at these prices and exchange rate, we get 4.92 computers in Argentina for every computer in the US. Quite expensive.\\
+e. Real Exchange Rate $=\frac{\text { Nominal Exchange Rate } \times \text { Price of Domestic Good }}{\text { Price of Foreign Good }}$
+\end{enumerate}
+
+The rate at which we exchange foreign and domestic goods depends on the prices of the goods in the local currencies and on the rate at which the currencies are exchanged.
+
+For any basket of goods, rather than just two goods, we define the real exchange rate as the product of the nominal exchange rate and the ratio of price levels.\\
+$\epsilon=e \times \frac{P}{P^{*}}$
+
+\begin{itemize}
+  \item $\epsilon:=$ Real exchange rate
+  \item $e:=$ Nominal exchange rate
+  \item $\quad P:=$ Price level in the US (or your reference country)
+  \item $P^{*}:=$ Price level in Argentina (or your comparison country)
+\end{itemize}
+
+You can see from here why economists talk about a strong currency as making foreign goods cheaper. If the real exchange rate is high, then foreign goods are relatively cheap and domestic goods are relatively expensive. So a strong currency might incentivize imports but incentivize domestic consumption. As always, there is a trade off. A super strong currency might not, in fact it is not, optimal.
+
+Because of the exchange rate in Argentina, I much rather buy domestic goods. Especially if I can manage to earn income in dollars! So I would prefer to buy Argentine beer, Argentine cars, fly domestically, etc. Other countries would prefer to do so as well, so expect exports to be much higher than imports. Although this will also depend on the quality of goods provided to some degree. Which is the negative effect of this scenario. The best goods (harvests, technology, etc.) will be exported rather than sold locally, so I cannot hope to get the best computer at home unless I pay the dollars. In our previous example, this would mean I have to pay almost 5 times more for a great computer. In a nutshell, your average US salary can give you a very rich life in many other countries.
+
+The key takeaway from this is that net exports directly depend on the real exchange rate. In math we write\\
+$N X=N X(\epsilon)$\\
+In other words, NX is a function of the real exchange rate and they are inversely related. That is, the higher the exchange rate the lower the value of net exports (less exports, more imports) and the lower the exchange rate the higher the value of net exports (more exports, less imports).
+
+We now have the following expression\\
+$S-I=N X(\epsilon)$
+
+\section*{Takeaways:}
+\begin{enumerate}
+  \item Real exchange rate and net exports are inversely related.
+  \item Trade balance (NX) must equal net capital outflow (S-I).\\
+a. Saving $S$ is exogenous by the consumption function and fiscal policy.\\
+b. Investment I is exogenous by the investment function and the world interest rate
+\end{enumerate}
+
+Visually, we summarize this model as follows:\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_4e8cc7c6d153a7d9e02bg-3}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+The $S-I$ curve is vertical because neither depend on the real exchange rate. And the $N X(\epsilon)$ curve is downward sloping because of the inverse relationship.
+
+Supply and Demand logic is your friend again. If you take anything out of this class, let it be the power of the supply and demand law. Think of the net capital outflow as the supply of dollars to be exchanged into foreign currency and invested abroad. Think of the trade balance as the demand for dollars coming from foreigners who want dollars to buy goods from this country. At the equilibrium real exchange rate, the supply of dollars available from the net capital outflow balances the demand for dollars by foreigners buying this country's net exports.
+
+Let's analyze some policy impacts.\\
+Suppose the government enacts expansionary fiscal policy by reducing taxes. This will increase consumption, reduce government revenue, and thus lower national savings. So $S-I$ goes down and hence NX goes down as well. That is, the fiscal policy led to a trade deficit.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_4e8cc7c6d153a7d9e02bg-4(1)}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers\\
+What if the fiscal policy is from a trade partner rather than our own government? This won't directly influence national savings or investment, but will have an effect on the real exchange rate and thus in our domestic economy by causing changes to world savings and investment.
+
+To follow up on our example from the previous section, suppose I am studying Argentina and the US decides to increase government spending. Big country, so that will influence the real exchange rate. In particular, it will increase the world interest rate ( $r^{*}$ ), which will reduce domestic investment (I), which will raise net capital outflow (S-I, supply of dollars), and hence raise the trade balance (NX, demand for dollars). In short, the increase in the world interest rate leads to a trade surplus.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_4e8cc7c6d153a7d9e02bg-4}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+What if now investment increases, say from an investment incentive tax, in the foreign country? What will happen? Try working this out yourself as practice for the quiz. The answer is in the book. Keep making up scenarios like this to gain further practice exercises for the quiz.
+
+\section*{The Effects of Trade Policies}
+We can finally talk about trade in this small economy model. We have a model that explains the trade balance and the real exchange rate that we can use to assess the effects of trade policies. These are policies designed to directly influence the amount of goods and services exported or imported. These fall into one of two categories:
+
+\begin{enumerate}
+  \item Protectionist: Make imports more expensive (or somehow reduce the demand for imports) to protect domestic industries from foreign competitors.\\
+a. A tariff is the best example, and one that is pretty heated nowadays with Trump's proposed policies.\\
+b. Quotas (limits on the quantity of a good that can be imported), domestic subsidies, and import bans are other protectionist trade policies.
+  \item Free trade: Reduce barriers to trade and encourage free flow of goods and services between countries.\\
+a. Eliminating tariffs, reducing quotas, or encouraging trade agreements to facilitate international trade are examples of free trade policies.
+\end{enumerate}
+
+A real-world example is the EV industry. China is dominating, their EV cars are allegedly (I haven't researched or used them personally) very good and cheap. This is hurting domestic producers of EV cars, and once you lose ground in terms of innovation it is very hard to catch up due to increasing returns to scale from knowledge accumulation (a nice insight from austrian/complexity economics). So, there is an incentive to protect domestic companies. Or, I guess, let them die and forgo the goal to have an EV industry.
+
+Suppose the government puts a high tariff or bans the imports of Chinese EV cars. Then, for any given real exchange rate, imports will decrease and hence NX will increase. Because now we have a new value, for any real exchange rate, the NX curve shifts outwards. But because trade policies do not affect saving or investment, the supply of dollars does not change.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_4e8cc7c6d153a7d9e02bg-6}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers\\
+Notice anything interesting? Trade balance remained unchanged. What is the only thing that happened? Real exchange rate appreciated. The logic is that because domestic goods are now more expensive relative to foreign goods (the tariff or ban made them more expensive), then imports will increase and exports will decrease. The appreciation of the real exchange rate offsets the increase in net exports caused by the trade restriction.
+
+In other words, the composition of trade balance changed but not the final value. Exports decreased because the real exchange rate appreciated, making domestic goods more expensive relative to foreign goods, and Imports also decreased because of the protectionist trade policy. In short, domestic prices went up and foreign goods are more expensive. The domestic EV produces win, but everyone else, on average, loses. Both because of the increase in domestic prices.
+
+Sometimes this is justified. There are certain industries, like semiconductors or military technology or AI that are better off protected to ensure your country is competitive at a global level. The cost will be felt by the citizens, but it is better to pay more for chips than risking having your entire semiconductor production line in a rival country. ${ }^{1}$
+
+\footnotetext{${ }^{1}$ Check out Mankiw Ch 6-3 and Ch 6 Appendix for more examples and analysis of the US.
+}
+\end{document}

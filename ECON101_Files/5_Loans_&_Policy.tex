@@ -1,0 +1,130 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+
+%New command to display footnote whose markers will always be hidden
+\let\svthefootnote\thefootnote
+\newcommand\blfootnotetext[1]{%
+  \let\thefootnote\relax\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \let\thefootnote\svthefootnote%
+}
+
+%Overriding the \footnotetext command to hide the marker if its value is `0`
+\let\svfootnotetext\footnotetext
+\renewcommand\footnotetext[2][?]{%
+  \if\relax#1\relax%
+    \ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+  \else%
+    \if?#1\ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+    \else\svfootnotetext[#1]{#2}\fi%
+  \fi
+}
+
+\begin{document}
+\section*{Loanable Funds Market}
+The spotlight now falls onto Investment, so let's start by rewriting the national income accounts identity to get an expression for this variable.\\
+$Y-C-G=I$
+
+The output that remains after the demands of consumers and the government have been satisfied is called national saving, or simply saving (S). In this form, the national income accounts identity shows that saving equals investment. We can split it even further to differentiate between private savings and government savings.\\
+$(Y-T-C)+(G-T)=I$
+
+Of course, Savings might very well depend on the interest rate as well. But for now we hold this assumption, to be relaxed later under different modeling frameworks. To conclude, substitute our previously derived equations to get the following system of equations\\
+$\bar{Y}-C(\bar{Y}-\bar{T})-\bar{G}=I(r)$\\
+$\bar{S}=I(r)$\\
+Output is fixed by producers' decisions on how to utilize the factors of production given their production function, while taxes and government purchases are fixed by the decisions of policymakers.
+
+The investment function slopes downward: as the interest rate decreases, more investment projects become profitable. Supply of loans curve will be vertical because it doesn't depend on the real interest rate. It's fixed.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_0280654ac3cea0b21ce9g-1}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+We can read this graph as a supply and demand chart. In this case, the "good" is loanable funds, and its "price" is the interest rate. Saving is the supply of loanable funds: households lend their savings to investors or deposit their savings in a bank that then loans the funds out. Investment is the demand for loanable funds: investors borrow from the public directly by selling bonds or indirectly by borrowing from banks. Because investment depends on the interest rate, the quantity of loanable funds demanded also depends on the interest rate. At the equilibrium interest rate, households' desire to save balances firms' desire to invest, and the quantity of loanable funds supplied equals the quantity demanded.
+
+Determinants (shifts) of Investment:
+
+\begin{enumerate}
+  \item Expected return on investment projects
+  \item Business confidence and expectations about future economic conditions
+  \item Technological progress, which can create new investment opportunities
+  \item Tax policies that affect the after-tax return on investment
+  \item Depreciation rates of existing capital stock
+\end{enumerate}
+
+But what functional form should the consumption function have? What about the investment function? How do we estimate these values so that we can run up-to-date analyses of an economy? For now, I hope we have motivated the main ideas behind the classical model. We will see that many economists have proposed equations, and theories, for how to model Consumption ${ }^{1}$ (e.g., keynes autonomous function, modigliani's, friedman's, and the life-cycle consumption theory) as well as Investment.
+
+\begin{itemize}
+  \item Read the last section of Mankiw Chapter 3 for some graphical analysis of shifts and one possible consequence of considering a consumption function that depends on interest rate *
+\end{itemize}
+
+\section*{Policy Implications}
+\section*{Defense spending}
+Suppose the government decides to increase spending. Maybe there is a war, a recession, or an election coming up. Whatever the reason, this decision will only affect the loanable funds market because spending doesn't have a direct effect on 1) available labor or capital, nor 2) their respective productivity levels.\\
+We start the analysis from the national savings equation $S=(Y-T-C(Y-T))+(T-G)$
+
+\begin{itemize}
+  \item $\mathrm{Y}-\mathrm{T}$ is the level of disposable income in the economy
+  \item $\mathrm{C}(\mathrm{Y}-\mathrm{T})$ is the level of consumption given by the level of disposable income
+  \item These last two terms together form household (or private) savings
+  \item T-G is government's level of saving (or public saving)
+\end{itemize}
+
+\footnotetext{${ }^{1}$ See Mankiw's chapter 19: Microfoundations of Consumption and Investment.
+}If $G \uparrow \Rightarrow(T-G) \downarrow \Rightarrow S \downarrow$ "An increase in government spending decreases public savings and, since private savings is untouched, thus decreases overall national savings"\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_0280654ac3cea0b21ce9g-3}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers\\
+The increase in spending shifted Savings, the supply function of loans, to the left while keeping Investment, the demand function for loans, unchanged. The interest rate, the only equilibrating factor in this mode, then adjusts upwards to induce a decrease in demand. The logic makes sense if you apply supply and demand reasoning. The supply of loans decreased while demand remained the same, in other words the loanable funds have become scarcer. When there is not enough of something to satisfy demand, economics tells us the price will increase to crowd out some consumers. In this case, the consumers are investors that want to borrow money. In short, $S \downarrow \Rightarrow r \uparrow \Rightarrow I \downarrow$.
+
+Now you should be asking, by how much does Investment fall? That is, what is the value of investment at the new equilibrium?\\
+$I=Y-C-G$\\
+$\mathrm{S}=(\mathrm{Y}-\mathrm{T}-\mathrm{C})+(\mathrm{T}-\mathrm{G})$\\
+$\Delta I=\Delta S=-\Delta G$
+
+Output $Y$ does not change with an increase in spending because neither of the factors of production are directly impacted. Since AD = AS must hold in equilibrium, we know Y does not change. Also, there is no change to taxes T and therefore no change to consumption C . This means that the only variable whose change value is not 0 is G , which is negative. Therefore we get the expression above which tells us that $100 \%$ of the increase in spending crowded out Investment. This is the gap between the vertical blue line and red line in the chart. In conclusion, nothing changed in the aggregate. Only the composition of AD. Investment went down by the same amount that government spending went up.
+
+\section*{Tax cut}
+Now suppose the government imposes a tax cut. What will happen? First, only the loanable funds market is affected.\\
+$S=(Y-T-C(Y-T))+(T-G)$\\
+If $T \downarrow \Rightarrow(T-G) \downarrow$ and $(Y-T-C(Y-T))$\\
+We have two possible effects, public savings decrease but private savings increase (unless the increase in consumption offsets the increase in disposable income). Which effect will dominate? Calculus comes in handy to answer this.\\
+$\frac{d S}{d T}=0-1-\frac{\partial C(Y-T)}{Y-T} \cdot \frac{\partial Y-T}{T}+1-0=M P C$\\
+We are using the chain rule to find the effect of a change in Taxes on the consumption level. We know that MPC is between 0 and 1 so the derivative is positive. From this expression, we can rewrite\\
+$d S=M P C \cdot d T$\\
+In calculus, the "d" basically means "a little bit of". A little bit of Savings equals the MPC times a little bit of taxes. With this reasoning we can approximate the derivatives by simple net changes (rise over run). This would give us\\
+$\Delta S \approx M P C \cdot \Delta T$\\
+So, if taxes decrease and MPC is always positive it must cause a decrease in savings, and vice versa.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_0280654ac3cea0b21ce9g-4}
+
+To see it clearly, let's pick some numbers. Suppose Taxes decrease by 100 and MPC $=0.6$.\\
+Then, $\Delta S \approx 0.6 \cdot(-100)=-60$. So\\
+$(T-G) \downarrow$ by $100 \Rightarrow(Y-T-C) \uparrow$ by $40 \Rightarrow C \uparrow$ by 60\\
+In summary, supply of loans falls, interest rate rises, and investment shrinks. AD and AS are unchanged in the aggregate, only the composition of AD changes. The increase in consumption offsets the decrease in investment.
+
+\section*{Business optimism}
+Maybe businesses think demand will be high for their products in the future. What effect will this have in our loan market?\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_0280654ac3cea0b21ce9g-5}
+
+The I curve would shift out. Firms would try to borrow more money to purchase new physical capital goods. But without a rise in S, what is the only effect? The real interest rate rises. Without more funds available to borrow, I can't rise.
+
+What is the only way that I can rise in this model? Rise in S.\\
+Example: developing countries\\
+Poor countries often don't have a lot of savings. Households can't afford to save. So unless that country is able to borrow from abroad, investment in that country will be low and they may stay poor for a long time. Poverty trap. This underscores the importance of loans to developing countries to boost investment and their capital stock. A reason why the World Bank exists. When the US was poor in the 1800s we borrowed a lot of money to invest.
+
+Who did we borrow from? Europe, countries like Britain and the Netherlands.
+
+\section*{Conclusion}
+We have developed a model that explains the production, distribution, and allocation of the economy's output of goods and services. The model relies on the classical assumption that prices adjust to equilibrate supply and demand. In this model, factor prices equilibrate factor markets, and the interest rate equilibrates the supply and demand for goods and services (or, equivalently, the supply and demand for loanable funds).
+
+We have not considered the role of money, effects of trades, sticky prices. Moreover, we have assumed a fully employed labor force and that K , L , as well as $\mathrm{F}(\mathrm{K}, \mathrm{L})$ are fixed. In the remainder of the semester, we will slowly start relaxing some of these assumptions through the study of more complicated models of the economy
+
+
+\end{document}

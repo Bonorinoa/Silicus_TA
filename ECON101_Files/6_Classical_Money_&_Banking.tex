@@ -1,0 +1,257 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+
+%New command to display footnote whose markers will always be hidden
+\let\svthefootnote\thefootnote
+\newcommand\blfootnotetext[1]{%
+  \let\thefootnote\relax\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \let\thefootnote\svthefootnote%
+}
+
+%Overriding the \footnotetext command to hide the marker if its value is `0`
+\let\svfootnotetext\footnotetext
+\renewcommand\footnotetext[2][?]{%
+  \if\relax#1\relax%
+    \ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+  \else%
+    \if?#1\ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+    \else\svfootnotetext[#1]{#2}\fi%
+  \fi
+}
+
+\begin{document}
+\section*{Classical Monetary System}
+Fiscal policy encompasses the government's decisions about spending and taxation. Monetary policy refers to decisions about the nation's system of coin, currency, and banking. The monetary system is where prices and money live, henceforth monetary policy concerns with stabilization of prices and management of money supply. But, what is money?
+
+\section*{A brief history of money}
+As economists, we think of money as the stock of assets we can use to make transactions (e.g., buy or sell goods and services). How this asset is represented has evolved over the years, but it is an ancient concept. As societies grew and became more complex, innovations in how we make transactions followed suit.
+
+The first currency was cattle. Our nomadic ancestors traveled with their cattle wherever they went, and so it became convenient to trade in some of it for food or resources along the way.
+
+Homo sapiens later evolved into sedentarism, due to the discovery of wheat and development of agricultural methods. Everyone ate bread (it was a fairly liquid asset), and so it soon was employed to facilitate some transactions. It was great, but you had to eat that bread before it went bad. An inconvenient way to store value. The proposed solution was using metals.
+
+Different precious metals have inherently different values, and so metal coins started to be minted. You could carry your bag of gold coins home and be confident that it will have the same, if not more, value in future years. Can you think of a problem with this method? It was very easy to spot who was carrying the gold! Might as well have a big sign in your forehead that reads "plenty of gold over here, come rob me". As easy as shooting a penalty without a goalie. It was inconvenient to carry around. Plus, you had to carry around the entire gold bar. There were divisibility issues.
+
+So, finally, came paper money. A certificate of value or worth. With it, also came banks who gave out the certificates and stored your gold. The bank's note made it "legit" and so people were comfortable taking it as payment. Now we are living the digital version of this model.
+
+\section*{TL;DR}
+Barter System: The oldest form of exchange, where goods and services were directly traded for other goods and services.
+
+\begin{itemize}
+  \item Examples: Cattle (8000 BCE)
+  \item Advantages: Not many, but it made transactions possible ${ }^{1}$
+  \item Limitations: Double coincidence of wants, lack of divisibility, difficulty in storing value
+\end{itemize}
+
+Commodity Money: Physical commodities used as medium of exchange
+
+\begin{itemize}
+  \item Examples: Bread, shells, salt, tea, tobacco
+  \item Advantages: Intrinsic value, divisibility (for some commodities)
+  \item Limitations: Perishability, transportability
+\end{itemize}
+
+Metallic Money: Precious metals used as a medium of exchange
+
+\begin{itemize}
+  \item Examples: Gold, silver, copper coins (around 5000 BCE in Egypt)
+  \item Advantages: Durability, divisibility, portability
+  \item Limitations: Scarcity, security concerns
+\end{itemize}
+
+\section*{Types of money}
+Three defining properties must hold true for an asset to be called money:
+
+\begin{enumerate}
+  \item Unit of account: Microeconomics teaches us that goods and services are valued based on relative prices (e.g., 1 tomato $=1$ potato or 1 printer $=50$ shirts). But this would be bartering once again. Instead, we have developed the concept of price.
+  \item Store of value: It should carry minimal guarantees that its value today will be close to its value in the future.
+  \item Medium of exchange: If there is no consensus about the validity of some asset (i.e., no trust) then it will be hard to coordinate transactions.
+\end{enumerate}
+
+Underlying these three properties lies trust, arguably the single most important feature of modern (fiat) money. People need to trust their money will serve as a unit of account, that it will effectively serve as a store of value, and that peers will accept it in exchange for goods or services. In order to allow trust to form we need certainty, thus uncertainty derodes trust. This is why high inflation is often the source of currency crises in developing countries. Consider the following scenario:\\
+"You go to a coffee shop and buy a breakfast combo, say a coffee + yogurt + toasts, for 10\$. You return the following week and find prices have been updated, now this same breakfast costs 13\$. Next time you notice that prices didn't change much but they took out the yogurt, in an effort to keep prices stable the coffee shop decided to lower the quality of its products. Eventually, not even the producers are able to accurately predict the costs of their own goods.
+
+\footnotetext{${ }^{1}$ Carl Menger talks about money as an institution that emerged "organically" (i.e., from a convergence of self-seeking actions without a deliberate overall plan). Check out his work on "spontaneous order". The basic idea is that no one thought of the optimal version of money, there was no blueprint, people were just trying to figure out solutions to a problem and it naturally evolved into modern forms.
+}How much should they charge for that breakfast? Well, whatever their suppliers charge them that week for the raw materials plus a profit markup. So now uncertainty is so high that prices are not printed on the menus, rather they are written (with pencil). How much is your money worth now? How much will it be worth next month? Are you better off thinking about transactions in terms of breakfasts or some other good? That is, reverting to bartering?
+
+This was the situation in Argentina last time I visited, not long ago. Consequently, nobody trusts the peso and hence people opt to buy dollars or financial assets to store their wealth. Creating shadow markets, market inefficiencies, and hurting innovation due to restricted flows of capital (no one wants to spend their dollars and no one wants more pesos).".
+
+There are three types of money worth distinguishing:
+
+\begin{enumerate}
+  \item Fiat money: No intrinsic value. It is established by government decree and upheld by public trust or agreement. More specifically, upheld by higher order beliefs, the shared belief that I value it and that everyone else in the economy values it.. E.g., dollars, pesos, pounds.
+  \item Commodity money: Pegged to some commodity, like gold. In this case, the underlying commodity has intrinsic value and requires proof of work (i.e., finding and mining the gold). If an economy pegs its currency to gold it's said to be on a gold standard.
+  \item Digital money: Electronic representations of fiat money (balance checks in your bank's mobile app) which reduces the need to hold cash. Apple pay, venmo, pay pal, debit cards, are basically enabled by digital money.
+\end{enumerate}
+
+Recently, two more competing alternatives have emerged in the debate for the future of money:
+
+\begin{enumerate}
+  \item Crypto currencies: Digital money that is not backed by any government or financial institution. Unlike electronic fiat money, crypto is fully digital and thus no physical representation of a crypto coin exists. If these become money, in economics terms, will depend on how well they can store value. The main criticism at the moment. But it is already being used as a medium of exchange and a unit of account. What do you guys think are practical applications of crypto? That is, of currency that is not controlled by a government?
+  \item Central Bank Digital Currencies: Basically crypto currencies created by the government. These could be used to support financial services, or set monetary policy. China already implemented a CBDC called digital yuan².
+\end{enumerate}
+
+There is one final detail with respect to money. Somehow we need to keep track of all the transactions. We need a system of account that will allow us to aggregate information about economic transactions in an economy, otherwise it would be extremely inefficient to estimate GDP, CPI, or other measures that are based on these transactions.
+
+\footnotetext{${ }^{2}$ What Is A CBDC? - Forbes Advisor
+}\section*{Ledgers}
+While technology for high-speed digital transactions has only been developed in recent decades, the need to record and verify transactions has a long history dating back centuries. One way to track and validate transactions is through the use of Ledgers, which are defined as collections of accounts where transactions are recorded. As far back as 2400 Before Christ (BC) in Mesopotamia, clay tablets were used to record a variety of transactions, including financial transactions, property records, and legal agreements. ${ }^{3}$\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_acb8d20283b497da2a89g-04}
+
+As civilization advanced, methods of data collection and documentation advanced. For a long time, paper was considered the most advanced and effective ledger technology, due to its durability, affordability, ease of use, and portability. Still, the drawbacks and limitations of such a ledger are obvious and relevant to modern economies as well. One disadvantage of paper ledgers is that they are expensive to maintain, as they require manual effort to update and maintain records. This process is not scalable and is prone to errors, such as data entry or spelling mistakes. Another disadvantage of paper ledgers is that they are irrecoverable if lost, stolen, or destroyed, leading to the permanent loss of information. Lastly, paper ledgers are typically maintained by a central institution, which simplifies the maintenance and use of the system but increases the risk of fraud and corruption due to the lack of multiple parties participating in the process.
+
+By the early 1970s, electronic processing had become efficient enough to largely replace paper as a ledger technology. The Digital Ledger, more broadly referred to as Ledger technology, substituted traces of ink on a paper for a series of bits on a computer. The digitization of records reduced the risks of input errors and significantly increased the speed of transactions. However, digital ledgers do not fully address the three primary issues of paper ledgers mentioned earlier, but rather provide only approximate solutions. Data is still, for the most part, imputed manually, which is expensive and hard to scale (data entry tasks started to get automated only a few years ago). Moreover, the threats of data theft and loss of information are only reduced due to a collective agreement that cybersecurity is worth funding; not because of the digitization of the ledger itself.
+
+\footnotetext{${ }^{3}$ The Economics of Blockchain $\|$. Blockchain technology has the potential... | by Augusto Gonzalez-Bonorino | Nerd For Tech | Medium
+}The exciting promise of crypto currencies, which is yet to be validated, is at the ledger level rather than the currency itself. Blockchain is a distributed ledger, meaning that it decentralizes the task of validating transactions. This property allows entities to distribute compute power to store and process data from transactions between nodes in a network. This can help to reduce the risk of corruption by eliminating the need for a central authority and enabling multiple parties to participate in the validation and recording of transactions. It also allows tokenization of assets, which means that we can transact with arbitrary fractions of the underlying asset. Venmo or Apple Pay gives you a feeling for this. You can send almost arbitrary amounts of money. Now imagine if the Central Bank could do this with its reserves.
+
+However, due to the intense cryptographic procedures happening in the background, Blockchain is fairly slow and resource-intensive which limits its applicability. Time will tell how this technology evolves. But everyone is paying attention, so don't discard it just because of the bad press Bitcoin gets. The real deal is the ledger technology, not the crypto currency.
+
+\section*{Money supply}
+We have talked about how economists define money, the types of money we have developed over the years, and the tools we can use to keep track of transactions in an economy. Two final questions remain unanswered: how much money should there be in the economy? And how can the government control the quantity of money? Let's see what the classical model has to say.
+
+The quantity of money available in an economy is called the money supply. In a system of commodity money, the money supply is simply the quantity of that commodity. In an economy that uses fiat money, such as most economies today, the government controls the supply of money: legal restrictions give the government a monopoly on the printing of money. Just as the levels of taxation and government purchases are policy instruments of the government, so is the quantity of money. The government's control over the money supply is called monetary policy.
+
+The main way in which the Fed controls the supply of money is through open-market operations-the purchase and sale of government bonds. When the Fed wants to increase the money supply, it uses some of the dollars it has to buy government bonds from the public. Because these dollars leave the Fed and enter the hands of the public, the purchase increases the quantity of money in circulation. Conversely, when the Fed wants to decrease the money supply, it sells some government bonds from its own portfolio.
+
+\section*{Measuring Money Supply}
+As you might already know, we use many assets to exchange goods. Currency is only one of them. If the only asset used for transactions (our definition of money) was currency, then measuring the money supply would be trivial and equate to counting the amount of currency in the economy. In addition, we have demand deposits (funds people hold in their checking accounts use via checks or debit cards), savings, money market mutual funds (a type of\\
+mutual fund that invests in high-quality, short-term debt instruments, cash, and cash equivalents characterized by low volatility and low returns), or anything else that can be easily used to transact. Because it is hard to judge which assets should be included in the money stock, more than one measure is available
+
+\begin{itemize}
+  \item M0: Currency.
+  \item M1: all currency in circulation, traveler's checks, demand deposits at commercial banks held by the public, and other checkable deposits.
+  \item M2: Includes M1 plus money invested in short-term assets that mature in less than a year, like some certificates of deposit. Money market mutual funds and saving accounts are also included here.
+  \item 
+  \begin{itemize}
+    \item There are others, and it may even vary between countries ${ }^{4}$
+  \end{itemize}
+\end{itemize}
+
+Is credit (i.e., transactions with credit cards) included? No, because these present a method of deferring payments rather than making payments. Eventually you will use money in your checking account or cash to pay the credit back. Only then will it be counted.
+
+But understanding credit is still important, and we will talk more about this throughout the course. It is a useful measure of risk and leverage in an economy. Too much debt increases risk and constraints future consumption. For now, just remember that credit is not accounted for in the money supply but it affects demand for money.
+
+\section*{The role of banks}
+There is one, or rather a collective, more important player in the monetary system that complements the Fed: Banks. Money supply, as we will see, is thus dependent on Fed's policy, households that hold money, and banks that store households' money.
+
+If there were no banks then the entirety of the money supply would simply be all the currency and demand deposits held by the public.
+
+We are interested in banks to the extent they affect the money supply. If banks exist, but all they do is store people's money, then it is simply a convenient place to keep your money. This equates to a $100 \%$ reserve paradigm, there are no loans or additional transactions going on. In this paradigm, banks do not influence the money supply.
+
+In reality, the banking system applied a fractional reserve paradigm. That is, a fraction of all deposits in a bank are available for other transactions. Enter loans. Banks have an incentive to lend money, because they charge interest on such loans. How much they keep in reserves is determined by the reserve-deposit ratio and is subject to government policy. It is important to ensure that the amount of money in reserves approximates the expected amount of withdrawals in a set time-frame.
+
+\footnotetext{${ }^{4}$ Money supply - Wikipedia
+}Consider the following fictional balance sheet showcasing a 20-80 ratio.
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Assets & Liabilities \\
+\hline
+200 (reserve) & 1000 (deposits) \\
+\hline
+800 (loan) &  \\
+\hline
+\end{tabular}
+\end{center}
+
+Before the loan, the money supply is 1000 but once the loan is out the money supply increases by the amount of the loan to 1800: the depositor still has a demand deposit of $\$ 1,000$, but now the borrower holds $\$ 800$ in currency. Thus, in a system of fractional-reserve banking, banks create money.
+
+Here is a great video covering the idea behind money creation.
+
+The creation of money does not stop with Firstbank. If the borrower deposits the $\$ 800$ in another bank (or if the borrower uses the $\$ 800$ to pay someone who then deposits it), the process of money creation continues. In general, we can approximately track the creation of money in this simple economy with the following equation ${ }^{5}$ :
+
+Total Money Supply $=\left[1+(1-r r)+(1-r r)^{2}+(1-r r)^{3}+\ldots.\right] *$ original deposit $\frac{\text { original deposit }}{1-(1-r r)}=\frac{1}{r r} *$ original deposit
+
+Where rr := reserve ratio and in our example the original deposit amount is 1000. This is an infinite geometric sequence, thus each $\$ 1$ of reserves generates $\$(1 / r r)$ of money. What is the total amount of money created in our example? 1/0.2 * $1000=5000$.
+
+Now, while banks create more money this does not equate to more wealth. Borrowers incur a debt, which could add to their wealth if used effectively or decrease it if unable to repay interests. In other words, the creation of money by the banking system increases the economy's liquidity, not its wealth.
+
+Another way to think about this system is that there are always two sides of the coin. You have debit and you have credit. These two must balance out. I never found the phrase "money created out of nothing" very satisfactory. In reality, the process is creating credit. Think about it, with the same numbers as the example above. Someone deposits 1000, then someone borrows 800. Now the bank technically owes the depositor 1000 and the borrower owes the bank 800 . If there was truly more money, then how can bank runs even make sense? So think about this system not as something magical but as a balanced account of debit and credit.
+
+The ability to create money is the main difference between the banking and financial system. Financial institutions are merely intermediaries, they move money from people who want to save
+
+\footnotetext{${ }^{5}$ This is called a geometric series.
+}
+to those who want to take a higher risk through investment. The process of transferring funds from savers to borrowers is called financial intermediation. Three notable financial intermediaries are the stock market, bond market, and of course the banking system as well.
+
+So far, our simplified model might suggest there is no need for capital to start a bank; which is obviously not true. To start a bank you need bank capital, which equals Assets minus Liabilities. Here is a more realistic bank balance sheet
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Assets & Liabilities \\
+\hline
+200 (reserves) & 750 (deposits) \\
+\hline
+500 (loans) & 200 (debt) \\
+\hline
+300 (securities $\sim$ bonds, stocks, etc) & 50 (bank capital $\sim 1000-950$ ) \\
+\hline
+1000 & 1000 \\
+\hline
+\end{tabular}
+\end{center}
+
+On the right-hand side are all the sources of funds for a bank: how much money they raised and where they got it from. Banks get most of their money in the form of deposits: checking deposits, savings deposits, and the like. Debt is money that banks have borrowed from other banks including the Fed. Bank capital is money put up by the owners of the bank (i.e., owners' equity).
+
+One final general comment. It might be obvious by now, but since banks earn money through interest they have a clear incentive to make more money. Thus banks are profit maximizing firms as far we are concerned. They have developed many strategies over the years to increase their profits, but fundamentally they rely heavily on leverage: the use of borrowed money to supplement existing funds for purposes of investment. That is, banks borrow money to invest. They borrow it from their depositors and invest it as they'd like. Borrowing money to invest lets you invest a lot more money than you'd be able to if you just invested your own money. How much of their assets is used as leverage is easily calculated by dividing the total amount of assets by the bank's capital. This is called the leverage ratio.
+
+What is the leverage ratio in our example? Well we have 1000 usd of assets and 50 usd of bank capital $=>1000 / 50=20=>20$ to 1 leverage ratio. This means that for every dollar of capital that the bank owners have contributed, the bank has $\$ 20$ of assets and, thus, $\$ 19$ of deposits and debts
+
+I hope you have a little sense of "ick" from this calculation. It is a tremendous risk that the banks are taking, often at the expense of the economy and their depositors. What happens if the value of their deposits drops by $5 \%$, say due to inflation or some other phenomena?
+
+Well now the assets are worth 1000 * $0.95=950$ and thus the leverage ratio is now 950 . Since the depositors and debt holders have the legal right to be paid first, the owners' equity falls to zero. In other words, the bank's capital decreased by $100 \%$ from the $5 \%$ decrease in assets' value. If the value of the assets declines by more than 5 percent, assets fall below liabilities, sending bank capital below zero. The bank is said to be insolvent. The fear that bank capital may run out, and thus that depositors might not be repaid in full, is what generates bank runs when there is no deposit insurance.
+
+These days, commercial banks hold a leverage ratio of 9 to 1 but this is often much higher during financial crises. For example, the lehman brothers had a leverage ratio of 30 to 1 in 2008!
+
+With 30-to-1 leverage, how large of a loss does it take to wipe out all of their net worth?\\
+A little more than $3 \%(1 / 30=3.3 \%)$ ! And it happened because they invested in the housing market, and it cratered. Because of leverage, the losses to bank capital were proportionately much larger than the losses to bank assets. Many other banks got into similar trouble. Some institutions became insolvent. These events had repercussions not only within the financial system but throughout the economy. So very high bank leverage played an important role in the Financial Crisis of 2008.
+
+Under profit maximizing schemas, it is important to hold tight regulation schemas. Otherwise greed and behavioral biases always play a role for the worse. The government attempts to control the probability of future financial crises from overtly high leverage through capital requirements. That is, ensuring banks always have enough capital to navigate unexpected tough times in the economy and pay off their deposits as well as debts.
+
+A key takeaway from our discussion thus far is that money can be created by a factor larger than a 1 to 1 ratio, due to leverage. This is an implication from the fraction-reserve system currently in place. This factor is called the money multiplier. We are now ready to conclude our model of money supply and creation.
+
+We need to take account of the interactions among (1) the Fed's decision about how many dollars to create, (2) banks' decisions about whether to hold deposits as reserves or to lend them out, and (3) households' decisions about whether to hold their money in the form of currency or demand deposits. This model will have three exogenous variables:
+
+\begin{enumerate}
+  \item Monetary base (MB): All currency + reserves. Directly controlled by the Fed.
+  \item Reserve-Deposit ratio (rr): Determined by the business policies of banks and the laws regulating banks
+  \item Reserve-Currency ratio (cr): Amount of currency people hold as a fraction of their holdings of demand deposits. It reflects the preferences of households about the form of money they wish to hold
+\end{enumerate}
+
+We define the following identities:\\
+$M S=C+D$\\
+$M B=C+R$
+
+Intuitively, the monetary base is encompassed in the money supply. Our goal is to express the money supply equation in terms of our three exogenous variables. We achieve so by dividing MS by MB\\
+$\frac{M S}{M B}=\frac{C+D}{C+R}=\frac{C / D+1}{C / D+R / D}=\frac{c r+1}{c r+r r}=>M S=M B \times \frac{c r+1}{c r+r r}$
+
+We can now see that the money supply is proportional to the monetary base. The factor of proportionality, $\frac{c r+1}{c r+r r}$, is denoted $\mathbf{m}$ and is called the money multiplier. We can thus write\\
+$M S=M B \times m$
+
+Each dollar of the monetary base produces $\mathbf{m}$ dollars of money. Because the monetary base has a multiplied effect on the money supply, the monetary base is sometimes called high-powered money.
+
+This model is telling us that the central bank has two instruments at its disposal to control the money supply: the monetary base and the reserve-deposit ratio. It is helpful to assume that it control the money supply directly, but the fact is that they do it indirectly by influencing the MB and/or rd
+
+We can now see how changes in the three exogenous variables-MB, rr, and cr-cause the money supply to change.
+
+\begin{enumerate}
+  \item The money supply is proportional to the monetary base. Thus, an increase in the monetary base increases the money supply by the same percentage.
+  \item The lower the reserve-deposit ratio, the more loans banks make, and the more money banks create from every dollar of reserves. Thus, a decrease in the reserve-deposit ratio raises the money multiplier and the money supply.
+  \item The lower the currency-deposit ratio, the fewer dollars of the monetary base the public holds as currency, the more base dollars banks hold as reserves, and the more money banks can create. Thus, a decrease in the currency-deposit ratio raises the money multiplier and the money supply
+\end{enumerate}
+
+
+\end{document}

@@ -1,18 +1,18 @@
 from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from langchain_openai import OpenAIEmbeddings
-from langchain.chains import LLMChain
+from langchain_core.output_parsers import StrOutputParser
 from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import DirectoryLoader
-from langchain_text_splitters import TokenTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from langchain_groq import ChatGroq
 
-from operator import itemgetter
-from typing import Tuple, List
+from typing import List
 from langchain.docstore.document import Document
 
-import pandas as pd 
 import os 
+
+from tex_loader import TeXDirectoryLoader
 
 import streamlit as st
 
@@ -28,6 +28,11 @@ os.environ['GROQ_API_KEY'] = st.secrets["GROQ_API_KEY"]
 
 @st.cache_data
 def load_ECON57_docs():
+    """
+    Load ECON57 TXT files from the specified directory and return them as a collection of documents.
+    Returns:
+        list: A list containing the loaded document objects.
+    """
     loader = DirectoryLoader("ECON57_Files", glob = "**/*.txt")
     
     econ_docs = loader.load()
@@ -35,17 +40,22 @@ def load_ECON57_docs():
 
 @st.cache_data
 def load_ECON101_docs():
-    loader = DirectoryLoader("ECON101_Files", glob = "**/*.txt")
+    """
+    Load ECON101 TeX files from the specified directory and return them as a collection of documents.
+    Returns:
+        list: A list containing the loaded document objects.
+    """
+    
+    loader = TeXDirectoryLoader("ECON101_Files", recursive=False)
     
     econ_docs = loader.load()
     return econ_docs
 
 def compute_cost(tokens, engine):
     """Computes a proxy for the cost of a response based on the number of tokens generated (i.e, cos of output) and the engine used"""
-    model_prices = {"Llama3": 0,
-                    "Gemma2": 0,
-                    "Mixtral": 0,
-                    "Llama3.1": 0}
+    
+    model_prices = {"Llama3_3": 0,
+                    "Mixtral": 0}
     
     model_price = model_prices[engine]
     
@@ -55,21 +65,22 @@ def compute_cost(tokens, engine):
 
 
 def load_model(provider):
-    if provider == "Gemma2":
-        model = ChatGroq(model='gemma2-9b-it', 
-                           temperature=0.5, max_tokens=750)
-        
-    elif provider == "Llama3":
-        model = ChatGroq(model_name="llama3-70b-8192",
-                         temperature=0.5, max_tokens=750)
+    """
+    Load a model configuration based on the specified provider.
+    Args:
+        provider (str): Name of the model provider.
+    Returns:
+        ChatGroq: An instance of the ChatGroq model configured with the specified provider.
+    """
+    
+    if provider == "Llama3_3":
+        model = ChatGroq(model_name="llama-3.3-70b-versatile",
+                         temperature=0.5)
         
     elif provider == "Mixtral":
         model = ChatGroq(model='mixtral-8x7b-32768', 
-                           temperature=0.5, max_tokens=750)
+                           temperature=0.5)
         
-    elif provider == "Llama3.1":
-        model = ChatGroq(model='llama-3.1-8b-instant',
-                            temperature=0.5, max_tokens=750)
         
     return model
 
@@ -84,9 +95,9 @@ def split_and_index_docs(documents: List[Document]):
     return:
         None
     '''
-    embeddings = OpenAIEmbeddings()
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
-    text_splitter = TokenTextSplitter(chunk_size=750, chunk_overlap=50)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=750, chunk_overlap=50)
     
     # Split document into chunks
     docs = text_splitter.split_documents(documents)
@@ -98,7 +109,7 @@ def split_and_index_docs(documents: List[Document]):
     return vectorstore
     
 @st.cache_resource
-def build_chat_chain(course, provider="Llama3.1"):
+def build_chat_chain(course, provider="Llama3_3"):
 
     if course == "ECON101":
         econ_docs = load_ECON101_docs()
@@ -122,8 +133,7 @@ def build_chat_chain(course, provider="Llama3.1"):
     ])
 
     # Build chain
-    chain = LLMChain(llm=llm, 
-                     prompt=chat_prompt)
+    chain = llm | chat_prompt | StrOutputParser()
     
     return chain, vectorstore
 
@@ -136,7 +146,7 @@ def run_llm_chain(course,
                                                provider)
     
     # Retrieve context
-    context = vectorstore.similarity_search(user_query, k=3, 
+    context = vectorstore.similarity_search(user_query, k=2, 
                                             return_documents=False)
     
     # Create the complete prompt with conversation history

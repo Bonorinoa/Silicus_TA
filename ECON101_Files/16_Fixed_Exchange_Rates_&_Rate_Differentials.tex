@@ -1,0 +1,123 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+
+\begin{document}
+\section*{Fixed Exchange Rate}
+The idea behind a fixed exchange rate regime is that the relative price of the domestic currency will be "fixed" relative to another currency. The objective is to prevent the relative price of the domestic currency from fluctuating too much (which would cause variable inflation/deflation and hurt institutional trust as we discussed a few weeks ago). This basically means that the government or central bank is willing to buy or sell the foreign currency at a predetermined price. Ensuring so requires allocating part of the domestic monetary policy to equilibrating the nominal exchange rate such that the predetermined price holds. Straightforward in theory, very risky in practice. As you probably intuit, the market does not guarantee the desired equilibrium and hence any disparities must be dealt with via monetary policy.
+
+Suppose you are the chair of the Fed and decide to fix the USD:ARS exchange rate to $1: 50$, so every dollar gets you 50 pesos. Furthermore, suppose that the initial equilibrium exchange rate (determined by the intersection of the $I S_{\text {open }}$ and $L M_{\text {open }}$ curves) is $1: 100$. The gap between what the Fed promises to pay and what can be obtained in the market creates an arbitrage opportunity. In short, you can buy 200 pesos for 2 usd from the market and sell them to the Fed for 4 usd to cash in a sweet $100 \%$ profit. The fixed exchange rate forces the Fed to buy these pesos, and in turn it increases the money supply (Fed takes the pesos from the market but injects dollars in exchange). Arbitrageurs will continue to exploit this opportunity until the money supply increases enough to bring the exchange rate to the desired equilibrium\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_cbf2cc98c643aba23af9g-1}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+The opposite scenario may also materialize, in which case the arbitrageur would buy from the Fed and sell in the market until the money supply decreases enough to reach the desired equilibrium.
+
+This is very common in Forex markets, and thus a very common strategy amongst Forex traders. Nowadays, though, algorithmic trading is so fast that profiting from these opportunities requires immense computational power and access to high-frequency data. Hence, don't try it at home; unless your home is some hedge fund's trading desk. Another interesting, and very important, concept that would eliminate the arbitrage opportunity is transaction costs. If it is\\
+costly to trade, then the potential profits from the arbitrage decrease. High enough transaction costs, like during the Bretton Woods era, virtually eliminate the incentives to exploit the market inefficiencies arising from fixed exchange rate regimes. This also holds true for Forex trading.
+
+Will this fixed nominal exchange regime affect the real exchange rate? In the long-run, no because of the classical dichotomy and flexible prices; only the money supply and price level would be affected. In the short-run, yes because of sticky prices and fixed price ratios; which is the prescription of the Mundell-Fleming model we just covered.
+
+\section*{Fiscal Policy}
+Last week, we saw that a fiscal policy in our small open-economy model would only cause an increase in the nominal exchange rate, leaving income unchanged. Nothing was influencing the $L M_{\text {open }}$ curve, so we only got a shift in the $I S_{\text {open }}$ curve. But the scenario is a bit different now.
+
+Suppose we have an expansionary fiscal policy. The $I S_{\text {open }}$ curve will shift upwards, but the nominal exchange rate is not allowed to fluctuate so the $L M_{\text {open }}$ curve must shift in response. Specifically, the $L M_{\text {open }}$ will shift to the right until the predetermined nominal exchange rate is reached. In turn, we do get a change in income.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_cbf2cc98c643aba23af9g-2}
+
+Here is the logic. Expansionary fiscal policy increases spending, which decreases savings, which increases the interest rate, which decreases the demand for money. Investors will want to lend at home and borrow abroad, causing the domestic currency to appreciate (i.e., increasing the nominal exchange rate). Thus, the $I S_{\text {open }}$ curve shifts up. Because there is now a discrepancy between the market and equilibrium (fixed) nominal exchange rate, an opportunity to to arbitrage emerges. Arbitrageurs will sell foreign currency to the Fed, consequently causing an automatic increase in the money supply. Thus, the $L M_{\text {open }}$ shifts to the right until the arbitrage opportunity is saturated and we are back at the desired exchange rate. This results in an increase in income.
+
+\section*{Monetary Policy}
+Under a floating exchange rate regime, monetary policy directly impacted the income level in the economy. Increasing the money supply increased income and lowered the nominal exchange rate. But not, this creates an arbitrage opportunity. So, what would happen under a fixed exchange rate regime?
+
+Suppose we have expansionary monetary policy. Then the $L M_{\text {open }}$ curve shifts to the right. The market nominal exchange rate is now lower than the one the Fed promised to pay. So, arbitrageurs will buy foreign currency from the Fed and sell it in the market. Since the Fed is doing the buying, money supply decreases. It continues to do so until the opportunity saturates and we are back at the initial equilibrium. There is no change in income, only a great short-term trading opportunity, and hence the monetary policy is ineffective.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_cbf2cc98c643aba23af9g-3}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+Despite what this model might imply, the Fed is not completely powerless. If it desires to influence income, then it can change the predetermined exchange rate level. That is, it can either devalue or revalue the domestic currency. A devaluation implies that the central bank will make the domestic currency less valuable relative to the foreign currency. In the Mundell-Fleming model, a devaluation would shift the $L M_{\text {open }}$ curve to the right because the depreciation in the value of the domestic currency increases net exports and raises income. A revaluation has the opposite effect. In short, devaluation or revaluation acts like increases or decreases of the money supply in the floating exchange rate regime.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_cbf2cc98c643aba23af9g-4}
+
+\section*{Trade Policy}
+The moment you think of trade policies your mind should go to the Net Exports Schedule curve. Ask yourself, is this policy increasing or decreasing the incentives to import? A protectionist trade policy decreases the incentives to import, and thus shifts the NX curve upwards. A free-trade policy increases the incentives to import, and thus shifts the NX curve downwards. Under a floating exchange rate regime, the result would be a change in the nominal exchange rate without changes in income. But, what if the nominal exchange rate is not allowed to fluctuate?
+
+Suppose we have a protectionist trade policy. The NX curve shifts up and thus causes the $I S_{\text {open }}$ curve to shift upwards. Recall the logic is that the tariff would increase demand for domestic currency, causing it to appreciate, eventually increasing imports (because the local currency is now stronger so this is desirable) and fully offsetting the effect of the trade policy. Under a fixed exchange rate regime, the $L M_{\text {open }}$ curve will automatically adjust due to the arbitrage activities.\\
+Therefore, income will increase just like in the case of expansionary fiscal policy. Because more income means more savings, net exports will increase (S-I=NX). So, in this regime, trade policies actually do influence the trade balance.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_cbf2cc98c643aba23af9g-4(1)}
+
+Mankiw summarizes the effects of these three types of policies, for these two exchange rate regimes, in the following table.
+
+TABLE 13-1 The Mundell-Fleming Model: Summary of Policy Effects\\
+EXCHANGE-RATE REGIME
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+ & \multicolumn{3}{|c|}{FLOATING} & \multicolumn{3}{|c|}{FIXED} \\
+\hline
+ & \multicolumn{6}{|c|}{IMPACT ON:} \\
+\hline
+Policy & $\boldsymbol{Y}$ & $e$ & $N X$ & $\boldsymbol{Y}$ & $e$ & $N X$ \\
+\hline
+Fiscal expansion & 0 & $\uparrow$ & $\downarrow$ & $\uparrow$ & 0 & 0 \\
+\hline
+Monetary expansion & $\uparrow$ & $\downarrow$ & $\uparrow$ & 0 & 0 & 0 \\
+\hline
+Import restriction & 0 & $\uparrow$ & 0 & $\uparrow$ & 0 & $\uparrow$ \\
+\hline
+\end{tabular}
+\end{center}
+
+Note: This table shows the direction of impact of various economic policies on income $Y$, the exchange rate $e$, and the trade balance $N X$. A " $\uparrow$ " indicates that the variable increases; a " $\downarrow$ " indicates that it decreases; a " 0 " indicates no effect. Remember that the exchange rate is defined as the amount of foreign currency per unit of domestic currency (for example, 100 yen per dollar).
+
+The takeaway is that the potential influence of fiscal or monetary policy on aggregate income depends completely on the type of exchange rate regime implemented in the economy. Under floating exchange rates, only monetary policy affects income. The usual expansionary impact of fiscal policy is offset by an appreciation of the currency and a decrease in net exports. Under fixed exchange rates, only fiscal policy affects income. The normal potency of monetary policy is lost because the money supply is dedicated to maintaining the exchange rate at the announced level.
+
+\section*{Interest Rate Differentials}
+This is our last topic of macroeconomic theory for the semester. It is incredibly relevant today, and adds a bit of realism to the Mundell-Fleming model we have been studying. So far, we have amusement that the domestic interest rate of our small economy equals the world interest rate $\left(r=r^{*}\right)$. In reality, interest rates differ around the world. Particularly for two reasons:
+
+\begin{enumerate}
+  \item Country risk: A positive difference between the domestic interest rate and world interest rate may very well incentivize investors to borrow abroad and lend in our country. But, what if the country is going through some tumultuous times of political unrest or poor economic performance? The probability of actually getting paid your interest goes down. In other words, the uncertainty of receiving your profits increases and thus the expected return decreases. To incentivize foreign investment, the country needs to offer a premium high enough to counter the increased uncertainty.\\
+a. This is super relevant to understand inaccuracies of the model's predictions in emerging economies. Argentina, for example, offers a really high interest rate (usually around $50 \%$ but now I think it recently got cut to around $30 \%$ ). This is way higher than most interest rates around the world. So investors should be rushing to buy Argentine bonds, right? Well, that is not the case. The country is so unstable that it is very hard to incentivize foreign investment, and thus we get stuck in a sort of capital trap where we don't have enough money to bolster the economy and no one wants to touch our bonds. One way to guesstimate the country's risk is to look back at the number of defaults. Argentina defaulted 4 times on IMF loans in the last 20 years, and many more on domestic bonds. The current president's main focus is cleaning up the public sector to signal a strengthening economy, and thus lower country risk. It has been effective, but capital is yet to inflow into the economy.
+  \item Expected exchange rates: Remember that to invest in a country (i.e., buy their domestic bonds) you need to buy the local currency. This also means that you would get paid back in the local currency. Ideally, the value of that currency would appreciate or at least stay the same for your investment to make any sense. If, for whatever reason, investors expect the local currency to depreciate or get devalued then the incentive to invest decreases. In turn, the country must offer a premium to compensate for the increase in uncertainty about expected returns.\\
+a. A possible instrument to deal with this is for the country to offer dollar-denominated bonds. In which case you pay dollars and receive dollars in return. This is desirable if the country wants to increase its dollar reserves and attract investors, but it is risky. If the dollar appreciates, then the local currency depreciates and it becomes more expensive for the country to pay back investors. If the reserves fall short, then the country is forced to restructure the debt (usually by promising an even higher return in the future, but consequently\\
+forcing investors to delay their profits). If the government fails to pay back investors, the country's risk increases, and the whole feedback loop destroys investors' confidence in the country's ability to repay its debts. Thus investment overall decreases and the country stagnates.
+\end{enumerate}
+
+We can account for this required premium by slightly adjusting the Mundell-Fleming model. In math, we can operationalize this insight by defining $r=r^{*}+\theta$, where $\theta$ is the risk premium. Pugging this into the $I S_{\text {open }}$ and $L M_{\text {open }}$ equations yields the following model:
+
+$$
+\begin{aligned}
+& \left(I S_{\text {open }}\right) \quad Y=C(Y-T)+G+I\left(r^{*}+\theta\right)+N X(e) \\
+& \left(L M_{\text {open }}\right) \frac{\bar{M}}{\bar{P}}=L\left(r^{*}+\theta, Y\right)
+\end{aligned}
+$$
+
+If the country risk goes up, or the expectation becomes that the local currency will depreciate, then $\theta$ will go up. The direct effect is an increase in the domestic interest rate, which is exactly what we argued a few moments ago. The country has to pay a higher interest rate to compensate for the higher risk. If there is no risk, as it is often associated with investments in the US, then $\theta$ is zero and we are back to the original Mundell-Fleming model.
+
+Suppose the country's risk increases. The higher interest rate will reduce investment and cause the $I S_{\text {open }}$ curve to shift downwards. Simultaneously, the higher interest rate reduces demand for money (it increases demand for interest-bearing assets but reduces demand for cash, review the Theory of Liquidity Preference if you don't remember this logic) and hence shifts the $L M_{\text {open }}$ curve to the right (because there will be more money in the economy). The two shifts imply an increase in aggregate income for any level of the money supply.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_cbf2cc98c643aba23af9g-7}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+The interesting result is that the increase in risk or expectations of devaluation actually causes the currency to depreciate. We say that the expectation is partially self-fulling. These feedback\\
+loops and self-fulling expectations is where economics gets super interesting. At the risk of sounding cliche, you really can manifest the future; given enough people are trying to manifest the same thing :P. Traditional economics methods fall short of explaining these effects, and this is exactly where complexity economics and the use of computational simulations come in. With enough behavioral data and information about people's expectations, we can try to simulate the various trajectories that may emerge from such feedback loops.
+
+For example, this model just predicted an increase in income. But this almost never actually happens. Mankiw outlines three possible reasons why.
+
+\begin{enumerate}
+  \item Further depreciation of the local currency may not be desirable and hence the central bank might react by lowering the money supply.
+  \item The depreciation of the local currency makes imports more expensive, hence raising the price level and therefore lowering the supply of real money balances.
+  \item A higher country risk signals trouble in the economy, maybe an upcoming recession, which might incentivize people to cash their bonds and pile up some cash to play it safe.
+\end{enumerate}
+
+All of these three cases imply a shift of the $L M_{\text {open }}$ towards the left. This shift offsets the fall in the exchange rate but decreases income. To summarize, in the short-run, an increase in risk premium leads to a depreciation of the local currency and a decrease in aggregate income. In the long-run, the higher interest rate depresses investment and therefore reduces capital accumulation which leads to lower economic growth.
+
+
+\end{document}

@@ -1,0 +1,164 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+
+%New command to display footnote whose markers will always be hidden
+\let\svthefootnote\thefootnote
+\newcommand\blfootnotetext[1]{%
+  \let\thefootnote\relax\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \let\thefootnote\svthefootnote%
+}
+
+%Overriding the \footnotetext command to hide the marker if its value is `0`
+\let\svfootnotetext\footnotetext
+\renewcommand\footnotetext[2][?]{%
+  \if\relax#1\relax%
+    \ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+  \else%
+    \if?#1\ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+    \else\svfootnotetext[#1]{#2}\fi%
+  \fi
+}
+
+\begin{document}
+\section*{Mundell-Fleming Model (aka IS-LM-BoP)}
+A week or so ago, we studied the IS-LM model. A framework that allowed us to build a theory of Aggregate Demand within a closed-economy by linking the effects of interest rate on income in both the goods \& services market and the real money balances market. The Mundell-Fleming model is the extension of IS-LM to consider an open-economy. Hence why it is commonly referred to as IS-LM-BoP, where BoP stands for Balance of Payments. In other words, this model will extend our short-run model of national income by including the effects of international trade (net capital outflow) and finance (trade balance) that we studied last week.
+
+Let's quickly summarize the main insights from the IS-LM model.\\
+(IS) $Y=C(Y-T)+G+I(r)$\\
+(LM) $\frac{\bar{M}}{\bar{P}}=L(r, Y)$
+
+The Investment-Savings curve is built from the Keynesian cross to gain insights about the effects of interest rate on income in the goods \& services market. Fiscal policy ( G and/or T ) causes shifts in the IS curve and changes in C or I causes movements along the curve.
+
+The Liquidity Preference-Money Supply curve is built from the Theory of Liquidity Preference to gain insights about the effects of interest rate on income in the real money balances market. Monetary policy ( M ) causes shifts in the LM curve and changes in the interest rate causes movements along the curve.
+
+\section*{Takeaways:}
+\begin{itemize}
+  \item We assume an exogenous Price Level, Consumption Level, Money Supply, Government Spending, and Taxes.
+  \item Changes in Fiscal Policy (G and T) affect the IS curve.
+  \item Increase in G (expansionary fiscal policy) or a decrease in $T$ have the effect of increasing the interest rate and income.
+  \item Decrease in G (tight fiscal policy) or an increase in T will decrease the interest rate and lower income.
+  \item Changes in Monetary Policy (M) affect the LM curve.
+  \item Increase in $M$ will lower the interest rate and increase income.
+  \item Decrease in $M$ will raise the interest rate and decrease income.
+\end{itemize}
+
+The IS-LM model then becomes a building block for a model of Aggregate Demand, a curve that summarizes the equilibrium points on the IS-LM model as the price level changes and we record changes in income.\\
+(a) The IS-LM Model\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_e941a63f5fb43125f28ag-2}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers\\
+(b) The Aggregate Demand Curve\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_e941a63f5fb43125f28ag-2(1)}
+
+Whatever changes the price level ( $P$ ), will cause movements along the AD curve. Fiscal or Monetary policy will cause shifts on the AD curve.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_e941a63f5fb43125f28ag-2(2)}
+
+We can summarize these results as follows: a change in income in the IS-LM model resulting from a change in the price level represents a movement along the aggregate demand curve. A change in income in the IS-LM model for a given price level represents a shift in the aggregate demand curve.
+
+Now, let's work on extending this model to account for international trade and financing.
+
+\section*{IS-LM-BoP model}
+We hold the strong assumption of a small-economy and perfect capital mobility. That is, the economy is "small" enough that it does not affect the world interest rate and the economy can borrow or lend as much as it wants from world financial markets. These assumptions implies that the economy's interest rate (r) is fully determined by the world interest rate ( $r^{*}$ ). Mathematically, we write\\
+$r=r^{*}$
+
+The equality holds because of perfect capital mobility, and the world interest rate is taken as exogenous because the economy is small relative to the world economy. Built into this assumption lies the logic that international flow of capital is fast enough to keep the domestic interest rate equal to the world interest rate. That is, if $\mathbf{r}$ rises (say because saving went down) then foreign lenders will see the opportunity to lend at a higher interest rate and will soon send capital to the economy (say by buying domestic bonds). The increase in demand will lower $\mathbf{r}$ until it gets back to $\mathbf{r}^{*}$, and this will happen so fast that both these interest rates are virtually equal all of the time.
+
+To build the IS curve in an open-economy, we only need to add the trade balance variable.\\
+(IS) $Y=C(Y-T)+G+I\left(r^{*}\right)+N X(e)$
+
+\begin{itemize}
+  \item Consumption is positively related to disposable income
+  \item Investment is inversely related to the domestic interest rate
+  \item Net exports are inversely related to the nominal exchange rate (i.e., the amount of foreign currency per unit of domestic currency like 984 ARS per 1 usd).
+\end{itemize}
+
+We use the nominal, rather than real, exchange rate because this model assumes that the price level at home $(P)$ and the price level abroad $\left(\mathrm{P}^{*}\right)$ are fixed, so the real exchange rate is proportional to the nominal exchange rate. That is, in our equation $\epsilon=e \times \frac{P}{P^{*}}$ the price levels ratio is fixed. So, if the price level at home rises or nominal exchange rate rises, or both rise, so does the real exchange rate. Therefore, foreign goods become cheaper relative to domestic goods, causing exports to fall and imports to rise.
+
+To study this new IS curve we can leverage the Keynesian Cross once again in conjunction with the net exports curve to study the effects of changes to the nominal exchange rate on income.
+
+Suppose that the local currency appreciates so that the nominal exchange rate (e) goes up. This will decrease net exports. Just like we had for decreases in investment, this will reduce planned expenditure and hence aggregate income. The new IS curve summarizes these changes in the goods \& services market.\\
+(b) The Keynesian Cross\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_e941a63f5fb43125f28ag-4(1)}\\
+(a) The Net-Exports Schedule\\
+(c) The $I S^{*}$ Curve\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_e941a63f5fb43125f28ag-4}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+Building the LM curve is fairly straightforward. The only change is that demand for money now depends on the world interest rate rather than the domestic one as we had two weeks ago.\\
+$(L M) \frac{\bar{M}}{\bar{P}}=L\left(r^{*}, Y\right)$
+
+\begin{itemize}
+  \item Money supply is exogenous and set by the central bank
+  \item The Price level is exogenous because of sticky prices
+\end{itemize}
+
+Given the world interest rate, this new LM curve determines aggregate income irrespective of what the nominal exchange rate is (note that the variable e is nowhere in this equation).\\
+(a) The LM Curve\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_e941a63f5fb43125f28ag-5}\\
+(b) The $L M^{*}$ Curve\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_e941a63f5fb43125f28ag-5(1)}
+
+Mankiw, Macroeconomics, 10e, © 2019\\
+W/nrth Duhlichore\\
+In summary, the IS curve is inversely related to the exchange rate (so downward sloping) and the LM curve is independent of it (so vertical).\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_e941a63f5fb43125f28ag-5(2)}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+\section*{Policy Analysis}
+The IS-LM-BoP model got Robert Mundell a Nobel prize in 1999, and it is regarded as one of the best models to study the effects of fiscal and monetary policy in a small open-economy. It provides insights to the effects of the nominal exchange rate on income in the goods \& services market and the real money balances market. It was widely applied in research to explore the differences and properties of two international monetary systems: Fixed exchange rate and Floating exchange rate ${ }^{1}$.
+
+\section*{Floating Exchange Rate}
+Most major economies today implement a Floating Exchange Rate monetary system, which simply means that the nominal exchange rate is set by market forces and therefore is free to fluctuate (i.e., float) in response to changing economic conditions. In other words, our variable e is free to move around in order to instantly equilibrate the goods and money markets.
+
+Just like we saw before, fiscal policy will shift the IS curve, monetary policy will shift the LM curve, and trade policy will shift the NX curve which in turn shifts the IS curve.
+
+\section*{Fiscal Policy}
+Suppose we have expansionary fiscal policy, so either G goes up or T goes down. The IS curve will then shift to the right but, because the LM curve is independent of the nominal exchange rate, there will not be any change in income Y. In a closed-economy, expansionary fiscal policy raises income. In a small open-economy it leaves it unchanged.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_e941a63f5fb43125f28ag-6}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+Why could this be the case? The short answer is perfect capital mobility. Income increased in the closed-economy because the interest rate increased from the expansionary fiscal policy
+
+\footnotetext{${ }^{1}$ Here is a list of the different monetary system regimes by country as classified by the IMF
+}
+(remember that an increase in income results in an increase in the demand for money which raises the interest rate). But now the domestic interest rate is fixed to the world interest rate, or at least it adjusts fast enough that the lag is negligible.
+
+To reiterate the logic. When $r$ starts increasing above $r^{*}$, foreigners lend to our economy (i.e., capital inflow increases) which pushes $r$ back down to $r^{*}$. But, lenders need to buy the local currency to invest in our economy thus demand for domestic currency increases and consequently appreciate the local currency (increasing the nominal exchange rate). This makes domestic goods more expensive relative to foreign goods, thereby reducing net exports (less exports, more imports). The fall in NX exactly offsets the effects of expansionary fiscal policy on income. Thus, when the government increases spending or cuts taxes, the appreciation of the currency and the fall in net exports must be large enough to fully offset the expansionary effect of the policy on income.
+
+\section*{Monetary Policy}
+Suppose the central bank increases the money supply by buying bonds. This causes the LM curve to shift to the right. This does increase income.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_e941a63f5fb43125f28ag-7}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+Same effect as in the closed economy, but different logic driving the effect. The expansionary monetary policy decreases $r$, but now foreigners will want to borrow from our economy (capital outflow increase) because it is cheaper to do so and domestic investors will lend somewhere else (capital outflow increase) seeking higher returns. Again, this requires selling local currency to buy the foreign currency thus depreciating the local currency (decreasing the nominal exchange rate). This makes domestic goods cheaper relative to foreign goods, thus increasing net exports (more exports, less imports) and income. Hence, in a small open economy, monetary policy influences income by altering the exchange rate rather than the interest rate.
+
+\section*{Trade Policy}
+Suppose the government enacts a tariff or import quota. This reduces imports and hence increases net exports. The increase in net exports increases planned expenditure and hence\\
+increases aggregate income. But, just like in the fiscal policy example, the increase in income will be offset by an increase in capital inflow and an appreciation of the local currency. Eventually, domestic goods become more expensive relative to foreign goods which in turn reduces net exports back to the initial level of income.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_e941a63f5fb43125f28ag-8}
+
+Therefore, only the nominal exchange rate increased. In general, these models of open-economy macroeconomics predict that restrictive trade policies (which have the goal of influencing the trade balance NX) will only have the effect of reducing trade because they do not affect income, consumption, investment, or government purchases. In other words, rather than increasing exports or decreasing imports, both will change so that the new equilibrium ends up having less of both.
+
+\footnotetext{\begin{itemize}
+  \item We will cover fixed exchange rates on Tuesday to complete our studies of IS-LM-BoP. Then we will have a few lectures on basic econometrics until the break.
+\end{itemize}
+}\begin{itemize}
+  \item 
+\end{itemize}
+
+
+\end{document}

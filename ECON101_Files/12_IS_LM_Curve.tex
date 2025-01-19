@@ -1,0 +1,127 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan,}
+\urlstyle{same}
+
+%New command to display footnote whose markers will always be hidden
+\let\svthefootnote\thefootnote
+\newcommand\blfootnotetext[1]{%
+  \let\thefootnote\relax\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \let\thefootnote\svthefootnote%
+}
+
+%Overriding the \footnotetext command to hide the marker if its value is `0`
+\let\svfootnotetext\footnotetext
+\renewcommand\footnotetext[2][?]{%
+  \if\relax#1\relax%
+    \ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+  \else%
+    \if?#1\ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+    \else\svfootnotetext[#1]{#2}\fi%
+  \fi
+}
+
+\begin{document}
+\section*{IS-LM model}
+This model of short-run economics takes in fiscal policy G and T , monetary policy M , and the price level $P$ as exogenous. It helps explain the relationship between the interest rate and national income in the goods \& services (IS curve) and real money balances (LM curve) markets.\\
+(IS) $\quad Y=C(Y-\bar{T})+I(r)+\bar{G}$\\
+(LM) $\frac{\bar{M}}{\bar{P}}=L(r, Y)$
+
+The IS curve gives us combinations of interest rate ( $r$ ) and income $(Y)$ to represent the goods market. The LM curve gives combinations of $r$ and $Y$ to represent the money market. The point at which these two intersect represent the equilibrium conditions in both markets. That is, Actual Expenditure (LHS ${ }^{1}$ of IS) equals Planned Expenditure (RHS of IS) and Supply (LHS of LM) equals Demand (rhs of LM) for real money balances.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_f3d9e345077fc1029adag-1}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+This model (both curves together) help determine the interest rate and national income in the short-run when the price level is fixed. More specifically, when one of these curves shifts (either due to fiscal or monetary policy), then the short-run equilibrium of the economy changes and national income fluctuates.
+
+\footnotetext{${ }^{1}$ Left-hand side (LHS) and Right-hand side (RHS)
+}\section*{Changes in Government Purchases}
+From the Keynesian Cross model, we know that a change in government expenses $G$ will change income by $\frac{\Delta G}{1-M P C}$. Since the MPC level is less than one, an increase in $G$ will increase planned expenditure, which increases income, which increases the demand for money, which leads to higher interest rates. Therefore, this will shift the IS curve (which represents the relationship between income and interest rate) outwards by exactly the amount that income has changed (i.e., $\Delta Y=\frac{\Delta G}{1-M P C}$ ).\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_f3d9e345077fc1029adag-2}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+The higher demand for money due to increased income, with an unchanged supply of money (because money supply and price level are exogenous), has now raised the interest rate. What do you expect firms to do about it? Capital investment is now more expensive, which discourages production, and since they cannot change the price level most likely will opt for reducing investment. This offsets the expansionary effects of the fiscal policy. In other words, the increase in income level made production more expensive for firms who react by decreasing production, consequently leading to a decrease in income. In other words, the expansionary fiscal policy crowded out investment by causing an increase in the interest rate. In conclusion, the expansionary effect of fiscal policy in the IS-LM model is less than the one predicted by the Keynesian Cross because of its effects on the real money balances market.
+
+\section*{Change in Taxes}
+This is the second type of fiscal policy and, as we've seen already, it has very similar effects as changes in government spending. The only difference is the mechanism. Changes in G affect expenditures, and thus income, directly while changes in T affect it indirectly by influencing consumption habits.
+
+Suppose the government proposes a tax cut. This will raise disposable income, hence incentivize consumers to spend more, and eventually increase planned expenditure. The tax multiplier tells us by how much will income change $\Delta Y=-\frac{M P C \times \triangle T}{1-M P C}$, which if it is a decrease will yield a positive value and hence the IS curve will shift to the right by that amount (it would shift to the left if it was a tax raise).\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_f3d9e345077fc1029adag-3}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+The IS curve shifts to the right, income rises, consumption habits (and hence demand for money) rise along with PE, and finally the interest rate rises to equilibrate the markets. In the end, the tax cut causes an increase in income and interest rate which ultimately has the same crowding out effect on investment than an increase in government spending.
+
+\section*{Change in Money Supply}
+This will have an effect on the supply of real money balances, which is independent of the interest rate. Suppose we increase the money supply (M). Because prices are sticky in the short-run this is guaranteed to cause an increase in real money balances. Hence, the supply of money goes up. There is more money (cash) than people want to hold now at the current interest rate, so most economic agents prefer interest-bearing assets like bonds. The increased demand for bonds decreases the interest rate until people are willing to hold the extra money the Fed just pumped into the economy. Therefore, the demand for real money balances increases. Now the interest rate is lower and the effect is propagated to the goods and services market by stimulating investment ( r down, I up) and hence increasing income.
+
+This logic is reflected as a rightward shift of the LM curve. In short, the increase in M lowered the interest rate and increased income.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_f3d9e345077fc1029adag-4}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+\section*{Takeaways:}
+\begin{itemize}
+  \item Changes in Fiscal Policy ( $G$ and $T$ ) affect the IS curve.
+  \item Increase in G (expansionary fiscal policy) or a decrease in T have the effect of increasing the interest rate and income.
+  \item Decrease in $G$ (tight fiscal policy) or an increase in T will decrease the interest rate and lower income.
+  \item Changes in Monetary Policy (M) affect the LM curve.
+  \item Increase in $M$ will lower the interest rate and increase income.
+  \item Decrease in M will raise the interest rate and decrease income.
+\end{itemize}
+
+\section*{Interactions between fiscal and monetary policies}
+The previous examples show how different policies, in isolation, may affect the individual components of the IS-LM model. But, in reality, fiscal and monetary policies are often implemented in conjunction. So, if the government decides to cut taxes in order to increase income then the exact effect will depend on what the Fed decides to do with the money supply. I think this is a reason why it is important to have an independent central bank. Politicians may have clear incentives to raise national income around election times, regardless of potential negative effects in the economy, and thus the Fed should counteract by decreasing the money supply to prevent inflation spirals or other effects.
+
+Consider the example worked out in Mankiw Chapter 12-1. Suppose taxes are raised ( $\Delta T>0$ ). There are three possible outcomes:\\
+a. Money supply is left unchanged (i.e., no monetary policy enacted). What do you expect will happen? What will happen to interest rate and income? Which curve(s) will shift and in which direction?\\
+b. Interest rate is held constant. We said the only thing the Fed can control is the money supply, so how could they keep the interest rate unchanged? Which curve(s) will shift and in which direction? What will be the resulting effect on income?\\
+c. Income is held constant. Here is the scenario I painted a few minutes ago. Sometimes it is in the best interest of the economy to keep income levels unchanged. What can the Fed do to stabilize income after an increase in taxes? Which curve(s) will shift and in which direction? What will be the resulting effect on income?
+
+\section*{From IS-LM to AD}
+Now we are ready to think about a concrete theory of Aggregate Demand. From ECON 51 you probably remember that AD and AS are models about how price relates to income or output. As a warm-up, what do you expect will happen to income if prices rise? What does this tell you about the slope of the AD curve?
+
+To study this relationship with the IS-LM model we have to draw from the insights about the interaction of fiscal and monetary policy while playing around with the exogenous price level (P). The only equation in the IS-LM model that depends on $P$ is the supply of real money balances\\
+$\left(\frac{M}{P}\right)^{s}=\frac{\bar{M}}{\bar{P}}$
+
+What happens if $M$ is increased? Does supply increase or decrease? What if $P$ increases?\\
+Suppose P increases from P1 to P2, then the LM curve will shift upwards, which causes the interest rate to rise, and hence lowers the equilibrium level of income from Y1 to Y2. So, P increased and income decreased. This tells us that we have what type of relationship between the price level and income?\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_f3d9e345077fc1029adag-6}
+
+The AD curve then is one that summarizes the equilibrium points that arise in the IS-LM model as the price level changes and we record changes to income. Importantly, note that we are asking about outputs from changes in the price level. This causes movements along the AD curve. Shifts in the AD curve are derived from events that shift the IS or LM curve for a given price level. That is, keep the price level fixed and apply fiscal or monetary policy.
+
+In short, whatever increases income $(Y)$ for a given price level $(P)$ will shift the $A D$ curve to the right, and vice versa.
+
+So, let's use the IS-LM model now. What might shift the LM curve to downwards (i.e., lower interest rate and increase income)? What might shift the IS curve upwards (i.e., raise the interest rate and increase income)?\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_f3d9e345077fc1029adag-7}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+Anything that changes income in the IS-LM model other than a change in the price level causes a shift in the aggregate demand curve.
+
+We can summarize these results as follows: a change in income in the IS-LM model resulting from a change in the price level represents a movement along the aggregate demand curve. A change in income in the IS-LM model for a given price level represents a shift in the aggregate demand curve.
+
+A final word on this model. It was theoretically proposed by Keynes in 1936 and soon after formalized by Hicks in 1937. The model is very simple but is currently used as a heuristic to reason through a macroeconomic problem initially. For example, it cannot explain high unemployment and inflation (i.e., stagflation), which is why Keynesian economics was replaced by Monetarists theories after the stagflation period of the 1970s, and it also doesn't explain clearly how fiscal policies should be designed, it merely give us an idea of what might happen from directional (up or down) changes in G or T. Even Hicks called it a "classroom gadget, to be substituted with something better later on". Yet, there are many fans of this model in practice and thus it is important that you understand the gist of it. Also, this is the reason why we didn't care much for the algebraic analysis of the model. The important, and practical, application of the IS-LM model in modern economic policy making is qualitative rather than quantitative.
+
+\section*{Additional reading}
+\begin{itemize}
+  \item IS-LMentary - The New York Times (\href{http://nytimes.com}{nytimes.com})
+  \item How Well Does The IS-LM Model Fit Postwar U. S. Data?* | The Quarterly Journal of Economics | Oxford Academic (\href{http://oup.com}{oup.com})
+  \item Economist's View: Mankiw: The IS-LM model (\href{http://typepad.com}{typepad.com})
+  \item IS-LM Model - What Is It, Examples, Assumptions, Graph (\href{http://wallstreetmojo.com}{wallstreetmojo.com})
+\end{itemize}
+
+
+\end{document}

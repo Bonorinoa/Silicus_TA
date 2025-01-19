@@ -1,0 +1,54 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\begin{document}
+\section*{OLS estimation}
+OLS operates on a simple but powerful principle - minimizing the sum of the squared differences between the observed values and the predicted values by our model. This iterative process involves finding the 'best fit' line that minimally deviates from the observed data points in our scatterplot. The art and science of finding this line lie at the heart of OLS estimation.
+
+Mathematically, we seek to minimize the expression $\sum \epsilon^{2}=\Sigma\left(Y-\beta_{0}-\beta_{1} X\right)^{2}$. This is called the Sum of Squared Residuals (SSR). This is achieved via a simple optimization under constraints procedure. Basically a couple of derivatives
+
+The first step is to take the First Order Conditions (FOCs), which means computing the partial derivative of the objective function (the SSR in this case) with respective to each of the parameters of interest ( $\beta_{0}, \beta_{1}$ in this case but there could be many more) and solve the equations by setting them to 0 (thus you are computing the value of the parameter for which the change in squared residuals is 0 , other things constant). The main necessary conditions we need in order to apply FOC, in case you are curious, is that the function we are maximizing is continuous, concave and that the set of feasible solutions is convex. Anyways, here is the mathematical derivation of OLS estimators.
+
+Let $\sum \epsilon^{2}=\sum\left(Y_{i}-\beta_{0}-\beta_{1} X_{i}\right)^{2}$ be denoted by S. To find $\beta_{0}{ }^{\text {ols }}$ and $\beta_{1}{ }^{\text {ols }}$ we solve\\
+$\partial S / \partial \beta_{0}=\sum_{i=1}^{n} 2 *\left(Y_{i}-\beta_{0}-\beta_{1} X_{i}\right)(-1)=0$ (chain rule)\\
+$\sum_{i=1}^{n}\left(Y_{i}-\beta_{0}-\beta_{1} X_{i}\right)=0 \rightarrow \sum_{i=1}^{n} Y_{i}-\sum_{i=1}^{n} \beta_{0}-\sum_{i=1}^{n} \beta_{1} X_{i}=0 ;$ use trick $1 / n * \sum_{i=1}^{n} Z_{i}=\bar{Z}$\\
+$n \bar{Y}-n \beta_{0}-n \beta_{1} \bar{X}=0 \rightarrow n \bar{Y}-n \beta_{1} \bar{X}=n \beta_{0}->\bar{Y}-\beta_{1} \bar{X}=\beta_{0}{ }^{\text {ols }}$\\
+Now we must find the estimate for $\beta_{1}$.
+
+$$
+\begin{aligned}
+& \partial S / \partial \beta_{1}=\sum_{i=1}^{n} 2 *\left(Y_{i}-\beta_{0}-\beta_{1} X_{i}\right)\left(-X_{i}\right)=0 \\
+& \sum_{i=1}^{n} Y_{i} X_{i}-\sum_{i=1}^{n} \beta_{0} X_{i}-\sum_{i=1}^{n} \beta_{1} X_{i}^{2}=0->\sum_{i=1}^{n} Y_{i} X_{i}-n \beta_{0} \bar{X}-\beta_{1} \sum_{i=1}^{n} X_{i}^{2}=0\left(\text { substitute } \beta_{0}^{\text {ols }}\right) \\
+& \sum_{i=1}^{n} Y_{i} X_{i}-n\left(\bar{Y}-\beta_{1} \bar{X}\right) \bar{X}-\beta_{1} \sum_{i=1}^{n} X_{i}^{2}=0->\sum_{i=1}^{n} Y_{i} X_{i}-n \bar{Y} \bar{X}+n \beta_{1} \bar{X}^{2}=\beta_{1} \sum_{i=1}^{n} X_{i}^{2} \\
+& \sum_{i=1}^{n} Y_{i} X_{i}-n \bar{Y} \bar{X}=\beta_{1}\left(\sum_{i=1}^{n} X_{i}^{2}-n \bar{X}^{2}\right)->\frac{\sum_{i=1}^{n} Y_{1} X_{i}-n \bar{Y} \bar{X}}{\left(\sum_{i=1}^{n} X_{i}^{2}-n \bar{X}^{2}\right)}=\beta_{1}^{o l s}=\frac{\operatorname{coV}(X, Y)}{\operatorname{VAR}(X)}
+\end{aligned}
+$$
+
+So the OLS estimators are $\beta_{0}^{\text {ols }}=\bar{Y}-\frac{\operatorname{CoV}(X, Y)}{\operatorname{VAR}(X)} * \bar{X}$ and $\beta_{1}^{\text {ols }}=\frac{\operatorname{CoV}(X, Y)}{\operatorname{VAR}(X)}$
+
+OLS is a bit like a balancing act. It systematically adjusts the slope and intercept of our line (remember, these are our $\beta \_1$ and $\beta \_0$ from the equation) to find the sweet spot where the sum of the squares of these residuals is the smallest. Why square the residuals? Well, squaring helps in two ways: it ensures that we treat positive and negative deviations equally (since a square is always positive), and it disproportionately penalizes larger errors, which can be crucial in fitting a model accurately. This is exactly what the $\boldsymbol{I m}()$ function in R does in the background when we try to fit a linear model to some data.
+
+In econometrics, we impose a set of (strong) assumptions on our linear regression model. These are called the Gauss-Markov Assumptions (GMA):
+
+\begin{itemize}
+  \item Linearity in Parameters: The model is linear in parameters, meaning it can be expressed as $Y=\beta \_0+\beta \_1 X+U$.
+  \item Random Sampling: The data (observations) are drawn from a random sample. This ensures that the sample provides a good representation of the population.
+  \item No Perfect Multicollinearity: There is no exact linear relationship between the independent variables in the model. This ensures that each variable contributes unique information
+  \item Zero Conditional Mean: The expectation of the error term U conditional on the independent variable X is zero, i.e., $\mathrm{E}(\mathrm{U} \mid \mathrm{X})=0$. This implies that the error term does not contain systematic information that is omitted from the model.
+  \item Homoscedasticity: The variance of the error term is constant across observations, i.e., $\operatorname{Var}(U \mid X)=\sigma^{2}$. This means that the uncertainty or 'noise' in the relationship between X and $Y$ is consistent across all levels of $X$.
+\end{itemize}
+
+Under the GMA assumptions, it can be proven that the OLS estimator is BLUE (best linear unbiased estimator). That is, if these assumptions hold then we are guaranteed to obtain the best possible estimation of the parameters of our linear regression model.
+
+In econometrics, linear regression and OLS estimation are not just mathematical tools; they are the lenses through which we interpret the economic world. These methodologies enable us to quantify relationships between variables, test economic theories, and make informed predictions and policy decisions. The beauty of OLS, under the guidance of Gauss-Markov Assumptions, lies in its simplicity and robustness, making it an indispensable tool in the econometrician's toolkit.
+
+However, it's important to remember that while OLS provides a powerful method for estimating linear relationships, the validity of its results hinges on the adherence to the underlying assumptions. Violations of these assumptions can lead to biased or inefficient estimators, underscoring the importance of a thorough understanding of these principles.
+
+
+\end{document}

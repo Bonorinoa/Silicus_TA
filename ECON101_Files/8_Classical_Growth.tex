@@ -1,0 +1,286 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan,}
+\urlstyle{same}
+
+%New command to display footnote whose markers will always be hidden
+\let\svthefootnote\thefootnote
+\newcommand\blfootnotetext[1]{%
+  \let\thefootnote\relax\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \let\thefootnote\svthefootnote%
+}
+
+%Overriding the \footnotetext command to hide the marker if its value is `0`
+\let\svfootnotetext\footnotetext
+\renewcommand\footnotetext[2][?]{%
+  \if\relax#1\relax%
+    \ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+  \else%
+    \if?#1\ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+    \else\svfootnotetext[#1]{#2}\fi%
+  \fi
+}
+
+\begin{document}
+\section*{Classical Growth Theories}
+Economic growth is one of the objectives of macroeconomic policy. It is measured as an increase in GDP over a period of time. In other words, we are interested in understanding what causes changes in total income or total output over time. In the previous section we learnt about the factors of productions: Capital, Labor, and Technology. It follows that changes in GDP, or output, must then come from changes to any of these three variables. The Solow growth model will set the structure to explore how changes in one of these could change the trajectory, or growth, of GDP over time. The Solow model shows how saving (affects capital), population growth (affects labor), and technological progress affect the level of an economy's output and its growth over time. But, importantly, it says nothing about how technological change comes about. In other words, technological progress is an exogenous variable in this literature.
+
+\section*{Perspectives on Growth}
+Much of the research, and debate, around economic growth modeling lies in the essence of technological progress. Defined, loosely, as activities related to innovation (technological, cultural, or social), human capital, R\&D investment, or anything that allows an economy to produce a higher quantity or variety of goods and services with available factors of production (i.e., capital and labor). Are these endeavors endogenous or exogenous? That is, is technological progress the result of intentional economic activities or not? Research strongly suggests positive effects of technological innovation, but it remains unclear what cultural, political, or market systems drive the rate of innovation.
+
+Here is how I think about exogeneity vs endogeneity. It is about incentives and heterogeneity. Ask yourself: Does the effect of an innovation depend on the particular events, rules of the game, and institutions of a given economic system? If your answer is no, then such an effect must be fairly homogeneous across systems (e.g., countries, states, etc.). It is then akin to gravity across the globe, minimal differences in strength across locations but relatively the same effect everywhere. Following this analogy, gravity does not depend on the countries' laws, the incentives in place, nor the time period of analysis. In contrast, if your answer is yes, then the effect must be explained by processes of the system in which it takes place and therefore it calls for efforts to endogenize its impact on the variable of interest (e.g, growth rate). Endogenous variables are shaped by the interactions and feedback mechanisms within the system, much like how economic growth rates can be influenced by policy decisions, market conditions, and institutional frameworks.
+
+One school, influenced by Solow's growth model, considers an exogenous ${ }^{1}$ variable termed Total Factor Productivity (TFP) and focuses on the role of capital accumulation and labor to determine growth paths via their influence in aggregate production. TFP (the " $A$ " variable in the Cobb-douglas we studied) is a generic technological change variable, assumed to grow at a constant rate regardless of any factors that might change in the model, that attempts to capture all contributors to growth aside from the measured inputs. Hence, it is measured as the residual of the model. That is, the growth that cannot be accounted for by the differences in measured inputs.
+
+The main prediction of the Solow growth model is that, due to diminishing returns to capital, countries with smaller capital stock would grow at a faster rate than those with large capital stock - the so-called "catching-up growth". Empirical evidence shows that TFP explains $80 \%$ to $90 \%$ of labor productivity (output per man-hour) [2]. Modern growth accounting techniques have included the average level of human capital per worker and measures of social infrastructure (i.e., factors like institutions and government policies) in addition to the classical factors of capital and labor.
+
+The "new" school, influenced by Paul Romer's growth model, seeks to explain the process of technological change that drives economic growth by including factors such as population size, R\&D, and spillover effects as new knowledge diffuses over an economy. In contrast with Solow's model, endogenous growth theory poses a situation of increasing returns whereby the factors themselves may become more productive over time. For example, a worker might learn how to do their tasks more efficiently on the job ("learning by doing"), or human capital accumulation might contribute to new knowledge in the whole economy. Thus, spillover effects can have significant effects on productivity, innovation, and therefore growth. Measuring these effects must be an important component of this literature. ${ }^{2}$
+
+Recent empirical analysis suggests that capital formation explains between $40 \%$ and $50 \%$ of differences in cross-country growth rates. The remaining unexplained growth can be attributed to breakthroughs in General Purpose Technologies (GPTs), a generic technology with many applications that triggers a series of innovations thereby affecting the entire economy. Some examples of GPTs include the steam engine, electricity, information technology, automation, railroads, computers, and AI. The conclusion from these models is that, in order to boost global growth, we must advance the "technological frontier" (aka state of the art) and that public
+
+\footnotetext{${ }^{1}$ Solow himself [1] states that technological progress must at least be partially endogenous to the economy. To quote him "Valuable resources are used up in pursuit of innovation, presumably with some rational hope of financial success. The patent system intends to solidify that hope, [...]. It would be very odd if that activity had nothing to do with actual technological progress". But he is skeptical that there is anything sensible to be said about the process through which those decisions are incentivized in a form that "can be made part of an aggregative growth model".\\
+${ }^{2}$ I must add that there are a set of additional assumptions built into these new growth models. Solow summarizes some of these [3]: A representative agent with infinite-horizon intertemporal optimization to determine investment, monopolistic (in contrast with perfect competition) as the underlying market form, and only asymptotic absence of diminishing returns to capital.
+}
+policies are vital for "nurturing the technological innovations that fuels the engine of global growth".
+
+An important difference in these approaches lies in their assumptions. The neoclassical growth models (Solow's camp) considers Constant Returns to Scale (CRS) but Diminishing Marginal Returns to Capital (DMR-K), holding labor constant (we will work out this in detail in the next class). That is, increasing all inputs (capital and labor) by some constant factor leads to an increase in output proportionally by the same factor. It implies that the size of the economy does not affect its growth rate. Moreover, DMR-K implies that as capital accumulates, its marginal product decreases, eventually reaching a point at which new investment just offsets the depreciation of the capital. Hence, why the model predicts a convergence in growth rates to a steady state (The dynamic version of equilibrium, think of this as an equilibrium that is sustained over time. In math, it would be the case in which the partial derivative wrt to time is 0 and stays at 0) where per-capita income growth is driven solely by exogenous technological progress. The only factors that may explain differences in per-capita income levels across countries are 1) savings rates, 2) population growth rates, and 3) initial capital stocks. In short, this model predicts conditional convergence: countries with similar structural characteristics (savings rates, population growth, etc.) should converge to the same steady state, with poorer countries growing faster along the transition path due to DMR-K.
+
+The new growth models assume Constant Returns to Capital (CR-K). That is, output increases proportionally with increases in capital, holding labor and technology constant. This is assumed to hold because capital might become more productive over time through some endogenous technological progress. So, DMR-K implies that capital accumulation alone cannot sustain long-run growth. In contrast, CR-K implies that it can. For example, in the simple AK model, $\mathrm{Y}=$ AK, where A represents the level of technology and K includes both physical and human capital. This formulation allows capital accumulation to drive long-run growth. But, as Solow points out [1], this leads to explosive behavior in the model. Hence why endogenous models often fail to converge.
+
+Naturally, this leads to drastically different policy prescriptions. Exogenous models suggest that policies can affect the steady-state level of income and the speed of convergence, but have limited impact on long-run growth rates. They might prescribe management of the savings rate or allocation of investments. (I shall say more about this when we are done studying the model) but overall little policy (after all, exogenous technology means that there is little we can do to promote its creation). Endogenous models, on the other hand, emphasize that policies promoting capital accumulation, R\&D, and knowledge creation can have lasting effects on long-run growth rates. Both types of models agree on the importance of some policies, such as promoting education and maintaining stable institutions, but differ on their predicted long-term effects.
+
+This literature is growing, and there is much more left to be done. We won't get into any details about endogenous models in this course, but understanding the key differences is crucial and thus why I wanted to start this new topic with such a long winded introduction.
+
+Regardless of the modeling framework, exogenous TFP or endogenous technological change, a measurement error persists. How should we measure economic growth? Usually, economists rely on national production (GDP) as a "good-enough" proxy of living standards. Although it ignores household production, leisure time, effects on the environment, and other factors of well-being, GDP still represents an important aspect of living standards. I do worry that a blind emphasis on increases in production incentivizes overconsumption, reliance on material goods and creates a society with short-time preferences; at the cost of appreciation for family, the environment, and sustainability. Another issue with GDP, which calls for an innovation in data collection techniques, is that it does not capture the benefits of "free services" such as social media or the internet. It captures the benefit to advertisers, but not those enjoyed by the consumer. Effectively ignoring any consumer surplus from these transactions.
+
+\section*{References}
+\begin{enumerate}
+  \item Solow, "Perspectives on Growth Theory", 1994
+  \item Broughel and Thierer, "Technological Innovation and Economic Growth: A Brief Report on the Evidence", 2019, Mercatus Research
+\end{enumerate}
+
+\section*{Solow Growth Model}
+Concepts: Production with constant returns to scale, Dynamic model of capital accumulations, exogenous savings rate, exogenous labor supply determined by population growth, exogenous technological progress, capital-labor ratio (capital per worker), closed economy, steady-state, depreciation $=\operatorname{dim}$. Marg. returns.
+
+\section*{Background}
+The Solow-Swan model of economic growth is a classical model of long-run developed by Robert Solow and Trevor Swan in 1956. It was motivated by a critique to Harrod-Domar model, one of the mainstream models of growth of that era, which assumed capital and labor were employed in fixed proportions. That is, firms could not substitute labor for capital, or vice versa. As Solow points out in his original paper, this assumption implies that very small changes to either of the parameters (i.e., factors of production) will lead to instability. This sensitive equilibrium was termed "knife-edge equilibrium".
+
+As you might intuit, the Solow-Swan model is an extension that relaxes this assumption. Or, in fact, replaces it with an assumption of substitutability. So firms can indeed substitute capital for labor. This makes sense. A firm might opt to automate for example, which is basically substituting human labor for machines. This is the first component of the model.
+
+Now, remember Say's law? An increase in output will be matched by an equivalent increase in income. So, in the long-run, total output produced (GDP) is the same as the total income (GDI) generated in the economy. From our studies of Consumption, we know that some of this income will be saved and some will be invested. Solow assumes, just like we did a few weeks ago, that the marginal propensity to save is exogenous. It is determined by people as they please, based\\
+on their preferences, so it is not explained by the model. This is the second component of the model.
+
+Coupled together, this set of assumptions (long-run + exogenous saving) lay the groundwork for developing the mathematics of the Solow-Swan growth model.
+
+\section*{Theory and mathematics}
+We consider a composite commodity, a useful economic artifact that allows us to study an entire market by abstracting the different commodities that may exist within it. Suppose we are interested in the market for Beverages. There exist various kinds: coca cola, iced tea, water, sports drinks, etc. By considering a composite commodity we bundle all of these together into a single theoretical commodity called Beverages. Thus, the production of this composite commodity will in fact be the total output/income $\mathbf{Y}$ of that market and total capital $\mathbf{K}$ is the accumulation of the composite commodity.
+
+Also, because growth happens over time we are dealing with flow variables. The purpose of growth models is to give a mathematical rationale to explain how this gets accumulated over time. The Solow-Swan model focuses specifically on how capital is accumulated. The mathematics that deals with changes over time is differential equations. Don't worry if you never took a class on this, we will develop the simple mathematics underlying this model from scratch and $I$ am confident everything will make sense.
+
+Next, since the MPS is exogenous we define it as a fraction s of total income.\\
+$\frac{d K}{d t}=s \cdot Y=s \cdot F(K, L)$
+
+The left-hand side defines the accumulation of capital over time, which is aggregated as the fraction of total output/income saved. In the current form, we have an equation with two unknowns. To close the system, we use the assumption of full employment. Remember what this assumption means? Following Harrod-Domar, we assume that the availability of labor to be employed is also exogenously determined by an exponentially growing population. There are variations that consider different mechanisms via which the total labor available is determined, but the concept is the same. Since firms fully employ all resources, the entire population is available to be employed. In math...\\
+$L(t)=L_{0} \cdot e^{n t} \Rightarrow \frac{d K}{d t}=s \cdot F\left(K(t), L_{0} \cdot e^{n t}\right)$\\
+$\mathbf{n}$ is a positive constant value that determines the rate at which the population grows over time $\mathbf{t}$.\\
+We now have a differential equation with a single unknown variable, $\mathrm{K}(\mathrm{t})$, which determines the time path of capital accumulation under full employment.
+
+I mentioned that differential equations are all about accumulation. In this case, we have two variables to accumulate: Capital and Labor.
+
+We defined the rate of capital accumulation as the fraction of income saved\\
+$\frac{d K}{d t}=s \cdot Y$, where $s$ is the marginal propensity to save
+
+And, implicitly, we defined the rate of labor accumulation as the rate in which available labor grows.\\
+$\frac{d L}{d t}=n \cdot L$, where $\mathrm{n}>0$ is the per-capita growth rate.
+
+Since we cannot solve this single equation with two unknowns, we borrowed Harrod-Domar assumption of the relationship between population and labor growth. This assumption is comes from solving the first-order differential equation $\mathrm{dL} / \mathrm{dt}$\\
+$\frac{d L}{d t}=n \cdot L \Rightarrow \int \frac{1}{L} d L=\int n d t \Rightarrow \ln (L)=n \cdot t+C \Rightarrow L=e^{n t+C}$
+
+A derivative gives us the rate of change, and the integral gives us how much we have in the area under the curve. The integral is nothing more than a method to sum, or accumulate, the values of a variable. So, solving a differential equation (which is stated as a derivative function) means integrating it. If you recall from your calculus classes, the derivative of $\ln (x)$ is $1 / x$, which is why the integral of $1 / \mathrm{L}$ is $\ln (\mathrm{L})$. To get the log out of the LHS, we exponentiate both sides. Yielding us the final solution.
+
+The next, and final step, in solving first-order differential equations is finding the "coefficient of integration". That is, the value of the constant C . This is the initial value of the variable interest, so to find it we set $\mathrm{t}=0$.\\
+$L_{0}=e^{C} \Rightarrow \ln \left(L_{0}\right)=C$
+
+Finally, plug this back into our equation for L\\
+$L=e^{n t+C}=e^{n t+\ln \left(L_{0}\right)}=L_{0} \cdot e^{n t}$\\
+We can now rewrite the rate of capital accumulation as
+
+$$
+\frac{d K}{d t}=s \cdot F\left(K, L_{0} e^{n t}\right)
+$$
+
+The dynamic process of aggregation follows the following steps:
+
+\begin{enumerate}
+  \item Available supply of labor is given by $L(t)=L_{0} \cdot e^{n t}$ and the available stock of capital is a datum.
+  \item Because of flexible prices we justify the full employment of $K$ and $L$. So, $Y=F(K, L)$ yields the current rate of output/income. The only constraint on the production function is that it should have Constant Returns to Scale (CRS)
+  \item The propensity to save, s , gives us the fraction of $\mathrm{Y}(\mathrm{t})$ that is saved by economic agents. In turn, this reveals the net accumulation of capital in the current period.
+  \item Add this to the previously accumulated capital (which is assumed to be inelastically supplied because at each period all resources are fully employed) to obtain the capital available for the next period.
+  \item Repeat the whole process to continue aggregating.
+\end{enumerate}
+
+We now have a dynamic model that aggregates the use of capital and labor per-capita (can you see why it is per-capita? Think about the mathematical definition of CRS and how you could rewrite the equation for the rate of capital accumulation.) over time. With it, we aim to provide answers to questions such as:
+
+\begin{itemize}
+  \item What determines long-run output level per-capita?
+  \item How do savings, population growth, and technological progress affect income Y and economic growth?
+  \item What is the role of accumulating capital K in the growth process?
+  \item How does the economy converge to its steady-state growth?
+\end{itemize}
+
+To find solutions of this model we need one more thing: The production function $\mathrm{F}(\mathrm{K}, \mathrm{L})$. The only constraint we impose is Constant Returns to Scale (CRS). This simply means that a change in the factors of production will lead to the same proportional change in output.
+
+\section*{Solow model with Cobb-Douglas}
+We know a production function that satisfies this. The Cobb-Douglas! At the time the original paper was written, the role of technology (the total factor productivity parameter) was not very well understood. So, Solow considered the first version which only deals with K and L . This simpler functional form also comes from the fact that technological progress is considered exogenous, thus the reason why it is categorized as an "Exogenous growth model".\\
+$F(K, L)=Y=K^{\alpha} \cdot L^{1-\alpha}$, where $0<\alpha<1$ is an output elasticity determined by available technology.
+
+As a reminder, output elasticities are the percentage change in output for a percentage change in the input. That is, the responsiveness of output to a change in levels of either labor or capital used in production. Do you remember how to show that this function has CRS? The necessary condition was that the exponents sum to 1 , which is guaranteed in this form.
+
+All there is left to do is plug in the production function to our differential equation of capital accumulation and solve it. But there is a small catch here that you must pay attention to. Because this model aims to answer questions in per-capita terms, Solow introduced a new variable $r=\frac{K}{L}$ that allowed him to rewrite the function for capital as $K=r \cdot L_{0} e^{n t}$. Our job is now to find the growth rate of the capital-labor ratio. We start by differentiating K ,\\
+$\frac{d K}{d t}=\frac{d r}{d t} \cdot L_{0} e^{n t}+r \cdot L_{0} e^{n t} \cdot n($ via the chain rule $)$
+
+Now we have two expressions for $\frac{d K}{d t}$ so they must be equal to each other.\\
+$s \cdot F\left(K, L_{0} \cdot e^{n t}\right)=\frac{d r}{d t} \cdot L_{0} \cdot e^{n t}+r \cdot L_{0} \cdot e^{n t} \cdot n$\\
+$L_{0} \cdot e^{n t} \cdot\left(\frac{d r}{d t}+r \cdot n\right)=s \cdot F\left(K, L_{0} \cdot e^{n t}\right)$
+
+Applying the definition of $\mathrm{CRS}^{3}$, and noting that by definition $L_{0} \cdot e^{n t}$ is an exogenous value that is known at any given time $t$, it follows that\\
+$\frac{d r}{d t}+r \cdot n=s \cdot F\left(\frac{K}{L_{0} \cdot e^{n t}}, 1\right)$\\
+$\frac{K}{L_{0} \cdot e^{n t}}$ is the capital-labor ratio, which we defined previously as $\mathbf{r}$. Let's simplify notation
+
+\footnotetext{${ }^{3} \mathrm{~F}(\mathrm{cK}, \mathrm{cL})=\mathrm{c} * \mathrm{~F}(\mathrm{~K}, \mathrm{~L})$. Hence, if L is constant we can divide both arguments by its expression which yields that equation shown in the notes.
+}
+$\frac{d r}{d t}+r \cdot n=s \cdot F(r, 1)$\\
+Finally, we isolate the growth rate of capital-labor ratio (the differential)\\
+$\frac{d r}{d t}=s \cdot F(r, 1)-r \cdot n$
+
+This is the Solow-Swan Growth model! It models the growth of the ratio of capital to labor under the assumptions given earlier. As Solow puts it in his paper this function "states that the rate of change of the capital-labor ratio is the difference of two terms, one representing the increment of capital and one the increment of labor". We can now plug in our Cobb-Douglas to get an explicit expression.\\
+$Y=F(r, 1)=r^{\alpha} \cdot 1^{1-\alpha}=r^{\alpha} \Rightarrow \frac{d r}{d t}=s \cdot r^{\alpha}-r \cdot n$\\
+Write down in paper these steps. Try to understand the logic, reading the original paper as you go through the math helps a lot. Great question for a quiz :)
+
+\section*{Numerical Example}
+Consider a Cobb-Douglas with $\alpha=\frac{1}{3}$\\
+$F(r, 1)=r^{\frac{1}{3}}$\\
+$\frac{d r}{d t}=s \cdot r^{\frac{1}{3}}-r \cdot n$\\
+With differential equations, we are usually interested in examining equilibrium conditions and how, if at all, stable these are. Do you remember how to find the optimal value(s) of a derivative? The fancy term is First-Order Conditions. But all we need to do is set the derivative to 0 and solve. Let's do it.\\
+$0=s \cdot r^{\frac{1}{3}}-r \cdot n$\\
+This holds true for $r=0$ or $r=\frac{s^{\frac{3}{2}}}{n}$
+
+\section*{Simulations}
+The mathematical analysis is pretty abstract, so if you are a bit confused don't worry! This is a perfect situation in which I think simulations can help grasp the intuition. Check out the solow-swan R notebook for replication code.
+
+We can simulate the trajectory of this differential equation for our given production function\\
+The first plot shows the rate of change of capital-labor ratio vs the ratio itself. Just like our theoretical prediction, we get these two equilibria
+
+To say a few things about stability... Note the first equilibrium $r=0$ is unstable because there is an inflection point where $\mathrm{dr} / \mathrm{dt}$ achieves its maximum value. If the capital-labor ratio goes beyond this point, it will fail to converge back to $r=0$. In fact, it is guaranteed to converge to the non-zero equilibrium (the second one we found). In other words, $r={\frac{s^{\frac{3}{2}}}{n}}^{\text {is }}$ asymptotically stable. Any solution that starts near it, beyond the inflection point, will for sure converge to it as time goes to infinity.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_82291e5f7e3d960018c2g-10}
+
+The next plot shows the increment of capital vs the increment of labor. Capital increases with decreasing slope, due to the Cobb-Douglas, and output per worker is constant.
+
+Solow model $(a=1 / 3)$\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_82291e5f7e3d960018c2g-11}
+
+From this, we can see that if $n \cdot r>s \cdot r^{\alpha}$ then the capital-labor ratio $\mathbf{r}$ will decrease until it reaches the steady-state intersection point $n \cdot r=s \cdot r^{\alpha}$. If $n \cdot r<s \cdot r^{\alpha}$ then it will increase until reaching the equilibrium. Therefore, we call this a stable equilibrium.
+
+Of course, changing $n$ or s will change the numerical value of the non-zero equilibrium, but the graph $\mathrm{dr} / \mathrm{dt}$ vs $r$ will always have the same qualitative shape. We can write a bit more $R$ code to visualize different trajectories for various values of these parameters. The results are shown below\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_82291e5f7e3d960018c2g-11(1)}
+
+Solow Model ( $a=1 / 3, \mathrm{~s}=0.3$ ) with Different n Values\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_82291e5f7e3d960018c2g-12}
+
+The larger the fraction of income saved, the larger the value of the stable equilibrium in the model. In countries where people save a lot, we would expect the equilibrium level of capital-labor ratio to be much higher as well. In contrast, the faster the population grows in a country the lower the value of the stable equilibrium. Hence, equilibrium is reached much faster, and the country basically saturates its possibility to grow. At this point, it either needs to decrease its population (a bit extreme) or aim for technological breakthroughs that expand the production possibility frontier (thus being able to get more output out of the same capital).
+
+This model predicts that in the long-run, capital will grow exponentially alongside labor. If, for example, capital is too low, it will rapidly increase until it becomes approximately proportional to the labor (catch-up growth), and then it will settle into a long-run behavior where capital stays proportional to labor.
+
+\section*{Variations and current applications}
+The solow-swan model's predictions about growth have been validated by empirical data for the US. According to it, how may we promote growth?
+
+\begin{itemize}
+  \item Influencing the savings rate: Recall that higher national saving means higher public saving, higher private saving, or some combination of the two. Much of the debate over policies to increase growth centers on which of these options is likely to be most effective.
+  \item The government controls public saving (tax revenue minus expenditures), which directly influences national saving. If the government runs budget deficits (i.e.,\\
+spends or borrows more than it raises through taxes), then interest rates will rise and investment will be crowded out. Hence, capital stock will decrease because there are less incentives to invest in capital. High interest rates make it expensive to accumulate capital, which is often financed through loans. This poses a burden on future generations.
+  \item The government can also influence private saving (how much households and firms save) through taxes. For example, tax rates on capital such as corporate income tax, the federal or state income tax, the estate tax, etc. decrease the incentive to save by lowering potential returns savers may gain. On the other hand, tax-exempt retirement accounts, such as IRAs, are designed to encourage private saving by giving preferential treatment to income saved in these accounts
+  \item Income tax is quite a hot topic nowadays. In part, it is in stark contrast with what the founding fathers had envisioned for a US led by the working class. It seems ridiculous, to me, that we get taxed so heavily on the income that we have worked to earn. There are many economists supporting this view, and have proposed consumption taxes instead. So, rather than taxing you for working the idea is to tax based on how much you spend. As you might imagine, no consensus has been reached on this regard despite decades of research on the issue.
+  \item The reasons are closely tied to politics and the workings of the political system. Once lobbying became the primary source of funding for politicians, it is clear that the incentive is for firms to influence policy-making in their favor. Some claim this phenomena has led to Big Tech, Big Pharma, and other oligopolistic industries where only a few firms control the majority of market share. They want people to consume as much as possible, so consumption taxes do not seem desirable for profit-maximizing firms in this regard. I am not an expert in this topic, but I find it super interesting. Could be a great topic for your research project!
+  \item Allocating investment: The Solow-Swan model considers a composite good and an abstract representation of capital. While the original analysis interprets it as only physical capital, it can in fact be interpreted as a combination of physical and human capital (e.g., teachers, libraries, education, ...). In this general viewpoint, capital is an asset that helps produce more goods and services. Under this view, both physical and human capital can be equally important. In fact, research suggests that both are important factors in determining the growth rates of different countries. Some may have very good infrastructure but poor human capital, or vice versa.
+  \item Argentina, for example, has poor infrastructure but a surprisingly strong human capital. Not to the government's credit though. Despite all the economic crises and corruption over the last few decades, it is the country in south america with the most unicorn companies, most Nobel laureates, and the highest number of professionals working overseas in complex industries like nuclear energy. The country has found a way to grow because of its culture, rather than specific policies enacted over time.
+  \item Should the government promote a level playing field for capital to get allocated through market mechanisms, like competition? Or should it promote specific types of capital that may be more relevant in the current economic landscape? In other words, what kinds of capital yield the highest marginal products?
+  \item These incentives are influenced through specific taxes. If there is no preferential tax structure, then markets are left to deal with the allocation issue. Those industries with the highest marginal products of capital will naturally be most willing to borrow at market interest rates to finance new investment.
+  \item In contrast, some specific taxes or tax cuts may be enacted for promoting development of specific technology. In this scenario, instead of relying on the market mechanism to yield the highest marginal products, the economy might hope for certain by-products to emerge. For example, encouraging production of microchips has had positive externalities on many technology markets. With cheaper chips firms can produce cheaper computers, cheaper software, more patents, and eventually also cheaper robots. This phenomenon is called technological or knowledge diffusion.
+  \item A third alternative is through direct investment in infrastructure. Like building more bridges, public spaces, and other types of public infrastructure. This is a bit tricky, because it is hard to measure the precise effect public investment has. We know of issues with free riding and public common goods. It also opens a door for corruption, because politicians can leverage their political power to gather large investments for infrastructure that may not be justified or are simply inefficiently produced.
+  \item As Mankiw puts it "Once the government gets into the business of rewarding specific industries with subsidies and tax breaks, the rewards are as likely to be based on political clout as on the magnitude of externalities"
+\end{itemize}
+
+An important takeaway from these examples, particularly the case of Argentina, is that culture plays a primary role in driving or limiting economic growth. A nation's culture arises from various historical, anthropological, and sociological forces and is not easily controlled by policymakers. But culture evolves over time, and policy can play a supporting role. In economics, we study culture through the quality of institutions. The particular branch that focuses on this is called Institutional Economics. Thomas Veblen "Theory of the Leisure Class" from 1890 is a great read if you are interested in this perspective.
+
+An institution can be defined as "habits of thought". Cultural traditions create patterns of behavior that differ in every country. These habits are further influenced by laws or norms specific to those countries. So when we talk about institutions we think about the legal or judicial system, the constitution, social norms and traditions. The quality and effectiveness of these institutions directly affect the level of trust individuals have in their institutions and by consequence in their government. And since a good working economy depends heavily on trust,\\
+it is a fundamental determinant of economic growth among different countries as well. In terms of capital, we would denote these factors of growth as "social capital".
+
+For example, if people perceive that fraud or corruption is not prosecuted as it should. Then what incentives do you think will emerge? Well, probably people will grow resentful and these behaviors will become part of the culture. Countries need good laws, effective judicial systems, and trust just as much as they need good investment in capital and technology in order to foster growth. Arguably, without trust or well established rules of the game, any investment or new technology will have a much lower impact than it may otherwise have.
+
+To illustrate this, a very practical example is currency crises through hyperinflation. As we saw last week, hyperinflation erodes people's trust in their currency because it increases the uncertainty of its true value. Saving in local currency is thus discouraged and people start seeking alternatives. In Argentina, for example, there is so little trust on the peso that everyone tries to save in us dollars. The unstable demand for dollar denominated currency, coupled with government policies that limit the avenues via which it can be legally acquired, has led to the emergence of parallel or shadow markets for USD. Today there have been at least 6 different exchange rates for a USD. There is the official exchange rate, the dollar blue (illegal and bought on the streets. Often the only way individuals can get USD), the dollar "tourist" charged on credit card expenses in USD, the savings dollar (official $+60 \%$ ), and we even had a specific dollar for the world cup called "Qatar" dollar.
+
+Anyways, this is why economics is a social science. We study people, not money. Keep this in mind as you advance with your studies. Build up macroeconomic insights and models from microeconomic foundations.
+
+\section*{Additional Reading}
+\begin{enumerate}
+  \item Solow.pdf (\href{http://nyu.edu}{nyu.edu})
+  \item The Empirics of the Solow Growth Model: Long-Term Evidence (\href{http://tandfonline.com}{tandfonline.com})
+  \item Parameter estimation of the Solow-Swan fundamental differential equation (\href{http://sciencedirectassets.com}{sciencedirectassets.com})
+  \item Economic Growth and Development in the Undergraduate Curriculum: The Journal of Economic Education: Vol 44, No 2 (\href{http://tandfonline.com}{tandfonline.com})
+  \item Contribution to the Empirics of Economic Growth* | The Quarterly Journal of Economics | Oxford Academic (\href{http://oup.com}{oup.com})
+  \item All of Argentina's dollar exchange rates, explained - Buenos Aires Herald
+\end{enumerate}
+
+\section*{Endogenous Growth Theory}
+Endogenous growth models are a set of theories that relax the assumption of exogenous technological progress. In other words, these models aim to explain how knowledge makes labor effective (an assumption in solow-swan) and how technology improves the usage of capital (again assumed previously).
+
+Brief recap. The rate of economic growth in the long-run, as measured by the growth rate of output per person, depends on the growth rate of total factor productivity (TFP), which is determined in turn by the rate of technological progress. Remember our discussions of classical theory and the full version of the Cobb-Douglas? The neoclassical growth theory of Solow (1956) and Swan (1956) assumes the rate of technological progress to be determined by a scientific process that is separate from, and independent of, economic forces. Neoclassical theory thus implies that economists can take the long-run growth rate as given exogenously from outside the economic system.
+
+Endogenous growth theory challenges this neoclassical view by proposing channels through which the rate of technological progress, and hence the long-run rate of economic growth, can be influenced by economic factors. It starts from the observation that technological progress takes place through innovations, in the form of new products, processes and markets, many of which are the result of economic activities. In effect, we are trying to model how new ideas are formed and what effect this endeavor can have in innovation. Thus, we can consider a new sector we may call Research \& Development (R\&D).
+
+This set of models involve a more intricate usage of mathematics and microeconomic theory. We would need a few weeks to fully work out the inner workings of one of the established models of endogenous growth. I hate presenting topics incompletely, or abstracting many details. But it is very important you are aware of these lines of work, which remain actively researched. So, in the hope of introducing the main ideas of knowledge creation, we will follow Makiw's note on the simplest version of endogenous growth: The AK model.
+
+For further reading, please refer to David Romer's Advanced Macroeconomics Chapter 3 or Peter Howitt's notes from his class at Brown.
+
+The main property of the AK model is the absence of diminishing returns to capital. The mechanism justifying this assumption is technology spillovers (or knowledge diffusion as we defined it on the previous lecture) from capital investment. That is, investing in knowledge or capital tend to have positive externalities which maintain the same returns for an additional unit of capital.
+
+Mathematically, we introduce a new variable called Technology (or Total Factor Productivity) denoted $\mathbf{A}$.\\
+$Y=A K^{\alpha} L^{1-\alpha}, 0<\alpha<1$ is our output elasticity.
+
+For the special case $\alpha=1$ (i.e. output only responds to changes in capital, and the productivity of that capital depends on current technology), we have\\
+$Y=A K$, thus the AK model where K encompasses both physical and human capital.
+
+Growth is always about per-capita output (productivity) or per-capita income (purchasing power) Dividing by available labor yields per capita measures\\
+$Y / L=A \cdot K / L \Rightarrow y=A \cdot k$\\
+Here, $k$ is the capital-labor ratio we studied in the Solow-Swan model. This functional form elucidates the absence of diminishing marginal returns to capital. One extra unit of capital produces A extra units of output, regardless of how much capital there is.
+
+The savings rate remains an exogenous variable, so a constant fraction of total income is saved and the remainder is invested back into the economy. We can follow similar steps as in our mathematical derivation of the solow growth equation to find that the rate of capital accumulation is given by\\
+$\Delta K=s Y-\delta K$, where $\delta$ is the depreciation rate. Applying the production function yields\\
+$\Delta K=s \cdot A \cdot K-\delta \cdot K \Rightarrow \Delta K / K=s A-\delta \Rightarrow \dot{k}=s A-\delta$\\
+In the Solow model, saving temporarily leads to growth, but diminishing returns to capital eventually force the economy to approach a steady state in which growth depends only on exogenous technological progress. By contrast, in this endogenous growth model, saving and investment can lead to persistent growth. Note that if $s A>\delta$ then we have growth forever.
+
+This is all I will say about endogenous growth models. Please review the book's chapter for more detail and the role of the R\&D sector. Your main takeaway should be the distinctive constant or increasing marginal returns of capital, justified by knowledge spillovers, and the idea of a second sector which focuses on creating new knowledge.
+
+To further these models, we need a strong microeconomic foundation. After all, what ends up happening with the knowledge created or new technology is largely a factor of economic decisions by households and firms. Aggregating these microeconomic facts into purely macro models is very hard, if not futile. Remember when I discussed the ideas of Friedrich Hayek on the use of knowledge in society? And the new paradigms of economic modeling that complexity economics promotes? A lot of these criticisms stem from modeling problems such as this one. At its core, I see the complexity approach as the modern effort to model the ideas of Austrian economists such as Hayek or Schumpeter.
+
+\section*{Further Reading}
+\begin{enumerate}
+  \item AK model - Wikipedia
+  \item Mankiw's Macroeconomics Chapter 9
+  \item David Romer's Advanced Macroeconomics Chapter 3
+  \item Endogenous Growth (\href{http://mit.edu}{mit.edu})
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,135 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+
+%New command to display footnote whose markers will always be hidden
+\let\svthefootnote\thefootnote
+\newcommand\blfootnotetext[1]{%
+  \let\thefootnote\relax\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \let\thefootnote\svthefootnote%
+}
+
+%Overriding the \footnotetext command to hide the marker if its value is `0`
+\let\svfootnotetext\footnotetext
+\renewcommand\footnotetext[2][?]{%
+  \if\relax#1\relax%
+    \ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+  \else%
+    \if?#1\ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+    \else\svfootnotetext[#1]{#2}\fi%
+  \fi
+}
+
+\begin{document}
+\section*{Open-Economy Models}
+So far, we have worked out models under the assumption of a closed economy where no Trade exists. That is, $\mathrm{Y}=\mathrm{GDP}=\mathrm{C}+\mathrm{G}+\mathrm{I}$; where Y is national income. In reality, most economies are open. They engage in trade and they borrow from global financial markets. That is, $\mathrm{Y}=\mathrm{C}+\mathrm{G}+$ I + NX; where NX represents Net Exports (exports - imports).
+
+Remember that for our short-run models, we established that total spending or total income was exactly equal to whatever the country produced. This no longer holds: A country can spend more than it produces by borrowing abroad or it can spend less that it produces in order to lend the surplus to foreign countries. This feature is apparent by moving the variables of national income accounts identity around a bit\\
+$N X=Y-(C+I+G)$
+
+This insight is our starting point to developing open-economy models. As Mankiw summarizes it: If a country's output exceeds its domestic spending, it exports the difference: net exports are positive. If a country's output falls short of its domestic spending, it imports the difference: net exports are negative.
+
+\section*{Capital Flows and Trade Balance}
+One of the first things we did when discussing the role of money market in the closed economy was derive the expression for national savings. Doing so in this new expression for national income yields the equilibrium condition of capital flows and trade balance.\\
+$Y-C-G=I-N X$\\
+$S-I=N X \quad$ or $\quad(Y-T-C)+(G-T)-I=N X$
+
+Recall National Savings (S) is what's left after subtracting Consumption (C) and Government Spending (G) from National Income (Y). This is also equal to the sum of private and public savings.
+
+In this form, we can refer to Net Exports (NX) as Trade Balance because it gives us some information of how a country's trade in goods and services departs from the benchmark of equal imports and exports (where NX is 0 ). Moreover, national savings minus national investment is referred to as net capital outflow (or net foreign investment). This difference is equal to the amount domestic residents are lending abroad minus the amount foreigners are lending to us. If S-I > 0 then the economy saves more than what it invests so it lends the excess to foreigners. If S-I < 0 then the economy invests more than what it saves so it borrows from abroad.\\
+This interpretation of net capital flows suggests that if both sides of the identity are positive the country has a trade surplus (i.e., the country is a net lender in the world's financial markets and\\
+it exports more than it imports). If both sides are negative then it has a trade deficit (i.e., the country is a net borrower and it imports more than it exports). If both are 0 then we say the country has a balanced trade. The following table from Mankiw Ch 6 summarizes the three possible cases an open-economy may experience:
+
+This table shows the three outcomes that an open economy can experience.
+
+\begin{center}
+\begin{tabular}{lll}
+\hline
+Trade Surplus & Balanced Trade & Trade Deficit \\
+\hline
+Exports $>$ Imports & Exports $=$ Imports & Exports < Imports \\
+\hline
+Net Exports $>0$ & Net Exports $=0$ & Net Exports $<0$ \\
+\hline
+$\mathrm{Y}>\mathrm{C}+\mathrm{I}+\mathrm{G}$ & $\mathrm{Y}=\mathrm{C}+\mathrm{I}+\mathrm{G}$ & $\mathrm{Y}<\mathrm{C}+\mathrm{I}+\mathrm{G}$ \\
+\hline
+Saving $>$ Investment & Saving $=$ Investment & Saving < Investment \\
+\hline
+Net Capital Outflow $>0$ & Net Capital Outflow=0 & Net Capital Outflow<0 \\
+\hline
+\end{tabular}
+\end{center}
+
+\section*{Macroeconomics with Trade: An intuition}
+Over the past two months, the interest rate has been the main tool in our models to equilibrate markets. When we discussed the money market, the equilibrium of national savings and national investment ( $\mathrm{S}=\mathrm{l}(\mathrm{r})$ ) determined the interest rate. In an open-economy, this no longer holds ( $\mathrm{S}=\mathrm{I}+\mathrm{NX}$ ). What will determine the world's interest rate now is the equilibrium of world savings and world investment. Both of which depend on domestic and international lending as well as trade activities.
+
+To work out an intuition, we first develop a small open-economy model. By "small" we mean that it has a negligible effect on the world's interest rate. To this we add one assumption, called perfect capital mobility which states that residents in the small economy have full access to world financial markets. In other words, the government does not interrupt international borrowing or lending. I can borrow to or lend from any country I want and as much as I want.
+
+Some notation:\\
+$r$ := small economy interest rate\\
+$r^{*}$ := world interest rate\\
+Because of perfect capital mobility there is no reason why anyone would ever borrow at an interest rate above $r^{*}$ and therefore will also never lend at an interest rate below $r^{*}$. You can get a better deal by going to the world financial market. Thus, the world interest rate determines the interest rate in a small open economy.
+
+Obviously this model does not apply to very influential economies like China or the US, but it is fairly reasonable for countries like Canada or Argentina because they arguably have a very little effect on what the world's interest rate is. We will relax this assumption later on.
+
+\section*{The Model}
+First, the assumptions. We will recycle three from our closed-economy model:
+
+\begin{enumerate}
+  \item National output $Y$ is fixed by its factors of production $K, L$ and production function $F($.\\
+a. $\bar{Y}=F(\bar{K}, \bar{L})$
+  \item Consumption $C$ is positively related to disposable income $Y-T$\\
+a. $C=C(Y-T)$
+  \item Investment I is inversely related to the interest rate $r$\\
+a. $I=I(r)$
+\end{enumerate}
+
+Now, we work on the equilibrium condition of capital flows and trade balance by substituting in these three assumptions
+
+$$
+(Y-C-G)-I=N X
+$$
+
+$S-I=N X$\\
+$[\bar{Y}-C(\bar{Y}-T)-G]-I\left(r^{*}\right)=N X$\\
+$\bar{S}-I\left(r^{*}\right)=N X$\\
+This equation tells us that trade balance (NX) depends on the variables that determine saving $S$ and investment $I$. That is, NX depends on fiscal policy ( $G$ and $T$ ) because these influence saving and the world interest rate ( $r^{*}$ ) because it influences investment. Importantly, in this model, because the small economy has virtually no influence on the world interest rate we have that $r^{*}$ is exogenous.
+
+\section*{Fiscal Policy}
+Suppose that we are in an equilibrium. That is, $S$ equals I and $N X$ is 0 . What will be the effect of fiscal policy on the small economy?\\
+$S-I=N X$\\
+If there is expansionary fiscal policy, then $G$ goes up and $S$ goes down. The world interest rate is not affected so investment is unchanged. Consequently, savings falls below investment (S-I < 0)\\
+and some of that investment must be financed by borrowing from abroad. Because the left hand is negative, the right hand side must be as well. Hence NX falls because of the fall in S. The economy now runs a trade deficit. You can think of the trade deficit as the country importing more than it exports, or as the country saving less than what it invests. Two sides of the same coin implied by the equilibrium condition.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_c58d736f3859e9032618g-4}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers\\
+In short, whatever fiscal policy that decreases national savings will lead to a trade deficit. Your takeaway is that domestic fiscal policy will have effects on domestic savings and therefore shift the vertical line right or left causing a trade deficit or surplus. The logic driving this change in capital flows is that when savings falls short of investment, investors borrow from abroad; when savings exceed investment, the excess is lent to foreign countries. To understand the logic behind changes in net exports we need to discuss the exchange rate. But first, two more examples.
+
+Now, suppose that we are studying Argentina and the US increases its government spending. This will have an effect on the world interest rate because the US has a big influence in the world financial market. What will happen in Argentina?
+
+First, the US expansionary fiscal policy raises the world interest rate. But domestic savings and investment in Argentina does not change because they didn't enact the policy. At this new world interest rate, though, Argentina is better off lending to other countries. That is, S now exceeds I. In other words, some of Argentina's savings begin to flow abroad. Because S-I>0 it follows that $N X>0$. Hence, reduced savings in the US (due to the expansionary fiscal policy) leads to a trade surplus in Argentina.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_c58d736f3859e9032618g-5(1)}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+Last example. We considered shifts in $S$ and changes in $r^{*}$. But what might cause shifts in investment? Usually, any shift in these curves are caused by changes in the incentive structures of that country. Higher G incentivizes less savings and thus shifts the curve to the left. So whatever changes incentives for investment will shift the investment curve. For example, suppose Argentina proposes an investment tax credit. This tax aims to incentivize more investment by making it less costly to do so.
+
+An increase in I, with no changes in S, means that now S falls short of I and investors will want to borrow from abroad. This implies that S-I $<0$ and so NX $<0$.\\
+\includegraphics[max width=\textwidth, center]{2025_01_09_c58d736f3859e9032618g-5}
+
+Mankiw, Macroeconomics, 10e, © 2019 Worth Publishers
+
+In conclusion, an increase in incentives to invest shifts the I curve upwards and leads to a trade deficit. ${ }^{1}$
+
+\footnotetext{${ }^{1}$ Check out Mankiw Ch 6-1 and 6-2 for more examples and case studies.
+}
+\end{document}
