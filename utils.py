@@ -1,6 +1,6 @@
 from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from langchain_openai import OpenAIEmbeddings
-from langchain_core.output_parsers import StrOutputParser
+from langchain.chains import LLMChain
 from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -133,7 +133,8 @@ def build_chat_chain(course, provider="Llama3_3"):
     ])
 
     # Build chain
-    chain = llm | chat_prompt | StrOutputParser()
+    chain = LLMChain(llm=llm, 
+                     prompt=chat_prompt)
     
     return chain, vectorstore
 
@@ -146,7 +147,7 @@ def run_llm_chain(course,
                                                provider)
     
     # Retrieve context
-    context = vectorstore.similarity_search(user_query, k=2, 
+    context = vectorstore.similarity_search(user_query, k=3, 
                                             return_documents=False)
     
     # Create the complete prompt with conversation history

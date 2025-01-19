@@ -90,18 +90,19 @@ def clear_chat_history():
 
 def run_silicus_ta():
     st.set_page_config(page_title="ECON 101: Intermediate macroeconimics")
-    st.warning("I found a few bugs. I am experimenting with reformatting my notes to optimize the retrieval of information but it introduced some inconsistencies. Tread lightly, I will be updating it soon.")
+    st.warning("This is a tool to complement, not replace, your studies. Itt fetches information from the course material to generate responses, always double check with your reasoning")
     
     with st.sidebar:
         st.title('🤗💬 Silicus TA')
         st.subheader('Sponsored by Blais Foundation')
         #system_prompt = st.text_area("Enter your system prompt here. This will tune the style of output (kind of like the persona of the model).", height=150)
         
-        provider = st.selectbox("Which LLM would you like to use?", ["Llama3.1", "Gemma2", "Mixtral", "Llama3"])
+        provider = st.selectbox("Which LLM would you like to use?", ["Mixtral", "Llama3_3"])
         
         st.sidebar.subheader("Feedback")
         st.sidebar.write("Was the conversation helpful? Your honest feedback will help me improve the system.")
         feedback = st.sidebar.text_area("Feedback", height=75)
+        
         if st.sidebar.button("Submit Feedback", on_click=record_time_until_feedback):
             st.session_state.feedback = feedback
             st.sidebar.success("Thank you for your feedback!")
